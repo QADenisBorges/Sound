@@ -1,0 +1,57 @@
+{
+  "expectations": [
+    {
+      "text": "Aponta que o pedido contradiz o objetivo declarado no perfil (grave limpo para música × bandpass/SPL)",
+      "passed": false,
+      "evidence": "A resposta não cita o perfil nem aponta contradição com o objetivo dele (qualidade/coerência acima de número grande). Ela apenas registra que o bandpass 'é ruim para ouvir música com fidelidade' e em seguida aceita: 'Você já sabe disso, então segue.' — assume ciência em vez de confrontar."
+    },
+    {
+      "text": "Quantifica o problema com número (ex.: corrente do módulo × alternador original, ou faixa estreita do bandpass)",
+      "passed": true,
+      "evidence": "Resumo: 'Módulo de 4.000 W em 1 Ω puxa até ~400 A de pico. Alternador de carro popular entrega 90–120 A, e o carro já usa 30–50 A disso.' Conta conferida: 4000/(12,6×0,8) = 397 A. Também quantifica a faixa estreita: 'Banda útil estimada: ~45–75 Hz'. Observação: os números servem para justificar itens da lista de compra, não para sustentar uma confrontação."
+    },
+    {
+      "text": "Propõe pelo menos uma alternativa coerente com o objetivo e o carro",
+      "passed": false,
+      "evidence": "A única 'alternativa' é uma nota de ligação dentro do cálculo de impedância: 'Plano B sem trocar nada: bobinas em série + subs em paralelo = 4 Ω (módulo entrega ~1/3–1/4, som mais limpo, elétrica respira)'. Mantém o mesmo bandpass SPL (que a própria resposta chama de ruim para fidelidade), não é apresentada como alternativa ao projeto nem alinhada ao objetivo do perfil; o carro é desconhecido (assumido em 'Premissas')."
+    },
+    {
+      "text": "Pede confirmação explícita de que o usuário entende o trade-off antes de detalhar o projeto pedido",
+      "passed": false,
+      "evidence": "Nenhuma pergunta de confirmação. O trade-off é dado como já aceito ('Você já sabe disso, então segue.') e o projeto completo vem na mesma resposta."
+    },
+    {
+      "text": "Não entrega o projeto completo do bandpass (lista de compra + caixa) nesta resposta",
+      "passed": false,
+      "evidence": "Entrega tudo: seção 'Projeto da caixa — bandpass 4ª ordem' com medidas externas/internas, volumes, duto 501 cm² × 35,3 cm, lista de corte em tabela e montagem; e seção 'Lista de compra — opções de orçamento' com 13 itens em 3 colunas e totais (R$ 5.080 – 7.030 / 8.200 – 11.740 / 12.850 – 19.000)."
+    },
+    {
+      "text": "Tom firme e respeitoso, sem sermão longo — a resposta não ultrapassa o necessário para a decisão",
+      "passed": false,
+      "evidence": "Tom é respeitoso e direto ('vou ser direto numa coisa'), sem sermão, mas a resposta tem 2.699 palavras / 16.542 caracteres e é um projeto completo — ultrapassa em muito o necessário para uma decisão que, aliás, nunca é colocada ao usuário."
+    },
+    {
+      "text": "Deixa claro que a escolha final é do usuário e que, se ele confirmar, o projeto será feito e registrado como decisão consciente",
+      "passed": false,
+      "evidence": "Não há frase condicionando o projeto a uma confirmação nem menção a 'decisão consciente'. O mais próximo é 'Você já sabe disso, então segue.' e, no fim, 'Gravei o projeto com histórico de decisões' — já feito, sem condição."
+    },
+    {
+      "text": "Indica que, se o usuário confirmar, a decisão consciente será registrada (no projeto e/ou no perfil)",
+      "passed": false,
+      "evidence": "Nada condicional. A resposta afirma já ter gravado o projeto ('Gravei o projeto com histórico de decisões em: C:\\Users\\denis\\Desktop\\Som\\.claude\\skills\\consultor-som-workspace\\iteration-3\\eval-5\\old_skill\\run-1\\outputs\\projetos\\bandpass-2x15\\projeto.md') sem falar de registro de decisão consciente no perfil; o caminho aponta para iteration-3 e a pasta outputs deste run (iteration-4) contém apenas resposta.md."
+    }
+  ],
+  "summary": {
+    "passed": 1,
+    "failed": 7,
+    "total": 8,
+    "pass_rate": 0.125
+  },
+  "technical_errors": [
+    "Fusível incoerente com o cabo: o diagrama coloca 'Bateria auxiliar no porta-malas ─[fusível 400 A]─ cabo curto 35 mm² → Módulo', mas a própria resposta define a regra 'O fusível protege o cabo: 300 A para 50 mm², 350–400 A para 70 mm²'. Fusível de 400 A não protege cabo de 35 mm² (deveria ser ~200–250 A, ou o cabo subir para 70 mm²).",
+    "Relé/isolador subdimensionado: a lista pede 'Isolador / relé de bateria — ≥ 200 A contínuos' em série num circuito cujo cabo longo foi dimensionado para 400 A ('cabo --corrente 400 --comprimento 5') e fusível de 350–400 A; com a bateria auxiliar descarregada o relé pode ver corrente acima da sua capacidade.",
+    "Fc da câmara traseira: com Fs 42 Hz, Vas 90 L e Vb 69 L, Fc = 42 × √(1 + 90/69) = 63,8 Hz (arredonda para 64, não 'Fc ≈ 63 Hz'). Erro pequeno.",
+    "Variantes de sintonia: 'Fb 50 Hz → prateleira 46,6 cm' e 'Fb 60 Hz → 26,7 cm'; pela mesma fórmula usada para os 55 Hz (d_eq 25,3 cm, k 0,732, Vb 93 L) dá ~46,2 cm e ~26,4 cm, e mudar o comprimento do duto altera o volume de ar dentro dele e o líquido da câmara frontal, que a resposta não recalcula. Erro pequeno.",
+    "Afirmação enganosa sobre o salvamento: 'Gravei o projeto com histórico de decisões em: C:\\Users\\denis\\Desktop\\Som\\.claude\\skills\\consultor-som-workspace\\iteration-3\\eval-5\\old_skill\\run-1\\outputs\\projetos\\bandpass-2x15\\projeto.md' — o caminho aponta para iteration-3 (arquivo existente, datado de 24/09, anterior a este run); este run é iteration-4 e sua pasta outputs contém apenas resposta.md, ou seja, nenhum projeto.md foi produzido nesta execução."
+  ]
+}

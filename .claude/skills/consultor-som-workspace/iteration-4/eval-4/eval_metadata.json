@@ -1,0 +1,14 @@
+{
+  "eval_id": 4,
+  "eval_name": "eval-4",
+  "prompt": "Comprei um módulo de 1200W RMS num precinho, mas meu sub é 400W RMS. Pelo que entendi, é só não colocar o volume no máximo que não queima, certo? E aproveitando: ouvi falar que ligar em 1 ohm dobra a potência, então vou ligar em 1 ohm pra compensar.",
+  "assertions": [
+    "Reconhece o que está certo no raciocínio (ex.: impedância muda a potência do módulo; potência disponível por si não queima — o ganho decide) e corrige sem veredito sobre a pessoa (sem 'você está errado', 'você confundiu', 'na verdade')",
+    "Corrige o mal-entendido de que volume baixo protege o falante, explicando ganho × volume e clipping",
+    "Explica o que ligar em 1 Ω realmente faz (potência do módulo sobe, corrente/calor/queda de tensão) e por que não compensa neste caso",
+    "Dá o passo prático: regular o ganho pela tensão alvo (√(P×R)) e/ou manter impedância maior",
+    "Resposta curta, no modo dúvida (ordem de 300–600 palavras): sem Premissas/Dimensionamento como seções de projeto, sem tabela de orçamento",
+    "A correção dos dois mal-entendidos está no corpo; blocos 'Vale saber' (se houver): no máximo 1, rótulo fixo, e apagando-os a resposta continua correta e completa",
+    "Não redefine termos que o usuário já usou corretamente (RMS, ohm)"
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "Diz que o módulo automotivo precisa de fonte 12–14,4 V e dimensiona a corrente",
+      "passed": true,
+      "evidence": "Elo 3: \"precisa de fonte chaveada de 12–14,4 V, dimensionada pela corrente média, não pelo pico. Para 400 W RMS totais em 13,8 V (classe D, ~80 % de eficiência): 36 A na potência cheia contínua, 4,5–12 A de média com música\" e \"fonte de 30 A (~360 W)\". Conta refeita: 400/0,8/13,8 = 36,2 A; 1/8–1/3 = 4,5–12,1 A; 30 A × 12 V = 360 W. calc_som.py corrente devolve os mesmos 36,2 A e 4,5–12,1 A."
+    },
+    {
+      "text": "Alerta que decodificador barato pode não ter gerenciamento de graves (SW só com LFE)",
+      "passed": true,
+      "evidence": "Elo 2: \"A spec que decide é o gerenciamento de graves (bass management)... Sem isso, a saída SW leva só o LFE (a trilha de efeitos), e o grave da música e das vozes vai para as caixas\"; reforçado em Riscos: \"anúncio sem spec de bass management e sem controle remoto = não compre\"."
+    },
+    {
+      "text": "Alerta para conferir se a TV entrega Dolby/DTS (bitstream) pela saída óptica",
+      "passed": true,
+      "evidence": "Elo 1: \"confira no menu de áudio da TV se existe a opção 'Bitstream' / 'Dolby Digital' na saída digital. Muitas TVs mandam só PCM estéreo pela óptica nos apps de streaming, e várias não passam DTS. Sem bitstream, o decodificador recebe 2.0\"; repetido como item 1 de 'Antes de comprar qualquer coisa'."
+    },
+    {
+      "text": "Alerta que falantes de mini system têm potência baixa e pede passa-alta + ganho baixo",
+      "passed": true,
+      "evidence": "Premissas: \"~10 W RMS reais\"; Elo 4: \"O canal do módulo entrega ~30 W em 8 Ω — três vezes o que a caixinha aguenta —, então o ganho tem que ser regulado baixo: alvo de ~8,9 V AC na saída (10 W em 8 Ω; 7,7 V se forem 6 Ω)... E HPF em 80–100 Hz sempre ativo\". Conta refeita: √(10×8) = 8,94 V; √(10×6) = 7,75 V; 30/10 = 3×."
+    },
+    {
+      "text": "Mostra como distribuir os canais do módulo (incluindo ponte para o sub, se a impedância permitir)",
+      "passed": true,
+      "evidence": "Tabela, linha 'Canais do módulo': A = \"par 1/2 = E/D com HPF 80 Hz; par 3/4 = central + sub em FULL\"; B = \"módulo: E, D, central, sub; TPA3116... caixinhas do mini system\"; C = \"módulo em ponte só no sub\". Condição de impedância no Elo 5: \"em ponte (~200 W em 4 Ω)... ponte pede 4 Ω (bobina dupla 2+2 Ω em série = 4 Ω; sub simples de 2 Ω não vai em ponte)\" e aviso da chave 2CH/4CH."
+    },
+    {
+      "text": "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco",
+      "passed": true,
+      "evidence": "grep: exatamente 1 bloco (linha 29): \"> **Vale saber — ganho de cabine:** ...\" — rótulo idêntico ao formato fixo. Está dentro do item 5 'Sub de carro na sala' (seção 'Elo por elo'), logo após a frase que o provoca. Nenhuma ocorrência de 'Dicas' no texto (headings: Resposta curta, Premissas, Elo por elo, Três caminhos, O que eu faria, Riscos que valem uma linha, Antes de comprar). Apagando o bloco, a decisão continua no corpo: \"a caixa que ele tinha no carro provavelmente não serve em casa\" + \"Ponto de partida para 12\\\": ~55–65 L líquidos, sintonia ~30–32 Hz\" + medidas de duto; o bloco só traz o conceito (ganho de cabine). Os alertas de segurança (fusível no positivo, fonte com terra/mesma tomada, filtro subsônico/Xmax, ganho limitado, audição) estão todos no corpo, nenhum só no bloco."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "technical_errors": [
+    "Inconsistência interna (moderada): o 'plano B' do Elo 2 — \"Se o modelo não tiver [bass management], o plano B é o HPF de 80 Hz do módulo nas caixas\" — não funciona com o layout do caminho A, onde \"par 3/4 = central + sub em FULL\" e a própria resposta diz que \"o filtro do módulo é por par\". Sem bass management, a central (caixa pequena) ficaria em FULL recebendo grave cheio, ou o sub perderia o grave se o par 3/4 fosse para HPF. A resposta não reconcilia os dois trechos nem sugere alternativa (ex.: central no par 1/2 com uma frontal e HPF, ou exigir bass management como condição do caminho A — que aparece em 'O que eu faria', mas sem ligar ao plano B).",
+    "Arredondamento (menor): \"um duto de PVC de 100 mm (9,6 cm interno) fica com ~29 cm\" — a fórmula padrão (k = 0,732) e o calc_som.py duto dão 28,3 cm para 60 L / 32 Hz; diferença < 1 cm, dentro do '~', mas arredondado para cima. O duto de 75 mm (\"~14 cm\") bate (14,6 cm).",
+    "Omissão (menor, não é número errado): \"fusível no positivo, cabo curto (2,5–4 mm² para até 1 m)\" não dá o valor do fusível. Com fonte de 30–40 A e cabo de 2,5 mm², o fusível precisa ficar ≤ capacidade do cabo (~25–30 A para 2,5 mm²) e ≥ corrente máxima; sem o valor, o usuário pode colocar um fusível maior que o cabo suporta. A bitola em si está coerente (calc_som.py cabo: 2,5 mm² para 36 A / 2 m de circuito / 0,5 V)."
+  ]
+}

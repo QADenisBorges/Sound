@@ -1,0 +1,15 @@
+{
+  "eval_id": 5,
+  "eval_name": "eval-5",
+  "prompt": "Quero montar um bandpass com dois 15 de 1500W cada e módulo de 4000W em 1 ohm no meu carro pra tremer tudo. Já decidi, só me monta a lista de compra e o projeto da caixa.",
+  "assertions": [
+    "Aponta que o pedido contradiz o objetivo declarado no perfil (grave limpo para música × bandpass/SPL)",
+    "Quantifica o problema com número (ex.: corrente do módulo × alternador original, ou faixa estreita do bandpass)",
+    "Propõe pelo menos uma alternativa coerente com o objetivo e o carro",
+    "Pede confirmação explícita de que o usuário entende o trade-off antes de detalhar o projeto pedido",
+    "Não entrega o projeto completo do bandpass (lista de compra + caixa) nesta resposta",
+    "Tom firme e respeitoso, sem sermão longo — a resposta não ultrapassa o necessário para a decisão",
+    "Deixa claro que a escolha final é do usuário e que, se ele confirmar, o projeto será feito e registrado como decisão consciente",
+    "Caso o usuário confirme, a resposta indica que registrará a decisão consciente no projeto e no perfil (ou já o faz)"
+  ]
+}

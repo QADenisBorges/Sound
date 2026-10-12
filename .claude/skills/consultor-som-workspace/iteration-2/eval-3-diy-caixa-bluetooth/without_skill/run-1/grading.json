@@ -1,0 +1,63 @@
+{
+  "expectations": [
+    {
+      "text": "Inclui BMS/proteção para a bateria de lítio e alerta de segurança",
+      "passed": true,
+      "evidence": "'BMS 4S 20A com balanceamento', fusível 7,5 A perto da bateria, não soldar célula, fugir de '9900 mAh', não usar fonte de 19 V."
+    },
+    {
+      "text": "Calcula ou estima autonomia da bateria",
+      "passed": true,
+      "evidence": "4S2P 75-100 Wh 'rende umas 8 a 15 horas em volume de festa' (estimativa presente)."
+    },
+    {
+      "text": "Relaciona tensão da bateria/fonte com a potência real da TPA3116",
+      "passed": true,
+      "evidence": "Tabela 3S/4S/5S/6S com potência real por canal em 4 Ω."
+    },
+    {
+      "text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada",
+      "passed": false,
+      "evidence": "Define bass reflex ~15-18 L e Fb 55-60 Hz, mas não dimensiona o duto (só 'Tubo PVC' e 'calcule no WinISD')."
+    },
+    {
+      "text": "Trata o crossover/corte do tweeter",
+      "passed": true,
+      "evidence": "Capacitor em série no tweeter: 10 µF (4 Ω) / 4,7 µF (8 Ω) em ~3,5-4 kHz, resistor série, bobina opcional no woofer."
+    },
+    {
+      "text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$",
+      "passed": true,
+      "evidence": "Seções 'Eletrônica (AliExpress)', 'Falantes (no Brasil...)' com ~R$ por item."
+    },
+    {
+      "text": "Dá orientação de construção do gabinete (material, vedação)",
+      "passed": true,
+      "evidence": "Compensado vs MDF, vedar com cola+silicone, junta de espuma, travessa, manta, compartimento separado."
+    },
+    {
+      "text": "Totais de orçamento batem com a soma dos itens listados",
+      "passed": false,
+      "evidence": "Soma dos itens listados = ~R$ 790-1.370 (eletrônica 180-260 + células 150-250 + falantes 150-300 + tweeters 60-120 + caixa 250-440); declarado R$ 750-1.200 - não bate."
+    },
+    {
+      "text": "Alerta que a saída BTL não pode ter o negativo do falante ligado ao terra/comum",
+      "passed": true,
+      "evidence": "'Não ligue o negativo de saída do falante ao GND. A saída da TPA3116 é em ponte (BTL)'."
+    },
+    {
+      "text": "Se usar crossover passivo de 2ª ordem, indica ligar o tweeter com polaridade invertida",
+      "passed": false,
+      "evidence": "Usa crossover de 1ª ordem (só capacitor) e manda ligar 'mesma polaridade'; condição de 2ª ordem não ocorre - asserção não demonstrada (condicional não aplicável)."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 3,
+    "total": 10,
+    "pass_rate": 0.7
+  },
+  "timing": {
+    "executor_duration_seconds": 127.5
+  }
+}

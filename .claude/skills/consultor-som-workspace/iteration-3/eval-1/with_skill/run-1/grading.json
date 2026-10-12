@@ -1,0 +1,73 @@
+{
+  "expectations": [
+    {
+      "text": "Contesta a premissa de 3000W sem mexer na elétrica no corpo da resposta, antes do dimensionamento/opções, nomeando o fato e não a pessoa (sem 'você está errado', 'você confundiu', 'na verdade')",
+      "passed": true,
+      "evidence": "Primeira frase: 'Direto: do jeito que está, não fecha — e o primeiro problema não é o orçamento, é a elétrica.' A seção '## Por que 3000 W não fecha com a elétrica original' (linha 3) vem antes de '## Três caminhos' (linha 28). Grep por 'errad', 'confund' e 'na verdade' não encontra nenhuma ocorrência; o alvo é sempre o número/o plano ('O \"3000\" da etiqueta não chega no sub', 'a armadilha mais comum do som automotivo'), nunca a pessoa."
+    },
+    {
+      "text": "Mostra conta de corrente do módulo (A) em relação ao alternador/bateria",
+      "passed": true,
+      "evidence": "'3.000 W RMS de saída ÷ (12,6 V × 0,8) = ~300 A de pico' (refeito: 3000/10,08 = 297,6 A) e '1.600 W: 159 A de pico' (refeito: 158,7 A), confrontados com 'Alternador... perto de 100 A... O carro sozinho já consome 30–50 A. Sobram ~50–70 A para o som... o pico é 4–5× o que sobra'. Também situa a bateria de 60 Ah ('com motor ligado quem alimenta é o alternador; a bateria só amortece picos')."
+    },
+    {
+      "text": "Propõe alternativa coerente dentro de R$ 2500",
+      "passed": true,
+      "evidence": "Caminho B: '1 sub 12\" de 400–500 W RMS, caixa selada, módulo mono de 500–800 W RMS em 2 Ω... Pico 50–80 A' (refeito: 500–800/10,08 = 49,6–79,4 A, dentro dos 50–70 A de folga), 'Cabo 16 mm² OFC (5 m, queda ≤ 0,5 V)' (refeito: 0,0172×5/16 × 80 A = 0,43 V), 'Estimativa: R$ 1.100–2.100'. Impedância (DVC 2+2 série ou 4+4 paralelo), caixa (30–45 L), integração com o rádio e ganho são coerentes entre si e com a restrição de elétrica intacta."
+    },
+    {
+      "text": "Trata a integração com o rádio original (entrada de alto nível ou conversor RCA)",
+      "passed": true,
+      "evidence": "Linha 38: 'Módulo classe D mono com passa-baixa, subsônico e entrada de alto nível — liga direto nos fios de falante do rádio original, sem RCA e sem trocar rádio'; linha 40: 'sobra para... um conversor/DSP simples se o rádio original cortar grave no volume alto'."
+    },
+    {
+      "text": "Menciona fusível no positivo perto da bateria",
+      "passed": true,
+      "evidence": "Linha 20: 'qualquer módulo precisa de um cabo positivo direto da bateria com fusível a até 30–45 cm dela. Isso não é upgrade, é o que impede incêndio se o cabo roçar na lataria'. Reforçado por caminho: 'fusível de 300 A junto à bateria' (A), 'fusível de 60–80 A na bateria' (B), 'fusível de 100–125 A' (C)."
+    },
+    {
+      "text": "Diferencia cabo OFC de CCA (ou alerta sobre cabo de alumínio cobreado)",
+      "passed": true,
+      "evidence": "Linha 10: 'cobre OFC (cobre de verdade — muito kit vende \"CCA\", alumínio cobreado com ~60% da condutividade)'; linha 41: 'Cabo em loja nacional que comprove OFC'. Todos os cabos dos três caminhos são especificados como OFC."
+    },
+    {
+      "text": "Explica como evitar grave embolado (tipo de caixa, subsônico, regulagem de ganho)",
+      "passed": true,
+      "evidence": "Seção 'O que embola o grave' (linha 24) nomeia as causas: 'caixa dutada sintonizada alta (45–50 Hz)', 'clipping', 'falta de filtro subsônico', 'bass boost ligado', 'carga de 1 Ω'. As soluções aparecem nos caminhos: 'Caixa selada de ~30–45 L líquidos... MDF 18 mm, bem vedada', módulo 'com passa-baixa, subsônico', 'Ganho regulado com multímetro, não no ouvido: ex. 500 W em 2 Ω → 31,6 V AC' (refeito: √(500×2) = 31,6 V)."
+    },
+    {
+      "text": "Apresenta opções de orçamento em R$ em níveis diferentes",
+      "passed": true,
+      "evidence": "Três caminhos com faixas em R$ em patamares distintos e posicionados contra os R$ 2.500: A 'R$ 5–7 mil', B 'R$ 1.100–2.100' ('com folga no orçamento'), C 'R$ 1.800–3.300' ('no limite ou um pouco acima'). Observação: a tabela Econômico/Equilibrado/Caprichado é explicitamente adiada para depois da decisão; os níveis presentes são por configuração, não por faixa de qualidade do mesmo projeto."
+    },
+    {
+      "text": "Informa total de orçamento e ele bate com a soma dos itens listados",
+      "passed": false,
+      "evidence": "Totais existem (A R$ 5–7 mil; B R$ 1.100–2.100; C R$ 1.800–3.300), mas não há lista de itens precificados que permita conferir a soma. Em B nenhum item (sub, módulo, cabo 16 mm², fusível, caixa) tem preço; em C só o Big 3 (R$ 100–150). Em A só subs (2 × R$ 600–1.200) e módulo (R$ 900–1.800) têm valor; 'caixa dupla, cabo, bateria' ficam sem preço. Somando os itens precificados de A com o kit de cabo citado antes (R$ 500–900): R$ 2.600–5.100 — o piso de R$ 5 mil não se reconcilia com o piso de R$ 2.600 sem números para caixa e bateria. A soma não é verificável, logo não 'bate'."
+    },
+    {
+      "text": "Fusível sugerido não é maior do que a bitola de cabo indicada suporta",
+      "passed": true,
+      "evidence": "Conferido contra a tabela da própria skill (references/automotivo.md: 16 mm² ≤ 80 A; 21 mm² ≤ 125 A; 53 mm² ≤ 300 A) e contra queda de tensão em 5 m (ρ = 0,0172): B 16 mm² + fusível 60–80 A (≤ 80 A OK; queda a 80 A = 0,43 V); C 21 mm² (4 AWG) + fusível 100–125 A (≤ 125 A OK; queda a 125 A = 0,51 V); A 53 mm² (0 AWG) + fusível 300 A (≤ 300 A OK, no limite; queda a 300 A = 0,49 V). Nenhum fusível excede a capacidade do cabo indicado."
+    },
+    {
+      "text": "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco",
+      "passed": true,
+      "evidence": "grep 'Vale saber' = 1 ocorrência (linha 26): '> **Vale saber — ganho de cabine:**' — travessão, dois-pontos dentro do negrito, no formato exigido. Está dentro de '## O que embola o grave' (linhas 22–27), seção a que se refere (por que selada funciona no carro). grep -i 'dica' = 0 ocorrências. Sem o bloco, o corpo ainda identifica 'caixa dutada sintonizada alta' como causa e B/C especificam 'caixa selada' com volumes — a resposta segue correta e completa. O bloco não contém alerta de segurança; fusível, OFC, clipping e ganho estão no corpo."
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 1,
+    "total": 11,
+    "pass_rate": 0.91
+  },
+  "technical_errors": [
+    "Frase mais forte que os próprios números: 'Sobram ~50–70 A para o som. A média do módulo já passa disso' — a média declarada é '~40–100 A'; o piso de 40 A não passa de 50–70 A. A conclusão (pico de ~300 A muito acima da folga) se sustenta, mas a afirmação sobre a média é exagerada.",
+    "Inconsistência interna no ganho de SPL: '~1.300 W reais contra um sistema de 600 W bem dimensionado, +3,4 dB' (10·log(1300/600) = 3,36 dB, aritmética correta) considera só potência e ignora que o caminho A tem dois 12\" — a própria resposta credita depois '+3 a +6 dB (dobro de área de cone e de potência)' para C sobre B. Pelo mesmo critério, A vs. 600 W/1 sub ficaria em ~+5–6 dB; o argumento subestima o ganho de A.",
+    "Casamento sub/módulo no caminho B: sub de '400–500 W RMS' com módulo de '500–800 W RMS em 2 Ω' — no topo da faixa o módulo tem até 2× a potência do sub. Só é seguro porque o ganho é travado por multímetro em 500 W (31,6 V em 2 Ω), mas a resposta não diz que essa regulagem é o que protege o sub nesse cenário, nem recomenda ficar no piso da faixa do módulo se o sub for de 400 W.",
+    "Omissão de segurança/qualidade: nenhum caminho especifica o cabo negativo/terra (mesma bitola do positivo, curto, ponto de chassi lixado). Com 80–125 A um terra fraco é causa comum de queda de tensão e aquecimento; a queda 'de 5 m' e a folga de 0,5 V consideram só o positivo.",
+    "Imprecisão factual menor: 'Onix Plus sedã, ~470 L' — o sedã derivado do Onix 2019 (1ª geração) era o Prisma (~500 L); o Onix Plus é o modelo 2020 (2ª geração). Não muda a recomendação (a caixa de 70–90 L cabe em qualquer um).",
+    "Premissa conservadora não sinalizada como tal na conta de pico: usar 12,6 V com motor ligado (alternador normalmente entrega 13,8–14,4 V) infla a corrente de pico em ~10–14 %. A resposta justifica ('marcha lenta, tensão caindo') e a ordem de grandeza não muda, mas os '~300 A' seriam ~260 A a 14,4 V."
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "expectations": [
+    {
+      "text": "Contesta a premissa de 3000W sem mexer na elétrica (aponta incoerência)",
+      "passed": true,
+      "evidence": "'do jeito que você descreveu, não faz sentido... não funciona com a elétrica original do Onix'."
+    },
+    {
+      "text": "Mostra conta de corrente do módulo (A) em relação ao alternador/bateria",
+      "passed": true,
+      "evidence": "'2000 W ÷ 13,5 V ≈ 150 A só pro som, no pico' vs alternador 90-100 A com sobra de 40-60 A."
+    },
+    {
+      "text": "Propõe alternativa coerente dentro de R$ 2500",
+      "passed": false,
+      "evidence": "Proposta única com 'Total ~R$ 1700 a 2900'; teto da faixa passa de R$ 2.500 ('dá pra fechar... escolhendo bem' não comprova)."
+    },
+    {
+      "text": "Trata a integração com o rádio original (entrada de alto nível ou conversor RCA)",
+      "passed": true,
+      "evidence": "'Conversor de alto pra baixo nível (line output converter) ligado nos fios de alto-falante do rádio original'."
+    },
+    {
+      "text": "Menciona fusível no positivo perto da bateria",
+      "passed": true,
+      "evidence": "'puxar um cabo de alimentação direto da bateria, com fusível perto do polo'."
+    },
+    {
+      "text": "Diferencia cabo OFC de CCA (ou alerta sobre cabo de alumínio cobreado)",
+      "passed": false,
+      "evidence": "Só diz 'cabo de alimentação de cobre 21 mm²'; nenhuma menção a OFC vs CCA/alumínio cobreado."
+    },
+    {
+      "text": "Explica como evitar grave embolado (tipo de caixa, subsônico, regulagem de ganho)",
+      "passed": true,
+      "evidence": "Seção 'Ajustes que fazem a diferença contra grave embolado': LPF 70-80 Hz, subsônico, bass boost zero, ganho medido, caixa selada."
+    },
+    {
+      "text": "Apresenta opções de orçamento em R$ em níveis diferentes",
+      "passed": false,
+      "evidence": "Apenas uma proposta de orçamento; não há níveis diferentes."
+    },
+    {
+      "text": "Totais de orçamento batem com a soma dos itens listados",
+      "passed": true,
+      "evidence": "Soma 500+500+250+200+60+200=1710 / 800+800+450+300+150+400=2900; declarado ~1700-2900 (arredondado, bate)."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 3,
+    "total": 9,
+    "pass_rate": 0.67
+  },
+  "timing": {
+    "executor_duration_seconds": 54.1
+  }
+}

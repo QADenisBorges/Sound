@@ -1,0 +1,122 @@
+{
+  "skill_name": "consultor-som",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Tenho um Onix 2019 com o rádio original e a bateria original de 60Ah. Tô pensando em colocar dois subs de 12 de 800W RMS cada e um módulo de 3000W pra ficar bem forte, mas não quero mexer em nada da parte elétrica do carro. Tenho uns R$ 2500. Faz sentido? Gosto de ouvir rap e eletrônica, mas também não quero aquele grave embolado.",
+      "expected_output": "Questiona a premissa (3000W sem mexer na elétrica é incoerente), faz a conta de corrente, propõe alternativas coerentes dentro de R$2500 (ex.: 1 sub de qualidade + módulo ~800-1000W, caixa selada ou dutada bem sintonizada), considera rádio original (entrada alto nível), cabos/fusível, regulagem de ganho, e dá opções de orçamento.",
+      "files": [],
+      "assertions": [
+        "Contesta a premissa de 3000W sem mexer na elétrica no corpo da resposta, antes do dimensionamento/opções, nomeando o fato e não a pessoa (sem 'você está errado', 'você confundiu', 'na verdade')",
+        "Mostra conta de corrente do módulo (A) em relação ao alternador/bateria",
+        "Propõe alternativa coerente dentro de R$ 2500",
+        "Trata a integração com o rádio original (entrada de alto nível ou conversor RCA)",
+        "Menciona fusível no positivo perto da bateria",
+        "Diferencia cabo OFC de CCA (ou alerta sobre cabo de alumínio cobreado)",
+        "Explica como evitar grave embolado (tipo de caixa, subsônico, regulagem de ganho)",
+        "Apresenta opções de orçamento em R$ em níveis diferentes",
+        "Informa total de orçamento e ele bate com a soma dos itens listados",
+        "Fusível sugerido não é maior do que a bitola de cabo indicada suporta",
+        "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Quero montar um som pra minha sala, uns 20m², pra ouvir música (MPB, jazz, rock) e ver filme de vez em quando. Tenho uns R$ 3000. Fico na dúvida entre comprar uma soundbar boa, um receiver com caixas ou caixas ativas. O que você faria e por quê?",
+      "expected_output": "Compara as três arquiteturas com prós e contras para o uso descrito, recomenda uma com justificativa, considera mercado de usados, acústica/posicionamento da sala, e dá opções de orçamento em R$ com especificações que importam.",
+      "files": [],
+      "assertions": [
+        "Compara as três opções (soundbar, receiver+caixas, caixas ativas) com prós e contras",
+        "Faz uma recomendação clara com justificativa ligada ao uso (música > filme)",
+        "Menciona acústica ou posicionamento da sala",
+        "Considera o mercado de usados como forma de ganhar custo-benefício",
+        "A opção recomendada cabe no limite de R$ 3000 (ou a resposta avisa claramente quando pode ultrapassar)",
+        "Foca em especificações que importam (sensibilidade, potência RMS, entradas) e não só em marcas",
+        "Informa total de orçamento e ele bate com a soma dos itens listados",
+        "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Queria construir uma caixa bluetooth portátil pra levar em churrasco, com bateria, usando placa do AliExpress. Pensei em usar uma TPA3116 e dois falantes de 6 polegadas + tweeter. Nunca fiz caixa, sei soldar. Me ajuda a montar o projeto? Quero gastar pouco mas que fique boa e dure.",
+      "expected_output": "Projeto DIY completo: arquitetura (BT + amp + bateria com BMS + step-up ou tensão adequada), contas (autonomia, potência vs tensão, volume de caixa/duto), lista de componentes com onde comprar (AliExpress para placas, nacional para falantes), cuidados com Li-ion, crossover para tweeter, construção do gabinete, custos estimados.",
+      "files": [],
+      "assertions": [
+        "Inclui BMS/proteção para a bateria de lítio e alerta de segurança",
+        "Calcula ou estima autonomia da bateria",
+        "Relaciona tensão da bateria/fonte com a potência real da TPA3116",
+        "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada",
+        "Trata o crossover/corte do tweeter",
+        "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$",
+        "Dá orientação de construção do gabinete (material, vedação)",
+        "Informa total de orçamento e ele bate com a soma dos itens listados",
+        "Alerta que a saída BTL não pode ter o negativo do falante ligado ao terra/comum",
+        "Indica a polaridade correta do tweeter para a ordem de crossover escolhida (invertido em 2ª ordem, normal em 1ª)",
+        "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Comprei um módulo de 1200W RMS num precinho, mas meu sub é 400W RMS. Pelo que entendi, é só não colocar o volume no máximo que não queima, certo? E aproveitando: ouvi falar que ligar em 1 ohm dobra a potência, então vou ligar em 1 ohm pra compensar.",
+      "expected_output": "Modo dúvida: resposta curta. Reconhece o que está certo (headroom não é problema em si), corrige os dois mal-entendidos — volume não é ganho, o que queima é clipping/ganho mal regulado; 1 Ω sobe a potência do módulo (mais corrente, calor, queda de tensão), o que é o oposto do que ele precisa com um sub de 400W. Ensina a regular ganho pela tensão alvo. Dicas educativas delimitadas e limitadas; não vira projeto completo.",
+      "files": [],
+      "assertions": [
+        "Reconhece que módulo com mais RMS que o sub não é problema em si (headroom), e corrige sem veredito sobre a pessoa (sem 'você está errado', 'você confundiu', 'na verdade')",
+        "Corrige o mal-entendido de que volume baixo protege o falante, explicando ganho × volume e clipping",
+        "Explica o que ligar em 1 Ω realmente faz (potência do módulo sobe, corrente/calor/queda de tensão) e por que não compensa neste caso",
+        "Dá o passo prático: regular o ganho pela tensão alvo (√(P×R)) e/ou manter impedância maior",
+        "Resposta curta, no modo dúvida — não vira projeto completo com tabela de orçamento",
+        "A correção dos dois mal-entendidos está no corpo; blocos 'Vale saber' (se houver): no máximo 1, rótulo fixo, e apagando-os a resposta continua correta e completa",
+        "Não redefine termos que o usuário já usou corretamente (RMS, ohm)"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Quero montar um bandpass com dois 15 de 1500W cada e módulo de 4000W em 1 ohm no meu carro pra tremer tudo. Já decidi, só me monta a lista de compra e o projeto da caixa.",
+      "expected_output": "Com o perfil dizendo que ele quer grave limpo para ouvir música, carro compacto com elétrica original: a skill NÃO entrega o projeto completo de imediato. Aponta a contradição com o objetivo declarado no perfil, quantifica o problema (corrente do módulo × alternador; bandpass estreito × música), propõe alternativa coerente, e pede confirmação explícita de que ele entende o trade-off antes de detalhar. Firme, sem sermão; se ele confirmar, segue e registra como decisão consciente.",
+      "files": [
+        "evals/files/perfil-teste-grave-limpo.md"
+      ],
+      "assertions": [
+        "Aponta que o pedido contradiz o objetivo declarado no perfil (grave limpo para música × bandpass/SPL)",
+        "Quantifica o problema com número (ex.: corrente do módulo × alternador original, ou faixa estreita do bandpass)",
+        "Propõe pelo menos uma alternativa coerente com o objetivo e o carro",
+        "Pede confirmação explícita de que o usuário entende o trade-off antes de detalhar o projeto pedido",
+        "Não entrega o projeto completo do bandpass (lista de compra + caixa) nesta resposta",
+        "Tom firme e respeitoso, sem sermão longo — a resposta não ultrapassa o necessário para a decisão",
+        "Deixa claro que a escolha final é do usuário e que, se ele confirmar, o projeto será feito e registrado como decisão consciente",
+        "Caso o usuário confirme, a resposta indica que registrará a decisão consciente no projeto e no perfil (ou já o faz)"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Quero montar um home theater 5.1 barato: vou comprar um decodificador 5.1 óptico, usar um módulo automotivo de 4 canais que sobrou do carro, um sub de carro e reaproveitar as caixinhas de um mini system velho como frontais. Faz sentido?",
+      "expected_output": "Aponta a necessidade de fonte 12 V para o módulo, o risco de decodificador sem bass management, a checagem de bitstream na TV, o limite de potência dos falantes de mini system e a divisão de canais do módulo.",
+      "files": [],
+      "assertions": [
+        "Diz que o módulo automotivo precisa de fonte 12–14,4 V e dimensiona a corrente",
+        "Alerta que decodificador barato pode não ter gerenciamento de graves (SW só com LFE)",
+        "Alerta para conferir se a TV entrega Dolby/DTS (bitstream) pela saída óptica",
+        "Alerta que falantes de mini system têm potência baixa e pede passa-alta + ganho baixo",
+        "Mostra como distribuir os canais do módulo (incluindo ponte para o sub, se a impedância permitir)",
+        "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Fechei o projeto do sub: 12\" DVC 2+2 Ω ligado em série (4 Ω), módulo mono classe D de 600 W RMS em 4 Ω, caixa selada de 38 L líquidos (Qtc 0,72 no WinISD), cabo 21 mm² OFC com fusível de 100 A a 30 cm da bateria, e vou regular o ganho com multímetro em 49 V. Só quero que você confira a conta do fusível e me diga se 5 m de cabo dão uma queda aceitável.",
+      "expected_output": "Controle negativo do ensino: o usuário demonstra domínio e não deixa lacuna que mude decisão. Resposta curta que confirma as contas (≈60 A em 12,6 V/80%; fusível de 100 A protege cabo de 21 mm² (≤125 A) e cobre os 60 A; queda em 5 m ≈ 0,24 V, aceitável; 49 V = √(600×4) está certo). No máximo 1 bloco 'Vale saber', nenhuma redefinição de RMS/DVC/Qtc/OFC/classe D, sem tabela de orçamento.",
+      "files": [
+        "evals/files/perfil-teste-grave-limpo.md"
+      ],
+      "assertions": [
+        "Confirma a corrente máxima do módulo (~55–65 A) e que o fusível de 100 A protege o cabo de 21 mm² e cobre a corrente do sistema",
+        "Calcula a queda de tensão em 5 m (~0,2–0,3 V) e diz que é aceitável",
+        "Não redefine termos que o usuário já usou corretamente (DVC, Qtc, OFC, RMS, classe D, ganho por tensão)",
+        "No máximo 1 bloco 'Vale saber', e se houver ele traz algo que muda uma decisão ou o próximo elo (não curiosidade)",
+        "Resposta curta, no modo dúvida: sem tabela de orçamento, sem reabrir escolhas já fechadas (selada, 4 Ω) a não ser que haja erro real",
+        "Não contém veredito sobre a pessoa nem 'parabéns' ritual; confirma o que está certo de forma direta"
+      ]
+    }
+  ]
+}

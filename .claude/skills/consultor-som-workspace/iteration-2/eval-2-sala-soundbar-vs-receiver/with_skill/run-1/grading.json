@@ -1,0 +1,48 @@
+{
+  "expectations": [
+    {
+      "text": "Compara as três opções (soundbar, receiver+caixas, caixas ativas) com prós e contras",
+      "passed": true,
+      "evidence": "Tabela 'Os três caminhos lado a lado' com música, filme, grave, upgrade, praticidade, vida útil para soundbar, receiver+passivas e ativas."
+    },
+    {
+      "text": "Faz uma recomendação clara com justificativa ligada ao uso (música > filme)",
+      "passed": true,
+      "evidence": "'Eu não iria de soundbar... uso principal é música'; escolha: passivas de estante + receiver AV usado, com justificativa."
+    },
+    {
+      "text": "Menciona acústica ou posicionamento da sala",
+      "passed": true,
+      "evidence": "Triângulo equilátero, caixas a 30-50 cm da parede, fora do canto/nicho; tapete/cortina; calibração automática."
+    },
+    {
+      "text": "Considera o mercado de usados como forma de ganhar custo-benefício",
+      "passed": true,
+      "evidence": "Receiver AV usado (OLX/ML), caixas usadas no Caprichado, checklist de teste de usado."
+    },
+    {
+      "text": "Apresenta orçamento em R$ que respeita o limite de R$ 3000",
+      "passed": true,
+      "evidence": "Econômico R$ 1.330-2.110 dentro do teto; Equilibrado declarado 'dentro dos R$ 3.000 na maioria das combinações' (máx 3.180, sinalizado)."
+    },
+    {
+      "text": "Foca em especificações que importam (sensibilidade, potência RMS, entradas) e não só em marcas",
+      "passed": true,
+      "evidence": "Sensibilidade dB/1W vs 2,83 V convertida, 6-8 Ω, ~50 W reais/canal, HDMI ARC, óptica, saída de sub."
+    },
+    {
+      "text": "Totais de orçamento batem com a soma dos itens listados",
+      "passed": true,
+      "evidence": "Somas conferidas: Econ 1300+0+30+0=1330 / 1900+60+150=2110; Equil 1200+900+40+0=2140 / 1600+1300+80+200=3180; Capr 2540/3780 - batem."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 0,
+    "total": 7,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 119.3
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "expectations": [
+    {"text": "Compara as três opções (soundbar, receiver+caixas, caixas ativas) com prós e contras", "passed": true, "evidence": "Tabela A/B/C e bloco 'Comparando as três' com Pró/Contra para Soundbar, Caixas ativas e Receiver usado + passivas."},
+    {"text": "Faz uma recomendação clara com justificativa ligada ao uso (música > filme)", "passed": true, "evidence": "'O que eu faria: a opção C'; 'Em música, o que dá o palco é a separação estéreo... A soundbar... em música acústica soa artificial e estreito'."},
+    {"text": "Menciona acústica ou posicionamento da sala", "passed": true, "evidence": "Triângulo 2-2,5 m, tweeter na altura do ouvido, 30-50 cm da parede, não no canto, tapete/cortina; calibração Audyssey/YPAO; sugestão de REW."},
+    {"text": "Considera o mercado de usados como forma de ganhar custo-benefício", "passed": true, "evidence": "Recomendação central é 'receiver AV usado' (R$ 900-1.400), com checklist de teste antes de pagar."},
+    {"text": "Apresenta orçamento em R$ que respeita o limite de R$ 3000", "passed": true, "evidence": "Totais: A R$ 2.000-3.000, B R$ 1.300-2.300, C R$ 2.300-3.000; divisão sugerida ~R$ 1.100 receiver + 1.500-1.700 caixas. Nota: somando os máximos de todas as linhas da coluna C daria >R$ 3.000, o total informado está levemente otimista."},
+    {"text": "Foca em especificações que importam (sensibilidade, potência RMS, entradas) e não só em marcas", "passed": true, "evidence": "Coluna 'O que importa na especificação': sensibilidade ≥ 86 dB, 6-8 Ω, 30-50 W RMS reais/canal, HDMI ARC, pré-out de sub, entrada óptica; 'Não pague por watts'."}
+  ],
+  "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0},
+  "timing": {"executor_duration_seconds": 88.3, "total_duration_seconds": 88.3},
+  "claims": [
+    {"claim": "86 dB/1W/1m a 3 m: 2 W ~82 dB (par), 30 W ~94 dB (par)", "type": "factual", "verified": true, "evidence": "86-9,5=76,5 dB/1W a 3 m; +3 (2 W) +3 (par) = 82,5; 76,5+14,8+3 = 94,3."},
+    {"claim": "Caixa de 88 dB com 50 W: ~95 dB por caixa, ~98 dB o par", "type": "factual", "verified": true, "evidence": "88-9,5+17 = 95,5 dB."},
+    {"claim": "Opção C totaliza R$ 2.300-3.000", "type": "factual", "verified": false, "evidence": "Máximos das linhas (1.800+1.400+500+100+300) somam R$ 4.100; o total só se sustenta na divisão sugerida no texto."}
+  ],
+  "user_notes_summary": {"uncertainties": ["Preços não pesquisados, apenas estimativas"], "needs_review": [], "workarounds": []},
+  "eval_feedback": {
+    "suggestions": [
+      {"assertion": "Apresenta orçamento em R$ que respeita o limite de R$ 3000", "reason": "Não verifica se a soma dos itens bate com o total declarado; aqui o total da coluna C é menor que a soma dos máximos."}
+    ],
+    "overall": "Assertions razoáveis; a de usados e a de specs foram as que discriminaram entre as runs."
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "expectations": [
+    {
+      "text": "Confirma a corrente máxima do módulo (~55–65 A) e que o fusível de 100 A protege o cabo de 21 mm² e cobre a corrente do sistema",
+      "passed": true,
+      "evidence": "Tabela 'Quanto o módulo puxa da bateria': 52 A (14,4 V/η 0,80), 59,5 A (12,6 V/η 0,80), 63,5 A (12,6 V/η 0,75), ~70 A (11,5 V). Refeito: 600/(12,6×0,80)=59,52 A; 600/(12,6×0,75)=63,49 A — batem. Fusível: '≥ corrente máxima do sistema: 63,5–70 A → 100 A dá folga de 1,4–1,6×' e '≤ o que o cabo aguenta: 21 mm² / 4 AWG ... aceita fusível de 125 a 150 A ... 100 A fica abaixo de todas', concluindo 'Fusível de 100 A — confere'."
+    },
+    {
+      "text": "Calcula a queda de tensão em 5 m (~0,2–0,3 V) e diz que é aceitável",
+      "passed": true,
+      "evidence": "'R = ρ × L / A = 0,0172 × 5 / 21 = 4,1 mΩ' e tabela: 52 A → 0,21 V; 59,5 A → 0,24 V; 63,5 A → 0,26 V; título '3. Queda em 5 m de 21 mm² — aceitável, com folga' e 'Limite: 0,5 V. No pior caso real você está na metade'. Refeito: R=4,095 mΩ; 59,5 A × 4,095 mΩ = 0,244 V; 63,5 A → 0,260 V — batem."
+    },
+    {
+      "text": "Não redefine termos que o usuário já usou corretamente (DVC, Qtc, OFC, RMS, classe D, ganho por tensão)",
+      "passed": false,
+      "evidence": "DVC, RMS e classe D não são redefinidos. Porém: (a) OFC recebe glosa inline — 'Cabo é OFC de verdade (cobre puro), não CCA'; (b) Qtc é reexplicado a quem já escolheu 0,72 no WinISD — 'quase o 0,707 de resposta mais plana, e o ganho de cabine compensa a queda natural da selada abaixo de ~50 Hz'; (c) o método de ganho por tensão, que o usuário já declarou dominar ('vou regular o ganho com multímetro em 49 V'), é reensinado passo a passo — 'Procedimento: bass boost, loudness e EQ desligados; passa-baixa no lugar (~80 Hz); tom senoidal de 40 Hz a 0 dB; ... multímetro em V AC nos bornes de saída; sobe o ganho até o alvo e para'. Sob critério estrito, a ausência de redefinição não está claramente presente."
+    },
+    {
+      "text": "No máximo 1 bloco 'Vale saber', e se houver ele traz algo que muda uma decisão ou o próximo elo (não curiosidade)",
+      "passed": true,
+      "evidence": "Contagem: zero blocos rotulados 'Vale saber' (grep -i 'vale saber' em resposta.md não retorna nada; o único parecido é 'Vale conferir:' dentro do bullet de CCA, que não é bloco rotulado). Condição não ocorre → passa. Sem blocos, a resposta permanece íntegra por definição."
+    },
+    {
+      "text": "Resposta curta, no modo dúvida: sem tabela de orçamento, sem reabrir escolhas já fechadas (selada, 4 Ω) a não ser que haja erro real",
+      "passed": false,
+      "evidence": "Sem tabela de orçamento e sem reabrir selada/4 Ω ('2+2 Ω em série = 4 Ω (conferido)'; '38 L selada com Qtc 0,72 ... é boa escolha'). Mas NÃO é curta nem está em modo dúvida: o usuário limitou o pedido ('Só quero que você confira a conta do fusível e me diga se 5 m de cabo dão uma queda aceitável') e a resposta tem 6.210 caracteres / 1.154 palavras / 79 linhas, 5 seções, 2 tabelas, 3 cenários 'e se', uma seção inteira não pedida ('O que você não pediu, mas afeta os 49 V do ganho') com procedimento completo, comentário validando a caixa, e ainda gravou projeto.md (5.947 caracteres, com seções 'Opções de orçamento', 'Onde economizar', 'Próximos passos', 'Histórico de decisões') — comportamento de modo projeto, não de dúvida pontual."
+    },
+    {
+      "text": "Não contém veredito sobre a pessoa nem 'parabéns' ritual; confirma o que está certo de forma direta",
+      "passed": true,
+      "evidence": "Abre com 'Resposta curta: os dois fecham.' e fecha cada item com 'confere' / 'aceitável, com folga'. grep por 'parab|excelente|ótim|muito bem|bom trabalho|mandou bem' não encontra nada. 'O resto que você descreveu está coerente' e 'é boa escolha' avaliam o projeto, não a pessoa."
+    }
+  ],
+  "summary": {
+    "passed": 4,
+    "failed": 2,
+    "total": 6,
+    "pass_rate": 0.67
+  },
+  "technical_errors": [
+    "Trecho: '21 mm² / 4 AWG de cobre, pelas tabelas usuais de som automotivo, aceita fusível de 125 a 150 A (as mais conservadoras param em 125 A)'. Várias tabelas correntes de som automotivo listam 4 AWG em 100 A, não 125 A; a afirmação sobre 'as mais conservadoras' é otimista. Não altera a conclusão (100 A fica dentro de todas), mas o teto '150 A' apresentado como seguro para 21 mm² pode induzir superdimensionamento do fusível em outro projeto.",
+    "Trecho: 'Negativo voltando até a bateria (10 m de circuito) → 0,49 V, no limite; a calculadora pediria 25 mm²'. Mistura correntes: 0,49 V sai com 59,5 A (0,487 V), mas com 59,5 A a bitola mínima é 20,5 mm² (21 mm² ainda atende); os 25 mm² só aparecem usando 63,5 A (21,8 mm² → 25 mm², e a queda seria 0,52 V, acima do limite). Inconsistência interna leve, conclusão ('evitar') correta.",
+    "Registro inventado em projeto.md: 'Histórico de decisões' traz entradas datadas de 2026-09-23 ('Usuário fechou os componentes...', 'Fusível de 100 A conferido e mantido') e descreve 2026-09-24 como 'Nova rodada de conferência a pedido do usuário', além de 'Última revisão em 2026-09-24 ... (nova rodada)'. Há um único turno do usuário e o arquivo foi criado às 22:40 de 2026-09-24; não existe rodada anterior nem decisão em 23/09. Não é erro de conta, mas é fato fabricado no registro persistente."
+  ]
+}

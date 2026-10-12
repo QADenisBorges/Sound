@@ -1,0 +1,58 @@
+{
+  "expectations": [
+    {
+      "text": "Contesta a premissa de 3000W sem mexer na elétrica (aponta incoerência)",
+      "passed": true,
+      "evidence": "'do jeito que você descreveu, não fecha' + 'um módulo de 3000 W precisa de mais corrente do que o alternador e a bateria originais'."
+    },
+    {
+      "text": "Mostra conta de corrente do módulo (A) em relação ao alternador/bateria",
+      "passed": true,
+      "evidence": "Tabela: 3000 W -> ~298 A pico, 37-99 A média vs sobra de 40-70 A do alternador de ~90-110 A (conferido: 3000/(12,6x0,8)=297,6 A)."
+    },
+    {
+      "text": "Propõe alternativa coerente dentro de R$ 2500",
+      "passed": true,
+      "evidence": "Opção Equilibrado R$ 1.660-2.500 e Econômico R$ 970-1.530, ambos dentro de R$ 2.500."
+    },
+    {
+      "text": "Trata a integração com o rádio original (entrada de alto nível ou conversor RCA)",
+      "passed": true,
+      "evidence": "'Rádio original sem saída RCA... sinal sai pela entrada de alto nível do módulo ou por um conversor de alto para baixo nível'."
+    },
+    {
+      "text": "Menciona fusível no positivo perto da bateria",
+      "passed": true,
+      "evidence": "'cabo de força dedicado com fusível perto da bateria é obrigatório'; 'fusível a no máximo ~30 a 45 cm da bateria'."
+    },
+    {
+      "text": "Diferencia cabo OFC de CCA (ou alerta sobre cabo de alumínio cobreado)",
+      "passed": true,
+      "evidence": "'O CCA dos kits baratos é alumínio cobreado e conduz ~60% do cobre'; 'Raspe a ponta: se aparecer alumínio prateado... é CCA'."
+    },
+    {
+      "text": "Explica como evitar grave embolado (tipo de caixa, subsônico, regulagem de ganho)",
+      "passed": true,
+      "evidence": "Caixa selada como 'antídoto contra o embolado', passa-baixa 70-80 Hz, bass boost desligado, ganho por tensão alvo com multímetro."
+    },
+    {
+      "text": "Apresenta opções de orçamento em R$ em níveis diferentes",
+      "passed": true,
+      "evidence": "Três níveis: Econômico, Equilibrado, Caprichado, com faixas em R$."
+    },
+    {
+      "text": "Totais de orçamento batem com a soma dos itens listados",
+      "passed": true,
+      "evidence": "Somas conferidas: Econ 300+150+250+120+150=970 / 450+250+380+200+250=1530; Equil 1660/2500; Capr 1720/2500; plano original 2650/4150 - todos batem."
+    }
+  ],
+  "summary": {
+    "passed": 9,
+    "failed": 0,
+    "total": 9,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 152.5
+  }
+}

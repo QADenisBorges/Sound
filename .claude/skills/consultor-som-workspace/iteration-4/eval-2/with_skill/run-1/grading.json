@@ -1,0 +1,56 @@
+{
+  "expectations": [
+    {
+      "text": "Compara as três opções (soundbar, receiver+caixas, caixas ativas) com prós e contras",
+      "passed": true,
+      "evidence": "Seção '## As três opções que você levantou': tabela com colunas Soundbar boa / Receiver + caixas / Caixas ativas e linhas Música, Filme, Integração com a TV, Evolução/conserto, Onde o dinheiro vai; cada célula traz prós e contras (soundbar: 'Excelente para diálogo' mas 'Fraca' em música e 'Nenhuma — ecossistema fechado'; receiver: 'Boa — depende só das caixas', 'bass management de verdade', mas novo 'R$ 3.000–4.500 só o receiver'; ativas: 'bom custo/benefício' mas 'vários modelos... não têm saída de sub' e 'Quando o amplificador embutido morre, morre o par'). Segue um parágrafo dedicado a cada opção ('Perde em: caixa de 43 cm e ~10 kg na estante, esquenta...'; 'Empate técnico, derrota prática')."
+    },
+    {
+      "text": "Faz uma recomendação clara com justificativa ligada ao uso (música > filme)",
+      "passed": true,
+      "evidence": "Resumo: 'Eu **não** compraria soundbar nem receiver novo. Montaria um **estéreo 2.0 com um par de caixas de estante passivas + amplificador classe D compacto**'. Justificativa 1: 'Seu uso é **música primeiro**. MPB, jazz e rock pedem duas caixas afastadas 2–2,5 m... exatamente o que soundbar não entrega'; justificativa 2 amarra ao uso: 'Receiver de 5–7 canais gasta o dinheiro em canais que você não vai usar agora'. Tabela de orçamento marca a coluna 'Equilibrado (minha escolha)'. Ângulo estéreo 45° × 19° da soundbar conferido (2·atan(1,25/3) = 45,2°; 2·atan(0,5/3) = 18,9°)."
+    },
+    {
+      "text": "Menciona acústica ou posicionamento da sala",
+      "passed": true,
+      "evidence": "'**Sala.** 5 × 4 × 2,7 m tem modos axiais (ressonâncias entre paredes paralelas) em ~34, 43 e 64 Hz' — conferi c/(2L) = 343/10 = 34,3 Hz, 343/8 = 42,9 Hz, 343/5,4 = 63,5 Hz, corretos. Posicionamento concreto: 'caixa encostada no canto ou dentro de nicho fechado = grave inchado. 20–40 cm da parede de trás, fora dos cantos'; 'caixas afastadas 2–2,5 m, tweeter na altura da orelha, levemente viradas para você (toe-in)'; 'sub crawl: sub na poltrona, você anda pela sala procurando onde o grave soa uniforme'."
+    },
+    {
+      "text": "Considera o mercado de usados como forma de ganhar custo-benefício",
+      "passed": true,
+      "evidence": "'**Econômico** é a que mais rende por real — o mercado de usados é onde Hi-Fi compensa'; 'Usadas: OLX / ML usados (testar antes)... Usadas de marca (JBL, Polk, Wharfedale, Klipsch): 600–1.000'; receiver: 'a única versão que cabe no orçamento é o **usado de 5–10 anos**... e essa versão é boa'; sub 'usado R$ 500–900'. Inclui checklist de inspeção de usado ('suspensão do woofer sem rachaduras, tweeter tocando, sem chiado num sweep') e risco específico ('teste o ARC com a sua TV antes de pagar')."
+    },
+    {
+      "text": "A opção recomendada cabe no limite de R$ 3000 (ou a resposta avisa claramente quando pode ultrapassar)",
+      "passed": true,
+      "evidence": "Coluna recomendada 'Equilibrado (minha escolha)': 'R$ 2.010–3.020'. A ponta alta passa R$ 20 do teto e a resposta avisa em dois pontos: Resumo 'Cabe nos R$ 3.000 com folga na versão com usados e no limite na versão nova com nota fiscal' e Leitura das colunas 'Encosta no orçamento na ponta alta; o sub vem em 2–4 meses'. Sub explicitamente deixado como 'etapa 2'. A coluna Caprichado também vem com aviso: 'só cabe nos R$ 3.000 se receiver e caixas saírem na ponta baixa'."
+    },
+    {
+      "text": "Foca em especificações que importam (sensibilidade, potência RMS, entradas) e não só em marcas",
+      "passed": true,
+      "evidence": "A tabela de orçamento tem coluna própria 'Especificação que importa': caixas 'Woofer 5–6,5\", tweeter dome ou corneta, **≥ 85 dB/1 W**, 6–8 Ω, resposta até ~55 Hz'; amp 'Classe D **TPA3255, fonte ≥ 32 V**, Bluetooth 5.x, entrada RCA, saída SUB; de preferência remoto ou entrada óptica'; sub 'amplificador interno ≥ 100 W RMS, passa-baixa ajustável e entrada RCA'. Ensina a ler spec e não rótulo: '\"86 dB\" em 2,83 V/6 Ω = **84,7 dB/1 W**' (conferido com calc_som.py spl --ref 2.83v --impedancia 6: 84,7 dB/1W; SPL ~93,0 / ~94,2 / ~95,2 dB idênticos à tabela), 'ignore o número da caixa e olhe a tensão da fonte'. Marcas aparecem como 'ex.' e 'Tipo', não como critério."
+    },
+    {
+      "text": "Informa total de orçamento e ele bate com a soma dos itens listados",
+      "passed": true,
+      "evidence": "Linha '**Total estimado**': Econômico R$ 1.070–1.920, Equilibrado R$ 2.010–3.020, Caprichado R$ 2.600–3.980. Recalculei item a item: Econômico 600+350+60+60+0 = 1.070 e 1.000+600+120+100+100 = 1.920 (bate); Equilibrado 1.300+550+80+80+0 = 2.010 e 1.800+800+150+120+150 = 3.020 (bate); Caprichado 1.700+800+0+100+0 = 2.600 e 2.300+1.300+0+180+200 = 3.980 (bate; ligação com a TV '(via ARC — cabo HDMI na linha de cabos)' = 0, coerente com o item Cabos incluir 'HDMI'). Os três totais batem."
+    },
+    {
+      "text": "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco",
+      "passed": true,
+      "evidence": "grep encontra exatamente 2 blocos (linhas 68 e 72), ambos com o rótulo exato em negrito, travessão e dois-pontos dentro do negrito: '> **Vale saber — sensibilidade em dB/2,83 V × dB/1 W:**' e '> **Vale saber — potência de placa classe D depende da fonte:**'. Ambos dentro de '## Dimensionamento' (linhas 54–77), cada um logo após o trecho que o provocou (tabela de SPL com a conversão 2,83 V → 1 W; parágrafo 'Qual amp entrega isso'). grep -i 'dica' só acha 'dedicada' — não há seção nem lista 'Dicas'. Sem os blocos a resposta segue correta e completa: o corpo já traz o resultado da conversão ('\"86 dB\" em 2,83 V/6 Ω = 84,7 dB/1 W') e a decisão sobre a fonte ('com **32 V** o TPA3255 faz ~38–45 W limpos em 8 Ω... **Compre o amp com fonte de 32 V ou mais**'). Conteúdo dos blocos conferido: 2,83²/8 = 1,0 W; 6 Ω → 1,33 W (+1,25 dB ≈ 1,3); 4 Ω → 2,0 W (+3,0 dB); 32²/(2·8) = 64 W teto, 60–70% = 38–45 W; 48 V/4 Ω → 288 W teto, 173–202 W limpos, compatível com '2×150 W'. Alertas de segurança (BTL/não juntar negativos, PCM×bitstream, audição, fonte 12 V) estão todos no corpo ('Riscos e cuidados', 'Onde economizar'); nenhum bloco contém alerta de segurança."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  },
+  "technical_errors": [
+    "Número errado (menor) — 'fonte genérica de 12 V de câmera dá zumbido e metade da potência' (seção Onde economizar). Pela fórmula da própria resposta P ≈ V²/(2·Z): 12 V em 8 Ω dá teto de 9 W contra 64 W a 32 V (~14%, cerca de −8,5 dB) ou contra 36 W a 24 V (25%). 'Metade' subestima muito a perda; a direção do conselho (não usar fonte de 12 V) está certa.",
+    "Ambiguidade com risco de dano (menor) — coluna Econômico: 'TPA3116/3255 com Bluetooth e fonte 24–32 V'. O TPA3116D2 tem máximo absoluto de 26 V; lido ao pé da letra, o texto permite parear placa TPA3116 com fonte de 32 V, o que queima o chip. O corpo do texto pareia corretamente 24 V com TPA3116 ('Com 24 V (TPA3116) ficam ~22–34 W'), mas a célula da tabela deveria dizer 'TPA3116 com 24 V ou TPA3255 com 32 V'.",
+    "Inconsistência interna (menor) — o diagrama de Arquitetura marca o sub com 'passa-baixa ~80 Hz', enquanto Próximos passos 5 orienta 'ajuste o passa-baixa do sub em ~60–70 Hz (onde as caixas começam a cair)' porque 'o amp compacto não corta o grave das caixas'. O passo 5 é o correto para amp sem bass management; o ~80 Hz do diagrama (e de 'Vizinhos... cortado em ~80 Hz') é o valor de receiver com crossover, não da montagem recomendada.",
+    "Inconsistência de arredondamento (menor) — Resumo: 'Cabe nos R$ 3.000... no limite na versão nova com nota fiscal', mas o teto da coluna Equilibrado é R$ 3.020 (R$ 20 acima do orçamento). A 'Leitura das colunas' corrige com 'Encosta no orçamento na ponta alta'. Não é conselho inseguro; só a frase do Resumo deveria dizer 'encosta/pode passar um pouco'."
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Reconhece o que está certo no raciocínio (ex.: impedância muda a potência do módulo; potência disponível por si não queima — o ganho decide) e corrige sem veredito sobre a pessoa (sem 'você está errado', 'você confundiu', 'na verdade')",
+      "passed": true,
+      "evidence": "Reconhece o acerto: 'Módulo de tensão limitada obedece P = V²/R: metade da impedância ≈ dobro da potência. Isso vale para o módulo' e 'O lever é a impedância, sim, mas para o outro lado'; sobre potência: 'Módulo com mais potência que o sub e ganho certo é até saudável'. Não há 'você está errado', 'você confundiu' nem 'na verdade' (grep confirma). O veredito recai sobre as conclusões ('as duas conclusões estão invertidas', 'verdade parcial, conclusão errada'), não sobre a pessoa — abertura seca, mas dentro do critério."
+    },
+    {
+      "text": "Corrige o mal-entendido de que volume baixo protege o falante, explicando ganho × volume e clipping",
+      "passed": true,
+      "evidence": "Seção 1: 'Volume e ganho são coisas diferentes. O botão de volume da fonte controla o sinal de entrada; o ganho do módulo diz quanto ele amplifica esse sinal. Se o ganho estiver alto, o módulo pode chegar a 1200 W com o volume na metade'. Clipping: 'quando o módulo (ou a fonte) satura e o sinal vira quadrado, a bobina recebe muito mais energia média do que o RMS musical'."
+    },
+    {
+      "text": "Explica o que ligar em 1 Ω realmente faz (potência do módulo sobe, corrente/calor/queda de tensão) e por que não compensa neste caso",
+      "passed": true,
+      "evidence": "'Ligar em 1 Ω aumenta a potência que o módulo joga no sub'; tabela 1/2/4 Ω; 'Corrente: 1200 W classe D em 12,6 V ≈ 119 A de pico... alternador original... vai sofrer — luz piscando e módulo em proteção'; 'módulo no limite térmico e de corrente'. Por que não compensa: 'Seu problema já é potência sobrando — então 1 Ω compensa ao contrário' e 'O sub não fica mais forte em 1 Ω — ele continua aguentando 400 W'. Conta verificada: 1200/0,8/12,6 = 119 A; (12,6/14,4)² = 0,766 ≈ ×0,77."
+    },
+    {
+      "text": "Dá o passo prático: regular o ganho pela tensão alvo (√(P×R)) e/ou manter impedância maior",
+      "passed": true,
+      "evidence": "Passo 4: 'Subir o ganho até: 40,0 V AC em 4 Ω ou 28,3 V AC em 2 Ω (= 400 W)' — conferido: √(400×4)=40,0 V; √(400×2)=28,3 V; '36 V em 4 Ω (~325 W)' → 36²/4=324 W. Também recomenda impedância maior: 'ligar na impedância mais alta em que o módulo entregue perto dos 400 W (normalmente 4 Ω)' e '2+2 Ω → em série = 4 Ω (recomendado); em paralelo = 1 Ω (não faça)'."
+    },
+    {
+      "text": "Resposta curta, no modo dúvida (ordem de 300–600 palavras): sem Premissas/Dimensionamento como seções de projeto, sem tabela de orçamento",
+      "passed": false,
+      "evidence": "wc -w = 1360 palavras, mais que o dobro do teto de 600. Contém seção de projeto '## Premissas (me corrija se for diferente)' com 3 bullets de suposições (módulo 14,4 V/1 Ω, bobina, carro/cabo/caixa), passo 3 de dimensionamento elétrico (cabo 10 mm², fusível 50–60 A, queda ≤ 0,5 V), seção '## 4. Sobre o precinho' e '## Para afinar' com 3 perguntas. Não há tabela de orçamento (a única tabela é impedância × potência), mas os outros dois critérios falham."
+    },
+    {
+      "text": "A correção dos dois mal-entendidos está no corpo; blocos 'Vale saber' (se houver): no máximo 1, rótulo fixo, e apagando-os a resposta continua correta e completa",
+      "passed": true,
+      "evidence": "grep -ci 'vale saber' = 0 blocos — a condição não ocorre, então a parte condicional passa. As duas correções estão no corpo principal: seção '## 1. Não colocar o volume no máximo — por que isso não protege' e seção '## 2. 1 Ω dobra a potência — verdade parcial, conclusão errada', além do resumo numerado no topo."
+    },
+    {
+      "text": "Não redefine termos que o usuário já usou corretamente (RMS, ohm)",
+      "passed": true,
+      "evidence": "Não há definição de 'RMS' nem de 'ohm' (nenhum 'RMS é...', 'ohm significa...'). A menção '400 W RMS é o limite térmico contínuo da bobina' usa o termo para justificar o headroom, não o define; a referência a 'potência máxima ou PMPO' serve para detectar spec inflada, não para reexplicar RMS. Ω é usado diretamente sem glossário."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.86
+  },
+  "technical_errors": []
+}

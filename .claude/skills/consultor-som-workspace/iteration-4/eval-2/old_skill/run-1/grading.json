@@ -1,0 +1,159 @@
+{
+  "expectations": [
+    {
+      "text": "Compara as três opções (soundbar, receiver+caixas, caixas ativas) com prós e contras",
+      "passed": true,
+      "evidence": "Seção 'As três arquiteturas, lado a lado': tabela com as três opções (+ a escolha 2.0) avaliadas em Música, Filme, Simplicidade, Especificações públicas, Caminho de upgrade e Mercado de usados, com pró e contra em cada célula (ex.: soundbar 'Simplicidade: Máxima' vs 'Música: Fraca... a 3 m o estéreo vira quase mono'; receiver 'Filme: Melhor' vs 'Simplicidade: Mínima'; ativas 'Alta (2 tomadas + 1 cabo)' vs 'monitores... a 3 m faltam grave'). Seguida de 'Quando cada uma seria a escolha certa' com um cenário por opção."
+    },
+    {
+      "text": "Faz uma recomendação clara com justificativa ligada ao uso (música > filme)",
+      "passed": true,
+      "evidence": "Resumo: 'Eu montaria um estéreo 2.0 de verdade: um par de caixas de estante... + um amplificador estéreo compacto (classe D)... Não compraria soundbar nem receiver AV'. Justificativa: 'seu uso principal é música (MPB, jazz, rock), e filme é \"de vez em quando\". Música pede dois falantes de verdade... é exatamente o que uma soundbar não tem'. Fechamento: 'com R$ 3.000 e música em primeiro lugar... soundbar não; receiver AV só se o plano for 5.1'."
+    },
+    {
+      "text": "Menciona acústica ou posicionamento da sala",
+      "passed": true,
+      "evidence": "Item '5. A sala': modos axiais de 5×4×2,7 m = '34 Hz, 43 Hz e 63 Hz' (recalculei: 34,3/42,9/63,5 Hz — corretos), 'caixa no canto fica embolada (excita todos os modos)', e posicionamento 'caixas 20–40 cm da parede de trás, afastadas das laterais, tweeter na altura do ouvido, triângulo equilátero com o sofá... sofá em ~38% do comprimento (≈1,9 m)'. Reforçado em Próximos passos 4 (toe-in) e 6 (medir com REW)."
+    },
+    {
+      "text": "Considera o mercado de usados como forma de ganhar custo-benefício",
+      "passed": true,
+      "evidence": "Linha 'Mercado de usados' na tabela comparativa; coluna Econômico: 'Usado JBL/Polk/Wharfedale — R$ 600–1.000' ('é o melhor real gasto de todos'); 'receiver estéreo nacional usado (Gradiente/Sony/Technics)'; receiver AV 'usado (Denon/Yamaha/Onkyo/Pioneer de 5–10 anos, R$ 700–1.500) resolve'; em Riscos, checklist para testar caixa usada (cone, tweeter, borrachão) e receiver usado."
+    },
+    {
+      "text": "A opção recomendada cabe no limite de R$ 3000 (ou a resposta avisa claramente quando pode ultrapassar)",
+      "passed": true,
+      "evidence": "Opção recomendada = coluna Equilibrado ('é o que eu faria com R$ 3.000'), total declarado R$ 2.150–3.100 (soma conferida). O teto fura em R$ 100 e a resposta avisa no mesmo parágrafo: 'Se estourar, os pedestais ficam para depois (caixa no aparador funciona, só afasta 20 cm da parede)' — sem os pedestais (R$ 150–300) o teto cai para <= R$ 2.950. Também alerta que preços são 'faixas aproximadas de memória... confira antes de comprar' e que Caprichado só vale 'se você estiver disposto a esticar'. Passa pela cláusula 'avisa claramente'."
+    },
+    {
+      "text": "Foca em especificações que importam (sensibilidade, potência RMS, entradas) e não só em marcas",
+      "passed": true,
+      "evidence": "Coluna 'Especificação que importa': caixas '2 vias, woofer 5–6,5\", sensibilidade >= 86 dB/1W (converta se for 2,83 V), 6–8 Ω, −3 dB <= 60 Hz'; amp 'TPA3255 ou similar, >= 40 W RMS/canal em 8 Ω com a fonte que vem, fonte de marca, saída de sub... DAC óptico e Bluetooth embutidos'. Explica a armadilha 2,83 V vs 1 W ('86 dB/2,83V em 6 Ω... 84,7 dB/1W/1m' — recalculei 84,75). Próximos passos 2: 'procure: sensibilidade..., impedância nominal, frequência de −3 dB, tamanho do woofer. Passe longe de anúncio sem essas quatro coisas'. Marcas aparecem só como 'ex.:'."
+    },
+    {
+      "text": "Informa total de orçamento e ele bate com a soma dos itens listados",
+      "passed": true,
+      "evidence": "Linha 'Total estimado' presente. Recalculei item a item: Econômico 600+350+60+0+40 = 1.050 e 1.000+550+120+0+60 = 1.730 (declarado R$ 1.050–1.730); Equilibrado 1.400+600+0+0+150 = 2.150 e 1.900+900+0+0+300 = 3.100 (declarado R$ 2.150–3.100); Caprichado 1.900+800+0+0+250 = 2.950 e 2.300+1.100+0+600+400 = 4.400 (declarado R$ 2.950–4.400). As três colunas batem exatamente. ('sobra R$ 1.300–1.900' do Econômico é arredondamento de 1.270–1.950.)"
+    },
+    {
+      "text": "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco",
+      "passed": true,
+      "evidence": "grep -ci 'vale saber' = 0 e grep -ci 'dicas' = 0 em resposta.md. Nenhum bloco 'Vale saber' e nenhuma seção/lista 'Dicas' (títulos: Resumo, Premissas, As três arquiteturas, Arquitetura recomendada, Dimensionamento, Opções de orçamento, Onde economizar, Riscos e cuidados, Próximos passos). A condição 'se houver' não ocorre, então a asserção passa. Alertas de segurança (BTL, fonte, audição) estão na seção regular 'Riscos e cuidados'. Observação: há um aparte didático não rotulado ('Termos, rapidinho: classe D = ..., DAC = ..., Saída de sub = ...') que não usa o rótulo fixo."
+    }
+  ],
+  "summary": {
+    "passed": 8,
+    "failed": 0,
+    "total": 8,
+    "pass_rate": 1.0
+  },
+  "technical_errors": [
+    "Conectividade inconsistente: o Resumo ('ligado à TV pela saída óptica/ARC') e o diagrama ('TV ──óptica ou ARC──▶ Amplificador estéreo classe D') sugerem ARC direto no amp, mas os amps citados como exemplo (Aiyima D03, SMSL AD18, Fosi ZA3) não têm entrada HDMI ARC — só óptica/coaxial/USB/Bluetooth. Numa TV que só tenha ARC (sem óptica) seria preciso um extrator HDMI-ARC→óptico (~R$ 100–200), item ausente das três colunas de orçamento.",
+    "Imprecisão numérica: '2 dB de sensibilidade valem quase o dobro de amplificador'. 2 dB = fator 1,58× (o dobro é 3 dB); os próprios números da resposta (~110 W vs ~70 W) dão 1,57×. A conclusão (sensibilidade pesa mais que 'potência suportada') está correta, mas 'quase o dobro' exagera.",
+    "Inconsistência interna: Premissas dizem 'Se quiser tudo novo com nota, use a coluna Equilibrado com marcas nacionais', mas o amplificador da coluna Equilibrado é importado (Aiyima/SMSL via AliExpress/Shopee) e a única alternativa nacional listada é 'receiver estéreo nacional usado' — não há opção nova/nacional para o amp.",
+    "Preço provavelmente subestimado: 'microfone de medição USB (UMIK-1 ou similar, R$ 500–700)'. O UMIK-1 (~US$ 110) importado com Remessa Conforme ou em revenda nacional costuma passar de R$ 900; só um 'similar' mais barato (ex.: Dayton iMM-6) cabe na faixa. A resposta ressalva que preços são 'de memória', mas este foge mais que os demais.",
+    "Próximos passos 5 ('volume do amp em ~70–80% e controle pelo celular/TV'): muitas TVs entregam a saída óptica em nível fixo (o volume da TV não atua na óptica em PCM) e amps classe D sem HDMI-CEC não respondem ao controle da TV — com a arquitetura recomendada, o volume da TV terá de ser ajustado no amp. Não é inseguro, mas pode não funcionar como descrito ('ou vice-versa' mitiga em parte).",
+    "Observação metodológica (não é erro de conta): a tabela de SPL soma +3 dB para duas caixas (soma incoerente); para grave estéreo correlacionado a soma tende a +6 dB. A escolha é conservadora e coerente com a tabela (recalculei 86,45/89,46/92,47/95,48/98,49 dB), mas a premissa não é declarada.",
+    "Pequena inconsistência de exemplos: 'Elac Debut B5.2' aparece na lista de exemplos de caixa de entrada (coluna 'Especificação que importa') e também como 'Novo linha acima (Diamond 12.2, Debut B5.2)' no Caprichado."
+  ],
+  "claims": [
+    {
+      "claim": "Totais das três colunas (R$ 1.050–1.730 / 2.150–3.100 / 2.950–4.400)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Soma item a item recalculada; batem exatamente."
+    },
+    {
+      "claim": "SPL a 3 m, 86 dB/1W, 2 caixas: 5/10/20/40/80 W -> 86,5/89,5/92,5/95,5/98,5 dB",
+      "type": "factual",
+      "verified": true,
+      "evidence": "86 + 10log(P) − 20log(3) + 3 = 86,45/89,46/92,47/95,48/98,49 dB."
+    },
+    {
+      "claim": "Pico de 100 dB a 3 m pede ~110 W (86 dB) ou ~70 W (88 dB)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Recalculado: 113 W e 71,5 W."
+    },
+    {
+      "claim": "86 dB/2,83V em 6 Ω = 84,7 dB/1W; Wharfedale 88 dB/2,83V em 8 Ω = 88 dB/1W; diferença 3,3 dB",
+      "type": "factual",
+      "verified": true,
+      "evidence": "2,83²/6 = 1,335 W -> −1,25 dB -> 84,75 dB; 2,83²/8 = 1,00 W; 88 − 84,75 = 3,25 dB."
+    },
+    {
+      "claim": "Teto BTL P = V²/(2Z): 32/36/48 V -> 64/81/144 W em 8 Ω e 85/108/192 W em 6 Ω; limpo 60–70%",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Recalculado; todos os tetos e faixas 'limpo' batem (ex.: 32 V/8 Ω 64 W -> 38–45 W)."
+    },
+    {
+      "claim": "Cabo: 8 Ω a 5 m -> 0,43 mm²; 6 Ω a 8 m -> 0,92 mm² (R ida+volta <= 5% Z)",
+      "type": "factual",
+      "verified": true,
+      "evidence": "rho = 0,0172 Ω·mm²/m: 0,43 mm² e 0,917 mm²."
+    },
+    {
+      "claim": "Modos axiais de 5×4×2,7 m = 34/43/63 Hz, múltiplos 69/86/127 Hz; 38% de 5 m = 1,9 m",
+      "type": "factual",
+      "verified": true,
+      "evidence": "343/(2L) = 34,3/42,9/63,5 Hz; 2ª ordem 68,6/85,8/127 Hz; 0,38×5 = 1,9 m."
+    },
+    {
+      "claim": "TPA3255 '300 W' é com 48 V, 4 Ω e 10% THD",
+      "type": "factual",
+      "verified": true,
+      "evidence": "Datasheet TI: 315 W em 4 Ω BTL, PVDD 51 V, 10% THD+N — coerente com V²/(2Z)."
+    },
+    {
+      "claim": "Dimensionamento feito 'com calc_som.py'",
+      "type": "process",
+      "verified": false,
+      "evidence": "Não há transcript nem outros arquivos no run-dir; impossível confirmar execução do script. Os números conferem com cálculo independente."
+    },
+    {
+      "claim": "'2 dB de sensibilidade valem quase o dobro de amplificador'",
+      "type": "factual",
+      "verified": false,
+      "evidence": "2 dB = 1,58×; 'quase o dobro' exagera."
+    },
+    {
+      "claim": "TV liga ao amp recomendado 'por óptica ou ARC'",
+      "type": "factual",
+      "verified": false,
+      "evidence": "Aiyima D03, SMSL AD18 e Fosi ZA3 não têm HDMI ARC; só a óptica funciona sem extrator."
+    }
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": [],
+    "note": "outputs/user_notes.md, outputs/metrics.json, timing.json e transcript não existem no run-dir; grading baseado apenas em outputs/resposta.md."
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Menciona acústica ou posicionamento da sala",
+        "reason": "Passa com qualquer menção genérica ('posicione bem as caixas'). Exigir conteúdo acionável ligado às dimensões dadas (distância da parede, triângulo/toe-in, modos calculados) tornaria a asserção discriminante."
+      },
+      {
+        "assertion": "A opção recomendada cabe no limite de R$ 3000 (ou a resposta avisa claramente quando pode ultrapassar)",
+        "reason": "A cláusula 'ou avisa' deixa passar uma coluna recomendada cujo teto (R$ 3.100) fura o orçamento. Considerar exigir que a faixa recomendada caiba inteira OU que a resposta diga concretamente o que cortar para caber (aqui ela diz — pedestais — mas a asserção não obriga)."
+      },
+      {
+        "assertion": "Blocos 'Vale saber' (se houver)...",
+        "reason": "A asserção só governa blocos com o rótulo 'Vale saber'; apartes didáticos sem rótulo ('Termos, rapidinho: classe D = ..., DAC = ...') passam sem ser contados. Se a intenção da skill é que todo aparte de ensino use o rótulo fixo, a asserção deveria também exigir 'nenhum aparte didático fora do formato'."
+      },
+      {
+        "reason": "Nenhuma asserção checa coerência de conectividade entre a arquitetura desenhada e os equipamentos sugeridos. Observei 'TV -> ARC -> amp classe D' com amps que não têm HDMI ARC — erro real que passou por todas as asserções."
+      },
+      {
+        "reason": "Nenhuma asserção verifica as contas de dimensionamento (SPL, potência, cabo, modos). Aqui estavam corretas, mas uma resposta com tabela errada passaria igual. Uma asserção 'os números de SPL/potência/cabo estão dentro de ±1 dB / ±10% do recalculado' seria valiosa para esta skill."
+      },
+      {
+        "reason": "O uso de calc_som.py (claim de processo no título da seção) não é verificável sem transcript no run-dir; se o uso do script importa, o harness precisa salvar o transcript."
+      }
+    ],
+    "overall": "8/8 passam. As asserções cobrem estrutura e presença, mas não correção técnica nem coerência interna: um erro real de conectividade (ARC) e um exagero numérico (2 dB = 'quase o dobro') passaram por todas."
+  }
+}

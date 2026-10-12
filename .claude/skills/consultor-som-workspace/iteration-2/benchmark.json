@@ -1,0 +1,433 @@
+{
+  "metadata": {
+    "skill_name": "consultor-som",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-09-22T20:27:49Z",
+    "evals_run": [
+      1,
+      2,
+      3
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 9,
+        "failed": 0,
+        "total": 9,
+        "time_seconds": 152.5,
+        "tokens": 83667,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Contesta a premissa de 3000W sem mexer na el\u00c3\u00a9trica (aponta incoer\u00c3\u00aancia)",
+          "passed": true,
+          "evidence": "'do jeito que voc\u00c3\u00aa descreveu, n\u00c3\u00a3o fecha' + 'um m\u00c3\u00b3dulo de 3000 W precisa de mais corrente do que o alternador e a bateria originais'."
+        },
+        {
+          "text": "Mostra conta de corrente do m\u00c3\u00b3dulo (A) em rela\u00c3\u00a7\u00c3\u00a3o ao alternador/bateria",
+          "passed": true,
+          "evidence": "Tabela: 3000 W -> ~298 A pico, 37-99 A m\u00c3\u00a9dia vs sobra de 40-70 A do alternador de ~90-110 A (conferido: 3000/(12,6x0,8)=297,6 A)."
+        },
+        {
+          "text": "Prop\u00c3\u00b5e alternativa coerente dentro de R$ 2500",
+          "passed": true,
+          "evidence": "Op\u00c3\u00a7\u00c3\u00a3o Equilibrado R$ 1.660-2.500 e Econ\u00c3\u00b4mico R$ 970-1.530, ambos dentro de R$ 2.500."
+        },
+        {
+          "text": "Trata a integra\u00c3\u00a7\u00c3\u00a3o com o r\u00c3\u00a1dio original (entrada de alto n\u00c3\u00advel ou conversor RCA)",
+          "passed": true,
+          "evidence": "'R\u00c3\u00a1dio original sem sa\u00c3\u00adda RCA... sinal sai pela entrada de alto n\u00c3\u00advel do m\u00c3\u00b3dulo ou por um conversor de alto para baixo n\u00c3\u00advel'."
+        },
+        {
+          "text": "Menciona fus\u00c3\u00advel no positivo perto da bateria",
+          "passed": true,
+          "evidence": "'cabo de for\u00c3\u00a7a dedicado com fus\u00c3\u00advel perto da bateria \u00c3\u00a9 obrigat\u00c3\u00b3rio'; 'fus\u00c3\u00advel a no m\u00c3\u00a1ximo ~30 a 45 cm da bateria'."
+        },
+        {
+          "text": "Diferencia cabo OFC de CCA (ou alerta sobre cabo de alum\u00c3\u00adnio cobreado)",
+          "passed": true,
+          "evidence": "'O CCA dos kits baratos \u00c3\u00a9 alum\u00c3\u00adnio cobreado e conduz ~60% do cobre'; 'Raspe a ponta: se aparecer alum\u00c3\u00adnio prateado... \u00c3\u00a9 CCA'."
+        },
+        {
+          "text": "Explica como evitar grave embolado (tipo de caixa, subs\u00c3\u00b4nico, regulagem de ganho)",
+          "passed": true,
+          "evidence": "Caixa selada como 'ant\u00c3\u00addoto contra o embolado', passa-baixa 70-80 Hz, bass boost desligado, ganho por tens\u00c3\u00a3o alvo com mult\u00c3\u00admetro."
+        },
+        {
+          "text": "Apresenta op\u00c3\u00a7\u00c3\u00b5es de or\u00c3\u00a7amento em R$ em n\u00c3\u00adveis diferentes",
+          "passed": true,
+          "evidence": "Tr\u00c3\u00aas n\u00c3\u00adveis: Econ\u00c3\u00b4mico, Equilibrado, Caprichado, com faixas em R$."
+        },
+        {
+          "text": "Totais de or\u00c3\u00a7amento batem com a soma dos itens listados",
+          "passed": true,
+          "evidence": "Somas conferidas: Econ 300+150+250+120+150=970 / 450+250+380+200+250=1530; Equil 1660/2500; Capr 1720/2500; plano original 2650/4150 - todos batem."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 7,
+        "failed": 0,
+        "total": 7,
+        "time_seconds": 119.3,
+        "tokens": 78913,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Compara as tr\u00c3\u00aas op\u00c3\u00a7\u00c3\u00b5es (soundbar, receiver+caixas, caixas ativas) com pr\u00c3\u00b3s e contras",
+          "passed": true,
+          "evidence": "Tabela 'Os tr\u00c3\u00aas caminhos lado a lado' com m\u00c3\u00basica, filme, grave, upgrade, praticidade, vida \u00c3\u00batil para soundbar, receiver+passivas e ativas."
+        },
+        {
+          "text": "Faz uma recomenda\u00c3\u00a7\u00c3\u00a3o clara com justificativa ligada ao uso (m\u00c3\u00basica > filme)",
+          "passed": true,
+          "evidence": "'Eu n\u00c3\u00a3o iria de soundbar... uso principal \u00c3\u00a9 m\u00c3\u00basica'; escolha: passivas de estante + receiver AV usado, com justificativa."
+        },
+        {
+          "text": "Menciona ac\u00c3\u00bastica ou posicionamento da sala",
+          "passed": true,
+          "evidence": "Tri\u00c3\u00a2ngulo equil\u00c3\u00a1tero, caixas a 30-50 cm da parede, fora do canto/nicho; tapete/cortina; calibra\u00c3\u00a7\u00c3\u00a3o autom\u00c3\u00a1tica."
+        },
+        {
+          "text": "Considera o mercado de usados como forma de ganhar custo-benef\u00c3\u00adcio",
+          "passed": true,
+          "evidence": "Receiver AV usado (OLX/ML), caixas usadas no Caprichado, checklist de teste de usado."
+        },
+        {
+          "text": "Apresenta or\u00c3\u00a7amento em R$ que respeita o limite de R$ 3000",
+          "passed": true,
+          "evidence": "Econ\u00c3\u00b4mico R$ 1.330-2.110 dentro do teto; Equilibrado declarado 'dentro dos R$ 3.000 na maioria das combina\u00c3\u00a7\u00c3\u00b5es' (m\u00c3\u00a1x 3.180, sinalizado)."
+        },
+        {
+          "text": "Foca em especifica\u00c3\u00a7\u00c3\u00b5es que importam (sensibilidade, pot\u00c3\u00aancia RMS, entradas) e n\u00c3\u00a3o s\u00c3\u00b3 em marcas",
+          "passed": true,
+          "evidence": "Sensibilidade dB/1W vs 2,83 V convertida, 6-8 \u00ce\u00a9, ~50 W reais/canal, HDMI ARC, \u00c3\u00b3ptica, sa\u00c3\u00adda de sub."
+        },
+        {
+          "text": "Totais de or\u00c3\u00a7amento batem com a soma dos itens listados",
+          "passed": true,
+          "evidence": "Somas conferidas: Econ 1300+0+30+0=1330 / 1900+60+150=2110; Equil 1200+900+40+0=2140 / 1600+1300+80+200=3180; Capr 2540/3780 - batem."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 10,
+        "failed": 0,
+        "total": 10,
+        "time_seconds": 261.7,
+        "tokens": 97018,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Inclui BMS/prote\u00c3\u00a7\u00c3\u00a3o para a bateria de l\u00c3\u00adtio e alerta de seguran\u00c3\u00a7a",
+          "passed": true,
+          "evidence": "BMS 5S com balanceamento, fus\u00c3\u00advel 7,5 A, 'nunca soldar c\u00c3\u00a9lula com ferro', n\u00c3\u00a3o deixar no sol, c\u00c3\u00a9lulas falsas causam inc\u00c3\u00aandio."
+        },
+        {
+          "text": "Calcula ou estima autonomia da bateria",
+          "passed": true,
+          "evidence": "Tabela de autonomia: 5S2P 6 Ah -> ~5,9 h a 15 W / ~3,6 h a 25 W (conferido: 111 Wh x0,8/15 = 5,9)."
+        },
+        {
+          "text": "Relaciona tens\u00c3\u00a3o da bateria/fonte com a pot\u00c3\u00aancia real da TPA3116",
+          "passed": true,
+          "evidence": "Tabela 4S/5S/6S com P\u00e2\u2030\u02c6V\u00c2\u00b2/(2Z): 21 V -> 55 W teto em 4 \u00ce\u00a9, ~33-38 W limpos (conferido 21\u00c2\u00b2/8=55,1)."
+        },
+        {
+          "text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada",
+          "passed": true,
+          "evidence": "Dutada, ~10 L l\u00c3\u00adquidos por woofer, Fb ~55 Hz, duto 5 cm x 15,8 cm ou 4 cm x 9,5 cm com velocidade do ar (conferido pela f\u00c3\u00b3rmula)."
+        },
+        {
+          "text": "Trata o crossover/corte do tweeter",
+          "passed": true,
+          "evidence": "Crossover Butterworth 2\u00c2\u00aa ordem 3 kHz: 0,30 mH/9,4 \u00c2\u00b5F (conferido), L-pad 1,2 \u00ce\u00a9/10 \u00ce\u00a9 para -3 dB (conferido)."
+        },
+        {
+          "text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$",
+          "passed": true,
+          "evidence": "Tabela com coluna 'Onde comprar' (AliExpress/Shopee vs nacional com NF) e pre\u00c3\u00a7os em R$ por item e op\u00c3\u00a7\u00c3\u00a3o."
+        },
+        {
+          "text": "D\u00c3\u00a1 orienta\u00c3\u00a7\u00c3\u00a3o de constru\u00c3\u00a7\u00c3\u00a3o do gabinete (material, veda\u00c3\u00a7\u00c3\u00a3o)",
+          "passed": true,
+          "evidence": "Compensado 12-15 mm vs MDF, cola+parafuso, selar por dentro, fita de veda\u00c3\u00a7\u00c3\u00a3o nos falantes, divis\u00c3\u00b3ria como travamento, manta."
+        },
+        {
+          "text": "Totais de or\u00c3\u00a7amento batem com a soma dos itens listados",
+          "passed": true,
+          "evidence": "Somas conferidas: Econ 565/980, Equil 865/1600, Capr 1590/2955 - todas batem com as linhas."
+        },
+        {
+          "text": "Alerta que a sa\u00c3\u00adda BTL n\u00c3\u00a3o pode ter o negativo do falante ligado ao terra/comum",
+          "passed": true,
+          "evidence": "'sem nunca unir os negativos dos dois canais nem lig\u00c3\u00a1-los ao GND'; 'Nunca ligue o negativo do falante no GND da bateria'."
+        },
+        {
+          "text": "Se usar crossover passivo de 2\u00c2\u00aa ordem, indica ligar o tweeter com polaridade invertida",
+          "passed": true,
+          "evidence": "'Polaridade do tweeter: ligue invertido. Um filtro de 2\u00c2\u00aa ordem defasa 180\u00c2\u00b0 no corte'."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 6,
+        "failed": 3,
+        "total": 9,
+        "time_seconds": 54.1,
+        "tokens": 65902,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Contesta a premissa de 3000W sem mexer na el\u00c3\u00a9trica (aponta incoer\u00c3\u00aancia)",
+          "passed": true,
+          "evidence": "'do jeito que voc\u00c3\u00aa descreveu, n\u00c3\u00a3o faz sentido... n\u00c3\u00a3o funciona com a el\u00c3\u00a9trica original do Onix'."
+        },
+        {
+          "text": "Mostra conta de corrente do m\u00c3\u00b3dulo (A) em rela\u00c3\u00a7\u00c3\u00a3o ao alternador/bateria",
+          "passed": true,
+          "evidence": "'2000 W \u00c3\u00b7 13,5 V \u00e2\u2030\u02c6 150 A s\u00c3\u00b3 pro som, no pico' vs alternador 90-100 A com sobra de 40-60 A."
+        },
+        {
+          "text": "Prop\u00c3\u00b5e alternativa coerente dentro de R$ 2500",
+          "passed": false,
+          "evidence": "Proposta \u00c3\u00banica com 'Total ~R$ 1700 a 2900'; teto da faixa passa de R$ 2.500 ('d\u00c3\u00a1 pra fechar... escolhendo bem' n\u00c3\u00a3o comprova)."
+        },
+        {
+          "text": "Trata a integra\u00c3\u00a7\u00c3\u00a3o com o r\u00c3\u00a1dio original (entrada de alto n\u00c3\u00advel ou conversor RCA)",
+          "passed": true,
+          "evidence": "'Conversor de alto pra baixo n\u00c3\u00advel (line output converter) ligado nos fios de alto-falante do r\u00c3\u00a1dio original'."
+        },
+        {
+          "text": "Menciona fus\u00c3\u00advel no positivo perto da bateria",
+          "passed": true,
+          "evidence": "'puxar um cabo de alimenta\u00c3\u00a7\u00c3\u00a3o direto da bateria, com fus\u00c3\u00advel perto do polo'."
+        },
+        {
+          "text": "Diferencia cabo OFC de CCA (ou alerta sobre cabo de alum\u00c3\u00adnio cobreado)",
+          "passed": false,
+          "evidence": "S\u00c3\u00b3 diz 'cabo de alimenta\u00c3\u00a7\u00c3\u00a3o de cobre 21 mm\u00c2\u00b2'; nenhuma men\u00c3\u00a7\u00c3\u00a3o a OFC vs CCA/alum\u00c3\u00adnio cobreado."
+        },
+        {
+          "text": "Explica como evitar grave embolado (tipo de caixa, subs\u00c3\u00b4nico, regulagem de ganho)",
+          "passed": true,
+          "evidence": "Se\u00c3\u00a7\u00c3\u00a3o 'Ajustes que fazem a diferen\u00c3\u00a7a contra grave embolado': LPF 70-80 Hz, subs\u00c3\u00b4nico, bass boost zero, ganho medido, caixa selada."
+        },
+        {
+          "text": "Apresenta op\u00c3\u00a7\u00c3\u00b5es de or\u00c3\u00a7amento em R$ em n\u00c3\u00adveis diferentes",
+          "passed": false,
+          "evidence": "Apenas uma proposta de or\u00c3\u00a7amento; n\u00c3\u00a3o h\u00c3\u00a1 n\u00c3\u00adveis diferentes."
+        },
+        {
+          "text": "Totais de or\u00c3\u00a7amento batem com a soma dos itens listados",
+          "passed": true,
+          "evidence": "Soma 500+500+250+200+60+200=1710 / 800+800+450+300+150+400=2900; declarado ~1700-2900 (arredondado, bate)."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.71,
+        "passed": 5,
+        "failed": 2,
+        "total": 7,
+        "time_seconds": 39.4,
+        "tokens": 64588,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Compara as tr\u00c3\u00aas op\u00c3\u00a7\u00c3\u00b5es (soundbar, receiver+caixas, caixas ativas) com pr\u00c3\u00b3s e contras",
+          "passed": true,
+          "evidence": "Tabela 'As tr\u00c3\u00aas op\u00c3\u00a7\u00c3\u00b5es lado a lado' com m\u00c3\u00basica, filme, simplicidade, espa\u00c3\u00a7o, upgrade."
+        },
+        {
+          "text": "Faz uma recomenda\u00c3\u00a7\u00c3\u00a3o clara com justificativa ligada ao uso (m\u00c3\u00basica > filme)",
+          "passed": true,
+          "evidence": "'no seu caso eu escolheria caixas ativas'; justificativa ligada \u00c3\u00a0 prioridade m\u00c3\u00basica."
+        },
+        {
+          "text": "Menciona ac\u00c3\u00bastica ou posicionamento da sala",
+          "passed": true,
+          "evidence": "'Dicas...': afastar 20-50 cm da parede, tri\u00c3\u00a2ngulo, n\u00c3\u00a3o usar nichos, tapete/cortina."
+        },
+        {
+          "text": "Considera o mercado de usados como forma de ganhar custo-benef\u00c3\u00adcio",
+          "passed": true,
+          "evidence": "Receiver 'de prefer\u00c3\u00aancia usado ou em promo\u00c3\u00a7\u00c3\u00a3o' (men\u00c3\u00a7\u00c3\u00a3o curta, mas presente como economia)."
+        },
+        {
+          "text": "Apresenta or\u00c3\u00a7amento em R$ que respeita o limite de R$ 3000",
+          "passed": true,
+          "evidence": "Caixas R$ 1.800-2.500 + suportes/cabos R$ 150-300 = no m\u00c3\u00a1x. R$ 2.800 (<3.000)."
+        },
+        {
+          "text": "Foca em especifica\u00c3\u00a7\u00c3\u00b5es que importam (sensibilidade, pot\u00c3\u00aancia RMS, entradas) e n\u00c3\u00a3o s\u00c3\u00b3 em marcas",
+          "passed": false,
+          "evidence": "Cita entradas (ARC/\u00c3\u00b3ptico/sa\u00c3\u00adda de sub), mas n\u00c3\u00a3o sensibilidade nem pot\u00c3\u00aancia RMS; foco pesado em marcas/modelos (Edifier, Kanto, Audioengine, JBL, Yamaha...)."
+        },
+        {
+          "text": "Totais de or\u00c3\u00a7amento batem com a soma dos itens listados",
+          "passed": false,
+          "evidence": "N\u00c3\u00a3o apresenta total de or\u00c3\u00a7amento; n\u00c3\u00a3o h\u00c3\u00a1 total a conferir."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "without_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.7,
+        "passed": 7,
+        "failed": 3,
+        "total": 10,
+        "time_seconds": 127.5,
+        "tokens": 72510,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Inclui BMS/prote\u00c3\u00a7\u00c3\u00a3o para a bateria de l\u00c3\u00adtio e alerta de seguran\u00c3\u00a7a",
+          "passed": true,
+          "evidence": "'BMS 4S 20A com balanceamento', fus\u00c3\u00advel 7,5 A perto da bateria, n\u00c3\u00a3o soldar c\u00c3\u00a9lula, fugir de '9900 mAh', n\u00c3\u00a3o usar fonte de 19 V."
+        },
+        {
+          "text": "Calcula ou estima autonomia da bateria",
+          "passed": true,
+          "evidence": "4S2P 75-100 Wh 'rende umas 8 a 15 horas em volume de festa' (estimativa presente)."
+        },
+        {
+          "text": "Relaciona tens\u00c3\u00a3o da bateria/fonte com a pot\u00c3\u00aancia real da TPA3116",
+          "passed": true,
+          "evidence": "Tabela 3S/4S/5S/6S com pot\u00c3\u00aancia real por canal em 4 \u00ce\u00a9."
+        },
+        {
+          "text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada",
+          "passed": false,
+          "evidence": "Define bass reflex ~15-18 L e Fb 55-60 Hz, mas n\u00c3\u00a3o dimensiona o duto (s\u00c3\u00b3 'Tubo PVC' e 'calcule no WinISD')."
+        },
+        {
+          "text": "Trata o crossover/corte do tweeter",
+          "passed": true,
+          "evidence": "Capacitor em s\u00c3\u00a9rie no tweeter: 10 \u00c2\u00b5F (4 \u00ce\u00a9) / 4,7 \u00c2\u00b5F (8 \u00ce\u00a9) em ~3,5-4 kHz, resistor s\u00c3\u00a9rie, bobina opcional no woofer."
+        },
+        {
+          "text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$",
+          "passed": true,
+          "evidence": "Se\u00c3\u00a7\u00c3\u00b5es 'Eletr\u00c3\u00b4nica (AliExpress)', 'Falantes (no Brasil...)' com ~R$ por item."
+        },
+        {
+          "text": "D\u00c3\u00a1 orienta\u00c3\u00a7\u00c3\u00a3o de constru\u00c3\u00a7\u00c3\u00a3o do gabinete (material, veda\u00c3\u00a7\u00c3\u00a3o)",
+          "passed": true,
+          "evidence": "Compensado vs MDF, vedar com cola+silicone, junta de espuma, travessa, manta, compartimento separado."
+        },
+        {
+          "text": "Totais de or\u00c3\u00a7amento batem com a soma dos itens listados",
+          "passed": false,
+          "evidence": "Soma dos itens listados = ~R$ 790-1.370 (eletr\u00c3\u00b4nica 180-260 + c\u00c3\u00a9lulas 150-250 + falantes 150-300 + tweeters 60-120 + caixa 250-440); declarado R$ 750-1.200 - n\u00c3\u00a3o bate."
+        },
+        {
+          "text": "Alerta que a sa\u00c3\u00adda BTL n\u00c3\u00a3o pode ter o negativo do falante ligado ao terra/comum",
+          "passed": true,
+          "evidence": "'N\u00c3\u00a3o ligue o negativo de sa\u00c3\u00adda do falante ao GND. A sa\u00c3\u00adda da TPA3116 \u00c3\u00a9 em ponte (BTL)'."
+        },
+        {
+          "text": "Se usar crossover passivo de 2\u00c2\u00aa ordem, indica ligar o tweeter com polaridade invertida",
+          "passed": false,
+          "evidence": "Usa crossover de 1\u00c2\u00aa ordem (s\u00c3\u00b3 capacitor) e manda ligar 'mesma polaridade'; condi\u00c3\u00a7\u00c3\u00a3o de 2\u00c2\u00aa ordem n\u00c3\u00a3o ocorre - asser\u00c3\u00a7\u00c3\u00a3o n\u00c3\u00a3o demonstrada (condicional n\u00c3\u00a3o aplic\u00c3\u00a1vel)."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "with_skill": {
+      "pass_rate": {
+        "mean": 1.0,
+        "stddev": 0.0,
+        "min": 1.0,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 177.8333,
+        "stddev": 74.5035,
+        "min": 119.3,
+        "max": 261.7
+      },
+      "tokens": {
+        "mean": 86532.6667,
+        "stddev": 9386.5217,
+        "min": 78913,
+        "max": 97018
+      }
+    },
+    "without_skill": {
+      "pass_rate": {
+        "mean": 0.6933,
+        "stddev": 0.0208,
+        "min": 0.67,
+        "max": 0.71
+      },
+      "time_seconds": {
+        "mean": 73.6667,
+        "stddev": 47.1969,
+        "min": 39.4,
+        "max": 127.5
+      },
+      "tokens": {
+        "mean": 67666.6667,
+        "stddev": 4245.5927,
+        "min": 64588,
+        "max": 72510
+      }
+    },
+    "delta": {
+      "pass_rate": "+0.31",
+      "time_seconds": "+104.2",
+      "tokens": "+18866"
+    }
+  },
+  "notes": []
+}

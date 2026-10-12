@@ -1,0 +1,30 @@
+{
+  "expectations": [
+    {"text": "Inclui BMS/proteção para a bateria de lítio e alerta de segurança", "passed": true, "evidence": "'BMS 6S com balanceamento, fusível logo na saída da bateria e carregador CC/CV de 25,2 V'; 'Não solde fio direto na célula 18650'; alerta sobre células falsas '9.900 mAh' e calor >60 °C."},
+    {"text": "Calcula ou estima autonomia da bateria", "passed": true, "evidence": "Tabela: 6S1P ~67 Wh -> ~4,4 h; 6S2P ~133 Wh -> ~8,9 h a 12 W médios / ~4,3 h a 25 W; 6S3P ~13 h."},
+    {"text": "Relaciona tensão da bateria/fonte com a potência real da TPA3116", "passed": true, "evidence": "P ≈ V²/(2Z): 3S ~15 W teórico/~10 W real, 4S ~27/~18 W, 6S ~62/~40 W por canal; alerta de 25,2 V perto do limite de 26 V e capacitores de 25 V."},
+    {"text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada", "passed": true, "evidence": "Dutada, ~20 L líquidos, Fb ~55 Hz, '2 dutos de 5 cm × 15,8 cm ou 1 duto de 7 cm × 14 cm', velocidade do ar ~9 m/s; medidas externas 55 × 30 × 22 cm."},
+    {"text": "Trata o crossover/corte do tweeter", "passed": true, "evidence": "LR2 12 dB/oit em ~3 kHz para 4 Ω: woofer 0,39-0,47 mH + 6,8 µF; tweeter 6,8 µF + 0,42 mH, polaridade invertida; L-pad -4 dB (1,5 Ω série + 6,8 Ω paralelo)."},
+    {"text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$", "passed": false, "evidence": "Custos em R$ por item em 3 tiers estão presentes, mas a origem por item não é listada: só menções soltas ('checkout do AliExpress', células de 'vendedor nacional', marcas nacionais de woofer). Não há separação clara AliExpress vs loja nacional por componente."},
+    {"text": "Dá orientação de construção do gabinete (material, vedação)", "passed": true, "evidence": "Compensado 15 mm (naval) em vez de MDF, 'cola PU ou PVA + parafusos + silicone nas juntas por dentro', manta acrílica, travamento interno, compartimento separado para bateria/placa, alça com porca-garra."}
+  ],
+  "summary": {"passed": 6, "failed": 1, "total": 7, "pass_rate": 0.86},
+  "timing": {"executor_duration_seconds": 178.4, "total_duration_seconds": 178.4},
+  "claims": [
+    {"claim": "Dutos: 2 × Ø5 cm × 15,8 cm ou 1 × Ø7 cm × 14 cm para 20 L / 55 Hz", "type": "factual", "verified": true, "evidence": "Lv = 23562,5·D²·Np/(Fb²·Vb) − 0,732·D: 19,47−3,66 = 15,8 cm; 19,08−5,12 = 14,0 cm."},
+    {"claim": "LR2 3 kHz 4 Ω: C ≈ 6,8 µF, L ≈ 0,42 mH", "type": "factual", "verified": true, "evidence": "C = 1/(4πfR) = 6,63 µF; L = R/(πf) = 0,424 mH."},
+    {"claim": "L-pad -4 dB em 4 Ω: 1,5 Ω série + 6,8 Ω paralelo; -6 dB: 2 Ω + 4 Ω", "type": "factual", "verified": true, "evidence": "a=0,631: R1=1,48, R2=6,84; a=0,5: R1=2, R2=4."},
+    {"claim": "6S em 4 Ω: teto ~62 W/canal", "type": "factual", "verified": true, "evidence": "22,2²/8 = 61,6 W."},
+    {"claim": "SPL 88 dB + 40 W a 1 m ≈ 104 dB; 80 W a 4 m ≈ 95 dB", "type": "factual", "verified": true, "evidence": "88+16 = 104; 88+19−12 = 95."},
+    {"claim": "Usar 6S (25,2 V cheia) diretamente na TPA3116", "type": "quality", "verified": true, "evidence": "Dentro do máximo recomendado (26 V), mas com pouca margem; a resposta alerta e manda trocar capacitores de 25 V. Escolha agressiva mas sinalizada. Fusível de 5 A é justo para ~80 W de saída (~4 A de entrada em pico)."},
+    {"claim": "Projeto salvo em projetos/caixa-bluetooth-churrasco/projeto.md", "type": "process", "verified": true, "evidence": "projeto.md existe em outputs/ com histórico de decisões."}
+  ],
+  "user_notes_summary": {"uncertainties": ["Preços são estimativas"], "needs_review": ["Valores de crossover partem da impedância nominal; recomenda medir"], "workarounds": []},
+  "eval_feedback": {
+    "suggestions": [
+      {"reason": "Nenhuma assertion checa o alerta de saída BTL (não ligar o negativo do falante ao GND), erro clássico que queima a TPA3116; a without_skill cobriu, a with_skill não."},
+      {"assertion": "Relaciona tensão da bateria/fonte com a potência real da TPA3116", "reason": "Não checa margem até o limite de 26 V; as duas runs divergem (6S recomendado vs 'evite 6S') e a assertion não discrimina."}
+    ],
+    "overall": "Resposta muito completa e numericamente correta; única falha é não indicar origem de compra por componente."
+  }
+}

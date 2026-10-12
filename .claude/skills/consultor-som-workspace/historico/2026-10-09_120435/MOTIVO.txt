@@ -1,0 +1,1 @@
+excursao: Xmax e pico (tensao de pico); comando calc_som.py excursao

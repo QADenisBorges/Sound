@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eval Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js" integrity="sha384-EnyY0/GSHQGSxSgMwaIPzSESbqoOLSexfnSMN2AP+39Ckmn92stwABZynq1JyzdT" crossorigin="anonymous"></script>
+  <style>
+    :root {
+      --bg: #faf9f5;
+      --surface: #ffffff;
+      --border: #e8e6dc;
+      --text: #141413;
+      --text-muted: #b0aea5;
+      --accent: #d97757;
+      --accent-hover: #c4613f;
+      --green: #788c5d;
+      --green-bg: #eef2e8;
+      --red: #c44;
+      --red-bg: #fceaea;
+      --header-bg: #141413;
+      --header-text: #faf9f5;
+      --radius: 6px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lora', Georgia, serif;
+      background: var(--bg);
+      color: var(--text);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .header h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+    .header .instructions {
+      font-size: 0.8rem;
+      opacity: 0.7;
+      margin-top: 0.25rem;
+    }
+    .header .progress {
+      font-size: 0.875rem;
+      opacity: 0.8;
+      text-align: right;
+    }
+
+    /* ---- Main content ---- */
+    .main {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      flex-shrink: 0;
+    }
+    .section-header {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.75rem 1rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg);
+    }
+    .section-body {
+      padding: 1rem;
+    }
+
+    /* ---- Config badge ---- */
+    .config-badge {
+      display: inline-block;
+      padding: 0.2rem 0.625rem;
+      border-radius: 9999px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-left: 0.75rem;
+      vertical-align: middle;
+    }
+    .config-badge.config-primary {
+      background: rgba(33, 150, 243, 0.12);
+      color: #1976d2;
+    }
+    .config-badge.config-baseline {
+      background: rgba(255, 193, 7, 0.15);
+      color: #f57f17;
+    }
+
+    /* ---- Prompt ---- */
+    .prompt-text {
+      white-space: pre-wrap;
+      font-size: 0.9375rem;
+      line-height: 1.6;
+    }
+
+    /* ---- Outputs ---- */
+    .output-file {
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    .output-file + .output-file {
+      margin-top: 1rem;
+    }
+    .output-file-header {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .output-file-header .dl-btn {
+      font-size: 0.7rem;
+      color: var(--accent);
+      text-decoration: none;
+      cursor: pointer;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-weight: 500;
+      opacity: 0.8;
+    }
+    .output-file-header .dl-btn:hover {
+      opacity: 1;
+      text-decoration: underline;
+    }
+    .output-file-content {
+      padding: 0.75rem;
+      overflow-x: auto;
+    }
+    .output-file-content pre {
+      font-size: 0.8125rem;
+      line-height: 1.5;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: 'SF Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+    }
+    .output-file-content img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .output-file-content iframe {
+      width: 100%;
+      height: 600px;
+      border: none;
+    }
+    .output-file-content table {
+      border-collapse: collapse;
+      font-size: 0.8125rem;
+      width: 100%;
+    }
+    .output-file-content table td,
+    .output-file-content table th {
+      border: 1px solid var(--border);
+      padding: 0.375rem 0.5rem;
+      text-align: left;
+    }
+    .output-file-content table th {
+      background: var(--bg);
+      font-weight: 600;
+    }
+    .output-file-content .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      cursor: pointer;
+    }
+    .output-file-content .download-link:hover {
+      background: var(--border);
+    }
+    .empty-state {
+      color: var(--text-muted);
+      font-style: italic;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    /* ---- Feedback ---- */
+    .prev-feedback {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 0.625rem 0.75rem;
+      margin-top: 0.75rem;
+      font-size: 0.8125rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+    .prev-feedback-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+    }
+    .feedback-textarea {
+      width: 100%;
+      min-height: 100px;
+      padding: 0.75rem;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      font-family: inherit;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      resize: vertical;
+      color: var(--text);
+    }
+    .feedback-textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    }
+    .feedback-status {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 0.5rem;
+      min-height: 1.1em;
+    }
+
+    /* ---- Grades (collapsible) ---- */
+    .grades-toggle {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+    .grades-toggle:hover {
+      color: var(--accent);
+    }
+    .grades-toggle .arrow {
+      margin-right: 0.5rem;
+      transition: transform 0.15s;
+      font-size: 0.75rem;
+    }
+    .grades-toggle .arrow.open {
+      transform: rotate(90deg);
+    }
+    .grades-content {
+      display: none;
+      margin-top: 0.75rem;
+    }
+    .grades-content.open {
+      display: block;
+    }
+    .grades-summary {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .grade-badge {
+      display: inline-block;
+      padding: 0.125rem 0.5rem;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .grade-pass { background: var(--green-bg); color: var(--green); }
+    .grade-fail { background: var(--red-bg); color: var(--red); }
+    .assertion-list {
+      list-style: none;
+    }
+    .assertion-item {
+      padding: 0.625rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.8125rem;
+    }
+    .assertion-item:last-child { border-bottom: none; }
+    .assertion-status {
+      font-weight: 600;
+      margin-right: 0.5rem;
+    }
+    .assertion-status.pass { color: var(--green); }
+    .assertion-status.fail { color: var(--red); }
+    .assertion-evidence {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+      margin-top: 0.25rem;
+      padding-left: 1.5rem;
+    }
+
+    /* ---- View tabs ---- */
+    .view-tabs {
+      display: flex;
+      gap: 0;
+      padding: 0 2rem;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+    .view-tab {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.625rem 1.25rem;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      background: none;
+      color: var(--text-muted);
+      border-bottom: 2px solid transparent;
+      transition: all 0.15s;
+    }
+    .view-tab:hover { color: var(--text); }
+    .view-tab.active {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+    .view-panel { display: none; }
+    .view-panel.active { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
+
+    /* ---- Benchmark view ---- */
+    .benchmark-view {
+      padding: 1.5rem 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .benchmark-table {
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 0.8125rem;
+      width: 100%;
+      margin-bottom: 1.5rem;
+    }
+    .benchmark-table th, .benchmark-table td {
+      padding: 0.625rem 0.75rem;
+      text-align: left;
+      border: 1px solid var(--border);
+    }
+    .benchmark-table th {
+      font-family: 'Poppins', sans-serif;
+      background: var(--header-bg);
+      color: var(--header-text);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .benchmark-table tr:hover { background: var(--bg); }
+    .benchmark-table tr.benchmark-row-with { background: rgba(33, 150, 243, 0.06); }
+    .benchmark-table tr.benchmark-row-without { background: rgba(255, 193, 7, 0.06); }
+    .benchmark-table tr.benchmark-row-with:hover { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-without:hover { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-table tr.benchmark-row-avg { font-weight: 600; border-top: 2px solid var(--border); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-with { background: rgba(33, 150, 243, 0.12); }
+    .benchmark-table tr.benchmark-row-avg.benchmark-row-without { background: rgba(255, 193, 7, 0.12); }
+    .benchmark-delta-positive { color: var(--green); font-weight: 600; }
+    .benchmark-delta-negative { color: var(--red); font-weight: 600; }
+    .benchmark-notes {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1rem;
+    }
+    .benchmark-notes h3 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+    .benchmark-notes ul {
+      list-style: disc;
+      padding-left: 1.25rem;
+    }
+    .benchmark-notes li {
+      font-size: 0.8125rem;
+      line-height: 1.6;
+      margin-bottom: 0.375rem;
+    }
+    .benchmark-empty {
+      color: var(--text-muted);
+      font-style: italic;
+      text-align: center;
+      padding: 3rem;
+    }
+
+    /* ---- Navigation ---- */
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      flex-shrink: 0;
+    }
+    .nav-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      transition: all 0.15s;
+    }
+    .nav-btn:hover:not(:disabled) {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .nav-btn:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+    .done-btn {
+      font-family: 'Poppins', sans-serif;
+      padding: 0.5rem 1.5rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .done-btn:hover {
+      background: var(--bg);
+      border-color: var(--text-muted);
+    }
+    .done-btn.ready {
+      border: none;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+    }
+    .done-btn.ready:hover {
+      background: var(--accent-hover);
+    }
+    /* ---- Done overlay ---- */
+    .done-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+    }
+    .done-overlay.visible {
+      display: flex;
+    }
+    .done-card {
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      text-align: center;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+    }
+    .done-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .done-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+    .done-card .btn-row {
+      display: flex;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    .done-card button {
+      padding: 0.5rem 1.25rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      cursor: pointer;
+      font-size: 0.875rem;
+    }
+    .done-card button:hover {
+      background: var(--bg);
+    }
+    /* ---- Toast ---- */
+    .toast {
+      position: fixed;
+      bottom: 5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--header-bg);
+      color: var(--header-text);
+      padding: 0.625rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.875rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+      z-index: 200;
+    }
+    .toast.visible {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <div id="app" style="height:100vh; display:flex; flex-direction:column;">
+    <div class="header">
+      <div>
+        <h1>Eval Review: <span id="skill-name"></span></h1>
+        <div class="instructions">Review each output and leave feedback below. Navigate with arrow keys or buttons. When done, copy feedback and paste into Claude Code.</div>
+      </div>
+      <div class="progress" id="progress"></div>
+    </div>
+
+    <!-- View tabs (only shown when benchmark data exists) -->
+    <div class="view-tabs" id="view-tabs" style="display:none;">
+      <button class="view-tab active" onclick="switchView('outputs')">Outputs</button>
+      <button class="view-tab" onclick="switchView('benchmark')">Benchmark</button>
+    </div>
+
+    <!-- Outputs panel (qualitative review) -->
+    <div class="view-panel active" id="panel-outputs">
+    <div class="main">
+      <!-- Prompt -->
+      <div class="section">
+        <div class="section-header">Prompt <span class="config-badge" id="config-badge" style="display:none;"></span></div>
+        <div class="section-body">
+          <div class="prompt-text" id="prompt-text"></div>
+        </div>
+      </div>
+
+      <!-- Outputs -->
+      <div class="section">
+        <div class="section-header">Output</div>
+        <div class="section-body" id="outputs-body">
+          <div class="empty-state">No output files found</div>
+        </div>
+      </div>
+
+      <!-- Previous Output (collapsible) -->
+      <div class="section" id="prev-outputs-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="togglePrevOutputs()">
+            <span class="arrow" id="prev-outputs-arrow">&#9654;</span>
+            Previous Output
+          </div>
+        </div>
+        <div class="grades-content" id="prev-outputs-content"></div>
+      </div>
+
+      <!-- Grades (collapsible) -->
+      <div class="section" id="grades-section" style="display:none;">
+        <div class="section-header">
+          <div class="grades-toggle" onclick="toggleGrades()">
+            <span class="arrow" id="grades-arrow">&#9654;</span>
+            Formal Grades
+          </div>
+        </div>
+        <div class="grades-content" id="grades-content"></div>
+      </div>
+
+      <!-- Feedback -->
+      <div class="section">
+        <div class="section-header">Your Feedback</div>
+        <div class="section-body">
+          <textarea
+            class="feedback-textarea"
+            id="feedback"
+            placeholder="What do you think of this output? Any issues, suggestions, or things that look great?"
+          ></textarea>
+          <div class="feedback-status" id="feedback-status"></div>
+          <div class="prev-feedback" id="prev-feedback" style="display:none;">
+            <div class="prev-feedback-label">Previous feedback</div>
+            <div id="prev-feedback-text"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav" id="outputs-nav">
+      <button class="nav-btn" id="prev-btn" onclick="navigate(-1)">&#8592; Previous</button>
+      <button class="done-btn" id="done-btn" onclick="showDoneDialog()">Submit All Reviews</button>
+      <button class="nav-btn" id="next-btn" onclick="navigate(1)">Next &#8594;</button>
+    </div>
+    </div><!-- end panel-outputs -->
+
+    <!-- Benchmark panel (quantitative stats) -->
+    <div class="view-panel" id="panel-benchmark">
+      <div class="benchmark-view" id="benchmark-content">
+        <div class="benchmark-empty">No benchmark data available. Run a benchmark to see quantitative results here.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Done overlay -->
+  <div class="done-overlay" id="done-overlay">
+    <div class="done-card">
+      <h2>Review Complete</h2>
+      <p>Your feedback has been saved. Go back to your Claude Code session and tell Claude you're done reviewing.</p>
+      <div class="btn-row">
+        <button onclick="closeDoneDialog()">OK</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ---- Embedded data (injected by generate_review.py) ----
+    const EMBEDDED_DATA = {"skill_name": "consultor-som", "runs": [{"id": "eval-1-carro-onix-3000w-with_skill-run-1", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "resposta.md", "type": "text", "content": "# Onix 2019: 2 subs de 12\" + m\u00c3\u00b3dulo de 3000 W sem mexer na el\u00c3\u00a9trica. Faz sentido?\n\n**Resposta curta: do jeito que est\u00c3\u00a1, n\u00c3\u00a3o.** O problema n\u00c3\u00a3o \u00c3\u00a9 gosto, \u00c3\u00a9 conta. Quatro coisas n\u00c3\u00a3o fecham juntas: **3000 W**, **el\u00c3\u00a9trica original**, **R$ 2.500** e **\"sem grave embolado\"**. D\u00c3\u00a1 pra ter um grave forte, com pegada, que valoriza rap e eletr\u00c3\u00b4nica, sem mexer na el\u00c3\u00a9trica e dentro do or\u00c3\u00a7amento. S\u00c3\u00b3 que o caminho \u00c3\u00a9 outro.\n\n---\n\n## Por que o plano original n\u00c3\u00a3o fecha\n\n### 1. A el\u00c3\u00a9trica do Onix n\u00c3\u00a3o alimenta 3000 W\n\nContas feitas na calculadora (m\u00c3\u00b3dulo classe D, 80% de efici\u00c3\u00aancia, 12,6 V):\n\n| M\u00c3\u00b3dulo | Corrente em pot\u00c3\u00aancia cheia | Corrente m\u00c3\u00a9dia com m\u00c3\u00basica (1/8 a 1/3) |\n|---|---|---|\n| **3000 W RMS** | **~298 A** | 37 a 99 A |\n| 1600 W RMS (os 2 subs de 800 W) | ~159 A | 20 a 53 A |\n| **600 W RMS** | **~60 A** | 7 a 20 A |\n\n- O alternador de um carro popular como o Onix fica **na faixa de 70 a 110 A** (confira na etiqueta do seu). O pr\u00c3\u00b3prio carro j\u00c3\u00a1 usa **30 a 50 A** com farol, ventila\u00c3\u00a7\u00c3\u00a3o, inje\u00c3\u00a7\u00c3\u00a3o e r\u00c3\u00a1dio ligados. **Sobram uns 40 a 60 A** para o som.\n- Um m\u00c3\u00b3dulo de 3000 W tocando forte pede de 40 a 100 A **em m\u00c3\u00a9dia**, com picos de quase 300 A. Esses picos saem da bateria. A tens\u00c3\u00a3o cai, a luz pisca, o m\u00c3\u00b3dulo entra em prote\u00c3\u00a7\u00c3\u00a3o e o grave \"morre\" justo na batida. A bateria de partida de 60 Ah sofre com isso e dura menos.\n- S\u00c3\u00b3 para alimentar um m\u00c3\u00b3dulo de 3000 W voc\u00c3\u00aa precisaria de **cabo de 53 mm\u00c2\u00b2 (0 AWG)**, que a calculadora aponta para 300 A em 5 m com queda de 0,5 V. Tamb\u00c3\u00a9m entrariam o Big 3, uma bateria extra e possivelmente um alternador maior. Isso \u00c3\u00a9 **mexer na el\u00c3\u00a9trica**, justamente o que voc\u00c3\u00aa n\u00c3\u00a3o quer.\n\n**Regra pr\u00c3\u00a1tica:** com a el\u00c3\u00a9trica original, o teto confort\u00c3\u00a1vel fica em **~600 a 800 W RMS reais**.\n\n### 2. O n\u00c3\u00bamero \"3000 W\" quase nunca \u00c3\u00a9 o que parece\n\n- M\u00c3\u00b3dulos nacionais costumam declarar o RMS **em 14,4 V e na menor imped\u00c3\u00a2ncia (1 \u00ce\u00a9)**. Em 12,6 V a pot\u00c3\u00aancia cai para cerca de 75%, ou seja, um \"3000 W\" entrega ~2250 W. E rodar em 1 \u00ce\u00a9 \u00c3\u00a9 o pior cen\u00c3\u00a1rio de controle do grave.\n- An\u00c3\u00bancio com \"3000 W\" que s\u00c3\u00b3 fala em \"pot\u00c3\u00aancia m\u00c3\u00a1xima\" ou \"PMPO\" pode ser bem menos que isso na pr\u00c3\u00a1tica.\n\n### 3. Mais watts d\u00c3\u00a3o menos volume do que parece\n\nO ouvido percebe decibel, n\u00c3\u00a3o watt. Estimativa para o mesmo sub (sensibilidade de 86 dB, 1 m, fora do carro):\n\n- 600 W \u00e2\u2020\u2019 **~114 dB**\n- 3000 W \u00e2\u2020\u2019 **~121 dB**\n\n**Com 5 vezes mais pot\u00c3\u00aancia voc\u00c3\u00aa ganha ~7 dB.** \u00c3\u2030 percept\u00c3\u00advel, mas n\u00c3\u00a3o \u00c3\u00a9 \"outro mundo\". E esses 7 dB s\u00c3\u00b3 aparecem se a el\u00c3\u00a9trica entregar a pot\u00c3\u00aancia, o que n\u00c3\u00a3o acontece no seu caso. Dentro do carro, o **ganho de cabine** ajuda de gra\u00c3\u00a7a: o Onix \u00c3\u00a9 pequeno e refor\u00c3\u00a7a naturalmente o grave abaixo de ~60 Hz. Um sub bem instalado com 500 a 600 W j\u00c3\u00a1 **enche bastante** um hatch compacto.\n\n### 4. \"N\u00c3\u00a3o quero grave embolado\" pesa contra o plano\n\nGrave embolado quase sempre vem de:\n- **Caixa dutada mal projetada**, ou caixa pronta gen\u00c3\u00a9rica sintonizada alta, que d\u00c3\u00a1 aquele \"bum\" arrastado.\n- **Clipping**: ganho alto demais e m\u00c3\u00b3dulo sofrendo com tens\u00c3\u00a3o baixa. Aqui \u00c3\u00a9 exatamente o cen\u00c3\u00a1rio de um m\u00c3\u00b3dulo grande com el\u00c3\u00a9trica fraca.\n- **Grave desproporcional ao resto**: 1600 W de sub contra os falantes originais de porta, que t\u00c3\u00aam uns 15 a 20 W. O grave engole voz e caixa da batida.\n\nPara rap e eletr\u00c3\u00b4nica, que t\u00c3\u00aam muito sub-grave (808, kicks em 40 a 60 Hz), o segredo \u00c3\u00a9 **grave controlado e r\u00c3\u00a1pido**. Volume bruto vem depois.\n\n### 5. O or\u00c3\u00a7amento n\u00c3\u00a3o cobre\n\nDois subs de 800 W + um m\u00c3\u00b3dulo \"3000 W\" confi\u00c3\u00a1vel + caixa dupla + cabo 0 AWG + fus\u00c3\u00advel + instala\u00c3\u00a7\u00c3\u00a3o passam de R$ 2.500 com folga. E ainda faltaria a parte el\u00c3\u00a9trica que tornaria tudo isso funcional.\n\n---\n\n## Premissas que assumi\n\n- **Onix hatch 2019** (1\u00c2\u00aa gera\u00c3\u00a7\u00c3\u00a3o) com r\u00c3\u00a1dio original, seja o de f\u00c3\u00a1brica simples ou o MyLink, sem sa\u00c3\u00adda RCA. Por isso o m\u00c3\u00b3dulo vai usar **entrada de alto n\u00c3\u00advel** (ligada nos fios dos alto-falantes). Se for o sed\u00c3\u00a3 Onix Plus ou Prisma, a l\u00c3\u00b3gica \u00c3\u00a9 a mesma.\n- Voc\u00c3\u00aa quer **porta-malas ainda utiliz\u00c3\u00a1vel**. Uma caixa com 2 subs de 12\" ocupa boa parte dos ~280 L do Onix.\n- O som \u00c3\u00a9 para **ouvir andando e em volume alto**, n\u00c3\u00a3o para competi\u00c3\u00a7\u00c3\u00a3o de SPL nem para tocar muito tempo com o motor desligado.\n- \"N\u00c3\u00a3o mexer na el\u00c3\u00a9trica\" = sem bateria extra, sem Big 3 e sem trocar alternador. **Um cabo de for\u00c3\u00a7a novo, direto da bateria, com fus\u00c3\u00advel** entra como instala\u00c3\u00a7\u00c3\u00a3o do som, n\u00c3\u00a3o como mexer na el\u00c3\u00a9trica. Ele \u00c3\u00a9 obrigat\u00c3\u00b3rio em qualquer op\u00c3\u00a7\u00c3\u00a3o.\n- Os pre\u00c3\u00a7os s\u00c3\u00a3o **estimativas de faixa** do mercado brasileiro (Mercado Livre, Amazon, Magalu) e mudam bastante. Confira antes de comprar.\n\n---\n\n## Arquitetura proposta\n\n```\nR\u00c3\u00a1dio original (sa\u00c3\u00adda de alto-falante)\n        \u00e2\u201d\u201a  entrada de alto n\u00c3\u00advel\n        \u00e2\u2013\u00bc\nM\u00c3\u00b3dulo classe D 1 canal, 500\u00e2\u20ac\u201c800 W RMS reais em 2 \u00ce\u00a9\n  (passa-baixa ~80 Hz + subs\u00c3\u00b4nico ~25\u00e2\u20ac\u201c30 Hz se a caixa for dutada)\n        \u00e2\u201d\u201a\n        \u00e2\u2013\u00bc\n1 sub de 12\" (bobina dupla) em caixa SELADA de ~30\u00e2\u20ac\u201c40 L\n  ou dutada BEM projetada (Fb ~32\u00e2\u20ac\u201c35 Hz)\n\nEl\u00c3\u00a9trica: bateria (+) \u00e2\u2020\u2019 fus\u00c3\u00advel de 80\u00e2\u20ac\u201c100 A a at\u00c3\u00a9 30 cm da bateria \u00e2\u2020\u2019 cabo OFC 21 mm\u00c2\u00b2 \u00e2\u2020\u2019 m\u00c3\u00b3dulo\n          m\u00c3\u00b3dulo (\u00e2\u02c6\u2019) \u00e2\u2020\u2019 chassi lixado, cabo curto de mesma bitola\n```\n\n**Por que 1 sub bom em vez de 2?** A el\u00c3\u00a9trica s\u00c3\u00b3 alimenta ~600 a 800 W de qualquer jeito. Dividir essa pot\u00c3\u00aancia entre dois subs de 800 W deixaria cada um com 300 a 400 W. Voc\u00c3\u00aa pagaria por dois falantes, uma caixa maior e mais porta-malas perdido, para um ganho de volume pequeno. **Um sub de 12\" com 500 a 600 W bem aproveitados** soa mais limpo e cabe no bolso.\n\n**Por que caixa selada?** Grave seco, r\u00c3\u00a1pido e controlado, e ela perdoa mais erro. \u00c3\u2030 o anti-\"embolado\". Num carro pequeno, o ganho de cabine compensa boa parte da efici\u00c3\u00aancia que a selada perde. Se voc\u00c3\u00aa quiser **mais press\u00c3\u00a3o** em 35 a 45 Hz (808 pesado), d\u00c3\u00a1 pra usar uma **dutada com sintonia baixa (~32 a 35 Hz), no volume indicado pelo fabricante do sub e com filtro subs\u00c3\u00b4nico ligado**. S\u00c3\u00b3 n\u00c3\u00a3o compre caixa pronta gen\u00c3\u00a9rica \"que serve pra qualquer sub\".\n\n---\n\n## Dimensionamento\n\n| Item | Conta | Resultado |\n|---|---|---|\n| Corrente do m\u00c3\u00b3dulo 600 W | 600 / (12,6 \u00c3\u2014 0,8) | ~60 A em pot\u00c3\u00aancia cheia; 7 a 20 A em m\u00c3\u00a9dia com m\u00c3\u00basica, **cabe no alternador original** |\n| Cabo de for\u00c3\u00a7a | 60 a 80 A, 5 m, queda \u00e2\u2030\u00a4 0,5 V | m\u00c3\u00adnimo **16 mm\u00c2\u00b2**; recomendo **21 mm\u00c2\u00b2 (4 AWG) OFC** pela margem (se for CCA, suba uma bitola) |\n| Fus\u00c3\u00advel | protege o cabo | **80 a 100 A**, a no m\u00c3\u00a1ximo 30 cm da bateria |\n| Imped\u00c3\u00a2ncia | sub DVC 2+2 \u00ce\u00a9 em paralelo | **1 \u00ce\u00a9** (evite); em s\u00c3\u00a9rie = **4 \u00ce\u00a9**. Melhor ainda: sub DVC 4+4 \u00ce\u00a9 em paralelo = **2 \u00ce\u00a9**, o ponto ideal para a maioria dos m\u00c3\u00b3dulos |\n| Ganho (ex.: m\u00c3\u00b3dulo de 600 W em 2 \u00ce\u00a9) | V = \u00e2\u02c6\u0161(P \u00c3\u2014 R) | **~34,6 V AC** na sa\u00c3\u00adda, medidos com tom de 40 Hz e sub desconectado |\n\n---\n\n## Op\u00c3\u00a7\u00c3\u00b5es de or\u00c3\u00a7amento (estimativas, confira pre\u00c3\u00a7os atuais)\n\n| Item | O que importa na spec | Econ\u00c3\u00b4mico | Equilibrado \u00e2\u00ad\ufffd | Grave + palco |\n|---|---|---|---|---|\n| Subwoofer 12\" | RMS real, bobina dupla, volume de caixa recomendado | 350\u00e2\u20ac\u201c400 W RMS \u00c2\u00b7 R$ 350\u00e2\u20ac\u201c500 | 500\u00e2\u20ac\u201c600 W RMS, DVC \u00c2\u00b7 R$ 550\u00e2\u20ac\u201c800 | 400\u00e2\u20ac\u201c500 W RMS \u00c2\u00b7 R$ 450\u00e2\u20ac\u201c600 |\n| Caixa | MDF 18 mm, vedada, volume certo para o sub | Selada ~30 L \u00c2\u00b7 R$ 150\u00e2\u20ac\u201c250 | Selada ~35\u00e2\u20ac\u201c40 L ou dutada sob medida \u00c2\u00b7 R$ 200\u00e2\u20ac\u201c350 | Selada ~30\u00e2\u20ac\u201c35 L \u00c2\u00b7 R$ 150\u00e2\u20ac\u201c250 |\n| M\u00c3\u00b3dulo sub | Classe D, RMS a 12,6\u00e2\u20ac\u201c14,4 V em 2 \u00ce\u00a9, entrada de alto n\u00c3\u00advel, subs\u00c3\u00b4nico | ~400 W \u00c2\u00b7 R$ 300\u00e2\u20ac\u201c400 | 600\u00e2\u20ac\u201c800 W em 2 \u00ce\u00a9 \u00c2\u00b7 R$ 450\u00e2\u20ac\u201c650 | ~500 W \u00c2\u00b7 R$ 350\u00e2\u20ac\u201c450 |\n| Kit 2 vias portas dianteiras | 6\" + tweeter + crossover, ~60\u00e2\u20ac\u201c100 W RMS | \u00e2\u20ac\u201d | \u00e2\u20ac\u201d | R$ 300\u00e2\u20ac\u201c450 |\n| M\u00c3\u00b3dulo 4 canais | Classe D, 4 \u00c3\u2014 80\u00e2\u20ac\u201c100 W RMS | \u00e2\u20ac\u201d | \u00e2\u20ac\u201d | R$ 300\u00e2\u20ac\u201c400 |\n| Kit de cabos | OFC de verdade, 21 mm\u00c2\u00b2 + fus\u00c3\u00advel + remote | R$ 200\u00e2\u20ac\u201c300 | R$ 250\u00e2\u20ac\u201c350 | R$ 250\u00e2\u20ac\u201c350 |\n| Instala\u00c3\u00a7\u00c3\u00a3o (se n\u00c3\u00a3o fizer voc\u00c3\u00aa mesmo) | \u00e2\u20ac\u201d | R$ 150\u00e2\u20ac\u201c250 | R$ 200\u00e2\u20ac\u201c300 | R$ 300\u00e2\u20ac\u201c450 |\n| **Total estimado** | | **~R$ 1.150\u00e2\u20ac\u201c1.700** | **~R$ 1.650\u00e2\u20ac\u201c2.450** | **~R$ 2.100\u00e2\u20ac\u201c2.950** (no limite; d\u00c3\u00a1 pra fazer em 2 etapas) |\n\n- **Econ\u00c3\u00b4mico:** j\u00c3\u00a1 d\u00c3\u00a1 um grave cheio e bem acima do original. Sobra dinheiro para a manta nas portas.\n- **Equilibrado \u00e2\u00ad\ufffd (\u00c3\u00a9 o que eu escolheria para voc\u00c3\u00aa):** grave com press\u00c3\u00a3o de sobra para rap e eletr\u00c3\u00b4nica num Onix, dentro da el\u00c3\u00a9trica original e do or\u00c3\u00a7amento.\n- **Grave + palco:** um pouco menos grave, mas o som inteiro melhora. A voz do rap aparece e o grave n\u00c3\u00a3o \"engole\" o resto. Se o \"n\u00c3\u00a3o quero embolado\" pesa muito para voc\u00c3\u00aa, essa \u00c3\u00a9 a mais equilibrada no resultado final.\n\nMarcas nacionais de m\u00c3\u00b3dulo com assist\u00c3\u00aancia no Brasil: Taramps, SounDigital, Banda, Stetsom. Para subs: JBL Selenium, Bravox, Pioneer, Hinor, entre outras. **Escolha pela spec, n\u00c3\u00a3o pelo n\u00c3\u00bamero da caixa.** Evite an\u00c3\u00bancio de marca famosa com pre\u00c3\u00a7o bom demais: pode ser falsifica\u00c3\u00a7\u00c3\u00a3o.\n\n---\n\n## Onde economizar e onde n\u00c3\u00a3o economizar\n\n- **N\u00c3\u00a3o economize:** cabo de for\u00c3\u00a7a OFC, fus\u00c3\u00advel na bateria, caixa bem constru\u00c3\u00adda no volume certo e m\u00c3\u00b3dulo com RMS declarado honestamente. Esses itens decidem se o grave fica limpo ou embolado, e se o carro fica seguro.\n- **Economize:** caixa \"de grife\" (um marceneiro faz uma em MDF 18 mm por bem menos), bass boost (n\u00c3\u00a3o use), acess\u00c3\u00b3rios \"premium\", RCA caro (com entrada de alto n\u00c3\u00advel voc\u00c3\u00aa nem precisa de RCA).\n\n---\n\n## Riscos e cuidados\n\n- **Fus\u00c3\u00advel na bateria** a at\u00c3\u00a9 30 cm do polo positivo. Sem ele, um curto no cabo pode causar inc\u00c3\u00aandio.\n- **Terra no chassi lixado**, com cabo curto e da mesma bitola do positivo. Terra ruim causa chiado (aquele \"uiii\" que acompanha a rota\u00c3\u00a7\u00c3\u00a3o do motor).\n- **N\u00c3\u00a3o use bass boost** nem ganho no m\u00c3\u00a1ximo. \u00c3\u2030 assim que se queima sub e que se ganha grave embolado.\n- **R\u00c3\u00a1dio original:** alguns r\u00c3\u00a1dios de f\u00c3\u00a1brica cortam ou comprimem o grave em volume alto. Se notar o grave \"sumindo\" quando aumenta o volume, um **DSP ou conversor com recupera\u00c3\u00a7\u00c3\u00a3o de grave** resolve (~R$ 200\u00e2\u20ac\u201c400). Fica como upgrade futuro.\n- **Com o motor desligado**, toque baixo e por pouco tempo: a bateria de 60 Ah \u00c3\u00a9 de partida.\n- Volume alto por muito tempo cansa e prejudica a audi\u00c3\u00a7\u00c3\u00a3o. O grave limpo tem a vantagem de soar forte sem precisar de tanto volume.\n\n---\n\n## Pr\u00c3\u00b3ximos passos\n\n1. **Veja a etiqueta do alternador** (ou o manual) e me diga a amperagem. Diga tamb\u00c3\u00a9m se o r\u00c3\u00a1dio \u00c3\u00a9 o MyLink ou o simples. Isso confirma o teto de pot\u00c3\u00aancia.\n2. **Escolha o caminho:** \"muito grave\" (Equilibrado) ou \"som inteiro melhor\" (Grave + palco).\n3. **Escolha o sub primeiro** e pe\u00c3\u00a7a o datasheet com volume de caixa recomendado e par\u00c3\u00a2metros T/S. A caixa \u00c3\u00a9 feita para o sub, n\u00c3\u00a3o o contr\u00c3\u00a1rio.\n4. Depois compre o m\u00c3\u00b3dulo que casa com a imped\u00c3\u00a2ncia final do sub (2 \u00ce\u00a9, idealmente) e o kit de cabos OFC 21 mm\u00c2\u00b2.\n5. Na instala\u00c3\u00a7\u00c3\u00a3o, **regule o ganho com mult\u00c3\u00admetro** (tens\u00c3\u00a3o alvo da tabela acima), passa-baixa em ~80 Hz e subs\u00c3\u00b4nico em ~25\u00e2\u20ac\u201c30 Hz se a caixa for dutada.\n\nQuando voc\u00c3\u00aa decidir o caminho, eu monto a lista fechada com as specs de cada pe\u00c3\u00a7a, o volume exato da caixa e o passo a passo de liga\u00c3\u00a7\u00c3\u00a3o.\n"}], "grading": {"expectations": [{"text": "Contesta a premissa de 3000W sem mexer na el\u00c3\u00a9trica (aponta incoer\u00c3\u00aancia)", "passed": true, "evidence": "'Resposta curta: do jeito que est\u00c3\u00a1, n\u00c3\u00a3o... Quatro coisas n\u00c3\u00a3o fecham juntas: 3000 W, el\u00c3\u00a9trica original, R$ 2.500 e \"sem grave embolado\"'; se\u00c3\u00a7\u00c3\u00a3o 'A el\u00c3\u00a9trica do Onix n\u00c3\u00a3o alimenta 3000 W'."}, {"text": "Mostra conta de corrente do m\u00c3\u00b3dulo (A) em rela\u00c3\u00a7\u00c3\u00a3o ao alternador/bateria", "passed": true, "evidence": "Tabela: 3000 W RMS -> ~298 A em pot\u00c3\u00aancia cheia, 37 a 99 A m\u00c3\u00a9dia; alternador 70-110 A, carro usa 30-50 A, 'Sobram uns 40 a 60 A para o som'; picos saem da bateria."}, {"text": "Prop\u00c3\u00b5e alternativa coerente dentro de R$ 2500", "passed": true, "evidence": "Op\u00c3\u00a7\u00c3\u00a3o 'Equilibrado' (1 sub 12\" DVC 500-600 W, m\u00c3\u00b3dulo 600-800 W em 2 \u00ce\u00a9, caixa selada) ~R$ 1.650-2.450; justificativa de 1 sub em vez de 2 pela limita\u00c3\u00a7\u00c3\u00a3o el\u00c3\u00a9trica."}, {"text": "Trata a integra\u00c3\u00a7\u00c3\u00a3o com o r\u00c3\u00a1dio original (entrada de alto n\u00c3\u00advel ou conversor RCA)", "passed": true, "evidence": "'r\u00c3\u00a1dio original... sem sa\u00c3\u00adda RCA. Por isso o m\u00c3\u00b3dulo vai usar entrada de alto n\u00c3\u00advel (ligada nos fios dos alto-falantes)'; tamb\u00c3\u00a9m menciona DSP/recupera\u00c3\u00a7\u00c3\u00a3o de grave se o r\u00c3\u00a1dio cortar grave."}, {"text": "Menciona fus\u00c3\u00advel perto da bateria e bitola/qualidade do cabo (OFC vs CCA)", "passed": true, "evidence": "'fus\u00c3\u00advel de 80-100 A a at\u00c3\u00a9 30 cm da bateria', 'cabo OFC 21 mm\u00c2\u00b2', 'se for CCA, suba uma bitola'."}, {"text": "Explica como evitar grave embolado (tipo de caixa, subs\u00c3\u00b4nico, regulagem de ganho)", "passed": true, "evidence": "Caixa selada ou dutada Fb ~32-35 Hz, subs\u00c3\u00b4nico 25-30 Hz, passa-baixa 80 Hz, ganho com mult\u00c3\u00admetro (~34,6 V AC), sem bass boost."}, {"text": "Apresenta op\u00c3\u00a7\u00c3\u00b5es de or\u00c3\u00a7amento em R$ em n\u00c3\u00adveis diferentes", "passed": true, "evidence": "Tabela com Econ\u00c3\u00b4mico (~R$ 1.150-1.700), Equilibrado (~R$ 1.650-2.450) e Grave + palco (~R$ 2.100-2.950)."}], "summary": {"passed": 7, "failed": 0, "total": 7, "pass_rate": 1.0}, "timing": {"executor_duration_seconds": 91.9, "total_duration_seconds": 91.9}, "claims": [{"claim": "3000 W / (12,6 V x 0,8) ~ 298 A", "type": "factual", "verified": true, "evidence": "3000/10.08 = 297.6 A."}, {"claim": "SPL 86 dB sub: 600 W ~114 dB, 3000 W ~121 dB (~7 dB de diferen\u00c3\u00a7a)", "type": "factual", "verified": true, "evidence": "86+10log(600)=113.8; 86+10log(3000)=120.8."}, {"claim": "Ganho alvo para 600 W em 2 \u00ce\u00a9 = ~34,6 V AC", "type": "factual", "verified": true, "evidence": "sqrt(600*2)=34.64 V."}, {"claim": "Em 12,6 V a pot\u00c3\u00aancia cai para ~75% da nominal a 14,4 V", "type": "factual", "verified": true, "evidence": "(12.6/14.4)^2 = 0.77."}, {"claim": "3 op\u00c3\u00a7\u00c3\u00b5es de or\u00c3\u00a7amento, a de 'Grave + palco' chega a R$ 2.950", "type": "quality", "verified": true, "evidence": "O topo da faixa estoura o or\u00c3\u00a7amento, mas a resposta avisa ('no limite; d\u00c3\u00a1 pra fazer em 2 etapas')."}], "user_notes_summary": {"uncertainties": ["Pre\u00c3\u00a7os s\u00c3\u00a3o estimativas de faixa, n\u00c3\u00a3o pesquisados"], "needs_review": [], "workarounds": []}, "eval_feedback": {"suggestions": [{"assertion": "Mostra conta de corrente do m\u00c3\u00b3dulo (A) em rela\u00c3\u00a7\u00c3\u00a3o ao alternador/bateria", "reason": "N\u00c3\u00a3o checa se o n\u00c3\u00bamero est\u00c3\u00a1 certo; uma conta errada (ex.: sem efici\u00c3\u00aancia) tamb\u00c3\u00a9m passaria. Considere exigir ordem de grandeza (~250-300 A para 3000 W)."}, {"reason": "Nenhuma assertion checa se a resposta pede dados faltantes (amperagem do alternador, vers\u00c3\u00a3o do r\u00c3\u00a1dio) ou se trata o uso com motor desligado / vida da bateria de partida."}], "overall": "Assertions cobrem bem o conte\u00c3\u00bado esperado, mas checam presen\u00c3\u00a7a e n\u00c3\u00a3o corre\u00c3\u00a7\u00c3\u00a3o num\u00c3\u00a9rica."}}}, {"id": "eval-1-carro-onix-3000w-without_skill-run-1", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "resposta.md", "type": "text", "content": "# Resposta\n\nResposta curta: **do jeito que voc\u00c3\u00aa descreveu, n\u00c3\u00a3o faz sentido.** O problema n\u00c3\u00a3o \u00c3\u00a9 o gosto nem o or\u00c3\u00a7amento. \u00c3\u2030 que um sistema desse tamanho n\u00c3\u00a3o funciona com a el\u00c3\u00a9trica original do Onix. E, pelo que voc\u00c3\u00aa falou (rap e eletr\u00c3\u00b4nica sem grave embolado), d\u00c3\u00a1 pra montar algo que te agrada mais gastando menos.\n\n## Premissas que eu assumi\n\n- Onix 2019 hatch (1.0 ou 1.4), alternador original na faixa de **~90 a 100 A** (varia com a vers\u00c3\u00a3o).\n- Bateria original de 60 Ah, sem bateria extra e sem trocar o alternador.\n- \"M\u00c3\u00b3dulo de 3000W\" sendo um amplificador classe D mono. Essa pot\u00c3\u00aancia costuma ser a m\u00c3\u00a1xima ou a de 1 ohm \"de caixa\", n\u00c3\u00a3o a RMS real.\n- R\u00c3\u00a1dio original (sem sa\u00c3\u00adda RCA), ent\u00c3\u00a3o vai precisar de um conversor de sinal.\n- Pre\u00c3\u00a7os aproximados do mercado brasileiro. Confirme na loja.\n\n## Por que o plano original n\u00c3\u00a3o fecha\n\n**1. Conta de corrente**\n- 2 subs x 800 W RMS = 1600 W RMS de pot\u00c3\u00aancia \u00c3\u00batil.\n- Um classe D rende uns 80%, ent\u00c3\u00a3o ele puxa uns 2000 W da el\u00c3\u00a9trica.\n- 2000 W \u00c3\u00b7 13,5 V \u00e2\u2030\u02c6 **150 A** s\u00c3\u00b3 pro som, no pico.\n- O alternador inteiro do Onix d\u00c3\u00a1 uns 90 a 100 A, e o carro j\u00c3\u00a1 gasta 30 a 50 A disso (inje\u00c3\u00a7\u00c3\u00a3o, ventoinha, farol, ar-condicionado).\n\nSobram uns **40 a 60 A pro som**. Isso d\u00c3\u00a1 algo em torno de **400 a 600 W RMS reais** pra usar com folga. O resto sai da bateria, e a\u00c3\u00ad:\n- a tens\u00c3\u00a3o cai, o farol \"pisca\" no ritmo do grave e o m\u00c3\u00b3dulo entra em prote\u00c3\u00a7\u00c3\u00a3o;\n- a bateria original, que n\u00c3\u00a3o foi feita pra descarga pesada e repetida, perde vida \u00c3\u00batil r\u00c3\u00a1pido;\n- o m\u00c3\u00b3dulo com tens\u00c3\u00a3o baixa **distorce (clipa)**, e essa \u00c3\u00a9 uma das principais causas de queimar sub.\n\n**2. O \"3000W\" provavelmente n\u00c3\u00a3o \u00c3\u00a9 3000 W**\nMuito m\u00c3\u00b3dulo de entrada anuncia pot\u00c3\u00aancia m\u00c3\u00a1xima ou pot\u00c3\u00aancia em 1 ohm a 14,4 V. Mesmo que ele entregue isso tudo, a el\u00c3\u00a9trica do seu carro n\u00c3\u00a3o aguenta alimentar. Comprar esse m\u00c3\u00b3dulo sem mexer na el\u00c3\u00a9trica \u00c3\u00a9 pagar por pot\u00c3\u00aancia que voc\u00c3\u00aa nunca vai usar.\n\n**3. Dinheiro**\nCom R$ 2500, 2 subs de 800 RMS + m\u00c3\u00b3dulo + caixa dupla + cabeamento grosso + instala\u00c3\u00a7\u00c3\u00a3o j\u00c3\u00a1 estoura ou fica no limite, **sem sobrar nada** pra alternador, bateria extra ou upgrade de cabos (o chamado \"Big 3\"). Ou seja: voc\u00c3\u00aa acaba com um sistema caro trabalhando mal.\n\n**4. Grave embolado**\nGrave embolado quase nunca \u00c3\u00a9 falta de pot\u00c3\u00aancia. Normalmente vem de:\n- caixa errada (volume/sintonia errados, dutada sintonizada alta demais pro porta-malas);\n- ganho alto demais e bass boost ligado;\n- corte (crossover) mal ajustado, com o sub tocando m\u00c3\u00a9dio-grave junto com as portas;\n- sub fora de fase com o resto.\n\nDois subs de 12\" num porta-malas pequeno como o do Onix hatch, empurrados por uma el\u00c3\u00a9trica fraca, \u00c3\u00a9 a receita **exata** pro grave \"boom boom\" embolado que voc\u00c3\u00aa quer evitar.\n\n## O que eu recomendaria com R$ 2500 e sem mexer na el\u00c3\u00a9trica do carro\n\nUm ponto importante: puxar um cabo de alimenta\u00c3\u00a7\u00c3\u00a3o direto da bateria, **com fus\u00c3\u00advel perto do polo**, n\u00c3\u00a3o \u00c3\u00a9 \"mexer na el\u00c3\u00a9trica do carro\". N\u00c3\u00a3o altera nada do sistema original, \u00c3\u00a9 s\u00c3\u00b3 a liga\u00c3\u00a7\u00c3\u00a3o correta de qualquer m\u00c3\u00b3dulo. Isso \u00c3\u00a9 obrigat\u00c3\u00b3rio por seguran\u00c3\u00a7a. N\u00c3\u00a3o ligue o m\u00c3\u00b3dulo em fio de r\u00c3\u00a1dio nem em fio de acess\u00c3\u00b3rio.\n\n### Proposta: 1 sub bem feito, bem ajustado\n\n| Item | Especifica\u00c3\u00a7\u00c3\u00a3o | Faixa de pre\u00c3\u00a7o |\n|---|---|---|\n| Subwoofer | 1x 12\" de **350 a 500 W RMS**, bobina que case com o m\u00c3\u00b3dulo (ex.: 2 ohms ou dupla 4 ohms) | R$ 500 a 800 |\n| M\u00c3\u00b3dulo | Classe D mono de **400 a 600 W RMS reais** na imped\u00c3\u00a2ncia final do sub, com filtro passa-baixa e subs\u00c3\u00b4nico | R$ 500 a 800 |\n| Caixa | Caixa **selada** (ou dutada sintonizada baixo, ~32 a 35 Hz) de MDF 18 mm, no volume que o fabricante do sub indica | R$ 250 a 450 |\n| Cabos | Kit com cabo de alimenta\u00c3\u00a7\u00c3\u00a3o de cobre **21 mm\u00c2\u00b2 (4 AWG)**, porta-fus\u00c3\u00advel perto da bateria, terra curto em lataria lixada | R$ 200 a 300 |\n| Sinal | Conversor de alto pra baixo n\u00c3\u00advel (line output converter) ligado nos fios de alto-falante do r\u00c3\u00a1dio original | R$ 60 a 150 |\n| Instala\u00c3\u00a7\u00c3\u00a3o e ajuste | Instala\u00c3\u00a7\u00c3\u00a3o + ajuste de ganho feito com mult\u00c3\u00admetro ou oscilosc\u00c3\u00b3pio, n\u00c3\u00a3o \"de ouvido\" | R$ 200 a 400 |\n| **Total** | | **~R$ 1700 a 2900** |\n\nD\u00c3\u00a1 pra fechar dentro dos R$ 2500 escolhendo bem. Um sistema desse enche o Onix de grave com folga pra rap e eletr\u00c3\u00b4nica, e dentro de um carro pequeno \u00c3\u00a9 muito mais forte do que parece no papel.\n\n### Selada ou dutada?\n\n- **Selada**: grave mais seco, r\u00c3\u00a1pido e definido. Acompanha bem a batida de rap e o kick da eletr\u00c3\u00b4nica. Toca menos alto, mas \u00c3\u00a9 a escolha mais segura pra **n\u00c3\u00a3o embolar**. \u00c3\u2030 a que eu recomendo pro seu gosto.\n- **Dutada sintonizada baixo (~32 a 35 Hz)**: mais press\u00c3\u00a3o e volume, bom pro 808 grave do trap e pro sub-bass da eletr\u00c3\u00b4nica. S\u00c3\u00b3 que precisa de projeto certo pro sub escolhido. Caixa \"gen\u00c3\u00a9rica de loja\" dutada \u00c3\u00a9 a campe\u00c3\u00a3 do grave embolado.\n\n## Ajustes que fazem a diferen\u00c3\u00a7a contra grave embolado\n\n1. **Passa-baixa (LPF) em ~70 a 80 Hz** no m\u00c3\u00b3dulo, pra o sub n\u00c3\u00a3o tocar voz nem m\u00c3\u00a9dio.\n2. **Subs\u00c3\u00b4nico em ~25 a 30 Hz**, pra proteger o sub e limpar o grave, principalmente se a caixa for dutada.\n3. **Bass boost no zero.** Se faltar grave, o problema \u00c3\u00a9 outro.\n4. **Ganho ajustado com medi\u00c3\u00a7\u00c3\u00a3o**, sem clipar. Ganho no talo n\u00c3\u00a3o \u00c3\u00a9 volume, \u00c3\u00a9 distor\u00c3\u00a7\u00c3\u00a3o.\n5. **Teste de fase**: inverta a fase (ou os fios do sub) e fique com a posi\u00c3\u00a7\u00c3\u00a3o em que o grave soa mais cheio no banco do motorista.\n6. Equalizador do r\u00c3\u00a1dio com grave neutro ou levemente abaixo, pra n\u00c3\u00a3o mandar sinal j\u00c3\u00a1 distorcido pro conversor.\n\n## Se no futuro voc\u00c3\u00aa quiser algo tipo 1500 W RMS ou mais\n\nA\u00c3\u00ad sim precisa mexer na el\u00c3\u00a9trica, e nessa ordem:\n1. **Big 3**: refor\u00c3\u00a7ar os cabos alternador \u00e2\u2020\u2019 bateria, bateria \u00e2\u2020\u2019 chassi e motor \u00e2\u2020\u2019 chassi.\n2. **Alternador de maior amperagem** (ou recondicionado pra mais corrente).\n3. **Bateria auxiliar** pr\u00c3\u00b3pria pra som (AGM, por exemplo), com isolador.\n\nIsso tudo passa f\u00c3\u00a1cil de R$ 1500 a 3000 s\u00c3\u00b3 na parte el\u00c3\u00a9trica, antes de gastar com sub e m\u00c3\u00b3dulo. Por isso n\u00c3\u00a3o cabe no or\u00c3\u00a7amento atual junto com os dois subs.\n\n## Resumo\n\n- **2 subs de 800 W + m\u00c3\u00b3dulo de 3000 W na el\u00c3\u00a9trica original: n\u00c3\u00a3o recomendo.** A el\u00c3\u00a9trica n\u00c3\u00a3o sustenta, a bateria sofre, o m\u00c3\u00b3dulo clipa e o risco de queimar sub e de ficar com grave embolado \u00c3\u00a9 alto.\n- **1 sub de 12\" de ~400 W RMS, m\u00c3\u00b3dulo de ~500 W RMS reais, caixa selada bem dimensionada e instala\u00c3\u00a7\u00c3\u00a3o bem ajustada**: cabe nos R$ 2500, n\u00c3\u00a3o exige modificar a el\u00c3\u00a9trica do carro e entrega um grave forte, limpo e definido pra rap e eletr\u00c3\u00b4nica.\n- Se depois quiser mais, primeiro fa\u00c3\u00a7a a el\u00c3\u00a9trica e s\u00c3\u00b3 depois aumente a pot\u00c3\u00aancia.\n"}], "grading": {"expectations": [{"text": "Contesta a premissa de 3000W sem mexer na el\u00c3\u00a9trica (aponta incoer\u00c3\u00aancia)", "passed": true, "evidence": "'do jeito que voc\u00c3\u00aa descreveu, n\u00c3\u00a3o faz sentido... um sistema desse tamanho n\u00c3\u00a3o funciona com a el\u00c3\u00a9trica original do Onix'."}, {"text": "Mostra conta de corrente do m\u00c3\u00b3dulo (A) em rela\u00c3\u00a7\u00c3\u00a3o ao alternador/bateria", "passed": true, "evidence": "'2000 W \u00c3\u00b7 13,5 V \u00e2\u2030\u02c6 150 A s\u00c3\u00b3 pro som, no pico'; alternador 90-100 A, carro gasta 30-50 A, sobram 40-60 A. Nota: a conta usa os 1600 W dos subs, n\u00c3\u00a3o os 3000 W do m\u00c3\u00b3dulo."}, {"text": "Prop\u00c3\u00b5e alternativa coerente dentro de R$ 2500", "passed": true, "evidence": "1 sub 12\" 350-500 W + m\u00c3\u00b3dulo 400-600 W + caixa selada; 'D\u00c3\u00a1 pra fechar dentro dos R$ 2500 escolhendo bem'. Faixa total listada (R$ 1700-2900) passa do teto, mas \u00c3\u00a9 explicitamente ajust\u00c3\u00a1vel."}, {"text": "Trata a integra\u00c3\u00a7\u00c3\u00a3o com o r\u00c3\u00a1dio original (entrada de alto n\u00c3\u00advel ou conversor RCA)", "passed": true, "evidence": "'Conversor de alto pra baixo n\u00c3\u00advel (line output converter) ligado nos fios de alto-falante do r\u00c3\u00a1dio original', R$ 60-150."}, {"text": "Menciona fus\u00c3\u00advel perto da bateria e bitola/qualidade do cabo (OFC vs CCA)", "passed": true, "evidence": "'com fus\u00c3\u00advel perto do polo'; 'cabo de alimenta\u00c3\u00a7\u00c3\u00a3o de cobre 21 mm\u00c2\u00b2 (4 AWG), porta-fus\u00c3\u00advel perto da bateria'. N\u00c3\u00a3o cita OFC vs CCA explicitamente, apenas 'cobre'; passou pelo fus\u00c3\u00advel + bitola."}, {"text": "Explica como evitar grave embolado (tipo de caixa, subs\u00c3\u00b4nico, regulagem de ganho)", "passed": true, "evidence": "Se\u00c3\u00a7\u00c3\u00a3o 'Ajustes que fazem a diferen\u00c3\u00a7a': LPF 70-80 Hz, subs\u00c3\u00b4nico 25-30 Hz, bass boost zero, ganho medido, teste de fase; selada vs dutada 32-35 Hz."}, {"text": "Apresenta op\u00c3\u00a7\u00c3\u00b5es de or\u00c3\u00a7amento em R$ em n\u00c3\u00adveis diferentes", "passed": false, "evidence": "Apenas uma proposta \u00c3\u00banica com faixa de pre\u00c3\u00a7o (~R$ 1700-2900); n\u00c3\u00a3o h\u00c3\u00a1 n\u00c3\u00adveis/tiers distintos. Menciona upgrade el\u00c3\u00a9trico futuro (R$ 1500-3000) mas n\u00c3\u00a3o como op\u00c3\u00a7\u00c3\u00a3o de or\u00c3\u00a7amento do sistema."}], "summary": {"passed": 6, "failed": 1, "total": 7, "pass_rate": 0.86}, "timing": {"executor_duration_seconds": 54.1, "total_duration_seconds": 54.1}, "claims": [{"claim": "1600 W RMS / 0,8 = 2000 W; 2000/13,5 \u00e2\u2030\u02c6 150 A", "type": "factual", "verified": true, "evidence": "2000/13.5 = 148 A. Correto, mas ignora que o m\u00c3\u00b3dulo de 3000 W pode puxar ~300 A."}, {"claim": "Sobram 40-60 A => 400-600 W RMS com folga", "type": "factual", "verified": true, "evidence": "50 A x 13,5 V x 0,8 \u00e2\u2030\u02c6 540 W. Coerente."}, {"claim": "Total da proposta R$ 1700-2900 cabe em R$ 2500", "type": "quality", "verified": false, "evidence": "S\u00c3\u00b3 cabe na metade inferior das faixas; o texto n\u00c3\u00a3o mostra uma configura\u00c3\u00a7\u00c3\u00a3o fechada dentro do teto."}], "user_notes_summary": {"uncertainties": [], "needs_review": [], "workarounds": []}, "eval_feedback": {"suggestions": [{"assertion": "Menciona fus\u00c3\u00advel perto da bateria e bitola/qualidade do cabo (OFC vs CCA)", "reason": "Amb\u00c3\u00adguo: n\u00c3\u00a3o fica claro se 'OFC vs CCA' \u00c3\u00a9 obrigat\u00c3\u00b3rio. Esta resposta passou s\u00c3\u00b3 com 'cobre 21 mm\u00c2\u00b2'. Separe em duas assertions (fus\u00c3\u00advel; distin\u00c3\u00a7\u00c3\u00a3o OFC/CCA) para discriminar melhor."}], "overall": "Resposta tecnicamente correta; diferen\u00c3\u00a7a principal para with_skill \u00c3\u00a9 aus\u00c3\u00aancia de tiers de or\u00c3\u00a7amento e de n\u00c3\u00bameros de SPL/ganho."}}}, {"id": "eval-2-sala-soundbar-vs-receiver-with_skill-run-1", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "resposta.md", "type": "text", "content": "## Resumo\n\nVoc\u00c3\u00aa disse \"m\u00c3\u00basica em primeiro lugar, filme de vez em quando\". Nesse caso **eu n\u00c3\u00a3o iria de soundbar**. Com R$ 3.000 eu montaria um **est\u00c3\u00a9reo de verdade: um par de caixas de estante separadas e bem posicionadas**, ligado na TV por HDMI ARC ou por cabo \u00c3\u00b3ptico. O caminho que eu escolheria \u00c3\u00a9 **receiver AV usado + caixas passivas novas**. Se voc\u00c3\u00aa quer s\u00c3\u00b3 ligar na tomada e sem compra de usado, o plano B s\u00c3\u00a3o **caixas ativas**.\n\nPor qu\u00c3\u00aa:\n\n- **Em m\u00c3\u00basica, o que d\u00c3\u00a1 o palco \u00c3\u00a9 a separa\u00c3\u00a7\u00c3\u00a3o est\u00c3\u00a9reo.** No jazz e na MPB voc\u00c3\u00aa \"v\u00c3\u00aa\" onde est\u00c3\u00a1 o viol\u00c3\u00a3o, a voz e o contrabaixo porque duas caixas est\u00c3\u00a3o afastadas 2 a 3 m uma da outra. A soundbar p\u00c3\u00b5e tudo numa barra de 1 m e \"simula\" essa largura com processamento. Em filme isso engana bem. Em m\u00c3\u00basica ac\u00c3\u00bastica soa artificial e estreito.\n- **Em filme, um bom par est\u00c3\u00a9reo j\u00c3\u00a1 \u00c3\u00a9 muito melhor que o alto-falante da TV.** O di\u00c3\u00a1logo fica no meio (o chamado \"centro fantasma\") se voc\u00c3\u00aa sentar entre as caixas.\n- **D\u00c3\u00a1 para crescer.** Com receiver, depois voc\u00c3\u00aa acrescenta um subwoofer e, se quiser, um canal central e as surrounds. A soundbar \u00c3\u00a9 um beco sem sa\u00c3\u00adda: quando enjoar, voc\u00c3\u00aa troca tudo.\n\n## Premissas\n\n- Sala de ~20 m\u00c2\u00b2 (tipo 5 \u00c3\u2014 4 m), voc\u00c3\u00aa sentado a **~2,5\u00e2\u20ac\u201c3 m** das caixas, e cabe um m\u00c3\u00b3vel ou pedestal para duas caixas de estante dos lados da TV.\n- A TV tem **HDMI ARC/eARC** e/ou **sa\u00c3\u00adda \u00c3\u00b3ptica** (quase todas as TVs dos \u00c3\u00baltimos ~8 anos t\u00c3\u00aam).\n- \u00c3\u2030 **apartamento ou casa com vizinho perto**. Por isso n\u00c3\u00a3o coloquei subwoofer grande no come\u00c3\u00a7o.\n- Voc\u00c3\u00aa topa comprar **usado** em pelo menos uma pe\u00c3\u00a7a. Se n\u00c3\u00a3o topar, v\u00c3\u00a1 direto para a op\u00c3\u00a7\u00c3\u00a3o das caixas ativas.\n\n**O que muda a recomenda\u00c3\u00a7\u00c3\u00a3o:**\n- Se n\u00c3\u00a3o tem espa\u00c3\u00a7o para duas caixas, ou a est\u00c3\u00a9tica manda (TV na parede, nada \u00c3\u00a0 vista): a\u00c3\u00ad a **soundbar** \u00c3\u00a9 a resposta certa, e tudo bem.\n- Se na pr\u00c3\u00a1tica voc\u00c3\u00aa v\u00c3\u00aa mais filme que ouve m\u00c3\u00basica: soundbar 3.1 com sub, ou receiver com 3.0/5.1.\n\n## Arquitetura\n\n```\nCelular/Spotify \u00e2\u201d\u20ac\u00e2\u201d\u20ac(Bluetooth/Chromecast/AirPlay)\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\ufffd\nTV (Netflix, etc.) \u00e2\u201d\u20ac\u00e2\u201d\u20ac(HDMI ARC ou \u00c3\u00b3ptico)\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u00a4\n                                                   \u00e2\u2013\u00bc\n                           Receiver AV usado (amplifica\u00c3\u00a7\u00c3\u00a3o + sele\u00c3\u00a7\u00c3\u00a3o de fonte)\n                                 \u00e2\u201d\u201a                        \u00e2\u201d\u201a\n                     Caixa E \u00e2\u2014\u201e\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u00b4\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u2013\u00ba Caixa D      [Pr\u00c3\u00a9-out de sub \u00e2\u2020\u2019 sub no futuro]\n```\n\nCom caixas ativas, o amplificador fica dentro das pr\u00c3\u00b3prias caixas. A\u00c3\u00ad a TV liga direto nelas pelo \u00c3\u00b3ptico e o celular pelo Bluetooth.\n\n## Dimensionamento: quanto de pot\u00c3\u00aancia precisa de verdade\n\nRodei a conta de SPL (n\u00c3\u00advel de press\u00c3\u00a3o sonora, o \"volume\" medido em dB) para caixas de estante comuns, com sensibilidade de **86 dB/1W/1m**, ouvidas a **3 m**:\n\n| Pot\u00c3\u00aancia por canal | SPL com o par (campo livre) | Na pr\u00c3\u00a1tica |\n|---|---|---|\n| 2 W | ~82 dB | Volume alto de conversa, m\u00c3\u00basica \"de fundo forte\" |\n| 30 W | ~94 dB | Muito alto para uma sala. \u00c3\u2030 onde ficam os picos do rock e as explos\u00c3\u00b5es do filme |\n| 50 W (caixa de 88 dB) | ~95 dB por caixa (~98 dB o par) | Mais do que voc\u00c3\u00aa vai usar numa sala de 20 m\u00c2\u00b2 |\n\nDentro de uma sala o volume real fica um pouco acima disso, porque as paredes refletem o som e ajudam.\n\n**Interpreta\u00c3\u00a7\u00c3\u00a3o:** a maior parte do tempo voc\u00c3\u00aa vai usar **menos de 5 W**. De 30 a 50 W RMS reais por canal j\u00c3\u00a1 sobra, desde que o amplificador aguente os picos sem distorcer (\"clipar\"). **N\u00c3\u00a3o pague por watts.** Pague por caixa boa. Receiver anunciado com \"1000 W\" \u00c3\u00a9 n\u00c3\u00bamero de marketing.\n\n**Grave:** caixa de estante com woofer de 5\" a 6,5\" desce bem at\u00c3\u00a9 ~50\u00e2\u20ac\u201c60 Hz. Isso cobre baixo de jazz, bumbo de rock e boa parte dos filmes. O que fica faltando \u00c3\u00a9 o \"tremor\" de explos\u00c3\u00a3o (abaixo de 40 Hz). Esse \u00c3\u00a9 o papel do subwoofer, que pode entrar depois.\n\n## Op\u00c3\u00a7\u00c3\u00b5es de or\u00c3\u00a7amento\n\nOs valores s\u00c3\u00a3o **estimativas** de faixa. N\u00c3\u00a3o pesquisei pre\u00c3\u00a7o agora, e pre\u00c3\u00a7o muda muito, ent\u00c3\u00a3o confira antes de comprar.\n\n| Item | O que importa na especifica\u00c3\u00a7\u00c3\u00a3o | A) Soundbar | B) Caixas ativas | C) Receiver usado + passivas \u00e2\u00ad\ufffd |\n|---|---|---|---|---|\n| Caixas / barra | Soundbar: 3.1 com sub sem fio, HDMI eARC. Caixas: woofer 5\u00e2\u20ac\u201c6,5\", sensibilidade \u00e2\u2030\u00a5 86 dB, 6\u00e2\u20ac\u201c8 \u00ce\u00a9 | Soundbar 3.1 de marca (Samsung, LG, Sony, JBL): R$ 2.000\u00e2\u20ac\u201c3.000 | Ativas com woofer 4\u00e2\u20ac\u201c5\", **entrada \u00c3\u00b3ptica + Bluetooth + sa\u00c3\u00adda de sub** (linhas Edifier R13xx/R17xx ou similar): R$ 1.200\u00e2\u20ac\u201c2.000 | Par de caixas de estante novas, 5\u00e2\u20ac\u201c6,5\" (JBL Stage, Polk, Elac, Wharfedale de entrada): R$ 1.200\u00e2\u20ac\u201c1.800 |\n| Amplifica\u00c3\u00a7\u00c3\u00a3o | 30\u00e2\u20ac\u201c50 W RMS reais/canal, aguentar 6 \u00ce\u00a9 | Embutida | Embutida | Receiver AV usado de 5\u00e2\u20ac\u201c10 anos (Denon, Yamaha, Onkyo, Pioneer) **com HDMI ARC e pr\u00c3\u00a9-out de sub**: R$ 900\u00e2\u20ac\u201c1.400 |\n| Streaming | Bluetooth decente ou Chromecast/AirPlay | Embutido | Bluetooth embutido | Muitos receivers dessa idade j\u00c3\u00a1 t\u00c3\u00aam rede/Bluetooth. Se n\u00c3\u00a3o tiver, um receptor Bluetooth/streamer: R$ 100\u00e2\u20ac\u201c500 |\n| Cabos e acess\u00c3\u00b3rios | Cabo de caixa de cobre 1,5\u00e2\u20ac\u201c2,5 mm\u00c2\u00b2 (sem \"audi\u00c3\u00b3filo\"), \u00c3\u00b3ptico ou HDMI | incluso | Cabo \u00c3\u00b3ptico ~R$ 30 | Cabo de caixa + HDMI: ~R$ 100 |\n| Suporte | Tweeter na altura do ouvido | \u00e2\u20ac\u201c | Pedestal ou m\u00c3\u00b3vel firme: R$ 0\u00e2\u20ac\u201c300 | Pedestal ou m\u00c3\u00b3vel firme: R$ 0\u00e2\u20ac\u201c300 |\n| **Total estimado** | | **R$ 2.000\u00e2\u20ac\u201c3.000** | **R$ 1.300\u00e2\u20ac\u201c2.300** | **R$ 2.300\u00e2\u20ac\u201c3.000** |\n| Sobra para o sub depois? | | N\u00c3\u00a3o (o sub j\u00c3\u00a1 vem, mas \u00c3\u00a9 o dele) | Sim, se tiver sa\u00c3\u00adda de sub | Sim, pelo pr\u00c3\u00a9-out |\n\n**Comparando as tr\u00c3\u00aas:**\n\n- **A) Soundbar.** Pr\u00c3\u00b3: zero fio, est\u00c3\u00a9tica, bom para di\u00c3\u00a1logo, um controle s\u00c3\u00b3. Contra: palco est\u00c3\u00a9reo estreito, e o \"sub\" das soundbars costuma ser um grave inchado numa frequ\u00c3\u00aancia s\u00c3\u00b3. N\u00c3\u00a3o evolui.\n- **B) Caixas ativas.** Pr\u00c3\u00b3: simples, garantia de loja, \u00c3\u00b3timo custo-benef\u00c3\u00adcio para m\u00c3\u00basica, som est\u00c3\u00a9reo de verdade. Contra: pot\u00c3\u00aancia e grave limitados por woofer pequeno, sem canal central/surround no futuro. Se o amplificador interno queimar, vai o conjunto todo para a assist\u00c3\u00aancia.\n- **C) Receiver usado + passivas.** Pr\u00c3\u00b3: melhor som por real gasto. Tem HDMI ARC (o controle da TV ajusta o volume), calibra\u00c3\u00a7\u00c3\u00a3o autom\u00c3\u00a1tica de sala (Audyssey/YPAO: voc\u00c3\u00aa p\u00c3\u00b5e o microfone que vem junto na posi\u00c3\u00a7\u00c3\u00a3o de escuta e o receiver corrige atraso, n\u00c3\u00advel e parte dos problemas da sala) e caminho aberto para 2.1 \u00e2\u2020\u2019 3.1 \u00e2\u2020\u2019 5.1. Contra: exige comprar usado com cuidado e ocupa mais espa\u00c3\u00a7o.\n\n**O que eu faria:** a op\u00c3\u00a7\u00c3\u00a3o **C**, gastando ~R$ 1.100 no receiver e ~R$ 1.500\u00e2\u20ac\u201c1.700 nas caixas. As caixas s\u00c3\u00a3o o que mais define o som, ent\u00c3\u00a3o s\u00c3\u00a3o elas que levam a maior parte do dinheiro. Depois, quando der, somaria um subwoofer de 8\"\u00e2\u20ac\u201c10\" (R$ 1.000\u00e2\u20ac\u201c1.500) com corte em 80 Hz. Se voc\u00c3\u00aa n\u00c3\u00a3o quer mexer com usado, iria de **B com um modelo que tenha sa\u00c3\u00adda de sub**, e guardaria o restante para o sub.\n\n## Onde economizar / onde n\u00c3\u00a3o economizar\n\n- **Economize:** receiver (usado de marca tradicional rende muito), cabos (cobre comum resolve), streaming (o Bluetooth do celular j\u00c3\u00a1 serve para come\u00c3\u00a7ar).\n- **N\u00c3\u00a3o economize:** **as caixas**. Elas mais a sala definem ~80% do resultado. Tamb\u00c3\u00a9m n\u00c3\u00a3o economize no posicionamento, que \u00c3\u00a9 de gra\u00c3\u00a7a.\n\n## Riscos e cuidados\n\n- **\u00c3\ufffdudio da TV pelo \u00c3\u00b3ptico:** configure a sa\u00c3\u00adda de \u00c3\u00a1udio da TV para **PCM/Est\u00c3\u00a9reo**. Se ela mandar Dolby Digital (bitstream) para caixas ativas que n\u00c3\u00a3o decodificam, d\u00c3\u00a1 sil\u00c3\u00aancio ou chiado. No receiver via HDMI ARC isso n\u00c3\u00a3o \u00c3\u00a9 problema, porque ele decodifica.\n- **Receiver usado:** teste antes de pagar. Todas as entradas, os dois canais em volume m\u00c3\u00a9dio-alto por alguns minutos (tem que tocar sem estalo, chiado ou desligamento), o HDMI e o display. Pergunte se tem o microfone de calibra\u00c3\u00a7\u00c3\u00a3o: ele faz falta.\n- **Imped\u00c3\u00a2ncia:** receivers de entrada preferem caixas de **6\u00e2\u20ac\u201c8 \u00ce\u00a9**. Evite caixas de 4 \u00ce\u00a9 nominais com receiver barato em volume alto.\n- **Falsifica\u00c3\u00a7\u00c3\u00a3o e an\u00c3\u00bancios inflados:** para caixas novas, compre em loja oficial ou \"vendido e entregue por\" Amazon/Magalu/Mercado Livre. Desconfie de pre\u00c3\u00a7o bom demais em marca famosa. Ignore \"PMPO\" e \"pot\u00c3\u00aancia m\u00c3\u00a1xima\".\n- **Vizinhos e grave:** o grave atravessa laje e parede. Se entrar sub, use volume moderado e n\u00c3\u00a3o coloque o sub direto no piso compartilhado sem um apoio que desacople (base de espuma densa ou borracha).\n- **Posicionamento, que \u00c3\u00a9 o mais barato e rende mais:** caixas a ~2\u00e2\u20ac\u201c2,5 m uma da outra, formando um tri\u00c3\u00a2ngulo com voc\u00c3\u00aa. Tweeter na altura do ouvido, levemente viradas para voc\u00c3\u00aa. Pelo menos 30\u00e2\u20ac\u201c50 cm da parede de tr\u00c3\u00a1s, e **n\u00c3\u00a3o enfiadas no canto** (o grave fica inchado). N\u00c3\u00a3o sente encostado na parede do fundo. Tapete e cortina ajudam muito na clareza.\n\n## Pr\u00c3\u00b3ximos passos\n\n1. **Decida uma coisa:** \"tenho espa\u00c3\u00a7o para duas caixas nos lados da TV?\" Se n\u00c3\u00a3o, v\u00c3\u00a1 de soundbar e me diga o tamanho da TV e o m\u00c3\u00b3vel que eu afino a escolha.\n2. **Me diga** o modelo da TV (para confirmar ARC e \u00c3\u00b3ptico) e se topa usado. Com isso eu te passo uma lista curta de receivers e caixas que casam entre si, com as specs para conferir no an\u00c3\u00bancio.\n3. **Ordem de compra (op\u00c3\u00a7\u00c3\u00a3o C):** caixas primeiro, enquanto procura o receiver usado com calma. Depois o receiver. Rode a calibra\u00c3\u00a7\u00c3\u00a3o autom\u00c3\u00a1tica. Viva uns meses com o 2.0 antes de decidir sobre o sub.\n4. **Opcional para aprender:** baixe o REW (gratuito). Com um microfone de medi\u00c3\u00a7\u00c3\u00a3o USB (~R$ 400\u00e2\u20ac\u201c600) voc\u00c3\u00aa v\u00c3\u00aa de verdade como a sua sala responde no grave.\n\nSe quiser, na pr\u00c3\u00b3xima mensagem j\u00c3\u00a1 monto a lista de modelos concretos para a op\u00c3\u00a7\u00c3\u00a3o que voc\u00c3\u00aa escolher e salvo como projeto para a gente ir acompanhando.\n"}], "grading": {"expectations": [{"text": "Compara as tr\u00c3\u00aas op\u00c3\u00a7\u00c3\u00b5es (soundbar, receiver+caixas, caixas ativas) com pr\u00c3\u00b3s e contras", "passed": true, "evidence": "Tabela A/B/C e bloco 'Comparando as tr\u00c3\u00aas' com Pr\u00c3\u00b3/Contra para Soundbar, Caixas ativas e Receiver usado + passivas."}, {"text": "Faz uma recomenda\u00c3\u00a7\u00c3\u00a3o clara com justificativa ligada ao uso (m\u00c3\u00basica > filme)", "passed": true, "evidence": "'O que eu faria: a op\u00c3\u00a7\u00c3\u00a3o C'; 'Em m\u00c3\u00basica, o que d\u00c3\u00a1 o palco \u00c3\u00a9 a separa\u00c3\u00a7\u00c3\u00a3o est\u00c3\u00a9reo... A soundbar... em m\u00c3\u00basica ac\u00c3\u00bastica soa artificial e estreito'."}, {"text": "Menciona ac\u00c3\u00bastica ou posicionamento da sala", "passed": true, "evidence": "Tri\u00c3\u00a2ngulo 2-2,5 m, tweeter na altura do ouvido, 30-50 cm da parede, n\u00c3\u00a3o no canto, tapete/cortina; calibra\u00c3\u00a7\u00c3\u00a3o Audyssey/YPAO; sugest\u00c3\u00a3o de REW."}, {"text": "Considera o mercado de usados como forma de ganhar custo-benef\u00c3\u00adcio", "passed": true, "evidence": "Recomenda\u00c3\u00a7\u00c3\u00a3o central \u00c3\u00a9 'receiver AV usado' (R$ 900-1.400), com checklist de teste antes de pagar."}, {"text": "Apresenta or\u00c3\u00a7amento em R$ que respeita o limite de R$ 3000", "passed": true, "evidence": "Totais: A R$ 2.000-3.000, B R$ 1.300-2.300, C R$ 2.300-3.000; divis\u00c3\u00a3o sugerida ~R$ 1.100 receiver + 1.500-1.700 caixas. Nota: somando os m\u00c3\u00a1ximos de todas as linhas da coluna C daria >R$ 3.000, o total informado est\u00c3\u00a1 levemente otimista."}, {"text": "Foca em especifica\u00c3\u00a7\u00c3\u00b5es que importam (sensibilidade, pot\u00c3\u00aancia RMS, entradas) e n\u00c3\u00a3o s\u00c3\u00b3 em marcas", "passed": true, "evidence": "Coluna 'O que importa na especifica\u00c3\u00a7\u00c3\u00a3o': sensibilidade \u00e2\u2030\u00a5 86 dB, 6-8 \u00ce\u00a9, 30-50 W RMS reais/canal, HDMI ARC, pr\u00c3\u00a9-out de sub, entrada \u00c3\u00b3ptica; 'N\u00c3\u00a3o pague por watts'."}], "summary": {"passed": 6, "failed": 0, "total": 6, "pass_rate": 1.0}, "timing": {"executor_duration_seconds": 88.3, "total_duration_seconds": 88.3}, "claims": [{"claim": "86 dB/1W/1m a 3 m: 2 W ~82 dB (par), 30 W ~94 dB (par)", "type": "factual", "verified": true, "evidence": "86-9,5=76,5 dB/1W a 3 m; +3 (2 W) +3 (par) = 82,5; 76,5+14,8+3 = 94,3."}, {"claim": "Caixa de 88 dB com 50 W: ~95 dB por caixa, ~98 dB o par", "type": "factual", "verified": true, "evidence": "88-9,5+17 = 95,5 dB."}, {"claim": "Op\u00c3\u00a7\u00c3\u00a3o C totaliza R$ 2.300-3.000", "type": "factual", "verified": false, "evidence": "M\u00c3\u00a1ximos das linhas (1.800+1.400+500+100+300) somam R$ 4.100; o total s\u00c3\u00b3 se sustenta na divis\u00c3\u00a3o sugerida no texto."}], "user_notes_summary": {"uncertainties": ["Pre\u00c3\u00a7os n\u00c3\u00a3o pesquisados, apenas estimativas"], "needs_review": [], "workarounds": []}, "eval_feedback": {"suggestions": [{"assertion": "Apresenta or\u00c3\u00a7amento em R$ que respeita o limite de R$ 3000", "reason": "N\u00c3\u00a3o verifica se a soma dos itens bate com o total declarado; aqui o total da coluna C \u00c3\u00a9 menor que a soma dos m\u00c3\u00a1ximos."}], "overall": "Assertions razo\u00c3\u00a1veis; a de usados e a de specs foram as que discriminaram entre as runs."}}}, {"id": "eval-2-sala-soundbar-vs-receiver-without_skill-run-1", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "resposta.md", "type": "text", "content": "# Som para sala de 20 m\u00c2\u00b2 com R$ 3.000: o que eu faria\n\n**Resposta curta:** no seu caso eu escolheria **caixas ativas de boa qualidade ligadas na TV, com um subwoofer opcional mais para frente**. Se o cinema pesasse mais do que a m\u00c3\u00basica, eu escolheria um **receiver de entrada com um par de caixas passivas (est\u00c3\u00a9reo 2.0)**. A **soundbar** eu deixaria por \u00c3\u00baltimo, porque a sua prioridade \u00c3\u00a9 m\u00c3\u00basica.\n\n## Premissas que eu assumi\n- A sala tem uns 20 m\u00c2\u00b2 e \u00c3\u00a9 um c\u00c3\u00b4modo comum de apartamento ou casa, sem tratamento ac\u00c3\u00bastico.\n- M\u00c3\u00basica \u00c3\u00a9 o uso principal (MPB, jazz, rock). Filme \u00c3\u00a9 \"de vez em quando\".\n- Os R$ 3.000 s\u00c3\u00a3o para tudo, incluindo cabos e suportes. Voc\u00c3\u00aa j\u00c3\u00a1 tem TV e fontes (streaming no celular ou na TV, talvez Spotify).\n- Voc\u00c3\u00aa quer algo simples de usar no dia a dia, mas aceita um pouco de instala\u00c3\u00a7\u00c3\u00a3o.\n- Os pre\u00c3\u00a7os s\u00c3\u00a3o aproximados, do mercado brasileiro. Eles variam muito com promo\u00c3\u00a7\u00c3\u00a3o, ent\u00c3\u00a3o confira antes de comprar.\n\n## As tr\u00c3\u00aas op\u00c3\u00a7\u00c3\u00b5es lado a lado\n\n| | Soundbar | Receiver + caixas passivas | Caixas ativas |\n|---|---|---|---|\n| **M\u00c3\u00basica (est\u00c3\u00a9reo)** | Fraca a razo\u00c3\u00a1vel: separa\u00c3\u00a7\u00c3\u00a3o est\u00c3\u00a9reo pequena, som \"estreito\" | Muito boa | Muito boa (melhor custo por real gasto em som) |\n| **Filme** | Boa: di\u00c3\u00a1logo claro, algumas simulam surround | Boa. D\u00c3\u00a1 para crescer para 5.1 depois | Boa em est\u00c3\u00a9reo. Com um sub fica muito boa |\n| **Simplicidade** | M\u00c3\u00a1xima: um cabo HDMI | Menor: mais pe\u00c3\u00a7as e mais configura\u00c3\u00a7\u00c3\u00a3o | Alta: HDMI ARC ou \u00c3\u00b3ptico direto da TV |\n| **Espa\u00c3\u00a7o** | M\u00c3\u00adnimo | Maior: rack para o receiver e duas caixas | M\u00c3\u00a9dio: duas caixas, sem aparelho extra |\n| **Upgrade futuro** | Quase nenhum | O maior: troca caixas, adiciona sub e surround | M\u00c3\u00a9dio: adiciona sub, troca caixas inteiras |\n| **Com R$ 3.000** | Compra uma soundbar boa com sub | Receiver de entrada mais caixas de entrada ou intermedi\u00c3\u00a1rias | Caixas ativas de n\u00c3\u00advel intermedi\u00c3\u00a1rio, com folga |\n\n## Por que eu iria de caixas ativas\n\n1. **Mais qualidade de som pelo mesmo dinheiro.** Nas caixas ativas o amplificador j\u00c3\u00a1 vem dentro, casado com os alto-falantes, e muitas vezes com DSP. Voc\u00c3\u00aa n\u00c3\u00a3o divide o or\u00c3\u00a7amento entre amplificador e caixas, ent\u00c3\u00a3o quase todo o dinheiro vira som. Para MPB e jazz, onde voz, viol\u00c3\u00a3o, piano e contrabaixo precisam soar naturais e com palco est\u00c3\u00a9reo, um bom par est\u00c3\u00a9reo ganha de qualquer soundbar da mesma faixa.\n2. **20 m\u00c2\u00b2 \u00c3\u00a9 o tamanho certo para caixas de estante.** Um par de caixas bookshelf com woofer de 4\" a 5,25\" enche bem uma sala desse tamanho em volume normal e at\u00c3\u00a9 alto. Voc\u00c3\u00aa n\u00c3\u00a3o precisa de torres nem de muita pot\u00c3\u00aancia.\n3. **Liga\u00c3\u00a7\u00c3\u00a3o simples com a TV.** Muitos modelos atuais t\u00c3\u00aam HDMI ARC (ou pelo menos entrada \u00c3\u00b3ptica), Bluetooth e \u00c3\u00a0s vezes Wi-Fi ou streaming embutido. O controle da TV passa a controlar o volume, e a experi\u00c3\u00aancia fica perto da de uma soundbar.\n4. **Para filme \"de vez em quando\", est\u00c3\u00a9reo bom j\u00c3\u00a1 basta.** Um par est\u00c3\u00a9reo bem posicionado d\u00c3\u00a1 di\u00c3\u00a1logo claro e uma imagem sonora mais larga do que muita soundbar. O que falta \u00c3\u00a9 o grave profundo das explos\u00c3\u00b5es, e um subwoofer resolve isso depois.\n\n**Modelos para pesquisar** (confira pre\u00c3\u00a7o e vers\u00c3\u00a3o atual):\n- **Edifier**: linha R1850DB, S1000 MkII/S1000W, S2000 MkIII ou MR4 (mais \"monitor\"). A S-series \u00c3\u00a9 a mais equilibrada para essa faixa. A R1850DB tem sa\u00c3\u00adda de subwoofer, o que \u00c3\u00a9 bom para crescer.\n- **Kanto** (YU4/YU6) e **Audioengine** (A2+/A5+): boas tamb\u00c3\u00a9m, mas no Brasil costumam sair caras por serem importadas.\n- **Monitores de est\u00c3\u00badio** como JBL 305P MkII, Yamaha HS5 e PreSonus Eris: soam muito bem, mas exigem uma interface ou DAC para ligar na TV e s\u00c3\u00a3o mais \"secos\". Eu s\u00c3\u00b3 indicaria se voc\u00c3\u00aa gostar de mexer com equipamento.\n\n**Divis\u00c3\u00a3o do or\u00c3\u00a7amento sugerida:**\n- Caixas ativas com HDMI ARC ou \u00c3\u00b3ptico e sa\u00c3\u00adda de sub: **R$ 1.800 a R$ 2.500**\n- Suportes ou pezinhos de isolamento e cabos: **R$ 150 a R$ 300**\n- A sobra fica guardada para um **subwoofer** mais adiante (um sub de entrada custa em torno de R$ 1.000 a R$ 1.800)\n\n## Quando eu mudaria de ideia\n\n- **Se voc\u00c3\u00aa pensa em ter home theater de verdade (5.1) no futuro:** v\u00c3\u00a1 de **receiver AV + par de caixas passivas**. Comece em 2.0 e v\u00c3\u00a1 adicionando sub, central e surround com o tempo. Com R$ 3.000 o caminho seria um receiver de entrada da Yamaha, Denon ou Onkyo (de prefer\u00c3\u00aancia usado ou em promo\u00c3\u00a7\u00c3\u00a3o, por R$ 1.500 a R$ 2.000) e caixas bookshelf de entrada da Polk, JBL Stage, Elac ou Wharfedale. Hoje o som fica um pouco abaixo das caixas ativas pelo mesmo pre\u00c3\u00a7o, mas o sistema cresce muito mais. Um **amplificador integrado est\u00c3\u00a9reo com HDMI ARC** tamb\u00c3\u00a9m \u00c3\u00a9 um bom meio-termo: \u00c3\u00a9 mais simples que um receiver AV e foca em m\u00c3\u00basica.\n- **Se o espa\u00c3\u00a7o \u00c3\u00a9 muito pequeno, a sala \u00c3\u00a9 muito \"clean\" ou ningu\u00c3\u00a9m em casa quer caixas e fios \u00c3\u00a0 vista:** a\u00c3\u00ad sim a **soundbar**. Escolha uma que tenha subwoofer sem fio e bom desempenho em m\u00c3\u00basica, como Sonos Beam, a linha Samsung Q ou a JBL Bar. Mas v\u00c3\u00a1 sabendo que, para MPB e jazz, o palco est\u00c3\u00a9reo vai ser limitado.\n- **Se filme passar a ser o uso principal:** uma soundbar 3.1 ou 5.1 com sub pode entregar mais \"impacto de cinema\" por R$ 3.000 do que um par est\u00c3\u00a9reo sem sub.\n\n## Dicas que fazem mais diferen\u00c3\u00a7a que a marca\n\n- **Posicionamento:** afaste as caixas pelo menos 20 a 50 cm da parede de tr\u00c3\u00a1s e forme um tri\u00c3\u00a2ngulo mais ou menos equil\u00c3\u00a1tero com o lugar onde voc\u00c3\u00aa senta. Deixe os tweeters na altura do ouvido, ou incline as caixas para voc\u00c3\u00aa.\n- **N\u00c3\u00a3o coloque as caixas dentro de nichos fechados de rack.** Isso deixa o grave embolado.\n- **Tapete, cortina e sof\u00c3\u00a1 ajudam muito** numa sala com piso frio e paredes nuas, porque reduzem o eco.\n- **Ou\u00c3\u00a7a antes de comprar, se puder.** Caixas soam diferentes e a prefer\u00c3\u00aancia de timbre \u00c3\u00a9 pessoal.\n- **Qualidade da fonte:** use streaming em qualidade alta ou lossless (Tidal, Apple Music, Deezer HiFi, Qobuz, Spotify em qualidade m\u00c3\u00a1xima). Para caixas ativas com Bluetooth, prefira modelos com aptX ou LDAC, ou use cabo ou \u00c3\u00b3ptico.\n\n## Resumo\n\nPara uma sala de 20 m\u00c2\u00b2 com foco em m\u00c3\u00basica e R$ 3.000, **um bom par de caixas ativas com HDMI ARC ou \u00c3\u00b3ptico e sa\u00c3\u00adda de subwoofer** \u00c3\u00a9, na minha opini\u00c3\u00a3o, a escolha que mais soa pelo dinheiro e continua simples de usar. Depois voc\u00c3\u00aa completa com um sub para os filmes. Se voc\u00c3\u00aa sonha com home theater completo, comece por um **receiver com caixas passivas**. Se est\u00c3\u00a9tica e simplicidade est\u00c3\u00a3o acima de tudo, fique com a **soundbar**.\n"}], "grading": {"expectations": [{"text": "Compara as tr\u00c3\u00aas op\u00c3\u00a7\u00c3\u00b5es (soundbar, receiver+caixas, caixas ativas) com pr\u00c3\u00b3s e contras", "passed": true, "evidence": "Tabela 'As tr\u00c3\u00aas op\u00c3\u00a7\u00c3\u00b5es lado a lado' com m\u00c3\u00basica, filme, simplicidade, espa\u00c3\u00a7o, upgrade e o que R$ 3.000 compra."}, {"text": "Faz uma recomenda\u00c3\u00a7\u00c3\u00a3o clara com justificativa ligada ao uso (m\u00c3\u00basica > filme)", "passed": true, "evidence": "'eu escolheria caixas ativas... A soundbar eu deixaria por \u00c3\u00baltimo, porque a sua prioridade \u00c3\u00a9 m\u00c3\u00basica'; se\u00c3\u00a7\u00c3\u00a3o 'Por que eu iria de caixas ativas'."}, {"text": "Menciona ac\u00c3\u00bastica ou posicionamento da sala", "passed": true, "evidence": "Se\u00c3\u00a7\u00c3\u00a3o 'Dicas': 20-50 cm da parede, tri\u00c3\u00a2ngulo equil\u00c3\u00a1tero, tweeter na altura do ouvido, n\u00c3\u00a3o em nicho de rack, tapete/cortina."}, {"text": "Considera o mercado de usados como forma de ganhar custo-benef\u00c3\u00adcio", "passed": true, "evidence": "Apenas de passagem: receiver 'de prefer\u00c3\u00aancia usado ou em promo\u00c3\u00a7\u00c3\u00a3o, por R$ 1.500 a R$ 2.000'. Men\u00c3\u00a7\u00c3\u00a3o m\u00c3\u00adnima, n\u00c3\u00a3o \u00c3\u00a9 estrat\u00c3\u00a9gia central."}, {"text": "Apresenta or\u00c3\u00a7amento em R$ que respeita o limite de R$ 3000", "passed": true, "evidence": "Caixas ativas R$ 1.800-2.500 + suportes/cabos R$ 150-300 = m\u00c3\u00a1x. R$ 2.800; sub fica para depois."}, {"text": "Foca em especifica\u00c3\u00a7\u00c3\u00b5es que importam (sensibilidade, pot\u00c3\u00aancia RMS, entradas) e n\u00c3\u00a3o s\u00c3\u00b3 em marcas", "passed": false, "evidence": "Fala de entradas (HDMI ARC, \u00c3\u00b3ptico, sa\u00c3\u00adda de sub, aptX/LDAC) e tamanho de woofer, mas n\u00c3\u00a3o menciona sensibilidade nem pot\u00c3\u00aancia RMS; a recomenda\u00c3\u00a7\u00c3\u00a3o \u00c3\u00a9 conduzida por lista de modelos/marcas (Edifier R1850DB, S1000, Kanto, Audioengine, JBL 305P, Sonos Beam...)."}], "summary": {"passed": 5, "failed": 1, "total": 6, "pass_rate": 0.83}, "timing": {"executor_duration_seconds": 39.4, "total_duration_seconds": 39.4}, "claims": [{"claim": "Caixas ativas com HDMI ARC na faixa de R$ 1.800-2.500, citando Edifier S1000/S2000/R1850DB e Kanto YU4", "type": "factual", "verified": false, "evidence": "A maioria dos modelos citados (R1850DB, S1000 MkII, S2000 MkIII, YU4) n\u00c3\u00a3o tem HDMI ARC, s\u00c3\u00b3 \u00c3\u00b3ptico/coaxial/BT; a recomenda\u00c3\u00a7\u00c3\u00a3o 'com HDMI ARC' e a lista de modelos n\u00c3\u00a3o batem totalmente."}, {"claim": "R1850DB tem sa\u00c3\u00adda de subwoofer", "type": "factual", "verified": true, "evidence": "Correto."}], "user_notes_summary": {"uncertainties": [], "needs_review": [], "workarounds": []}, "eval_feedback": {"suggestions": [{"assertion": "Considera o mercado de usados como forma de ganhar custo-benef\u00c3\u00adcio", "reason": "Uma \u00c3\u00banica men\u00c3\u00a7\u00c3\u00a3o de passagem ('de prefer\u00c3\u00aancia usado') satisfaz. Considere exigir orienta\u00c3\u00a7\u00c3\u00a3o concreta (o que checar num usado, faixa de pre\u00c3\u00a7o)."}, {"reason": "Nenhuma assertion checa o risco de \u00c3\u00a1udio da TV em Dolby bitstream para caixas ativas (configurar PCM), ponto pr\u00c3\u00a1tico que s\u00c3\u00b3 a with_skill abordou."}], "overall": "Resposta boa e clara, mas mais orientada a modelos do que a crit\u00c3\u00a9rios de especifica\u00c3\u00a7\u00c3\u00a3o."}}}, {"id": "eval-3-diy-caixa-bluetooth-with_skill-run-1", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "projeto.md", "type": "text", "content": "# Projeto: Caixa Bluetooth port\u00c3\u00a1til para churrasco (DIY)\n\n## Resumo\nCaixa 2 vias est\u00c3\u00a9reo dutada, cerca de 20 L l\u00c3\u00adquidos. Componentes: 2 woofers de 6\u00e2\u20ac\u201c6,5\" (4 \u00ce\u00a9), 2 tweeters de domo de 1\" (4 \u00ce\u00a9), placa TPA3116D2 com Bluetooth integrado, bateria Li-ion 6S2P com BMS e crossover passivo LR2 em ~3 kHz. Alvo: ~95 dB a 4 m ao ar livre, grave at\u00c3\u00a9 ~55\u00e2\u20ac\u201c60 Hz e ~9 h de autonomia em volume m\u00c3\u00a9dio.\n\n## Premissas\n- M\u00c3\u00basica ambiente alta ao ar livre, para 10\u00e2\u20ac\u201c30 pessoas; n\u00c3\u00a3o \u00c3\u00a9 \"pared\u00c3\u00a3o\".\n- Port\u00c3\u00a1til, com 10\u00e2\u20ac\u201c13 kg carregados por uma pessoa.\n- Or\u00c3\u00a7amento de ~R$ 1.000 (op\u00c3\u00a7\u00c3\u00a3o Equilibrada). Pre\u00c3\u00a7os s\u00c3\u00a3o estimativas.\n- O usu\u00c3\u00a1rio sabe soldar e nunca fez caixa, por isso crossover passivo e n\u00c3\u00a3o DSP.\n\n## Arquitetura\nCelular \u00e2\u2020\u2019 BT \u00e2\u2020\u2019 placa TPA3116D2 (tudo em uma) \u00e2\u2020\u2019 2 canais \u00e2\u2020\u2019 crossover 2 vias por canal \u00e2\u2020\u2019 woofer + tweeter.\nBateria 6S + BMS \u00e2\u2020\u2019 fus\u00c3\u00advel de 5 A \u00e2\u2020\u2019 chave \u00e2\u2020\u2019 placa. Carregador CC/CV de 25,2 V + indicador de carga.\n\n## Dimensionamento\n- Pot\u00c3\u00aancia: 22,2 V em 4 \u00ce\u00a9 d\u00c3\u00a1 teto de ~62 W por canal e uso limpo de ~40 W por canal. Com 4S seriam s\u00c3\u00b3 ~18 W por canal.\n- SPL: 88 dB + 80 W a 4 m d\u00c3\u00a1 ~95 dB. A 1 m, com 40 W, d\u00c3\u00a1 ~104 dB.\n- Gabinete: dutado, 20 L l\u00c3\u00adquidos, Fb 55 Hz. Dutos: 2 \u00c3\u2014 \u00c3\u02dc5 cm \u00c3\u2014 15,8 cm ou 1 \u00c3\u2014 \u00c3\u02dc7 cm \u00c3\u2014 14 cm, com ar a ~9 m/s (OK). 1 duto de \u00c3\u02dc5 cm deixa o ar a 18 m/s, o que d\u00c3\u00a1 ru\u00c3\u00addo de sopro.\n- Exemplo de medidas: 55 \u00c3\u2014 30 \u00c3\u2014 22 cm externos, em compensado de 15 mm.\n- Crit\u00c3\u00a9rio do woofer: 4 \u00ce\u00a9, \u00e2\u2030\u00a5 88 dB, Fs 45\u00e2\u20ac\u201c65 Hz, Qts 0,30\u00e2\u20ac\u201c0,45, Vas \u00e2\u2030\u00a4 15 L, Xmax \u00e2\u2030\u00a5 4 mm, com T/S publicado. Simular no WinISD.\n- Crossover por canal (4 \u00ce\u00a9, 3 kHz, LR2):\n  - Woofer: L de 0,39\u00e2\u20ac\u201c0,47 mH em s\u00c3\u00a9rie + C de 6,8 \u00c2\u00b5F em paralelo.\n  - Tweeter: C de 6,8 \u00c2\u00b5F em s\u00c3\u00a9rie + L de 0,42 mH em paralelo, polaridade invertida.\n  - L-pad para \u00e2\u02c6\u20194 dB: 1,5 \u00ce\u00a9 em s\u00c3\u00a9rie + 6,8 \u00ce\u00a9 em paralelo.\n- Autonomia: 6S2P (~133 Wh) d\u00c3\u00a1 ~8,9 h a 12 W m\u00c3\u00a9dios e ~4,3 h a 25 W.\n\n## Op\u00c3\u00a7\u00c3\u00b5es de or\u00c3\u00a7amento (estimativa)\n- Econ\u00c3\u00b4mico: ~R$ 615\u00e2\u20ac\u201c960 (bateria 6S1P, woofers de entrada).\n- **Equilibrado (escolhido): ~R$ 960\u00e2\u20ac\u201c1.540** (6S2P, woofers com T/S bom).\n- Caprichado: ~R$ 1.560\u00e2\u20ac\u201c2.660 (6S3P, placa BT + DSP, componentes de crossover melhores).\n\n## Riscos e cuidados\n- Capacitores de entrada da placa precisam ser de 35 V ou mais (bateria 6S cheia = 25,2 V).\n- N\u00c3\u00a3o soldar fio direto em c\u00c3\u00a9lula 18650. Usar pack pronto ou solda a ponto. BMS com balanceamento, fus\u00c3\u00advel na sa\u00c3\u00adda e carregador de 25,2 V.\n- C\u00c3\u00a9lulas originais de marca; evitar as \"9.900 mAh\" falsas.\n- Compensado em vez de MDF (umidade). Tela met\u00c3\u00a1lica nos falantes. Al\u00c3\u00a7a presa com porca-garra.\n- N\u00c3\u00a3o deixar no sol nem no carro quente. Regular o volume m\u00c3\u00a1ximo antes do clipping para proteger o tweeter.\n\n## Pr\u00c3\u00b3ximos passos\n1. Escolher os woofers pelo T/S e simular no WinISD.\n2. Comprar a placa e testar em bancada com fonte de notebook de 19\u00e2\u20ac\u201c20 V; conferir os capacitores.\n3. Definir a bateria (pack pronto 6S2P com BMS).\n4. Montar o gabinete, depois o crossover, e fazer o primeiro teste.\n\n## Hist\u00c3\u00b3rico de decis\u00c3\u00b5es\n| Data | Decis\u00c3\u00a3o | Por qu\u00c3\u00aa |\n|---|---|---|\n| 2026-09-22 | 2 tweeters (est\u00c3\u00a9reo 2 vias) em vez de 1 | A TPA3116 tem 2 canais; um tweeter s\u00c3\u00b3 obrigaria a somar em mono |\n| 2026-09-22 | Bateria 6S (22,2 V) direto, sem step-up | Mais que o dobro da pot\u00c3\u00aancia da 4S; step-up \u00c3\u00a9 mais uma fonte de ru\u00c3\u00addo e falha |\n| 2026-09-22 | Placa com BT integrado | Evita o loop de terra e o chiado de BT separado na mesma bateria |\n| 2026-09-22 | Caixa dutada de ~20 L, Fb 55 Hz | Mais grave por watt em caixa compacta, bom para bateria |\n| 2026-09-22 | Crossover passivo LR2 em 3 kHz com L-pad | Simples e barato para o primeiro projeto; d\u00c3\u00a1 para refinar depois com medi\u00c3\u00a7\u00c3\u00a3o |\n| 2026-09-22 | Compensado de 15 mm em vez de MDF | Uso externo, com umidade e respingos |\n"}, {"name": "resposta.md", "type": "text", "content": "Bora montar! A sua ideia faz sentido para uma primeira caixa: a TPA3116 \u00c3\u00a9 barata e, com a tens\u00c3\u00a3o certa, tem pot\u00c3\u00aancia de sobra para um churrasco. Antes de fechar, dois ajustes que mudam o resultado:\n\n1. **Um tweeter s\u00c3\u00b3 n\u00c3\u00a3o fecha com uma placa est\u00c3\u00a9reo.** A TPA3116 tem 2 canais. Ou voc\u00c3\u00aa p\u00c3\u00b5e **2 tweeters** (um por canal), ou soma tudo em mono. Recomendo 2 tweeters: custa pouco a mais, espalha melhor o agudo no quintal e deixa a liga\u00c3\u00a7\u00c3\u00a3o simples.\n2. **A bateria \u00c3\u00a9 quem define a pot\u00c3\u00aancia da TPA3116**, n\u00c3\u00a3o o an\u00c3\u00bancio da placa. Com bateria de 12 V ela entrega uns 15\u00e2\u20ac\u201c18 W por canal. Com **6S (22,2 V)** entrega uns 40 W por canal. \u00c3\u2030 isso que separa uma caixa \"boa\" de uma \"ok\".\n\n## Resumo\n\nUma caixa **2 vias est\u00c3\u00a9reo, dutada, com cerca de 20 L**: 2 woofers de 6\u00e2\u20ac\u201c6,5\" + 2 tweeters de domo, **placa TPA3116 com Bluetooth integrado**, **bateria Li-ion 6S com BMS** e crossover passivo simples. Deve dar uns 90\u00e2\u20ac\u201c95 dB a 4 m, com grave at\u00c3\u00a9 uns 55\u00e2\u20ac\u201c60 Hz e de 5 a 9 h de autonomia, dependendo da bateria. Para churrasco de 10\u00e2\u20ac\u201c30 pessoas ao ar livre, d\u00c3\u00a1 e sobra.\n\n## Premissas (o que muda se n\u00c3\u00a3o for assim)\n\n- **Uso:** m\u00c3\u00basica ambiente a volume moderadamente alto ao ar livre, estilos variados (sertanejo, pagode, pop). Se voc\u00c3\u00aa quer \"pared\u00c3\u00a3o\" com grave de sentir no peito, o projeto \u00c3\u00a9 outro (sub de 10\u00e2\u20ac\u201c12\" e placa TPA3255).\n- **Transporte:** uma pessoa carregando, de 10 a 13 kg. Se precisa ser leve, d\u00c3\u00a1 para reduzir para 1 woofer + 1 tweeter.\n- **Or\u00c3\u00a7amento:** \"gastar pouco\" que eu li como R$ 600\u00e2\u20ac\u201c1.200 no total. Os valores s\u00c3\u00a3o **estimativas** e precisam ser conferidos no dia da compra.\n- **N\u00c3\u00advel:** voc\u00c3\u00aa sabe soldar mas nunca fez caixa. Por isso escolhi crossover passivo em vez de DSP, e sugiro comprar a bateria pronta ou montar com cuidado extra (explico abaixo).\n\n## Arquitetura\n\n```\nCelular \u00e2\u201d\u20ac\u00e2\u201d\u20acBT\u00e2\u201d\u20ac\u00e2\u201d\u20ac> [Placa TPA3116D2 + Bluetooth (tudo em uma)]\n                    \u00e2\u201d\u201a Canal E                 \u00e2\u201d\u201a Canal D\n              [Crossover 2 vias]        [Crossover 2 vias]\n               \u00e2\u201d\u201a           \u00e2\u201d\u201a              \u00e2\u201d\u201a           \u00e2\u201d\u201a\n          Woofer 6\" 4\u00ce\u00a9  Tweeter 4\u00ce\u00a9   Woofer 6\" 4\u00ce\u00a9  Tweeter 4\u00ce\u00a9\n               \u00e2\u201d\u201d\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac gabinete dutado ~20 L l\u00c3\u00adquidos \u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u02dc\n\nAlimenta\u00c3\u00a7\u00c3\u00a3o:\n[Bateria 6S Li-ion + BMS 6S] \u00e2\u2020\u2019 [Fus\u00c3\u00advel 5 A] \u00e2\u2020\u2019 [Chave liga/desliga] \u00e2\u2020\u2019 Placa\n      \u00e2\u2020\u2018\n[Carregador 25,2 V (CC/CV) via conector DC/XT60] + volt\u00c3\u00admetro/indicador de carga\n```\n\n**Por que placa \"tudo em uma\" (BT + amp na mesma placa):** placa Bluetooth separada alimentada pela mesma bateria que o amplificador \u00c3\u00a9 a causa n\u00c2\u00ba 1 de chiado e \"zumbido de celular\" em caixa DIY (loop de terra). A integrada evita isso e ainda economiza fia\u00c3\u00a7\u00c3\u00a3o. Procure an\u00c3\u00bancios cujas fotos mostrem o chip **TPA3116D2** e Bluetooth 5.0 ou mais novo (placas das s\u00c3\u00a9ries ZK-502 e XY-P50 costumam usar esse chip, mas confira nas fotos, porque as vers\u00c3\u00b5es mudam).\n\n## Dimensionamento\n\n### Pot\u00c3\u00aancia x bateria (a conta que decide tudo)\n\nA TPA3116 trabalha em ponte (BTL). O teto te\u00c3\u00b3rico por canal \u00c3\u00a9 P \u00e2\u2030\u02c6 V\u00c2\u00b2 / (2 \u00c3\u2014 Z):\n\n| Bateria | Tens\u00c3\u00a3o (nominal) | Teto te\u00c3\u00b3rico em 4 \u00ce\u00a9 | Uso limpo real (~65%) |\n|---|---|---|---|\n| 3S (11,1 V) | 11,1 V | ~15 W | ~10 W/canal (fraco) |\n| 4S (14,8 V) | 14,8 V | ~27 W | ~18 W/canal |\n| **6S (22,2 V)** | 22,2 V (25,2 V cheia / ~19,8 V vazia) | ~62 W | **~40 W/canal** |\n\n**Escolha: 6S.** Ela d\u00c3\u00a1 mais que o dobro da pot\u00c3\u00aancia da 4S sem step-up. O conversor step-up \u00c3\u00a9 mais uma pe\u00c3\u00a7a para esquentar, gerar ru\u00c3\u00addo e quebrar.\n\n**Aten\u00c3\u00a7\u00c3\u00a3o importante:** carregada, a 6S fica em **25,2 V**, perto do limite recomendado do chip (26 V). Muitas placas TPA3116 baratas v\u00c3\u00aam com **capacitores de filtro de 25 V**, que ficam no limite e estufam com o tempo. **Olhe os capacitores grandes da entrada de alimenta\u00c3\u00a7\u00c3\u00a3o:** precisam ser de **35 V** ou mais. Se forem de 25 V, troque (\u00c3\u00a9 uma soldagem f\u00c3\u00a1cil e custa poucos reais) ou escolha outra placa.\n\n### Volume sonoro (SPL)\n\nConsiderando woofers de 88 dB/1W/1m (valor t\u00c3\u00adpico de um 6\" decente):\n\n- 40 W num canal a 1 m \u00e2\u2020\u2019 **~104 dB** (volume de pico)\n- A caixa toda (~80 W) a 4 m, ao ar livre \u00e2\u2020\u2019 **~95 dB**\n- Com bateria 4S (~36 W no total) a 4 m \u00e2\u2020\u2019 ~91,5 dB\n\nUns 3\u00e2\u20ac\u201c4 dB a mais parecem pouco, mas \u00c3\u00a9 a diferen\u00c3\u00a7a entre a m\u00c3\u00basica aparecer por cima da conversa ou ficar abafada por ela. Ao ar livre n\u00c3\u00a3o tem parede refletindo o som, ent\u00c3\u00a3o cada dB conta.\n\n### Caixa (gabinete)\n\n- **Tipo: dutada.** Para 6\" em caixa compacta, a dutada tira bem mais grave da mesma pot\u00c3\u00aancia que a selada. Em bateria, isso \u00c3\u00a9 efici\u00c3\u00aancia.\n- **Volume l\u00c3\u00adquido: ~20 L** no total (~10 L por woofer, com os dois dividindo o mesmo volume, j\u00c3\u00a1 que tocam na mesma faixa).\n- **Sintonia (Fb, a frequ\u00c3\u00aancia em que o duto \"refor\u00c3\u00a7a\" o grave): ~55 Hz.**\n- **Dutos (pela calculadora):**\n  - **2 dutos de 5 cm de di\u00c3\u00a2metro interno \u00c3\u2014 15,8 cm** de comprimento, ou **1 duto de 7 cm \u00c3\u2014 14 cm**. A velocidade do ar fica em ~9 m/s, abaixo do limite de ~17 m/s em que o duto come\u00c3\u00a7a a fazer ru\u00c3\u00addo de sopro.\n  - **1 duto de 5 cm s\u00c3\u00b3 n\u00c3\u00a3o serve:** o ar passaria a ~18 m/s e o duto faria ru\u00c3\u00addo de sopro no volume alto.\n  - Deixe pelo menos um di\u00c3\u00a2metro de duto livre entre a ponta interna e a parede do fundo.\n- **Dimens\u00c3\u00b5es de exemplo:** 55 \u00c3\u2014 30 \u00c3\u2014 22 cm externos em chapa de 15 mm d\u00c3\u00a1 ~26 L internos brutos. Descontando woofers (~1,5 L), dutos (~0,6 L), compartimento da bateria e placa (~2 L) e travamentos, sobram ~21\u00e2\u20ac\u201c22 L l\u00c3\u00adquidos. Est\u00c3\u00a1 no alvo.\n- **Crit\u00c3\u00a9rio para escolher o woofer** (vale mais que a marca). Par\u00c3\u00a2metros T/S s\u00c3\u00a3o os n\u00c3\u00bameros que o fabricante publica para dimensionar a caixa:\n  - **4 \u00ce\u00a9**, sensibilidade **\u00e2\u2030\u00a5 88 dB**\n  - **Fs 45\u00e2\u20ac\u201c65 Hz**. Fs \u00c3\u00a9 a frequ\u00c3\u00aancia de resson\u00c3\u00a2ncia do falante.\n  - **Qts 0,30\u00e2\u20ac\u201c0,45**. Qts \u00c3\u00a9 o quanto o falante \u00c3\u00a9 amortecido. Nessa faixa ele gosta de caixa dutada.\n  - **Vas \u00e2\u2030\u00a4 15 L**. Vas indica o tamanho de caixa que o falante \"pede\". Com esse valor, ~10 L por falante funciona.\n  - **Xmax \u00e2\u2030\u00a5 4 mm** (excurs\u00c3\u00a3o linear do cone)\n  - Resposta limpa at\u00c3\u00a9 pelo menos ~4 kHz\n\n  **Cuidado com mid-bass automotivo de 6\" \"gen\u00c3\u00a9rico\"**: muitos s\u00c3\u00a3o feitos para porta de carro (Qts alto ou sem T/S publicado) e ficam sem grave numa caixa pequena. Prefira modelos com T/S publicado (Selenium/JBL, Bravox, Eros, Hinor e outras marcas nacionais costumam publicar) e **simule no WinISD** (gr\u00c3\u00a1tis) antes de cortar a madeira. Se a simula\u00c3\u00a7\u00c3\u00a3o pedir outro volume ou sintonia, ajuste as medidas. Os n\u00c3\u00bameros acima s\u00c3\u00a3o o ponto de partida.\n\n### Crossover passivo (por canal)\n\nUm Linkwitz-Riley de 2\u00c2\u00aa ordem (12 dB/oitava) em **~3 kHz**, calculado para 4 \u00ce\u00a9:\n\n- **Woofer:** indutor de **0,39\u00e2\u20ac\u201c0,47 mH** em s\u00c3\u00a9rie (n\u00c3\u00bacleo de ar ou de ferrite com fio grosso, 1,0 mm ou mais), com capacitor de **~6,8 \u00c2\u00b5F** para o terra, em paralelo com o woofer.\n- **Tweeter:** capacitor de **6,8 \u00c2\u00b5F** (poli\u00c3\u00a9ster/polipropileno, 100 V ou mais) em s\u00c3\u00a9rie, com indutor de **~0,42 mH** em paralelo com o tweeter. **Ligue o tweeter com polaridade invertida**, o que \u00c3\u00a9 normal nessa topologia.\n- **L-pad para o tweeter** (ele costuma ser 3\u00e2\u20ac\u201c5 dB mais alto que o woofer): para \u00e2\u02c6\u20194 dB em 4 \u00ce\u00a9, resistor de **1,5 \u00ce\u00a9 em s\u00c3\u00a9rie + 6,8 \u00ce\u00a9 em paralelo** com o tweeter, de 5 W ou mais. Coloque entre o filtro e o tweeter.\n- **Tweeter:** domo de 1\" (seda ou tit\u00c3\u00a2nio), **4 \u00ce\u00a9, Fs \u00e2\u2030\u00a4 1.500 Hz**. Com Fs baixo, d\u00c3\u00a1 para cruzar em 3 kHz com folga. Evite piezo: \u00c3\u00a9 barato e n\u00c3\u00a3o precisa de crossover, mas \u00c3\u00a9 estridente e cansa em churrasco longo.\n\nEsses valores partem da imped\u00c3\u00a2ncia **nominal**. O falante real varia, ent\u00c3\u00a3o \u00c3\u00a9 um bom come\u00c3\u00a7o, n\u00c3\u00a3o o ponto \u00c3\u00b3timo. Se quiser refinar depois, d\u00c3\u00a1 para medir com o REW + um microfone de medi\u00c3\u00a7\u00c3\u00a3o e acertar no VituixCAD. Alternativa pregui\u00c3\u00a7osa: um divisor 2 vias pronto de 12 dB/oitava para 4 \u00ce\u00a9. Funciona, mas voc\u00c3\u00aa n\u00c3\u00a3o controla o n\u00c3\u00advel do tweeter.\n\n### Autonomia\n\nNa m\u00c3\u00a9dia, m\u00c3\u00basica consome 1/8 a 1/3 da pot\u00c3\u00aancia m\u00c3\u00a1xima:\n\n| Bateria | Energia | Volume m\u00c3\u00a9dio (~12 W) | Volume alto (~25 W) |\n|---|---|---|---|\n| 6S1P (6 c\u00c3\u00a9lulas de 3.000 mAh) | ~67 Wh | ~4,4 h | ~2 h |\n| **6S2P (12 c\u00c3\u00a9lulas)** | ~133 Wh | **~8,9 h** | ~4,3 h |\n| 6S3P (18 c\u00c3\u00a9lulas) | ~200 Wh | ~13 h | ~6,5 h |\n\nA **6S2P** \u00c3\u00a9 o ponto doce: d\u00c3\u00a1 um churrasco inteiro com folga sem pesar muito (~600 g de c\u00c3\u00a9lulas).\n\n## Op\u00c3\u00a7\u00c3\u00b5es de or\u00c3\u00a7amento\n\nEstimativas em R$, sem garantia de pre\u00c3\u00a7o. Confira o valor final com impostos no checkout do AliExpress.\n\n| Item | Especifica\u00c3\u00a7\u00c3\u00a3o que importa | Econ\u00c3\u00b4mico | Equilibrado | Caprichado |\n|---|---|---|---|---|\n| Placa amp + BT | TPA3116D2, BT 5.0+, capacitores de entrada de 35 V+ | 50\u00e2\u20ac\u201c80 | 50\u00e2\u20ac\u201c80 | 150\u00e2\u20ac\u201c300 (BT + DSP com EQ por app) |\n| 2 woofers 6\u00e2\u20ac\u201c6,5\" | 4 \u00ce\u00a9, \u00e2\u2030\u00a5 88 dB, Qts 0,3\u00e2\u20ac\u201c0,45, T/S publicado | 150\u00e2\u20ac\u201c220 | 250\u00e2\u20ac\u201c400 | 450\u00e2\u20ac\u201c700 |\n| 2 tweeters domo 1\" | 4 \u00ce\u00a9, Fs \u00e2\u2030\u00a4 1,5 kHz | 50\u00e2\u20ac\u201c80 | 80\u00e2\u20ac\u201c150 | 150\u00e2\u20ac\u201c300 |\n| Crossover (componentes) | Capacitores de poli\u00c3\u00a9ster/PP, indutores de fio grosso, L-pad | 40\u00e2\u20ac\u201c60 | 60\u00e2\u20ac\u201c100 | 100\u00e2\u20ac\u201c180 (polipropileno, n\u00c3\u00bacleo de ar) |\n| C\u00c3\u00a9lulas 18650 | Originais de marca (Samsung, LG, Molicel), **nunca \"9.900 mAh\"** | 6S1P: 110\u00e2\u20ac\u201c180 | 6S2P: 220\u00e2\u20ac\u201c360 | 6S3P: 330\u00e2\u20ac\u201c540 |\n| BMS 6S + carregador 25,2 V + indicador | BMS com balanceamento, 10\u00e2\u20ac\u201c15 A | 70\u00e2\u20ac\u201c120 | 90\u00e2\u20ac\u201c140 | 120\u00e2\u20ac\u201c180 |\n| Madeira, dutos, cola, tela, al\u00c3\u00a7a, p\u00c3\u00a9s, acabamento | Compensado de 15 mm, tela met\u00c3\u00a1lica, al\u00c3\u00a7a parafusada com porca-garra | 120\u00e2\u20ac\u201c180 | 180\u00e2\u20ac\u201c260 | 250\u00e2\u20ac\u201c400 |\n| Fus\u00c3\u00advel, chave, conectores, cabos | Fus\u00c3\u00advel de 5 A, conector XT60/DC, cabo 1,5 mm\u00c2\u00b2 | 25\u00e2\u20ac\u201c40 | 30\u00e2\u20ac\u201c50 | 40\u00e2\u20ac\u201c60 |\n| **Total estimado** | | **~R$ 615\u00e2\u20ac\u201c960** | **~R$ 960\u00e2\u20ac\u201c1.540** | **~R$ 1.560\u00e2\u20ac\u201c2.660** |\n\n- **Econ\u00c3\u00b4mico:** soa bem, mas a autonomia fica curta (~4 h) e os woofers de entrada v\u00c3\u00a3o dar menos grave.\n- **Equilibrado:** \u00c3\u00a9 o que eu faria. Voc\u00c3\u00aa gasta onde o som e a durabilidade aparecem.\n- **Caprichado:** s\u00c3\u00b3 vale se voc\u00c3\u00aa quiser brincar de equaliza\u00c3\u00a7\u00c3\u00a3o. Um DSP deixa corrigir o grave e o n\u00c3\u00advel do tweeter por software, sem trocar pe\u00c3\u00a7a.\n\n## Onde economizar / onde n\u00c3\u00a3o economizar\n\n**Economize:**\n- **Placa:** a TPA3116 gen\u00c3\u00a9rica \u00c3\u00a9 boa. Placa \"de marca\" nessa faixa n\u00c3\u00a3o entrega mais.\n- **Cabos e conectores \"premium\"** n\u00c3\u00a3o fazem diferen\u00c3\u00a7a aqui.\n- **Acabamento:** tinta ou verniz bem aplicados resolvem. N\u00c3\u00a3o precisa de revestimento caro.\n\n**N\u00c3\u00a3o economize:**\n- **Woofers.** S\u00c3\u00a3o o que define o som. Um falante bom numa placa barata soa melhor que o contr\u00c3\u00a1rio.\n- **C\u00c3\u00a9lulas e BMS.** C\u00c3\u00a9lula falsa (as \"9.900 mAh\" t\u00c3\u00aam na verdade 1.000\u00e2\u20ac\u201c2.000 mAh e \u00c3\u00a0s vezes nem prote\u00c3\u00a7\u00c3\u00a3o interna) \u00c3\u00a9 o jeito mais r\u00c3\u00a1pido de a caixa durar pouco ou pegar fogo. Compre de vendedor nacional com boa reputa\u00c3\u00a7\u00c3\u00a3o, ou c\u00c3\u00a9lulas recuperadas de notebook **testadas** uma a uma, se voc\u00c3\u00aa tiver como medir.\n- **Madeira e veda\u00c3\u00a7\u00c3\u00a3o.** Caixa que vaza ar perde grave e o duto para de funcionar direito.\n- **Prote\u00c3\u00a7\u00c3\u00a3o f\u00c3\u00adsica dos falantes.** Em churrasco tem crian\u00c3\u00a7a, cachorro e cerveja. Tela met\u00c3\u00a1lica na frente \u00c3\u00a9 obrigat\u00c3\u00b3ria.\n\n## Riscos e cuidados\n\n1. **N\u00c3\u00a3o solde fio direto na c\u00c3\u00a9lula 18650.** O calor do ferro danifica a c\u00c3\u00a9lula por dentro e esse dano n\u00c3\u00a3o aparece. Use uma destas op\u00c3\u00a7\u00c3\u00b5es:\n   - **(a)** pack 6S2P pronto com BMS, que \u00c3\u00a9 o mais seguro para a primeira vez;\n   - **(b)** c\u00c3\u00a9lulas com fita de n\u00c3\u00adquel soldada a ponto (spot welder). Algumas lojas nacionais montam o pack sob encomenda;\n   - **(c)** suportes de c\u00c3\u00a9lulas de boa qualidade, mas mau contato em suporte esquenta.\n\n   Depois disso, a regra \u00c3\u00a9 sempre: **BMS 6S com balanceamento**, **fus\u00c3\u00advel logo na sa\u00c3\u00adda da bateria** e **carregador CC/CV de 25,2 V** pr\u00c3\u00b3prio para Li-ion (nunca fonte comum).\n2. **Bateria no sol ou no porta-malas quente:** Li-ion n\u00c3\u00a3o gosta de mais de ~60 \u00c2\u00b0C. N\u00c3\u00a3o deixe a caixa pegando sol ao lado da churrasqueira nem no carro fechado. O sol tamb\u00c3\u00a9m resseca a borda e a cola dos falantes.\n3. **Umidade:** **MDF incha com \u00c3\u00a1gua e cerveja.** Prefira **compensado (naval, se couber no or\u00c3\u00a7amento)** de 15 mm. Se usar MDF, sele todas as faces com verniz ou PU. A caixa n\u00c3\u00a3o vai ser \u00c3\u00a0 prova d'\u00c3\u00a1gua, s\u00c3\u00b3 vai aguentar respingo. Monte a placa e a bateria **num compartimento separado do volume ac\u00c3\u00bastico** (uma caixinha interna vedada, ou o painel traseiro com tampa), longe de onde a \u00c3\u00a1gua escorre.\n4. **Capacitores de 25 V na placa** com bateria 6S cheia: confira antes de ligar (visto acima).\n5. **Clipping:** no volume m\u00c3\u00a1ximo, a TPA3116 distorce feio e quem sofre \u00c3\u00a9 o tweeter, porque a distor\u00c3\u00a7\u00c3\u00a3o gera agudo em excesso. Depois de montado, suba o volume do celular at\u00c3\u00a9 o som come\u00c3\u00a7ar a \"rasgar\" e volte um pouco. Se a placa tiver potenci\u00c3\u00b4metro de ganho, regule esse limite com o celular a ~90% do volume.\n6. **Estalo ao ligar e desligar:** algumas placas d\u00c3\u00a3o \"pop\". Ligue a caixa com o volume baixo. Se incomodar, existem placas com mute/soft-start.\n7. **Durabilidade mec\u00c3\u00a2nica:** prenda a **al\u00c3\u00a7a com parafuso passante + porca-garra (T-nut)**, n\u00c3\u00a3o com parafuso de madeira, que solta com o peso. Coloque cantoneiras nos cantos, p\u00c3\u00a9s de borracha e **travamento interno** (um sarrafo ligando a frente e o fundo) para as paredes n\u00c3\u00a3o vibrarem.\n\n## Pr\u00c3\u00b3ximos passos\n\n1. **Escolha os woofers pelo T/S** e jogue os n\u00c3\u00bameros no **WinISD** com 20 L e 55 Hz. Se quiser, me mande o modelo (ou o link) e eu confiro se casa com a caixa.\n2. **Compre a placa primeiro e teste em bancada** com uma fonte de notebook de 19\u00e2\u20ac\u201c20 V e um par de falantes quaisquer. Confira o Bluetooth, o ru\u00c3\u00addo e os capacitores antes de gastar com o resto.\n3. **Resolva a bateria:** pack pronto ou montagem com solda a ponto, com BMS, fus\u00c3\u00advel e carregador de 25,2 V.\n4. **Corte e monte o gabinete** (cola PU ou PVA + parafusos + silicone nas juntas por dentro). Forre as paredes com manta acr\u00c3\u00adlica **sem tapar os dutos**.\n5. **Monte o crossover numa plaquinha de MDF** presa dentro da caixa, com os componentes colados com cola quente ou abra\u00c3\u00a7adeira para n\u00c3\u00a3o vibrarem.\n6. **Primeiro teste:** comece com volume baixo, confira se os woofers se movem juntos (polaridade certa) e ou\u00c3\u00a7a o tweeter. Se ficar estridente, aumente a atenua\u00c3\u00a7\u00c3\u00a3o do L-pad (\u00e2\u02c6\u20196 dB: 2 \u00ce\u00a9 em s\u00c3\u00a9rie + 4 \u00ce\u00a9 em paralelo).\n\nSalvei o projeto em `projetos/caixa-bluetooth-churrasco/projeto.md`, com o hist\u00c3\u00b3rico de decis\u00c3\u00b5es, para a gente continuar de onde parou. O pr\u00c3\u00b3ximo passo \u00c3\u00a9 escolher os woofers: me mande 2 ou 3 op\u00c3\u00a7\u00c3\u00b5es que voc\u00c3\u00aa encontrar nas lojas e eu comparo pelo T/S.\n"}], "grading": {"expectations": [{"text": "Inclui BMS/prote\u00c3\u00a7\u00c3\u00a3o para a bateria de l\u00c3\u00adtio e alerta de seguran\u00c3\u00a7a", "passed": true, "evidence": "'BMS 6S com balanceamento, fus\u00c3\u00advel logo na sa\u00c3\u00adda da bateria e carregador CC/CV de 25,2 V'; 'N\u00c3\u00a3o solde fio direto na c\u00c3\u00a9lula 18650'; alerta sobre c\u00c3\u00a9lulas falsas '9.900 mAh' e calor >60 \u00c2\u00b0C."}, {"text": "Calcula ou estima autonomia da bateria", "passed": true, "evidence": "Tabela: 6S1P ~67 Wh -> ~4,4 h; 6S2P ~133 Wh -> ~8,9 h a 12 W m\u00c3\u00a9dios / ~4,3 h a 25 W; 6S3P ~13 h."}, {"text": "Relaciona tens\u00c3\u00a3o da bateria/fonte com a pot\u00c3\u00aancia real da TPA3116", "passed": true, "evidence": "P \u00e2\u2030\u02c6 V\u00c2\u00b2/(2Z): 3S ~15 W te\u00c3\u00b3rico/~10 W real, 4S ~27/~18 W, 6S ~62/~40 W por canal; alerta de 25,2 V perto do limite de 26 V e capacitores de 25 V."}, {"text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada", "passed": true, "evidence": "Dutada, ~20 L l\u00c3\u00adquidos, Fb ~55 Hz, '2 dutos de 5 cm \u00c3\u2014 15,8 cm ou 1 duto de 7 cm \u00c3\u2014 14 cm', velocidade do ar ~9 m/s; medidas externas 55 \u00c3\u2014 30 \u00c3\u2014 22 cm."}, {"text": "Trata o crossover/corte do tweeter", "passed": true, "evidence": "LR2 12 dB/oit em ~3 kHz para 4 \u00ce\u00a9: woofer 0,39-0,47 mH + 6,8 \u00c2\u00b5F; tweeter 6,8 \u00c2\u00b5F + 0,42 mH, polaridade invertida; L-pad -4 dB (1,5 \u00ce\u00a9 s\u00c3\u00a9rie + 6,8 \u00ce\u00a9 paralelo)."}, {"text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$", "passed": false, "evidence": "Custos em R$ por item em 3 tiers est\u00c3\u00a3o presentes, mas a origem por item n\u00c3\u00a3o \u00c3\u00a9 listada: s\u00c3\u00b3 men\u00c3\u00a7\u00c3\u00b5es soltas ('checkout do AliExpress', c\u00c3\u00a9lulas de 'vendedor nacional', marcas nacionais de woofer). N\u00c3\u00a3o h\u00c3\u00a1 separa\u00c3\u00a7\u00c3\u00a3o clara AliExpress vs loja nacional por componente."}, {"text": "D\u00c3\u00a1 orienta\u00c3\u00a7\u00c3\u00a3o de constru\u00c3\u00a7\u00c3\u00a3o do gabinete (material, veda\u00c3\u00a7\u00c3\u00a3o)", "passed": true, "evidence": "Compensado 15 mm (naval) em vez de MDF, 'cola PU ou PVA + parafusos + silicone nas juntas por dentro', manta acr\u00c3\u00adlica, travamento interno, compartimento separado para bateria/placa, al\u00c3\u00a7a com porca-garra."}], "summary": {"passed": 6, "failed": 1, "total": 7, "pass_rate": 0.86}, "timing": {"executor_duration_seconds": 178.4, "total_duration_seconds": 178.4}, "claims": [{"claim": "Dutos: 2 \u00c3\u2014 \u00c3\u02dc5 cm \u00c3\u2014 15,8 cm ou 1 \u00c3\u2014 \u00c3\u02dc7 cm \u00c3\u2014 14 cm para 20 L / 55 Hz", "type": "factual", "verified": true, "evidence": "Lv = 23562,5\u00c2\u00b7D\u00c2\u00b2\u00c2\u00b7Np/(Fb\u00c2\u00b2\u00c2\u00b7Vb) \u00e2\u02c6\u2019 0,732\u00c2\u00b7D: 19,47\u00e2\u02c6\u20193,66 = 15,8 cm; 19,08\u00e2\u02c6\u20195,12 = 14,0 cm."}, {"claim": "LR2 3 kHz 4 \u00ce\u00a9: C \u00e2\u2030\u02c6 6,8 \u00c2\u00b5F, L \u00e2\u2030\u02c6 0,42 mH", "type": "factual", "verified": true, "evidence": "C = 1/(4\u00cf\u20acfR) = 6,63 \u00c2\u00b5F; L = R/(\u00cf\u20acf) = 0,424 mH."}, {"claim": "L-pad -4 dB em 4 \u00ce\u00a9: 1,5 \u00ce\u00a9 s\u00c3\u00a9rie + 6,8 \u00ce\u00a9 paralelo; -6 dB: 2 \u00ce\u00a9 + 4 \u00ce\u00a9", "type": "factual", "verified": true, "evidence": "a=0,631: R1=1,48, R2=6,84; a=0,5: R1=2, R2=4."}, {"claim": "6S em 4 \u00ce\u00a9: teto ~62 W/canal", "type": "factual", "verified": true, "evidence": "22,2\u00c2\u00b2/8 = 61,6 W."}, {"claim": "SPL 88 dB + 40 W a 1 m \u00e2\u2030\u02c6 104 dB; 80 W a 4 m \u00e2\u2030\u02c6 95 dB", "type": "factual", "verified": true, "evidence": "88+16 = 104; 88+19\u00e2\u02c6\u201912 = 95."}, {"claim": "Usar 6S (25,2 V cheia) diretamente na TPA3116", "type": "quality", "verified": true, "evidence": "Dentro do m\u00c3\u00a1ximo recomendado (26 V), mas com pouca margem; a resposta alerta e manda trocar capacitores de 25 V. Escolha agressiva mas sinalizada. Fus\u00c3\u00advel de 5 A \u00c3\u00a9 justo para ~80 W de sa\u00c3\u00adda (~4 A de entrada em pico)."}, {"claim": "Projeto salvo em projetos/caixa-bluetooth-churrasco/projeto.md", "type": "process", "verified": true, "evidence": "projeto.md existe em outputs/ com hist\u00c3\u00b3rico de decis\u00c3\u00b5es."}], "user_notes_summary": {"uncertainties": ["Pre\u00c3\u00a7os s\u00c3\u00a3o estimativas"], "needs_review": ["Valores de crossover partem da imped\u00c3\u00a2ncia nominal; recomenda medir"], "workarounds": []}, "eval_feedback": {"suggestions": [{"reason": "Nenhuma assertion checa o alerta de sa\u00c3\u00adda BTL (n\u00c3\u00a3o ligar o negativo do falante ao GND), erro cl\u00c3\u00a1ssico que queima a TPA3116; a without_skill cobriu, a with_skill n\u00c3\u00a3o."}, {"assertion": "Relaciona tens\u00c3\u00a3o da bateria/fonte com a pot\u00c3\u00aancia real da TPA3116", "reason": "N\u00c3\u00a3o checa margem at\u00c3\u00a9 o limite de 26 V; as duas runs divergem (6S recomendado vs 'evite 6S') e a assertion n\u00c3\u00a3o discrimina."}], "overall": "Resposta muito completa e numericamente correta; \u00c3\u00banica falha \u00c3\u00a9 n\u00c3\u00a3o indicar origem de compra por componente."}}}, {"id": "eval-3-diy-caixa-bluetooth-without_skill-run-1", "prompt": "(No prompt found)", "eval_id": null, "outputs": [{"name": "resposta.md", "type": "text", "content": "# Projeto: caixa Bluetooth port\u00c3\u00a1til com TPA3116 para churrasco\n\nD\u00c3\u00a1 pra fazer, e fica bem boa. A TPA3116 \u00c3\u00a9 uma \u00c3\u00b3tima escolha: barata, eficiente (classe D, quase n\u00c3\u00a3o esquenta) e funciona direto na bateria. Vou montar o projeto inteiro e ir explicando o porqu\u00c3\u00aa de cada escolha, j\u00c3\u00a1 que \u00c3\u00a9 sua primeira caixa.\n\n**O que eu assumi (me corrige se algo estiver errado):**\n- Uso ao ar livre, em volume de festa, por umas 6 a 10 horas seguidas.\n- Uma pessoa precisa conseguir carregar pela al\u00c3\u00a7a (a meta \u00c3\u00a9 ficar abaixo de ~8 kg).\n- Voc\u00c3\u00aa n\u00c3\u00a3o tem soldadora ponto (spot welder) para baterias.\n- Or\u00c3\u00a7amento de uns R$ 700 a 1.100 no total. Os pre\u00c3\u00a7os abaixo s\u00c3\u00a3o estimativas aproximadas; n\u00c3\u00a3o consultei valores atuais.\n\n---\n\n## 1. A decis\u00c3\u00a3o que mais importa: a tens\u00c3\u00a3o da bateria\n\nA pot\u00c3\u00aancia da TPA3116 depende quase s\u00c3\u00b3 da tens\u00c3\u00a3o que chega nela. A placa aceita at\u00c3\u00a9 26 V, mas o ideal \u00c3\u00a9 ficar com uma margem abaixo disso.\n\n| Bateria | Tens\u00c3\u00a3o (cheia \u00e2\u2020\u2019 vazia) | Pot\u00c3\u00aancia real por canal em 4 \u00ce\u00a9 | Coment\u00c3\u00a1rio |\n|---|---|---|---|\n| 3S (3 c\u00c3\u00a9lulas 18650 em s\u00c3\u00a9rie) | 12,6 \u00e2\u2020\u2019 ~9,5 V | ~12\u00e2\u20ac\u201c15 W | Fraca para ambiente aberto |\n| **4S (4 em s\u00c3\u00a9rie)** | **16,8 \u00e2\u2020\u2019 ~12,8 V** | **~25\u00e2\u20ac\u201c30 W** | **Recomendado. Bom equil\u00c3\u00adbrio e margem segura** |\n| 5S / bateria de ferramenta 18\u00e2\u20ac\u201c20 V | 21 \u00e2\u2020\u2019 ~16 V | ~35\u00e2\u20ac\u201c40 W | \u00c3\u201ctima, mas veja o item 6 |\n| 6S | 25,2 V | \u00e2\u20ac\u201d | Encosta no limite da placa. Evite |\n\nOs \"2x50 W\" do an\u00c3\u00bancio s\u00c3\u00b3 aparecem com uns 24 V e distor\u00c3\u00a7\u00c3\u00a3o alta. Com bateria 4S, conte com uns **2 \u00c3\u2014 25 W reais**. Parece pouco, mas com falantes de boa sensibilidade isso toca alto em churrasco.\n\n**Por isso: falantes de 4 \u00ce\u00a9** (em 8 \u00ce\u00a9, a mesma tens\u00c3\u00a3o entrega metade da pot\u00c3\u00aancia) **e bateria 4S.**\n\n---\n\n## 2. Lista de componentes\n\n### Eletr\u00c3\u00b4nica (AliExpress)\n| Item | O que procurar | ~R$ |\n|---|---|---|\n| Placa amplificadora | TPA3116D2 **est\u00c3\u00a9reo com Bluetooth 5.0**, por exemplo a fam\u00c3\u00adlia **ZK-502C** ou **ZK-502MT** (a MT tem controle de grave e agudo, que vale a pena). Confira na foto se o chip \u00c3\u00a9 TPA3116 mesmo. | 60\u00e2\u20ac\u201c100 |\n| BMS 4S | \"BMS 4S 20A **com balanceamento**\" (a corrente anunciada costuma ser exagerada, ent\u00c3\u00a3o 20 A d\u00c3\u00a1 folga) | 25\u00e2\u20ac\u201c40 |\n| Indicador de bateria | \"indicador de n\u00c3\u00advel de bateria l\u00c3\u00adtio 4S\" (display ou barrinha) | 10\u00e2\u20ac\u201c15 |\n| Carregador | **Fonte carregadora 16,8 V 2 A** com plugue P4, igual \u00c3\u00a0s de bike el\u00c3\u00a9trica ou patinete | 40\u00e2\u20ac\u201c60 |\n| Jack de carga | Jack P4 f\u00c3\u00aamea de painel (5,5 \u00c3\u2014 2,1 mm) | 5 |\n| Chave liga/desliga | Chave gangorra de 10 A, de prefer\u00c3\u00aancia com LED | 10 |\n| Fus\u00c3\u00advel | Porta-fus\u00c3\u00advel l\u00c3\u00a2mina (de carro) + fus\u00c3\u00advel de **7,5 A** | 10 |\n| Fio | 16 AWG para alimenta\u00c3\u00a7\u00c3\u00a3o e 18 AWG para os falantes | 20 |\n\n### Bateria: a parte em que n\u00c3\u00a3o d\u00c3\u00a1 pra economizar\n- **8 c\u00c3\u00a9lulas 18650 em 4S2P** (d\u00c3\u00a1 uns 14,8 V e 5\u00e2\u20ac\u201c7 Ah, ou seja, 75\u00e2\u20ac\u201c100 Wh). Isso rende umas **8 a 15 horas** em volume de festa, porque a pot\u00c3\u00aancia m\u00c3\u00a9dia de m\u00c3\u00basica \u00c3\u00a9 bem menor que a de pico.\n- Compre c\u00c3\u00a9lulas de marca conhecida (Samsung 25R/35E, LG, Molicel, Sony/Murata) de vendedor confi\u00c3\u00a1vel. **Fuja de \"9900 mAh\"**: isso n\u00c3\u00a3o existe e \u00c3\u00a9 c\u00c3\u00a9lula falsa ou reciclada.\n- **N\u00c3\u00a3o solde direto na c\u00c3\u00a9lula.** O calor do ferro estraga a c\u00c3\u00a9lula por dentro. Voc\u00c3\u00aa tem tr\u00c3\u00aas op\u00c3\u00a7\u00c3\u00b5es:\n  1. **Comprar um pack 4S2P pronto** (com fita de n\u00c3\u00adquel soldada a ponto). \u00c3\u2030 a mais f\u00c3\u00a1cil e segura.\n  2. Comprar c\u00c3\u00a9lulas **\"com tab\"** (j\u00c3\u00a1 v\u00c3\u00aam com lingueta de n\u00c3\u00adquel) e soldar s\u00c3\u00b3 nas linguetas.\n  3. Usar suportes (holders) para 18650. Funciona, mas t\u00c3\u00aam mau contato com vibra\u00c3\u00a7\u00c3\u00a3o. N\u00c3\u00a3o recomendo para algo que vai ser carregado de um lado pro outro.\n- Custo: R$ 150\u00e2\u20ac\u201c250 em c\u00c3\u00a9lulas boas.\n\n### Falantes (no Brasil costuma sair melhor que importar)\n- **2 m\u00c3\u00a9dio-graves de 6\" ou 6,5\", 4 \u00ce\u00a9, com sensibilidade de 89 dB ou mais.** Sensibilidade \u00c3\u00a9 o que importa aqui, porque a pot\u00c3\u00aancia \u00c3\u00a9 limitada. Ignore o \"200 W PMPO\" do an\u00c3\u00bancio. Linhas automotivas de m\u00c3\u00a9dio-grave de marcas conhecidas (Selenium/JBL, Bravox, Eros, Hinor etc.) funcionam bem. **Prefira um modelo que publique os par\u00c3\u00a2metros Thiele-Small** (Fs, Qts, Vas), porque voc\u00c3\u00aa vai precisar deles para dimensionar a caixa. ~R$ 150\u00e2\u20ac\u201c300 o par.\n- **Tweeters: sugiro usar 2, n\u00c3\u00a3o 1.** A placa \u00c3\u00a9 est\u00c3\u00a9reo, ent\u00c3\u00a3o fica mais simples montar dois conjuntos iguais (canal E: woofer + tweeter; canal D: woofer + tweeter). Com um tweeter s\u00c3\u00b3, voc\u00c3\u00aa precisaria somar os canais, o que complica. Use **tweeter de domo** (seda, tit\u00c3\u00a2nio ou PEI), 4 ou 8 \u00ce\u00a9. **Evite tweeter piezo**: ele se d\u00c3\u00a1 mal com amplificador classe D (\u00c3\u00a9 uma carga capacitiva e pode esquentar ou danificar a sa\u00c3\u00adda). ~R$ 60\u00e2\u20ac\u201c120 o par.\n\n### Caixa e acabamento\n| Item | ~R$ |\n|---|---|\n| Compensado 12\u00e2\u20ac\u201c15 mm (naval se puder) ou MDF 15 mm | 80\u00e2\u20ac\u201c150 |\n| Grades met\u00c3\u00a1licas para os woofers (em churrasco, com certeza algu\u00c3\u00a9m vai esbarrar) | 40\u00e2\u20ac\u201c80 |\n| Al\u00c3\u00a7a, p\u00c3\u00a9s de borracha, cantoneiras | 30\u00e2\u20ac\u201c60 |\n| Cola de madeira, silicone, parafusos, manta acr\u00c3\u00adlica | 40 |\n| Tubo PVC para o duto (se for bass reflex) | 10 |\n| Acabamento: carpete automotivo, tinta texturizada ou verniz mar\u00c3\u00adtimo | 50\u00e2\u20ac\u201c100 |\n\n**Total aproximado: R$ 750 a 1.200**, conforme a qualidade dos falantes e das c\u00c3\u00a9lulas.\n\n---\n\n## 3. Divisor de frequ\u00c3\u00aancia (crossover): simples e suficiente\n\nSe os tweeters automotivos vierem com um capacitor no fio (\u00c3\u00a9 comum), isso j\u00c3\u00a1 \u00c3\u00a9 o divisor b\u00c3\u00a1sico. Se n\u00c3\u00a3o vierem:\n\n- **Tweeter:** capacitor de poli\u00c3\u00a9ster ou polipropileno (**n\u00c3\u00a3o polarizado**, 100 V ou mais) **em s\u00c3\u00a9rie**, cortando em torno de 3,5\u00e2\u20ac\u201c4 kHz:\n  - Tweeter de 8 \u00ce\u00a9: **4,7 \u00c2\u00b5F**\n  - Tweeter de 4 \u00ce\u00a9: **10 \u00c2\u00b5F**\n- **Tweeter alto demais ou agudo \"chiando\"?** Coloque um **resistor de 2\u00e2\u20ac\u201c3,3 \u00ce\u00a9 / 10 W em s\u00c3\u00a9rie** com ele. Tweeters geralmente s\u00c3\u00a3o mais sens\u00c3\u00adveis que o woofer.\n- **Woofer:** comece ligado direto. Se o som ficar \"gritado\" ou \u00c3\u00a1spero nos m\u00c3\u00a9dios, coloque uma **bobina de ~0,15\u00e2\u20ac\u201c0,2 mH** em s\u00c3\u00a9rie (para 4 \u00ce\u00a9).\n- Escolha um tweeter com Fs (frequ\u00c3\u00aancia de resson\u00c3\u00a2ncia) de 1,5 kHz ou menos. Assim ele aguenta bem o corte em 4 kHz.\n\nLigue tudo com a mesma polaridade (+ com +). Depois vale testar o tweeter invertido e ouvir qual das duas formas soa mais cheia na regi\u00c3\u00a3o de voz.\n\n---\n\n## 4. A caixa\n\n### Tipo: bass reflex (com duto) ou selada?\n- **Selada:** \u00c3\u00a9 mais f\u00c3\u00a1cil, perdoa erro, protege o woofer e d\u00c3\u00a1 um grave \"seco\". S\u00c3\u00b3 que perde grave em ambiente aberto.\n- **Bass reflex:** rende mais grave e mais volume com a mesma pot\u00c3\u00aancia, e em churrasco isso ajuda muito. Precisa ser calculada.\n\n**Minha recomenda\u00c3\u00a7\u00c3\u00a3o: bass reflex sintonizada em torno de 55\u00e2\u20ac\u201c60 Hz**, calculada no **WinISD** (\u00c3\u00a9 gratuito) com os par\u00c3\u00a2metros T/S do falante que voc\u00c3\u00aa comprar. Como ponto de partida para um m\u00c3\u00a9dio-grave t\u00c3\u00adpico de 6,5\": **uns 7\u00e2\u20ac\u201c9 litros l\u00c3\u00adquidos por woofer**, ou seja, **~15\u00e2\u20ac\u201c18 L no total** com os dois dividindo o mesmo volume. Isso funciona bem em est\u00c3\u00a9reo.\n\n### Dimens\u00c3\u00b5es de refer\u00c3\u00aancia\n**Externa: ~50 \u00c3\u2014 28 \u00c3\u2014 22 cm** (L \u00c3\u2014 A \u00c3\u2014 P) com chapa de 15 mm. Isso d\u00c3\u00a1 ~22 L brutos. Descontando falantes, refor\u00c3\u00a7os, duto e o compartimento da eletr\u00c3\u00b4nica, sobram uns 17 L l\u00c3\u00adquidos.\n\nDisposi\u00c3\u00a7\u00c3\u00a3o na frente: woofer \u00c3\u00a0 esquerda e \u00c3\u00a0 direita, cada tweeter acima ou ao lado do seu woofer, e o duto na frente (ou atr\u00c3\u00a1s, se a caixa for ficar longe da parede).\n\n### Detalhes que fazem a caixa durar\n- **Compensado em vez de MDF:** em 12 mm, uma caixa desse tamanho pesa uns 4 kg s\u00c3\u00b3 de madeira. Em MDF de 15 mm s\u00c3\u00a3o uns 7 kg. O compartimento tamb\u00c3\u00a9m aguenta melhor umidade e cerveja derramada. MDF inchou com \u00c3\u00a1gua, j\u00c3\u00a1 era.\n- **Compartimento separado e vedado para a eletr\u00c3\u00b4nica** (placa, BMS e bateria), com o painel de controle no topo ou na traseira. Motivos: os bot\u00c3\u00b5es ficam acess\u00c3\u00adveis, n\u00c3\u00a3o h\u00c3\u00a1 vazamento de ar na caixa ac\u00c3\u00bastica e d\u00c3\u00a1 pra fazer manuten\u00c3\u00a7\u00c3\u00a3o sem desmontar os falantes.\n- **Vede tudo:** cola de madeira nas juntas + silicone por dentro, e junta de espuma ou borracha sob os falantes. Vazamento de ar em caixa com duto faz barulho de assobio e mata o grave.\n- **Um refor\u00c3\u00a7o (travessa)** ligando o painel frontal ao traseiro, entre os dois woofers.\n- **Manta acr\u00c3\u00adlica** nas paredes internas (n\u00c3\u00a3o tampe o duto).\n- **Fixe a bateria firme** (abra\u00c3\u00a7adeira ou suporte parafusado, com espuma). Ela n\u00c3\u00a3o pode ficar solta chacoalhando.\n- Acabamento resistente: verniz mar\u00c3\u00adtimo, tinta texturizada ou carpete automotivo. P\u00c3\u00a9s de borracha para n\u00c3\u00a3o ficar no ch\u00c3\u00a3o molhado.\n\n---\n\n## 5. Esquema el\u00c3\u00a9trico\n\n```\n[Jack P4 carga 16,8V] \u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u2013\u00ba [BMS 4S: pinos P+/P-] \u00e2\u2014\u201e\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u2013\u00ba [Pack 4S2P: B+/B- + fios de balan\u00c3\u00a7o]\n                                  \u00e2\u201d\u201a\n                              P+ \u00e2\u201d\u20ac\u00e2\u201d\u00b4\u00e2\u201d\u20ac\u00e2\u2013\u00ba [Fus\u00c3\u00advel 7,5A] \u00e2\u201d\u20ac\u00e2\u2013\u00ba [Chave 10A] \u00e2\u201d\u20ac\u00e2\u201d\u00ac\u00e2\u201d\u20ac\u00e2\u2013\u00ba [Placa TPA3116 +V]\n                              P- \u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u201d\u00b4\u00e2\u201d\u20ac\u00e2\u2013\u00ba [Placa TPA3116 GND]\n                                                                     \u00e2\u201d\u201d\u00e2\u201d\u20ac\u00e2\u2013\u00ba [Indicador de bateria]\n\nPlaca: sa\u00c3\u00adda E \u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u2013\u00ba woofer E (direto) + tweeter E (via capacitor)\n       sa\u00c3\u00adda D \u00e2\u201d\u20ac\u00e2\u201d\u20ac\u00e2\u2013\u00ba woofer D (direto) + tweeter D (via capacitor)\n```\n\nPontos importantes:\n- **N\u00c3\u00a3o ligue o negativo de sa\u00c3\u00adda do falante ao GND.** A sa\u00c3\u00adda da TPA3116 \u00c3\u00a9 em ponte (BTL). Os dois fios do falante s\u00c3\u00a3o \"vivos\". Se voc\u00c3\u00aa juntar o \"\u00e2\u02c6\u2019\" dos falantes ou lig\u00c3\u00a1-lo ao terra, a placa queima.\n- O fus\u00c3\u00advel fica **o mais perto poss\u00c3\u00advel da bateria**, depois do BMS. Ele protege contra curto na fia\u00c3\u00a7\u00c3\u00a3o, que \u00c3\u00a9 o que causa inc\u00c3\u00aandio.\n- O carregador de 16,8 V entra pelo BMS. D\u00c3\u00a1 pra tocar enquanto carrega.\n- **Guarde o carregador original com a caixa.** Uma fonte de 19 V de notebook ligada nesse jack vai sobrecarregar as c\u00c3\u00a9lulas.\n\n---\n\n## 6. Alternativa que vale considerar: bateria de ferramenta\n\nSe voc\u00c3\u00aa j\u00c3\u00a1 tem parafusadeira de 18/20 V (Makita, DeWalt, Bosch etc.), existe no AliExpress um **adaptador de bateria de ferramenta** com terminais. Vantagens: voc\u00c3\u00aa n\u00c3\u00a3o precisa montar pack nem BMS, j\u00c3\u00a1 tem carregador e ganha mais pot\u00c3\u00aancia (~35\u00e2\u20ac\u201c40 W por canal). Cuidado: muitas dessas baterias **n\u00c3\u00a3o cortam sozinhas quando descarregam** (quem corta \u00c3\u00a9 a ferramenta). Por isso voc\u00c3\u00aa precisaria de um **m\u00c3\u00b3dulo de corte por subtens\u00c3\u00a3o**, ajustado para ~15 V.\n\n---\n\n## 7. Ordem de montagem (fa\u00c3\u00a7a nessa sequ\u00c3\u00aancia)\n\n1. **Teste a eletr\u00c3\u00b4nica na bancada antes de mexer na madeira.** Ligue placa + falantes soltos + bateria (ou uma fonte de 12\u00e2\u20ac\u201c19 V) e confira se o Bluetooth pareia, se sai som dos dois canais e se n\u00c3\u00a3o tem chiado excessivo.\n2. Com os falantes em m\u00c3\u00a3os, me\u00c3\u00a7a os furos reais (n\u00c3\u00a3o confie no an\u00c3\u00bancio) e rode o WinISD com os par\u00c3\u00a2metros T/S.\n3. Corte a madeira, cole a caixa e deixe secar 24 h. Vede e fa\u00c3\u00a7a o acabamento.\n4. Monte a bateria com o BMS, **confira as tens\u00c3\u00b5es de cada grupo com o mult\u00c3\u00admetro** (todos devem estar iguais, \u00c2\u00b10,05 V) e s\u00c3\u00b3 ent\u00c3\u00a3o ligue o resto.\n5. Instale a eletr\u00c3\u00b4nica no compartimento, depois os falantes com as juntas de veda\u00c3\u00a7\u00c3\u00a3o, depois as grades.\n6. Primeiro teste com volume baixo. Aumente aos poucos e fique de olho em estalos, assobios no duto, vibra\u00c3\u00a7\u00c3\u00b5es e distor\u00c3\u00a7\u00c3\u00a3o.\n\n---\n\n## 8. Dicas para durar\n\n- **N\u00c3\u00a3o deixe no sol do churrasco.** Calor \u00c3\u00a9 o maior inimigo da bateria de l\u00c3\u00adtio. Sombra sempre.\n- **Longe da churrasqueira:** a gordura e a fuma\u00c3\u00a7a grudam no cone e no domo do tweeter.\n- N\u00c3\u00a3o deixe a bateria parada 100% cheia ou totalmente vazia por meses. Se for guardar, deixe pela metade (o indicador ajuda).\n- Com grave no m\u00c3\u00a1ximo e volume no talo, o woofer passa do curso (voc\u00c3\u00aa ouve \"bater\"). Nesse caso, abaixe o grave, n\u00c3\u00a3o o volume. Em bass reflex, o som abaixo da sintonia n\u00c3\u00a3o tem \"freio\".\n- Chiado com o celular desconectado \u00c3\u00a9 normal nessas placas BT baratas, em n\u00c3\u00advel baixo. Se incomodar, fios curtos e o GND em ponto \u00c3\u00banico resolvem na maioria dos casos.\n\n---\n\n## 9. Upgrades opcionais (d\u00c3\u00a1 pra fazer depois)\n\n- **Sa\u00c3\u00adda USB para carregar celular:** um m\u00c3\u00b3dulo step-down de 5 V / 3 A (~R$ 15). Faz sucesso em churrasco.\n- **Entrada auxiliar P2:** a maioria das ZK j\u00c3\u00a1 tem.\n- **Placa com DSP** (por exemplo, as da linha \"JAB\" da Wondom/Sure, que juntam Bluetooth + DSP + amplificador): d\u00c3\u00a1 para fazer crossover e equaliza\u00c3\u00a7\u00c3\u00a3o por aplicativo e um \"bass boost\" com limitador que protege o woofer. Custa mais, mas \u00c3\u00a9 o maior salto de qualidade poss\u00c3\u00advel nesse tipo de projeto. S\u00c3\u00b3 vale se um dia voc\u00c3\u00aa quiser ir al\u00c3\u00a9m.\n\n---\n\n**Resumo:** TPA3116 com Bluetooth (tipo ZK-502MT), **bateria 4S2P de c\u00c3\u00a9lulas de marca**, 2 m\u00c3\u00a9dio-graves de 6,5\" em 4 \u00ce\u00a9 com boa sensibilidade + 2 tweeters de domo com capacitor, e caixa bass reflex de ~17 L em compensado com compartimento separado para a eletr\u00c3\u00b4nica. Custo na faixa de R$ 750 a 1.200, peso em torno de 7 kg, 25\u00e2\u20ac\u201c30 W reais por canal e bateria para a festa inteira.\n\nQuando escolher os falantes, me manda o modelo ou os par\u00c3\u00a2metros T/S que eu te ajudo a calcular o volume exato e o tamanho do duto.\n"}], "grading": {"expectations": [{"text": "Inclui BMS/prote\u00c3\u00a7\u00c3\u00a3o para a bateria de l\u00c3\u00adtio e alerta de seguran\u00c3\u00a7a", "passed": true, "evidence": "'BMS 4S 20A com balanceamento', fus\u00c3\u00advel 7,5 A 'o mais perto poss\u00c3\u00advel da bateria... o que causa inc\u00c3\u00aandio', 'N\u00c3\u00a3o solde direto na c\u00c3\u00a9lula', c\u00c3\u00a9lulas falsas '9900 mAh', conferir tens\u00c3\u00a3o de cada grupo."}, {"text": "Calcula ou estima autonomia da bateria", "passed": true, "evidence": "'4S2P (14,8 V e 5-7 Ah, ou seja, 75-100 Wh). Isso rende umas 8 a 15 horas em volume de festa'."}, {"text": "Relaciona tens\u00c3\u00a3o da bateria/fonte com a pot\u00c3\u00aancia real da TPA3116", "passed": true, "evidence": "Tabela 3S ~12-15 W, 4S ~25-30 W, 5S ~35-40 W por canal em 4 \u00ce\u00a9; '2x50 W do an\u00c3\u00bancio s\u00c3\u00b3 aparecem com uns 24 V e distor\u00c3\u00a7\u00c3\u00a3o alta'."}, {"text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada", "passed": false, "evidence": "Define bass reflex 55-60 Hz e ~15-18 L l\u00c3\u00adquidos, mas o duto n\u00c3\u00a3o \u00c3\u00a9 dimensionado (s\u00c3\u00b3 'Tubo PVC para o duto' e 'calculada no WinISD'); sem di\u00c3\u00a2metro nem comprimento."}, {"text": "Trata o crossover/corte do tweeter", "passed": true, "evidence": "Capacitor em s\u00c3\u00a9rie para corte ~3,5-4 kHz: 4,7 \u00c2\u00b5F (8 \u00ce\u00a9) ou 10 \u00c2\u00b5F (4 \u00ce\u00a9); resistor s\u00c3\u00a9rie para atenuar; bobina opcional 0,15-0,2 mH no woofer."}, {"text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$", "passed": true, "evidence": "Se\u00c3\u00a7\u00c3\u00b5es 'Eletr\u00c3\u00b4nica (AliExpress)' com tabela de ~R$ por item e 'Falantes (no Brasil costuma sair melhor que importar)'; total R$ 750-1.200."}, {"text": "D\u00c3\u00a1 orienta\u00c3\u00a7\u00c3\u00a3o de constru\u00c3\u00a7\u00c3\u00a3o do gabinete (material, veda\u00c3\u00a7\u00c3\u00a3o)", "passed": true, "evidence": "Compensado 12-15 mm naval vs MDF, 'Vede tudo: cola de madeira nas juntas + silicone por dentro, e junta de espuma ou borracha sob os falantes', travessa, manta acr\u00c3\u00adlica, compartimento separado."}], "summary": {"passed": 6, "failed": 1, "total": 7, "pass_rate": 0.86}, "timing": {"executor_duration_seconds": 127.5, "total_duration_seconds": 127.5}, "claims": [{"claim": "Tweeter 4 \u00ce\u00a9: 10 \u00c2\u00b5F; 8 \u00ce\u00a9: 4,7 \u00c2\u00b5F para corte ~3,5-4 kHz (1\u00c2\u00aa ordem)", "type": "factual", "verified": true, "evidence": "1/(2\u00cf\u20ac\u00c2\u00b74000\u00c2\u00b74) = 9,95 \u00c2\u00b5F; 1/(2\u00cf\u20ac\u00c2\u00b74000\u00c2\u00b78) = 4,97 \u00c2\u00b5F."}, {"claim": "4S: ~25-30 W reais por canal em 4 \u00ce\u00a9", "type": "factual", "verified": false, "evidence": "Teto te\u00c3\u00b3rico V\u00c2\u00b2/8 = 27 W a 14,8 V nominal e 35 W a 16,8 V cheia; 25-30 W s\u00c3\u00b3 em bateria cheia e com distor\u00c3\u00a7\u00c3\u00a3o de ~10%. Otimista para pot\u00c3\u00aancia limpa (~18-20 W)."}, {"claim": "N\u00c3\u00a3o ligar o negativo do falante ao GND (sa\u00c3\u00adda BTL)", "type": "factual", "verified": true, "evidence": "Correto e importante para a TPA3116."}, {"claim": "Autonomia 8-15 h com 75-100 Wh", "type": "factual", "verified": true, "evidence": "Implica consumo m\u00c3\u00a9dio de ~6-10 W; plaus\u00c3\u00advel para m\u00c3\u00basica com 2 \u00c3\u2014 25 W."}, {"claim": "Resistor de 2-3,3 \u00ce\u00a9 em s\u00c3\u00a9rie com tweeter de 4 \u00ce\u00a9 ap\u00c3\u00b3s capacitor", "type": "quality", "verified": false, "evidence": "Funciona para atenuar, mas desloca o ponto de corte do capacitor (a imped\u00c3\u00a2ncia vista muda); a resposta n\u00c3\u00a3o alerta. Pequena imprecis\u00c3\u00a3o."}], "user_notes_summary": {"uncertainties": ["Pre\u00c3\u00a7os s\u00c3\u00a3o estimativas, n\u00c3\u00a3o consultados"], "needs_review": [], "workarounds": []}, "eval_feedback": {"suggestions": [{"assertion": "Trata o crossover/corte do tweeter", "reason": "Um capacitor \u00c3\u00banico passa igual a um LR2 calculado; se a profundidade importa, exigir ordem do filtro/atenua\u00c3\u00a7\u00c3\u00a3o do tweeter."}], "overall": "Resposta pr\u00c3\u00a1tica e segura (bom esquema el\u00c3\u00a9trico, alerta BTL, alternativa bateria de ferramenta); falha em dimensionar o duto."}}}], "previous_feedback": {}, "previous_outputs": {}, "benchmark": {"metadata": {"skill_name": "consultor-som", "skill_path": "<path/to/skill>", "executor_model": "<model-name>", "analyzer_model": "<model-name>", "timestamp": "2026-09-22T20:07:15Z", "evals_run": [1, 2, 3], "runs_per_configuration": 3}, "runs": [{"eval_id": 1, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 7, "failed": 0, "total": 7, "time_seconds": 91.9, "tokens": 0, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Contesta a premissa de 3000W sem mexer na el\u00c3\u00a9trica (aponta incoer\u00c3\u00aancia)", "passed": true, "evidence": "'Resposta curta: do jeito que est\u00c3\u00a1, n\u00c3\u00a3o... Quatro coisas n\u00c3\u00a3o fecham juntas: 3000 W, el\u00c3\u00a9trica original, R$ 2.500 e \"sem grave embolado\"'; se\u00c3\u00a7\u00c3\u00a3o 'A el\u00c3\u00a9trica do Onix n\u00c3\u00a3o alimenta 3000 W'."}, {"text": "Mostra conta de corrente do m\u00c3\u00b3dulo (A) em rela\u00c3\u00a7\u00c3\u00a3o ao alternador/bateria", "passed": true, "evidence": "Tabela: 3000 W RMS -> ~298 A em pot\u00c3\u00aancia cheia, 37 a 99 A m\u00c3\u00a9dia; alternador 70-110 A, carro usa 30-50 A, 'Sobram uns 40 a 60 A para o som'; picos saem da bateria."}, {"text": "Prop\u00c3\u00b5e alternativa coerente dentro de R$ 2500", "passed": true, "evidence": "Op\u00c3\u00a7\u00c3\u00a3o 'Equilibrado' (1 sub 12\" DVC 500-600 W, m\u00c3\u00b3dulo 600-800 W em 2 \u00ce\u00a9, caixa selada) ~R$ 1.650-2.450; justificativa de 1 sub em vez de 2 pela limita\u00c3\u00a7\u00c3\u00a3o el\u00c3\u00a9trica."}, {"text": "Trata a integra\u00c3\u00a7\u00c3\u00a3o com o r\u00c3\u00a1dio original (entrada de alto n\u00c3\u00advel ou conversor RCA)", "passed": true, "evidence": "'r\u00c3\u00a1dio original... sem sa\u00c3\u00adda RCA. Por isso o m\u00c3\u00b3dulo vai usar entrada de alto n\u00c3\u00advel (ligada nos fios dos alto-falantes)'; tamb\u00c3\u00a9m menciona DSP/recupera\u00c3\u00a7\u00c3\u00a3o de grave se o r\u00c3\u00a1dio cortar grave."}, {"text": "Menciona fus\u00c3\u00advel perto da bateria e bitola/qualidade do cabo (OFC vs CCA)", "passed": true, "evidence": "'fus\u00c3\u00advel de 80-100 A a at\u00c3\u00a9 30 cm da bateria', 'cabo OFC 21 mm\u00c2\u00b2', 'se for CCA, suba uma bitola'."}, {"text": "Explica como evitar grave embolado (tipo de caixa, subs\u00c3\u00b4nico, regulagem de ganho)", "passed": true, "evidence": "Caixa selada ou dutada Fb ~32-35 Hz, subs\u00c3\u00b4nico 25-30 Hz, passa-baixa 80 Hz, ganho com mult\u00c3\u00admetro (~34,6 V AC), sem bass boost."}, {"text": "Apresenta op\u00c3\u00a7\u00c3\u00b5es de or\u00c3\u00a7amento em R$ em n\u00c3\u00adveis diferentes", "passed": true, "evidence": "Tabela com Econ\u00c3\u00b4mico (~R$ 1.150-1.700), Equilibrado (~R$ 1.650-2.450) e Grave + palco (~R$ 2.100-2.950)."}], "notes": ["Pre\u00c3\u00a7os s\u00c3\u00a3o estimativas de faixa, n\u00c3\u00a3o pesquisados"]}, {"eval_id": 2, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 1.0, "passed": 6, "failed": 0, "total": 6, "time_seconds": 88.3, "tokens": 0, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Compara as tr\u00c3\u00aas op\u00c3\u00a7\u00c3\u00b5es (soundbar, receiver+caixas, caixas ativas) com pr\u00c3\u00b3s e contras", "passed": true, "evidence": "Tabela A/B/C e bloco 'Comparando as tr\u00c3\u00aas' com Pr\u00c3\u00b3/Contra para Soundbar, Caixas ativas e Receiver usado + passivas."}, {"text": "Faz uma recomenda\u00c3\u00a7\u00c3\u00a3o clara com justificativa ligada ao uso (m\u00c3\u00basica > filme)", "passed": true, "evidence": "'O que eu faria: a op\u00c3\u00a7\u00c3\u00a3o C'; 'Em m\u00c3\u00basica, o que d\u00c3\u00a1 o palco \u00c3\u00a9 a separa\u00c3\u00a7\u00c3\u00a3o est\u00c3\u00a9reo... A soundbar... em m\u00c3\u00basica ac\u00c3\u00bastica soa artificial e estreito'."}, {"text": "Menciona ac\u00c3\u00bastica ou posicionamento da sala", "passed": true, "evidence": "Tri\u00c3\u00a2ngulo 2-2,5 m, tweeter na altura do ouvido, 30-50 cm da parede, n\u00c3\u00a3o no canto, tapete/cortina; calibra\u00c3\u00a7\u00c3\u00a3o Audyssey/YPAO; sugest\u00c3\u00a3o de REW."}, {"text": "Considera o mercado de usados como forma de ganhar custo-benef\u00c3\u00adcio", "passed": true, "evidence": "Recomenda\u00c3\u00a7\u00c3\u00a3o central \u00c3\u00a9 'receiver AV usado' (R$ 900-1.400), com checklist de teste antes de pagar."}, {"text": "Apresenta or\u00c3\u00a7amento em R$ que respeita o limite de R$ 3000", "passed": true, "evidence": "Totais: A R$ 2.000-3.000, B R$ 1.300-2.300, C R$ 2.300-3.000; divis\u00c3\u00a3o sugerida ~R$ 1.100 receiver + 1.500-1.700 caixas. Nota: somando os m\u00c3\u00a1ximos de todas as linhas da coluna C daria >R$ 3.000, o total informado est\u00c3\u00a1 levemente otimista."}, {"text": "Foca em especifica\u00c3\u00a7\u00c3\u00b5es que importam (sensibilidade, pot\u00c3\u00aancia RMS, entradas) e n\u00c3\u00a3o s\u00c3\u00b3 em marcas", "passed": true, "evidence": "Coluna 'O que importa na especifica\u00c3\u00a7\u00c3\u00a3o': sensibilidade \u00e2\u2030\u00a5 86 dB, 6-8 \u00ce\u00a9, 30-50 W RMS reais/canal, HDMI ARC, pr\u00c3\u00a9-out de sub, entrada \u00c3\u00b3ptica; 'N\u00c3\u00a3o pague por watts'."}], "notes": ["Pre\u00c3\u00a7os n\u00c3\u00a3o pesquisados, apenas estimativas"]}, {"eval_id": 3, "configuration": "with_skill", "run_number": 1, "result": {"pass_rate": 0.86, "passed": 6, "failed": 1, "total": 7, "time_seconds": 178.4, "tokens": 0, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Inclui BMS/prote\u00c3\u00a7\u00c3\u00a3o para a bateria de l\u00c3\u00adtio e alerta de seguran\u00c3\u00a7a", "passed": true, "evidence": "'BMS 6S com balanceamento, fus\u00c3\u00advel logo na sa\u00c3\u00adda da bateria e carregador CC/CV de 25,2 V'; 'N\u00c3\u00a3o solde fio direto na c\u00c3\u00a9lula 18650'; alerta sobre c\u00c3\u00a9lulas falsas '9.900 mAh' e calor >60 \u00c2\u00b0C."}, {"text": "Calcula ou estima autonomia da bateria", "passed": true, "evidence": "Tabela: 6S1P ~67 Wh -> ~4,4 h; 6S2P ~133 Wh -> ~8,9 h a 12 W m\u00c3\u00a9dios / ~4,3 h a 25 W; 6S3P ~13 h."}, {"text": "Relaciona tens\u00c3\u00a3o da bateria/fonte com a pot\u00c3\u00aancia real da TPA3116", "passed": true, "evidence": "P \u00e2\u2030\u02c6 V\u00c2\u00b2/(2Z): 3S ~15 W te\u00c3\u00b3rico/~10 W real, 4S ~27/~18 W, 6S ~62/~40 W por canal; alerta de 25,2 V perto do limite de 26 V e capacitores de 25 V."}, {"text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada", "passed": true, "evidence": "Dutada, ~20 L l\u00c3\u00adquidos, Fb ~55 Hz, '2 dutos de 5 cm \u00c3\u2014 15,8 cm ou 1 duto de 7 cm \u00c3\u2014 14 cm', velocidade do ar ~9 m/s; medidas externas 55 \u00c3\u2014 30 \u00c3\u2014 22 cm."}, {"text": "Trata o crossover/corte do tweeter", "passed": true, "evidence": "LR2 12 dB/oit em ~3 kHz para 4 \u00ce\u00a9: woofer 0,39-0,47 mH + 6,8 \u00c2\u00b5F; tweeter 6,8 \u00c2\u00b5F + 0,42 mH, polaridade invertida; L-pad -4 dB (1,5 \u00ce\u00a9 s\u00c3\u00a9rie + 6,8 \u00ce\u00a9 paralelo)."}, {"text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$", "passed": false, "evidence": "Custos em R$ por item em 3 tiers est\u00c3\u00a3o presentes, mas a origem por item n\u00c3\u00a3o \u00c3\u00a9 listada: s\u00c3\u00b3 men\u00c3\u00a7\u00c3\u00b5es soltas ('checkout do AliExpress', c\u00c3\u00a9lulas de 'vendedor nacional', marcas nacionais de woofer). N\u00c3\u00a3o h\u00c3\u00a1 separa\u00c3\u00a7\u00c3\u00a3o clara AliExpress vs loja nacional por componente."}, {"text": "D\u00c3\u00a1 orienta\u00c3\u00a7\u00c3\u00a3o de constru\u00c3\u00a7\u00c3\u00a3o do gabinete (material, veda\u00c3\u00a7\u00c3\u00a3o)", "passed": true, "evidence": "Compensado 15 mm (naval) em vez de MDF, 'cola PU ou PVA + parafusos + silicone nas juntas por dentro', manta acr\u00c3\u00adlica, travamento interno, compartimento separado para bateria/placa, al\u00c3\u00a7a com porca-garra."}], "notes": ["Pre\u00c3\u00a7os s\u00c3\u00a3o estimativas", "Valores de crossover partem da imped\u00c3\u00a2ncia nominal; recomenda medir"]}, {"eval_id": 1, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.86, "passed": 6, "failed": 1, "total": 7, "time_seconds": 54.1, "tokens": 0, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Contesta a premissa de 3000W sem mexer na el\u00c3\u00a9trica (aponta incoer\u00c3\u00aancia)", "passed": true, "evidence": "'do jeito que voc\u00c3\u00aa descreveu, n\u00c3\u00a3o faz sentido... um sistema desse tamanho n\u00c3\u00a3o funciona com a el\u00c3\u00a9trica original do Onix'."}, {"text": "Mostra conta de corrente do m\u00c3\u00b3dulo (A) em rela\u00c3\u00a7\u00c3\u00a3o ao alternador/bateria", "passed": true, "evidence": "'2000 W \u00c3\u00b7 13,5 V \u00e2\u2030\u02c6 150 A s\u00c3\u00b3 pro som, no pico'; alternador 90-100 A, carro gasta 30-50 A, sobram 40-60 A. Nota: a conta usa os 1600 W dos subs, n\u00c3\u00a3o os 3000 W do m\u00c3\u00b3dulo."}, {"text": "Prop\u00c3\u00b5e alternativa coerente dentro de R$ 2500", "passed": true, "evidence": "1 sub 12\" 350-500 W + m\u00c3\u00b3dulo 400-600 W + caixa selada; 'D\u00c3\u00a1 pra fechar dentro dos R$ 2500 escolhendo bem'. Faixa total listada (R$ 1700-2900) passa do teto, mas \u00c3\u00a9 explicitamente ajust\u00c3\u00a1vel."}, {"text": "Trata a integra\u00c3\u00a7\u00c3\u00a3o com o r\u00c3\u00a1dio original (entrada de alto n\u00c3\u00advel ou conversor RCA)", "passed": true, "evidence": "'Conversor de alto pra baixo n\u00c3\u00advel (line output converter) ligado nos fios de alto-falante do r\u00c3\u00a1dio original', R$ 60-150."}, {"text": "Menciona fus\u00c3\u00advel perto da bateria e bitola/qualidade do cabo (OFC vs CCA)", "passed": true, "evidence": "'com fus\u00c3\u00advel perto do polo'; 'cabo de alimenta\u00c3\u00a7\u00c3\u00a3o de cobre 21 mm\u00c2\u00b2 (4 AWG), porta-fus\u00c3\u00advel perto da bateria'. N\u00c3\u00a3o cita OFC vs CCA explicitamente, apenas 'cobre'; passou pelo fus\u00c3\u00advel + bitola."}, {"text": "Explica como evitar grave embolado (tipo de caixa, subs\u00c3\u00b4nico, regulagem de ganho)", "passed": true, "evidence": "Se\u00c3\u00a7\u00c3\u00a3o 'Ajustes que fazem a diferen\u00c3\u00a7a': LPF 70-80 Hz, subs\u00c3\u00b4nico 25-30 Hz, bass boost zero, ganho medido, teste de fase; selada vs dutada 32-35 Hz."}, {"text": "Apresenta op\u00c3\u00a7\u00c3\u00b5es de or\u00c3\u00a7amento em R$ em n\u00c3\u00adveis diferentes", "passed": false, "evidence": "Apenas uma proposta \u00c3\u00banica com faixa de pre\u00c3\u00a7o (~R$ 1700-2900); n\u00c3\u00a3o h\u00c3\u00a1 n\u00c3\u00adveis/tiers distintos. Menciona upgrade el\u00c3\u00a9trico futuro (R$ 1500-3000) mas n\u00c3\u00a3o como op\u00c3\u00a7\u00c3\u00a3o de or\u00c3\u00a7amento do sistema."}], "notes": []}, {"eval_id": 2, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.83, "passed": 5, "failed": 1, "total": 6, "time_seconds": 39.4, "tokens": 0, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Compara as tr\u00c3\u00aas op\u00c3\u00a7\u00c3\u00b5es (soundbar, receiver+caixas, caixas ativas) com pr\u00c3\u00b3s e contras", "passed": true, "evidence": "Tabela 'As tr\u00c3\u00aas op\u00c3\u00a7\u00c3\u00b5es lado a lado' com m\u00c3\u00basica, filme, simplicidade, espa\u00c3\u00a7o, upgrade e o que R$ 3.000 compra."}, {"text": "Faz uma recomenda\u00c3\u00a7\u00c3\u00a3o clara com justificativa ligada ao uso (m\u00c3\u00basica > filme)", "passed": true, "evidence": "'eu escolheria caixas ativas... A soundbar eu deixaria por \u00c3\u00baltimo, porque a sua prioridade \u00c3\u00a9 m\u00c3\u00basica'; se\u00c3\u00a7\u00c3\u00a3o 'Por que eu iria de caixas ativas'."}, {"text": "Menciona ac\u00c3\u00bastica ou posicionamento da sala", "passed": true, "evidence": "Se\u00c3\u00a7\u00c3\u00a3o 'Dicas': 20-50 cm da parede, tri\u00c3\u00a2ngulo equil\u00c3\u00a1tero, tweeter na altura do ouvido, n\u00c3\u00a3o em nicho de rack, tapete/cortina."}, {"text": "Considera o mercado de usados como forma de ganhar custo-benef\u00c3\u00adcio", "passed": true, "evidence": "Apenas de passagem: receiver 'de prefer\u00c3\u00aancia usado ou em promo\u00c3\u00a7\u00c3\u00a3o, por R$ 1.500 a R$ 2.000'. Men\u00c3\u00a7\u00c3\u00a3o m\u00c3\u00adnima, n\u00c3\u00a3o \u00c3\u00a9 estrat\u00c3\u00a9gia central."}, {"text": "Apresenta or\u00c3\u00a7amento em R$ que respeita o limite de R$ 3000", "passed": true, "evidence": "Caixas ativas R$ 1.800-2.500 + suportes/cabos R$ 150-300 = m\u00c3\u00a1x. R$ 2.800; sub fica para depois."}, {"text": "Foca em especifica\u00c3\u00a7\u00c3\u00b5es que importam (sensibilidade, pot\u00c3\u00aancia RMS, entradas) e n\u00c3\u00a3o s\u00c3\u00b3 em marcas", "passed": false, "evidence": "Fala de entradas (HDMI ARC, \u00c3\u00b3ptico, sa\u00c3\u00adda de sub, aptX/LDAC) e tamanho de woofer, mas n\u00c3\u00a3o menciona sensibilidade nem pot\u00c3\u00aancia RMS; a recomenda\u00c3\u00a7\u00c3\u00a3o \u00c3\u00a9 conduzida por lista de modelos/marcas (Edifier R1850DB, S1000, Kanto, Audioengine, JBL 305P, Sonos Beam...)."}], "notes": []}, {"eval_id": 3, "configuration": "without_skill", "run_number": 1, "result": {"pass_rate": 0.86, "passed": 6, "failed": 1, "total": 7, "time_seconds": 127.5, "tokens": 0, "tool_calls": 0, "errors": 0}, "expectations": [{"text": "Inclui BMS/prote\u00c3\u00a7\u00c3\u00a3o para a bateria de l\u00c3\u00adtio e alerta de seguran\u00c3\u00a7a", "passed": true, "evidence": "'BMS 4S 20A com balanceamento', fus\u00c3\u00advel 7,5 A 'o mais perto poss\u00c3\u00advel da bateria... o que causa inc\u00c3\u00aandio', 'N\u00c3\u00a3o solde direto na c\u00c3\u00a9lula', c\u00c3\u00a9lulas falsas '9900 mAh', conferir tens\u00c3\u00a3o de cada grupo."}, {"text": "Calcula ou estima autonomia da bateria", "passed": true, "evidence": "'4S2P (14,8 V e 5-7 Ah, ou seja, 75-100 Wh). Isso rende umas 8 a 15 horas em volume de festa'."}, {"text": "Relaciona tens\u00c3\u00a3o da bateria/fonte com a pot\u00c3\u00aancia real da TPA3116", "passed": true, "evidence": "Tabela 3S ~12-15 W, 4S ~25-30 W, 5S ~35-40 W por canal em 4 \u00ce\u00a9; '2x50 W do an\u00c3\u00bancio s\u00c3\u00b3 aparecem com uns 24 V e distor\u00c3\u00a7\u00c3\u00a3o alta'."}, {"text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada", "passed": false, "evidence": "Define bass reflex 55-60 Hz e ~15-18 L l\u00c3\u00adquidos, mas o duto n\u00c3\u00a3o \u00c3\u00a9 dimensionado (s\u00c3\u00b3 'Tubo PVC para o duto' e 'calculada no WinISD'); sem di\u00c3\u00a2metro nem comprimento."}, {"text": "Trata o crossover/corte do tweeter", "passed": true, "evidence": "Capacitor em s\u00c3\u00a9rie para corte ~3,5-4 kHz: 4,7 \u00c2\u00b5F (8 \u00ce\u00a9) ou 10 \u00c2\u00b5F (4 \u00ce\u00a9); resistor s\u00c3\u00a9rie para atenuar; bobina opcional 0,15-0,2 mH no woofer."}, {"text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$", "passed": true, "evidence": "Se\u00c3\u00a7\u00c3\u00b5es 'Eletr\u00c3\u00b4nica (AliExpress)' com tabela de ~R$ por item e 'Falantes (no Brasil costuma sair melhor que importar)'; total R$ 750-1.200."}, {"text": "D\u00c3\u00a1 orienta\u00c3\u00a7\u00c3\u00a3o de constru\u00c3\u00a7\u00c3\u00a3o do gabinete (material, veda\u00c3\u00a7\u00c3\u00a3o)", "passed": true, "evidence": "Compensado 12-15 mm naval vs MDF, 'Vede tudo: cola de madeira nas juntas + silicone por dentro, e junta de espuma ou borracha sob os falantes', travessa, manta acr\u00c3\u00adlica, compartimento separado."}], "notes": ["Pre\u00c3\u00a7os s\u00c3\u00a3o estimativas, n\u00c3\u00a3o consultados"]}], "run_summary": {"with_skill": {"pass_rate": {"mean": 0.9533, "stddev": 0.0808, "min": 0.86, "max": 1.0}, "time_seconds": {"mean": 119.5333, "stddev": 51.0118, "min": 88.3, "max": 178.4}, "tokens": {"mean": 0.0, "stddev": 0.0, "min": 0, "max": 0}}, "without_skill": {"pass_rate": {"mean": 0.85, "stddev": 0.0173, "min": 0.83, "max": 0.86}, "time_seconds": {"mean": 73.6667, "stddev": 47.1969, "min": 39.4, "max": 127.5}, "tokens": {"mean": 0.0, "stddev": 0.0, "min": 0, "max": 0}}, "delta": {"pass_rate": "+0.10", "time_seconds": "+45.9", "tokens": "+0"}}, "notes": []}};
+
+    // ---- State ----
+    let feedbackMap = {};  // run_id -> feedback text
+    let currentIndex = 0;
+    let visitedRuns = new Set();
+
+    // ---- Init ----
+    async function init() {
+      // Load saved feedback from server — but only if this isn't a fresh
+      // iteration (indicated by previous_feedback being present). When
+      // previous feedback exists, the feedback.json on disk is stale from
+      // the prior iteration and should not pre-fill the textareas.
+      const hasPrevious = Object.keys(EMBEDDED_DATA.previous_feedback || {}).length > 0
+        || Object.keys(EMBEDDED_DATA.previous_outputs || {}).length > 0;
+      if (!hasPrevious) {
+        try {
+          const resp = await fetch("/api/feedback");
+          const data = await resp.json();
+          if (data.reviews) {
+            for (const r of data.reviews) feedbackMap[r.run_id] = r.feedback;
+          }
+        } catch { /* first run, no feedback yet */ }
+      }
+
+      document.getElementById("skill-name").textContent = EMBEDDED_DATA.skill_name;
+      showRun(0);
+
+      // Wire up feedback auto-save
+      const textarea = document.getElementById("feedback");
+      let saveTimeout = null;
+      textarea.addEventListener("input", () => {
+        clearTimeout(saveTimeout);
+        document.getElementById("feedback-status").textContent = "";
+        saveTimeout = setTimeout(() => saveCurrentFeedback(), 800);
+      });
+    }
+
+    // ---- Navigation ----
+    function navigate(delta) {
+      const newIndex = currentIndex + delta;
+      if (newIndex >= 0 && newIndex < EMBEDDED_DATA.runs.length) {
+        saveCurrentFeedback();
+        showRun(newIndex);
+      }
+    }
+
+    function updateNavButtons() {
+      document.getElementById("prev-btn").disabled = currentIndex === 0;
+      document.getElementById("next-btn").disabled =
+        currentIndex === EMBEDDED_DATA.runs.length - 1;
+    }
+
+    // ---- Show a run ----
+    function showRun(index) {
+      currentIndex = index;
+      const run = EMBEDDED_DATA.runs[index];
+
+      // Progress
+      document.getElementById("progress").textContent =
+        `${index + 1} of ${EMBEDDED_DATA.runs.length}`;
+
+      // Prompt
+      document.getElementById("prompt-text").textContent = run.prompt;
+
+      // Config badge
+      const badge = document.getElementById("config-badge");
+      const configMatch = run.id.match(/(with_skill|without_skill|new_skill|old_skill)/);
+      if (configMatch) {
+        const config = configMatch[1];
+        const isBaseline = config === "without_skill" || config === "old_skill";
+        badge.textContent = config.replace(/_/g, " ");
+        badge.className = "config-badge " + (isBaseline ? "config-baseline" : "config-primary");
+        badge.style.display = "inline-block";
+      } else {
+        badge.style.display = "none";
+      }
+
+      // Outputs
+      renderOutputs(run);
+
+      // Previous outputs
+      renderPrevOutputs(run);
+
+      // Grades
+      renderGrades(run);
+
+      // Previous feedback
+      const prevFb = (EMBEDDED_DATA.previous_feedback || {})[run.id];
+      const prevEl = document.getElementById("prev-feedback");
+      if (prevFb) {
+        document.getElementById("prev-feedback-text").textContent = prevFb;
+        prevEl.style.display = "block";
+      } else {
+        prevEl.style.display = "none";
+      }
+
+      // Feedback
+      document.getElementById("feedback").value = feedbackMap[run.id] || "";
+      document.getElementById("feedback-status").textContent = "";
+
+      updateNavButtons();
+
+      // Track visited runs and promote done button when all visited
+      visitedRuns.add(index);
+      const doneBtn = document.getElementById("done-btn");
+      if (visitedRuns.size >= EMBEDDED_DATA.runs.length) {
+        doneBtn.classList.add("ready");
+      }
+
+      // Scroll main content to top
+      document.querySelector(".main").scrollTop = 0;
+    }
+
+    // ---- Render outputs ----
+    function renderOutputs(run) {
+      const container = document.getElementById("outputs-body");
+      container.innerHTML = "";
+
+      const outputs = run.outputs || [];
+      if (outputs.length === 0) {
+        container.innerHTML = '<div class="empty-state">No output files</div>';
+        return;
+      }
+
+      for (const file of outputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        // Always show file header with download link
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const content = document.createElement("div");
+        content.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          content.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          content.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          content.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(content, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          content.appendChild(a);
+        } else if (file.type === "error") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          pre.style.color = "var(--red)";
+          content.appendChild(pre);
+        }
+
+        fileDiv.appendChild(content);
+        container.appendChild(fileDiv);
+      }
+    }
+
+    // ---- XLSX rendering via SheetJS ----
+    function renderXlsx(container, b64Data) {
+      try {
+        const raw = Uint8Array.from(atob(b64Data), c => c.charCodeAt(0));
+        const wb = XLSX.read(raw, { type: "array" });
+
+        for (let i = 0; i < wb.SheetNames.length; i++) {
+          const sheetName = wb.SheetNames[i];
+          const ws = wb.Sheets[sheetName];
+
+          if (wb.SheetNames.length > 1) {
+            const sheetLabel = document.createElement("div");
+            sheetLabel.style.cssText =
+              "font-weight:600; font-size:0.8rem; color:#b0aea5; margin-top:0.5rem; margin-bottom:0.25rem;";
+            sheetLabel.textContent = "Sheet: " + sheetName;
+            container.appendChild(sheetLabel);
+          }
+
+          const htmlStr = XLSX.utils.sheet_to_html(ws, { editable: false });
+          const wrapper = document.createElement("div");
+          wrapper.innerHTML = htmlStr;
+          container.appendChild(wrapper);
+        }
+      } catch (err) {
+        container.textContent = "Error rendering spreadsheet: " + err.message;
+      }
+    }
+
+    // ---- Grades ----
+    function renderGrades(run) {
+      const section = document.getElementById("grades-section");
+      const content = document.getElementById("grades-content");
+
+      if (!run.grading) {
+        section.style.display = "none";
+        return;
+      }
+
+      const grading = run.grading;
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("grades-arrow").classList.remove("open");
+
+      const summary = grading.summary || {};
+      const expectations = grading.expectations || [];
+
+      let html = '<div style="padding: 1rem;">';
+
+      // Summary line
+      const passRate = summary.pass_rate != null
+        ? Math.round(summary.pass_rate * 100) + "%"
+        : "?";
+      const badgeClass = summary.pass_rate >= 0.8 ? "grade-pass" : summary.pass_rate >= 0.5 ? "" : "grade-fail";
+      html += '<div class="grades-summary">';
+      html += '<span class="grade-badge ' + badgeClass + '">' + passRate + '</span>';
+      html += '<span>' + (summary.passed || 0) + ' passed, ' + (summary.failed || 0) + ' failed of ' + (summary.total || 0) + '</span>';
+      html += '</div>';
+
+      // Assertions list
+      html += '<ul class="assertion-list">';
+      for (const exp of expectations) {
+        const statusClass = exp.passed ? "pass" : "fail";
+        const statusIcon = exp.passed ? "\u2713" : "\u2717";
+        html += '<li class="assertion-item">';
+        html += '<span class="assertion-status ' + statusClass + '">' + statusIcon + '</span>';
+        html += '<span>' + escapeHtml(exp.text) + '</span>';
+        if (exp.evidence) {
+          html += '<div class="assertion-evidence">' + escapeHtml(exp.evidence) + '</div>';
+        }
+        html += '</li>';
+      }
+      html += '</ul>';
+
+      html += '</div>';
+      content.innerHTML = html;
+    }
+
+    function toggleGrades() {
+      const content = document.getElementById("grades-content");
+      const arrow = document.getElementById("grades-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Previous outputs (collapsible) ----
+    function renderPrevOutputs(run) {
+      const section = document.getElementById("prev-outputs-section");
+      const content = document.getElementById("prev-outputs-content");
+      const prevOutputs = (EMBEDDED_DATA.previous_outputs || {})[run.id];
+
+      if (!prevOutputs || prevOutputs.length === 0) {
+        section.style.display = "none";
+        return;
+      }
+
+      section.style.display = "block";
+      // Reset to collapsed
+      content.classList.remove("open");
+      document.getElementById("prev-outputs-arrow").classList.remove("open");
+
+      // Render the files into the content area
+      content.innerHTML = "";
+      const wrapper = document.createElement("div");
+      wrapper.style.padding = "1rem";
+
+      for (const file of prevOutputs) {
+        const fileDiv = document.createElement("div");
+        fileDiv.className = "output-file";
+
+        const header = document.createElement("div");
+        header.className = "output-file-header";
+        const nameSpan = document.createElement("span");
+        nameSpan.textContent = file.name;
+        header.appendChild(nameSpan);
+        const dlBtn = document.createElement("a");
+        dlBtn.className = "dl-btn";
+        dlBtn.textContent = "Download";
+        dlBtn.download = file.name;
+        dlBtn.href = getDownloadUri(file);
+        header.appendChild(dlBtn);
+        fileDiv.appendChild(header);
+
+        const fc = document.createElement("div");
+        fc.className = "output-file-content";
+
+        if (file.type === "text") {
+          const pre = document.createElement("pre");
+          pre.textContent = file.content;
+          fc.appendChild(pre);
+        } else if (file.type === "image") {
+          const img = document.createElement("img");
+          img.src = file.data_uri;
+          img.alt = file.name;
+          fc.appendChild(img);
+        } else if (file.type === "pdf") {
+          const iframe = document.createElement("iframe");
+          iframe.src = file.data_uri;
+          fc.appendChild(iframe);
+        } else if (file.type === "xlsx") {
+          renderXlsx(fc, file.data_b64);
+        } else if (file.type === "binary") {
+          const a = document.createElement("a");
+          a.className = "download-link";
+          a.href = file.data_uri;
+          a.download = file.name;
+          a.textContent = "Download " + file.name;
+          fc.appendChild(a);
+        }
+
+        fileDiv.appendChild(fc);
+        wrapper.appendChild(fileDiv);
+      }
+
+      content.appendChild(wrapper);
+    }
+
+    function togglePrevOutputs() {
+      const content = document.getElementById("prev-outputs-content");
+      const arrow = document.getElementById("prev-outputs-arrow");
+      content.classList.toggle("open");
+      arrow.classList.toggle("open");
+    }
+
+    // ---- Feedback (saved to server -> feedback.json) ----
+    function saveCurrentFeedback() {
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // Build reviews array from map
+      const reviews = [];
+      for (const [run_id, feedback] of Object.entries(feedbackMap)) {
+        if (feedback.trim()) {
+          reviews.push({ run_id, feedback, timestamp: new Date().toISOString() });
+        }
+      }
+
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ reviews, status: "in_progress" }),
+      }).then(() => {
+        document.getElementById("feedback-status").textContent = "Saved";
+      }).catch(() => {
+        // Static mode or server unavailable — no-op on auto-save,
+        // feedback will be downloaded on final submit
+        document.getElementById("feedback-status").textContent = "Will download on submit";
+      });
+    }
+
+    // ---- Done ----
+    function showDoneDialog() {
+      // Save current textarea to feedbackMap (but don't POST yet)
+      const run = EMBEDDED_DATA.runs[currentIndex];
+      const text = document.getElementById("feedback").value;
+      if (text.trim() === "") {
+        delete feedbackMap[run.id];
+      } else {
+        feedbackMap[run.id] = text;
+      }
+
+      // POST once with status: complete — include ALL runs so the model
+      // can distinguish "no feedback" (looks good) from "not reviewed"
+      const reviews = [];
+      const ts = new Date().toISOString();
+      for (const r of EMBEDDED_DATA.runs) {
+        reviews.push({ run_id: r.id, feedback: feedbackMap[r.id] || "", timestamp: ts });
+      }
+      const payload = JSON.stringify({ reviews, status: "complete" }, null, 2);
+      fetch("/api/feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+      }).then(() => {
+        document.getElementById("done-overlay").classList.add("visible");
+      }).catch(() => {
+        // Server not available (static mode) — download as file
+        const blob = new Blob([payload], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "feedback.json";
+        a.click();
+        URL.revokeObjectURL(url);
+        document.getElementById("done-overlay").classList.add("visible");
+      });
+    }
+
+    function closeDoneDialog() {
+      // Reset status back to in_progress
+      saveCurrentFeedback();
+      document.getElementById("done-overlay").classList.remove("visible");
+    }
+
+    // ---- Toast ----
+    function showToast(message) {
+      const toast = document.getElementById("toast");
+      toast.textContent = message;
+      toast.classList.add("visible");
+      setTimeout(() => toast.classList.remove("visible"), 2000);
+    }
+
+    // ---- Keyboard nav ----
+    document.addEventListener("keydown", (e) => {
+      // Don't capture when typing in textarea
+      if (e.target.tagName === "TEXTAREA") return;
+
+      if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+        navigate(-1);
+      } else if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+        navigate(1);
+      }
+    });
+
+    // ---- Util ----
+    function getDownloadUri(file) {
+      if (file.data_uri) return file.data_uri;
+      if (file.data_b64) return "data:application/octet-stream;base64," + file.data_b64;
+      if (file.type === "text") return "data:text/plain;charset=utf-8," + encodeURIComponent(file.content);
+      return "#";
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement("div");
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    // ---- View switching ----
+    function switchView(view) {
+      document.querySelectorAll(".view-tab").forEach(t => t.classList.remove("active"));
+      document.querySelectorAll(".view-panel").forEach(p => p.classList.remove("active"));
+      document.querySelector(`[onclick="switchView('${view}')"]`).classList.add("active");
+      document.getElementById("panel-" + view).classList.add("active");
+    }
+
+    // ---- Benchmark rendering ----
+    function renderBenchmark() {
+      const data = EMBEDDED_DATA.benchmark;
+      if (!data) return;
+
+      // Show the tabs
+      document.getElementById("view-tabs").style.display = "flex";
+
+      const container = document.getElementById("benchmark-content");
+      const summary = data.run_summary || {};
+      const metadata = data.metadata || {};
+      const notes = data.notes || [];
+
+      let html = "";
+
+      // Header
+      html += "<h2 style='font-family: Poppins, sans-serif; margin-bottom: 0.5rem;'>Benchmark Results</h2>";
+      html += "<p style='color: var(--text-muted); font-size: 0.875rem; margin-bottom: 1.25rem;'>";
+      if (metadata.skill_name) html += "<strong>" + escapeHtml(metadata.skill_name) + "</strong> &mdash; ";
+      if (metadata.timestamp) html += metadata.timestamp + " &mdash; ";
+      if (metadata.evals_run) html += "Evals: " + metadata.evals_run.join(", ") + " &mdash; ";
+      html += (metadata.runs_per_configuration || "?") + " runs per configuration";
+      html += "</p>";
+
+      // Summary table
+      html += '<table class="benchmark-table">';
+
+      function fmtStat(stat, pct) {
+        if (!stat) return "—";
+        const suffix = pct ? "%" : "";
+        const m = pct ? (stat.mean * 100).toFixed(0) : stat.mean.toFixed(1);
+        const s = pct ? (stat.stddev * 100).toFixed(0) : stat.stddev.toFixed(1);
+        return m + suffix + " ± " + s + suffix;
+      }
+
+      function deltaClass(val) {
+        if (!val) return "";
+        const n = parseFloat(val);
+        if (n > 0) return "benchmark-delta-positive";
+        if (n < 0) return "benchmark-delta-negative";
+        return "";
+      }
+
+      // Discover config names dynamically (everything except "delta")
+      const configs = Object.keys(summary).filter(k => k !== "delta");
+      const configA = configs[0] || "config_a";
+      const configB = configs[1] || "config_b";
+      const labelA = configA.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const labelB = configB.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+      const a = summary[configA] || {};
+      const b = summary[configB] || {};
+      const delta = summary.delta || {};
+
+      html += "<thead><tr><th>Metric</th><th>" + escapeHtml(labelA) + "</th><th>" + escapeHtml(labelB) + "</th><th>Delta</th></tr></thead>";
+      html += "<tbody>";
+
+      html += "<tr><td><strong>Pass Rate</strong></td>";
+      html += "<td>" + fmtStat(a.pass_rate, true) + "</td>";
+      html += "<td>" + fmtStat(b.pass_rate, true) + "</td>";
+      html += '<td class="' + deltaClass(delta.pass_rate) + '">' + (delta.pass_rate || "—") + "</td></tr>";
+
+      // Time (only show row if data exists)
+      if (a.time_seconds || b.time_seconds) {
+        html += "<tr><td><strong>Time (s)</strong></td>";
+        html += "<td>" + fmtStat(a.time_seconds, false) + "</td>";
+        html += "<td>" + fmtStat(b.time_seconds, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.time_seconds) + '">' + (delta.time_seconds ? delta.time_seconds + "s" : "—") + "</td></tr>";
+      }
+
+      // Tokens (only show row if data exists)
+      if (a.tokens || b.tokens) {
+        html += "<tr><td><strong>Tokens</strong></td>";
+        html += "<td>" + fmtStat(a.tokens, false) + "</td>";
+        html += "<td>" + fmtStat(b.tokens, false) + "</td>";
+        html += '<td class="' + deltaClass(delta.tokens) + '">' + (delta.tokens || "—") + "</td></tr>";
+      }
+
+      html += "</tbody></table>";
+
+      // Per-eval breakdown (if runs data available)
+      const runs = data.runs || [];
+      if (runs.length > 0) {
+        const evalIds = [...new Set(runs.map(r => r.eval_id))].sort((a, b) => a - b);
+
+        html += "<h3 style='font-family: Poppins, sans-serif; margin-bottom: 0.75rem;'>Per-Eval Breakdown</h3>";
+
+        const hasTime = runs.some(r => r.result && r.result.time_seconds != null);
+        const hasErrors = runs.some(r => r.result && r.result.errors > 0);
+
+        for (const evalId of evalIds) {
+          const evalRuns = runs.filter(r => r.eval_id === evalId);
+          const evalName = evalRuns[0] && evalRuns[0].eval_name ? evalRuns[0].eval_name : "Eval " + evalId;
+
+          html += "<h4 style='font-family: Poppins, sans-serif; margin: 1rem 0 0.5rem; color: var(--text);'>" + escapeHtml(evalName) + "</h4>";
+          html += '<table class="benchmark-table">';
+          html += "<thead><tr><th>Config</th><th>Run</th><th>Pass Rate</th>";
+          if (hasTime) html += "<th>Time (s)</th>";
+          if (hasErrors) html += "<th>Crashes During Execution</th>";
+          html += "</tr></thead>";
+          html += "<tbody>";
+
+          // Group by config and render with average rows
+          const configGroups = [...new Set(evalRuns.map(r => r.configuration))];
+          for (let ci = 0; ci < configGroups.length; ci++) {
+            const config = configGroups[ci];
+            const configRuns = evalRuns.filter(r => r.configuration === config);
+            if (configRuns.length === 0) continue;
+
+            const rowClass = ci === 0 ? "benchmark-row-with" : "benchmark-row-without";
+            const configLabel = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+            for (const run of configRuns) {
+              const r = run.result || {};
+              const prClass = r.pass_rate >= 0.8 ? "benchmark-delta-positive" : r.pass_rate < 0.5 ? "benchmark-delta-negative" : "";
+              html += '<tr class="' + rowClass + '">';
+              html += "<td>" + configLabel + "</td>";
+              html += "<td>" + run.run_number + "</td>";
+              html += '<td class="' + prClass + '">' + ((r.pass_rate || 0) * 100).toFixed(0) + "% (" + (r.passed || 0) + "/" + (r.total || 0) + ")</td>";
+              if (hasTime) html += "<td>" + (r.time_seconds != null ? r.time_seconds.toFixed(1) : "—") + "</td>";
+              if (hasErrors) html += "<td>" + (r.errors || 0) + "</td>";
+              html += "</tr>";
+            }
+
+            // Average row
+            const rates = configRuns.map(r => (r.result || {}).pass_rate || 0);
+            const avgRate = rates.reduce((a, b) => a + b, 0) / rates.length;
+            const avgPrClass = avgRate >= 0.8 ? "benchmark-delta-positive" : avgRate < 0.5 ? "benchmark-delta-negative" : "";
+            html += '<tr class="benchmark-row-avg ' + rowClass + '">';
+            html += "<td>" + configLabel + "</td>";
+            html += "<td>Avg</td>";
+            html += '<td class="' + avgPrClass + '">' + (avgRate * 100).toFixed(0) + "%</td>";
+            if (hasTime) {
+              const times = configRuns.map(r => (r.result || {}).time_seconds).filter(t => t != null);
+              html += "<td>" + (times.length ? (times.reduce((a, b) => a + b, 0) / times.length).toFixed(1) : "—") + "</td>";
+            }
+            if (hasErrors) html += "<td></td>";
+            html += "</tr>";
+          }
+          html += "</tbody></table>";
+
+          // Per-assertion detail for this eval
+          const runsWithExpectations = {};
+          for (const config of configGroups) {
+            runsWithExpectations[config] = evalRuns.filter(r => r.configuration === config && r.expectations && r.expectations.length > 0);
+          }
+          const hasAnyExpectations = Object.values(runsWithExpectations).some(runs => runs.length > 0);
+          if (hasAnyExpectations) {
+            // Collect all unique assertion texts across all configs
+            const allAssertions = [];
+            const seen = new Set();
+            for (const config of configGroups) {
+              for (const run of runsWithExpectations[config]) {
+                for (const exp of (run.expectations || [])) {
+                  if (!seen.has(exp.text)) {
+                    seen.add(exp.text);
+                    allAssertions.push(exp.text);
+                  }
+                }
+              }
+            }
+
+            html += '<table class="benchmark-table" style="margin-top: 0.5rem;">';
+            html += "<thead><tr><th>Assertion</th>";
+            for (const config of configGroups) {
+              const label = config.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+              html += "<th>" + escapeHtml(label) + "</th>";
+            }
+            html += "</tr></thead><tbody>";
+
+            for (const assertionText of allAssertions) {
+              html += "<tr><td>" + escapeHtml(assertionText) + "</td>";
+
+              for (const config of configGroups) {
+                html += "<td>";
+                for (const run of runsWithExpectations[config]) {
+                  const exp = (run.expectations || []).find(e => e.text === assertionText);
+                  if (exp) {
+                    const cls = exp.passed ? "benchmark-delta-positive" : "benchmark-delta-negative";
+                    const icon = exp.passed ? "\u2713" : "\u2717";
+                    html += '<span class="' + cls + '" title="Run ' + run.run_number + ': ' + escapeHtml(exp.evidence || "") + '">' + icon + "</span> ";
+                  } else {
+                    html += "— ";
+                  }
+                }
+                html += "</td>";
+              }
+              html += "</tr>";
+            }
+            html += "</tbody></table>";
+          }
+        }
+      }
+
+      // Notes
+      if (notes.length > 0) {
+        html += '<div class="benchmark-notes">';
+        html += "<h3>Analysis Notes</h3>";
+        html += "<ul>";
+        for (const note of notes) {
+          html += "<li>" + escapeHtml(note) + "</li>";
+        }
+        html += "</ul></div>";
+      }
+
+      container.innerHTML = html;
+    }
+
+    // ---- Start ----
+    init();
+    renderBenchmark();
+  </script>
+</body>
+</html>

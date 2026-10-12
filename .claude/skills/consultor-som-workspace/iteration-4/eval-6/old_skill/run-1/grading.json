@@ -1,0 +1,46 @@
+{
+  "expectations": [
+    {
+      "text": "Diz que o módulo automotivo precisa de fonte 12–14,4 V e dimensiona a corrente",
+      "passed": true,
+      "evidence": "Seção 'Módulo de carro em casa — a fonte 12 V': 'amplificador normal com fonte interna feita para 12–14,4 V'. Dimensiona: '4 × 50 W = 200 W RMS, classe D (80 %), 12 V → 20,8 A de pico; média com música 2,6–6,9 A / classe AB (55 %) → 30,3 A de pico; média 3,8–10,1 A' e conclui 'Fonte chaveada 12 V de 30 A (360 W)'. Conferido: 200/0,80/12 = 20,8 A; 200/0,55/12 = 30,3 A; 1/8 e 1/3 disso = 2,6–6,9 A e 3,8–10,1 A; 30 A × 12 V = 360 W. Escala de potência também correta: 50 W@14,4 V → 34,7 W@12 V (≈35) e 45,9 W@13,8 V (≈46)."
+    },
+    {
+      "text": "Alerta que decodificador barato pode não ter gerenciamento de graves (SW só com LFE)",
+      "passed": true,
+      "evidence": "Resumo, item 3: 'Decodificador óptico barato não faz gerenciamento de graves. Ele manda para a saída de sub só o canal \".1\" (LFE).' Reforçado na seção 'O detalhe que ninguém conta: gerenciamento de graves': 'Sub recebe só o LFE (saída SW do decodificador → amplificador do sub). Em filme 5.1 funciona; com fonte estéreo (música, TV aberta, YouTube) o sub fica mudo'. Também na lista do decodificador: 'Sem calibração, sem atraso por canal, sem gerenciamento de graves. É um conversor, não um receiver.'"
+    },
+    {
+      "text": "Alerta para conferir se a TV entrega Dolby/DTS (bitstream) pela saída óptica",
+      "passed": true,
+      "evidence": "Seção do decodificador: 'Na TV, configure a saída digital em \"Bitstream\" / \"Dolby Digital\" / \"Auto\" — nunca \"PCM\", porque PCM pelo óptico é só estéreo. E teste: algumas TVs só entregam 5.1 no óptico de fontes HDMI externas, não dos apps internos.' Riscos: 'TV que só manda PCM 2.0 dos apps → você compra um 5.1 e ouve estéreo. Teste com um trailer Dolby 5.1 antes de comprar caixas.' Próximos passos 2: 'Teste a TV: saída digital em Bitstream/Dolby Digital; veja se um app de streaming entrega 5.1 no óptico'. Também alerta que DTS pode não ser decodificado pelo decoder barato."
+    },
+    {
+      "text": "Alerta que falantes de mini system têm potência baixa e pede passa-alta + ganho baixo",
+      "passed": true,
+      "evidence": "Potência baixa: premissa 'aguentam 30–60 W de verdade' e 'as caixinhas vão ser o limite de volume antes do módulo'. Passa-alta: 'HPF do módulo em 80–100 Hz (tira delas o grave que não conseguem fazer, reduz distorção e libera volume)', repetido na arquitetura e nos próximos passos. Ganho limitado: em Riscos, 'regule o ganho pelo método do multímetro... Bass boost em zero. Alvos com fonte a 12 V: frontais 25 W em 6 Ω → 12,2 V AC' — alvo abaixo da faixa suportada pelas caixinhas (30–60 W). Conferido: √(25×6) = 12,25 V. Não usa literalmente a expressão 'ganho baixo', mas fixa um teto de ganho concreto e conservador para as frontais."
+    },
+    {
+      "text": "Mostra como distribuir os canais do módulo (incluindo ponte para o sub, se a impedância permitir)",
+      "passed": true,
+      "evidence": "Diagrama de arquitetura: 'FL / FR ──→ módulo 4 ch, canais 1-2 (HPF 80–100 Hz) ──→ caixinhas' e 'SW ──→ módulo 4 ch, canais 3-4 em PONTE (LPF 80 Hz, subsônico se dutada) ──→ sub de carro (4 Ω)'. Condição de impedância explícita: tabela 'DVC 2+2 Ω → série 4 Ω (OK em ponte) | paralelo 1 Ω (NUNCA em ponte); DVC 4+4 Ω → série 8 Ω (OK em ponte, ~metade da potência) | paralelo 2 Ω (não em ponte na maioria dos módulos)' e 'Ponte nos canais 3-4 quase sempre exige ≥ 4 Ω — confira no manual do módulo.' Inclui variante (canal 3 → central, canal 4 → sub em 2 Ω se o módulo for estável em 2 Ω estéreo) e a chave 2CH→4CH para copiar as entradas 1-2 para 3-4."
+    },
+    {
+      "text": "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco",
+      "passed": true,
+      "evidence": "Condição não ocorre: grep case-insensitive por 'vale saber' retorna 0 ocorrências e por 'dicas' retorna 0 ocorrências. As seções são Premissas, Onde a ideia fecha e onde não fecha (5 subseções), Arquitetura, Três caminhos, Opções de orçamento, Onde economizar, Riscos e cuidados e Próximos passos — nenhuma chamada 'Dicas'. Os alertas de segurança estão no corpo das seções ('Riscos e cuidados', 'fonte 12 V', 'Sub de carro na sala'), não em blocos destacáveis."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "technical_errors": [
+    "Inconsistência interna na fonte: o texto afirma 'Fonte chaveada 12 V de 30 A (360 W) cobre os dois casos', mas a própria conta dá 30,3 A de pico para classe AB (fonte no limite exato) e a tabela de orçamento pede '≥ 40 A se o módulo for classe AB'. A recomendação da tabela é a correta; a frase 'cobre os dois casos' deveria ser ajustada.",
+    "Inconsistência de enquadramento: a abertura diz '5.1 são 6 canais de amplificação e você tem 4. Faltam o central... e o do sub', mas a arquitetura proposta usa o módulo para FL/FR + sub em ponte (3 canais lógicos), de modo que o que falta na prática são central + 2 surrounds, não 'central e sub'. Não é conselho inseguro, mas a contagem inicial não bate com o diagrama.",
+    "Queda de tensão otimista no limite inferior: 'a conta de queda de tensão para 1 m pede só 1,5–4 mm²'. Conferido (ρ = 0,0172 Ω·mm²/m, 2 m ida+volta): 1,5 mm² a 30,3 A dá 0,69 V (5,8 % de 12 V) e está abaixo da capacidade de corrente usual para 30 A; 2,5–4 mm² fecham ~2–3,5 %. A recomendação final (6 mm² com fusível 30–40 A) é segura, então o erro fica só na frase da conta.",
+    "Estimativa levemente otimista para 8 Ω: 'conte com ~25 W por caixa a 12 V' para caixinhas de 6–8 Ω. Com 50 W/4 Ω a 14,4 V, a 12 V dá ~35 W em 4 Ω → ~23 W em 6 Ω e ~17 W em 8 Ω. Os 25 W valem para 6 Ω; para 8 Ω o número é ~30 % menor (impacto pequeno: ~1,5 dB no SPL)."
+  ]
+}

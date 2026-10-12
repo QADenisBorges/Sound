@@ -1,0 +1,24 @@
+{
+  "expectations": [
+    {"text": "Compara as três opções (soundbar, receiver+caixas, caixas ativas) com prós e contras", "passed": true, "evidence": "Tabela 'As três opções lado a lado' com música, filme, simplicidade, espaço, upgrade e o que R$ 3.000 compra."},
+    {"text": "Faz uma recomendação clara com justificativa ligada ao uso (música > filme)", "passed": true, "evidence": "'eu escolheria caixas ativas... A soundbar eu deixaria por último, porque a sua prioridade é música'; seção 'Por que eu iria de caixas ativas'."},
+    {"text": "Menciona acústica ou posicionamento da sala", "passed": true, "evidence": "Seção 'Dicas': 20-50 cm da parede, triângulo equilátero, tweeter na altura do ouvido, não em nicho de rack, tapete/cortina."},
+    {"text": "Considera o mercado de usados como forma de ganhar custo-benefício", "passed": true, "evidence": "Apenas de passagem: receiver 'de preferência usado ou em promoção, por R$ 1.500 a R$ 2.000'. Menção mínima, não é estratégia central."},
+    {"text": "Apresenta orçamento em R$ que respeita o limite de R$ 3000", "passed": true, "evidence": "Caixas ativas R$ 1.800-2.500 + suportes/cabos R$ 150-300 = máx. R$ 2.800; sub fica para depois."},
+    {"text": "Foca em especificações que importam (sensibilidade, potência RMS, entradas) e não só em marcas", "passed": false, "evidence": "Fala de entradas (HDMI ARC, óptico, saída de sub, aptX/LDAC) e tamanho de woofer, mas não menciona sensibilidade nem potência RMS; a recomendação é conduzida por lista de modelos/marcas (Edifier R1850DB, S1000, Kanto, Audioengine, JBL 305P, Sonos Beam...)."}
+  ],
+  "summary": {"passed": 5, "failed": 1, "total": 6, "pass_rate": 0.83},
+  "timing": {"executor_duration_seconds": 39.4, "total_duration_seconds": 39.4},
+  "claims": [
+    {"claim": "Caixas ativas com HDMI ARC na faixa de R$ 1.800-2.500, citando Edifier S1000/S2000/R1850DB e Kanto YU4", "type": "factual", "verified": false, "evidence": "A maioria dos modelos citados (R1850DB, S1000 MkII, S2000 MkIII, YU4) não tem HDMI ARC, só óptico/coaxial/BT; a recomendação 'com HDMI ARC' e a lista de modelos não batem totalmente."},
+    {"claim": "R1850DB tem saída de subwoofer", "type": "factual", "verified": true, "evidence": "Correto."}
+  ],
+  "user_notes_summary": {"uncertainties": [], "needs_review": [], "workarounds": []},
+  "eval_feedback": {
+    "suggestions": [
+      {"assertion": "Considera o mercado de usados como forma de ganhar custo-benefício", "reason": "Uma única menção de passagem ('de preferência usado') satisfaz. Considere exigir orientação concreta (o que checar num usado, faixa de preço)."},
+      {"reason": "Nenhuma assertion checa o risco de áudio da TV em Dolby bitstream para caixas ativas (configurar PCM), ponto prático que só a with_skill abordou."}
+    ],
+    "overall": "Resposta boa e clara, mas mais orientada a modelos do que a critérios de especificação."
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "expectations": [
+    {
+      "text": "Reconhece que módulo com mais RMS que o sub não é problema em si (headroom), e corrige sem veredito sobre a pessoa (sem 'você está errado', 'você confundiu', 'na verdade')",
+      "passed": false,
+      "evidence": "Metade do tom passa: grep não encontra 'você está errado', 'você confundiu' nem 'na verdade'; a correção nomeia o fato ('a conta está certa, o sentido está invertido'; 'Sua intuição de que a impedância muda a potência está certa'). Metade do headroom falha: a resposta nunca diz que módulo com RMS acima do sub não é problema em si — ao contrário, enquadra o excedente como ameaça: abre com 'Nem uma coisa nem outra', diz 'O perigo específico do módulo grande é que ele queima em silêncio', 'Um módulo de 1200 W entrega 800 W limpos num sub de 400 ... enquanto a bobina cozinha', 'Não vale a vida do sub', e a seção 3 existe para fazer o módulo caber no sub. O mais próximo é a célula da tabela '1,5–1,75× o sub, ok com ganho regulado', condicionada a bobina 4+4 Ω — não é o reconhecimento geral pedido. A própria skill (references/automotivo.md linha 27) exige o oposto: 'O que queima falante é clipping ... não potência sobrando'. Como a asserção exige as duas metades, falha."
+    },
+    {
+      "text": "Corrige o mal-entendido de que volume baixo protege o falante, explicando ganho × volume e clipping",
+      "passed": true,
+      "evidence": "Seção 1, no corpo: 'O que decide quanta potência chega ao sub é o ganho do módulo, não o botão do rádio. Ganho é casamento de nível ... Com o ganho alto, o rádio em 50 % já pode estar entregando os 1200 W'; 'Isso é sorte, não proteção'. Clipping explicado: 'clipa (corta o topo do sinal, vira onda quadrada e esquenta a bobina) e você ouve o grave rasgar antes do estrago'. Cobre também o risco inverso (potência limpa acima do limite térmico, sem distorção avisando)."
+    },
+    {
+      "text": "Explica o que ligar em 1 Ω realmente faz (potência do módulo sobe, corrente/calor/queda de tensão) e por que não compensa neste caso",
+      "passed": true,
+      "evidence": "Seção 2: potência sobe ('ir de 2 Ω para 1 Ω quase dobra a potência entregue (na prática 1,7–2×, porque a fonte do módulo cede em 1 Ω)'); corrente ('~119 A de pico (contra ~40 A para 400 W)' — conferido: 1200/(12,6 V × 0,8) = 119 A; 400/(12,6 × 0,8) = 39,7 A); queda de tensão ('Alternador de carro popular tem 70–120 A ... farol piscando, tensão caindo, módulo protegendo'); risco ao módulo ('Se o módulo for de 2 Ω mínimo, 1 Ω derruba em proteção ou queima a saída'); fator de amortecimento pior. Por que não compensa: 'Compensar o quê? Você já tem 3× a potência do sub. 1 Ω é a ligação que entrega o máximo ao sub — o contrário de compensar' e 'Dobra em relação a quê? Os 1200 W desse módulo quase certamente já são o número em 1 Ω'."
+    },
+    {
+      "text": "Dá o passo prático: regular o ganho pela tensão alvo (√(P×R)) e/ou manter impedância maior",
+      "passed": true,
+      "evidence": "'sobe o ganho até a tensão AC na saída bater V = √(P × R): 40,0 V em 4 Ω, 28,3 V em 2 Ω, 20,0 V em 1 Ω' — conferido: √(400×4) = 40,0; √(400×2) = 28,28; √(400×1) = 20,0. Procedimento completo (senoide 40 Hz a 0 dB, rádio a ~75–85 % sem distorção, bass boost/loudness desligados, sub desconectado). E impedância maior: 'Ligando o sub na impedância mais alta disponível, o teto do módulo cai para perto dos 400 W por física', com tabela série/paralelo por tipo de bobina e tensão alvo por linha."
+    },
+    {
+      "text": "Resposta curta, no modo dúvida — não vira projeto completo com tabela de orçamento",
+      "passed": false,
+      "evidence": "Não há tabela de orçamento/preços, mas a resposta não é curta nem está no modo dúvida: 1268 palavras / 7089 caracteres / 56 linhas (wc). Tem estrutura de projeto: bloco 'Premissas' (sensibilidade ~88 dB, ~5 m de cabo de força), 3 seções H2 numeradas mais 'Para eu fechar a ligação exata', tabela de 5 linhas, cálculo de SPL (114/119 dB) e um parágrafo de dimensionamento elétrico que ninguém pediu ('cabo de 16 mm² OFC ... fusível de 60–80 A a no máximo 30–45 cm da bateria ... Big 3 ... bateria auxiliar'). O SKILL.md define o modo dúvida como 'Curto e direto; ofereça aprofundar' — a resposta aprofundou em vez de oferecer."
+    },
+    {
+      "text": "A correção dos dois mal-entendidos está no corpo; blocos 'Vale saber' (se houver): no máximo 1, rótulo fixo, e apagando-os a resposta continua correta e completa",
+      "passed": true,
+      "evidence": "As duas correções estão no corpo, sem marcador, logo no início (seções 1 e 2). Contagem: grep 'Vale saber' = 1 ocorrência (linha 29) ≤ 1. Rótulo confere com o formato fixo do SKILL.md linha 48 ('> **Vale saber — <conceito>:**'): '> **Vale saber — por que a impedância define a potência do módulo:**', em ~3 linhas, dentro da seção 2 a que se refere. Apagando o bloco a resposta continua correta e completa: o corpo já diz 'ir de 2 Ω para 1 Ω quase dobra a potência', a seção 3 diz 'o teto do módulo cai para perto dos 400 W por física', a tabela traz 300–400 W em 4 Ω / 600–700 W em 2 Ω / 900–1200 W em 1 Ω e a corrente (119 A) está no corpo. O bloco carrega só o conceito por trás (P = V²/R)."
+    },
+    {
+      "text": "Não redefine termos que o usuário já usou corretamente (RMS, ohm)",
+      "passed": true,
+      "evidence": "Nenhuma definição de RMS nem de ohm/impedância; 'RMS' e 'Ω' são usados diretamente ao longo do texto. A frase 'Os 400 W RMS do sub são um limite térmico — quanto calor a bobina dissipa por tempo longo' qualifica o que a especificação limita (premissa necessária ao argumento de que potência limpa acima do RMS aquece sem distorcer), não redefine o termo. Os termos explicados na primeira aparição (Xmax, fator de amortecimento, CCA, Big 3) não foram usados pelo usuário. Série/paralelo de bobinas corrige a ideia de escolher a impedância no módulo, não define ohm."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 2,
+    "total": 7,
+    "pass_rate": 0.71
+  },
+  "technical_errors": [
+    "'ou o cone passa do curso mecânico (Xmax)': Xmax é o limite de excursão linear (a própria skill, references/diy.md linha 17: 'Xmax: excursão linear'); o limite mecânico é Xmech/Xlim. Deslize de terminologia, sem consequência prática.",
+    "'Se em 4 Ω o módulo não chegar a 40 V ... ajuste até o limite sem clipar e pronto': com o procedimento descrito (só multímetro, sub desconectado) não há como enxergar clipping; faltou o critério prático (parar onde a tensão deixa de subir com o ganho, ou usar o LED de clip do módulo/osciloscópio). Como está, a instrução pode levar a fixar o ganho no ponto de clip.",
+    "'1200 W classe D a 12,6 V puxam ~119 A de pico': 119 A (1200/12,6/~0,8) é a corrente contínua à potência nominal, não pico — picos com música são maiores. O número confere; o rótulo 'de pico' está trocado. Menor."
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "expectations": [
+    {"text": "Inclui BMS/proteção para a bateria de lítio e alerta de segurança", "passed": true, "evidence": "'BMS 4S 20A com balanceamento', fusível 7,5 A 'o mais perto possível da bateria... o que causa incêndio', 'Não solde direto na célula', células falsas '9900 mAh', conferir tensão de cada grupo."},
+    {"text": "Calcula ou estima autonomia da bateria", "passed": true, "evidence": "'4S2P (14,8 V e 5-7 Ah, ou seja, 75-100 Wh). Isso rende umas 8 a 15 horas em volume de festa'."},
+    {"text": "Relaciona tensão da bateria/fonte com a potência real da TPA3116", "passed": true, "evidence": "Tabela 3S ~12-15 W, 4S ~25-30 W, 5S ~35-40 W por canal em 4 Ω; '2x50 W do anúncio só aparecem com uns 24 V e distorção alta'."},
+    {"text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada", "passed": false, "evidence": "Define bass reflex 55-60 Hz e ~15-18 L líquidos, mas o duto não é dimensionado (só 'Tubo PVC para o duto' e 'calculada no WinISD'); sem diâmetro nem comprimento."},
+    {"text": "Trata o crossover/corte do tweeter", "passed": true, "evidence": "Capacitor em série para corte ~3,5-4 kHz: 4,7 µF (8 Ω) ou 10 µF (4 Ω); resistor série para atenuar; bobina opcional 0,15-0,2 mH no woofer."},
+    {"text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$", "passed": true, "evidence": "Seções 'Eletrônica (AliExpress)' com tabela de ~R$ por item e 'Falantes (no Brasil costuma sair melhor que importar)'; total R$ 750-1.200."},
+    {"text": "Dá orientação de construção do gabinete (material, vedação)", "passed": true, "evidence": "Compensado 12-15 mm naval vs MDF, 'Vede tudo: cola de madeira nas juntas + silicone por dentro, e junta de espuma ou borracha sob os falantes', travessa, manta acrílica, compartimento separado."}
+  ],
+  "summary": {"passed": 6, "failed": 1, "total": 7, "pass_rate": 0.86},
+  "timing": {"executor_duration_seconds": 127.5, "total_duration_seconds": 127.5},
+  "claims": [
+    {"claim": "Tweeter 4 Ω: 10 µF; 8 Ω: 4,7 µF para corte ~3,5-4 kHz (1ª ordem)", "type": "factual", "verified": true, "evidence": "1/(2π·4000·4) = 9,95 µF; 1/(2π·4000·8) = 4,97 µF."},
+    {"claim": "4S: ~25-30 W reais por canal em 4 Ω", "type": "factual", "verified": false, "evidence": "Teto teórico V²/8 = 27 W a 14,8 V nominal e 35 W a 16,8 V cheia; 25-30 W só em bateria cheia e com distorção de ~10%. Otimista para potência limpa (~18-20 W)."},
+    {"claim": "Não ligar o negativo do falante ao GND (saída BTL)", "type": "factual", "verified": true, "evidence": "Correto e importante para a TPA3116."},
+    {"claim": "Autonomia 8-15 h com 75-100 Wh", "type": "factual", "verified": true, "evidence": "Implica consumo médio de ~6-10 W; plausível para música com 2 × 25 W."},
+    {"claim": "Resistor de 2-3,3 Ω em série com tweeter de 4 Ω após capacitor", "type": "quality", "verified": false, "evidence": "Funciona para atenuar, mas desloca o ponto de corte do capacitor (a impedância vista muda); a resposta não alerta. Pequena imprecisão."}
+  ],
+  "user_notes_summary": {"uncertainties": ["Preços são estimativas, não consultados"], "needs_review": [], "workarounds": []},
+  "eval_feedback": {
+    "suggestions": [
+      {"assertion": "Trata o crossover/corte do tweeter", "reason": "Um capacitor único passa igual a um LR2 calculado; se a profundidade importa, exigir ordem do filtro/atenuação do tweeter."}
+    ],
+    "overall": "Resposta prática e segura (bom esquema elétrico, alerta BTL, alternativa bateria de ferramenta); falha em dimensionar o duto."
+  }
+}

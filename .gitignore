@@ -1,0 +1,7 @@
+# Arquivos temporários e caches
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+# Originais zipados do WhatsApp (as fotos já estão extraídas e renomeadas)
+_original-whatsapp*.zip

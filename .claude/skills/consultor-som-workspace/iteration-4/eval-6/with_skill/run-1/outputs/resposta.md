@@ -1,0 +1,43 @@
+**Resposta curta:** reaproveitar faz sentido; o *arranjo* não fecha como 5.1. Com um módulo de 4 canais e um sub passivo, o máximo que sai dessa lista é um **2.1** (frente + sub) ou um **4.0** (frente + traseira, sem sub) — e o "barato" esconde uma fonte de 12 V que ainda não entrou na conta. Dá para montar algo bom com essas peças, mas o papel de cada uma muda. Vou mostrar onde emperra, três caminhos e qual eu escolheria.
+
+**Premissas** (me corrija o que estiver errado): módulo classe D típico de ~50–70 W RMS por canal em 4 Ω (uns 240 W no total), estável em 2 Ω, com filtros passa-alta/passa-baixa e ponte; sub de 10–12", 4 Ω, 200–300 W RMS, sensibilidade ~87 dB, com caixa feita para o carro; caixinhas de mini system de 3–5" full-range, 6 Ω, 10–15 W nominais, ~85 dB; fonte de sinal é a TV pela saída óptica; sala de 12–20 m² com você a ~3 m das caixas; "barato" = até uns R$ 600–800 além do que já tem. Preços abaixo são estimativas sem pesquisa — confira antes de comprar.
+
+## Onde a ideia não fecha
+
+1. **A conta de canais.** 5.1 são cinco caixas amplificadas mais um sub amplificado = 6 canais de amplificação. O módulo tem 4, e o sub de carro é passivo — também precisa de amplificador. As combinações reais: canais 1–2 nas frontais + 3–4 em ponte para o sub (2.1); ou quatro caixas e o sub mudo (4.0). Em nenhuma sobra canal para o **central**, que em filme é o canal mais importante (é onde mora o diálogo) — o sub vem em segundo. Sem central, o decodificador precisa misturar a voz nas frontais (modo *phantom*/downmix), e nem todo decodificador barato faz isso direito.
+
+2. **Módulo de carro em casa pede fonte.** Ele foi feito para 12–14,4 V com dezenas de ampères disponíveis. Pela calculadora: os 240 W do módulo a 13,8 V em classe D puxam até 21,7 A em potência cheia (31,6 A se for classe AB) e 2,7–7,2 A em média com música; só o sub em ponte (~150 W) puxa 13,6 A no pico. Ou seja, **fonte chaveada de 12 V (melhor 13,8 V) de 20–30 A**, R$ 120–250 — peça nova na lista. Detalhes que evitam dor de cabeça: REM ligado no +12 V da fonte; cabo de 1,5 mm² já basta para 1 m (0,3 V de queda a 25 A), mas mantenha o fusível do módulo; fonte "colmeia" aberta tem 127/220 V exposto nos bornes — coloque numa caixa ou compre com carcaça fechada; TV, decodificador e fonte na **mesma tomada/filtro**, senão aparece zumbido (loop de terra).
+
+3. **Sub de carro sem carro.** No carro, a cabine reforça o grave abaixo de ~50–70 Hz de graça (ganho de cabine); a sala não faz isso. A caixa selada pequena que rende no porta-malas tende a soar magra em casa nas notas mais baixas. Ele não é inútil: com 150 W em ponte a 4 Ω, um sub de 87 dB dá ~99 dB a 3 m, mais que suficiente para filme em sala — mas provavelmente vai pedir caixa nova (maior, ou dutada em ~30–35 Hz, simulada no WinISD com os T/S dele) e filtro subsônico se for dutada. Em apartamento, esse grave vai para o vizinho — dimensione a caixa com isso em mente.
+
+4. **Caixinhas de mini system como frontais.** Servem para começar, com limites claros: são full-range de 3–5" com 10–15 W nominais; 10 W num par de 85 dB dão ~88,5 dB a 3 m — volume de TV normal, sem folga para os picos de cena de ação. Não reproduzem quase nada abaixo de ~100–150 Hz, então o corte para o sub precisa ficar nessa faixa (o passa-baixa de módulo nacional costuma ser fixo em ~80 Hz — confira no manual), e elas precisam de **passa-alta** (~100–150 Hz) e **ganho baixo**: o alvo para 10–15 W em 6 Ω é 7,7–9,5 V AC na saída do módulo — regule por esse número, não pelo teto do módulo (24,5 V seria o alvo do sub em ponte, para comparar). Antes de ligar, confirme a impedância com multímetro (resistência DC ≈ 0,7–0,9 × a nominal; alguns mini systems usam caixas de 3–4 Ω, o que importa para um receiver depois). Como **surrounds**, elas são quase perfeitas: canal de pouca potência e pouco critério.
+
+5. **Decodificador barato + TV.** Dois pontos que decidem se o 5.1 existe de fato: (a) a TV precisa ter a opção *Bitstream/Dolby Digital* na saída óptica — muitas mandam só PCM estéreo nos apps, e várias não passam DTS; sem isso, o decodificador recebe estéreo e o "5.1" vira efeito artificial. (b) Os decodificadores de R$ 80–200 raramente têm gerenciamento de graves: a saída SW leva só o canal LFE (efeitos) e o grave de música e de voz vai para as caixinhas — exatamente o que elas não conseguem tocar. Se ficar com decodificador, procure um com ajuste *small/large* ou crossover; senão, o passa-alta do módulo salva as caixinhas, mas você perde parte do grave.
+
+> **Vale saber — gerenciamento de graves (bass management):** é o redirecionamento do grave dos canais "pequenos" para o sub, com um crossover (normalmente 80 Hz, ajustável). Receiver AV tem de série; decodificador barato quase nunca. É o que permite usar caixas pequenas sem perder o grave — sem ele, o sub só toca explosões e o resto do grave some.
+
+## Três caminhos
+
+**A. Aproveitar tudo e chamar de 2.1 (agora).** Frontais nos canais 1–2, sub nos canais 3–4 em ponte (se o módulo não tiver chave 2CH/4CH, alimente as 4 entradas RCA com cabos Y). Para 2.1 você **não precisa de decodificador 5.1**: um conversor óptico→RCA estéreo (R$ 30–60) ou a saída de fone/analógica da TV bastam, e o passa-baixa do módulo manda o grave para o sub.
+- Conversor óptico→RCA R$ 30–60 · fonte 12 V 20–30 A R$ 120–250 · cabos/RCA/terminais R$ 40–100 → **R$ 190–410**.
+- Prós: menor gasto, tudo o que você tem entra, monta num fim de semana. Contras: não é 5.1 e não vira 5.1 sem outro amplificador; caixinhas no limite; grave do sub magro até refazer a caixa.
+
+**B. Receiver AV usado como coração** (Denon/Yamaha/Onkyo/Pioneer de 5–10 anos, R$ 400–900 na OLX/Mercado Livre). Ele *é* o decodificador, com 5 canais amplificados (~70–100 W em 8 Ω), HDMI/ARC, gerenciamento de graves e calibração automática. O módulo + fonte viram **amplificador do sub** (canais em ponte, ligados na saída SUB do receiver, passa-baixa do módulo no máximo — quem corta é o receiver); as caixinhas viram **surrounds**; frontais e central entram depois, usadas.
+- Receiver usado R$ 400–900 · fonte 12 V R$ 120–250 · cabos R$ 40–100 → **R$ 560–1.250** para começar (caixinhas como frontais, central *phantom*). Depois: par de estante + central usadas R$ 300–800 → **R$ 860–2.050** completo.
+- Prós: é um 5.1 de verdade, resolve TV/HDMI/DTS/grave de uma vez, e nada do que você tem é jogado fora. Contras: maior parcela inicial; receiver usado exige testar antes de pagar (todos os canais, HDMI, aquecimento).
+
+**C. DIY total: placa 5.1 classe D + fonte de 24 V (o módulo fica de fora).** Decodificador + placa de 6 canais (3× TPA3116, sub em ponte) alimentada por uma única fonte de 24 V.
+- Decodificador R$ 80–200 · placa 5.1 R$ 120–250 · fonte 24 V 8–10 A R$ 90–180 · cabos/conectores R$ 40–100 → **R$ 330–730** (+ central e 2 surrounds usadas ou de outro mini system, R$ 100–300 → **R$ 430–1.030**).
+- Prós: 5.1 real pelo menor dinheiro, uma fonte só (7,8 A no pico para ~150 W totais), sem a fonte de 12 V. Contras: o sub fica com ~45–50 W limpos (24² / (2 × 4) = 72 W teóricos → ~94 dB a 3 m; ok, mas longe do módulo em ponte); saídas em ponte (BTL) não podem ter negativos juntos; continua sem HDMI e sem gerenciamento de graves; qualidade da placa varia — confira o chip nas fotos do anúncio.
+
+## O que eu faria
+
+Se o objetivo é *cinema em 5.1*, escolho **B**, e o argumento é a conta de canais: qualquer caminho com decodificador + módulo termina precisando de mais um amplificador para central e surrounds, e a essa altura o decodificador de R$ 80–200 virou peça inútil; o receiver resolve os 6 canais, a TV e o grave numa compra só. Se o dinheiro chega em etapas, **A como primeiro passo de B** é legítimo — desde que você não compre o decodificador 5.1 agora (é a única peça que não sobrevive à migração; o conversor de R$ 30–60 morre sem dó). Módulo, fonte, sub e caixinhas continuam com função no B. **C** é o caminho se você gosta de mexer em placa e aceita o sub mais fraco e a ausência de HDMI.
+
+## Para fechar a recomendação, me diga três coisas
+
+1. Qual é o módulo (marca/modelo, ou RMS por canal, impedância mínima, se tem ponte e chave 2CH/4CH) e o sub (tamanho, RMS, impedância, bobina simples ou dupla, se tem caixa)?
+2. A TV tem a opção *Bitstream/Dolby Digital* na saída de áudio, e o que vai tocar de fato — apps da TV, TV box, PC, console?
+3. Casa ou apartamento, e qual é o teto real para "barato" — R$ 500? R$ 1.000?
+
+Quando você escolher o caminho, eu monto o projeto completo (caixa do sub, ligações, regulagem de ganho) e salvo para continuarmos dali. Se quiser, crio também um perfil seu para não perguntar de novo o que você já tem e como prefere as respostas.

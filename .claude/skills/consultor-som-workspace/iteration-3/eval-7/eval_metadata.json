@@ -1,0 +1,13 @@
+{
+  "eval_id": 7,
+  "eval_name": "eval-7",
+  "prompt": "Fechei o projeto do sub: 12\" DVC 2+2 Ω ligado em série (4 Ω), módulo mono classe D de 600 W RMS em 4 Ω, caixa selada de 38 L líquidos (Qtc 0,72 no WinISD), cabo 21 mm² OFC com fusível de 100 A a 30 cm da bateria, e vou regular o ganho com multímetro em 49 V. Só quero que você confira a conta do fusível e me diga se 5 m de cabo dão uma queda aceitável.",
+  "assertions": [
+    "Confirma a corrente máxima do módulo (~55–65 A) e que o fusível de 100 A protege o cabo de 21 mm² e cobre a corrente do sistema",
+    "Calcula a queda de tensão em 5 m (~0,2–0,3 V) e diz que é aceitável",
+    "Não redefine termos que o usuário já usou corretamente (DVC, Qtc, OFC, RMS, classe D, ganho por tensão)",
+    "No máximo 1 bloco 'Vale saber', e se houver ele traz algo que muda uma decisão ou o próximo elo (não curiosidade)",
+    "Resposta curta, no modo dúvida: sem tabela de orçamento, sem reabrir escolhas já fechadas (selada, 4 Ω) a não ser que haja erro real",
+    "Não contém veredito sobre a pessoa nem 'parabéns' ritual; confirma o que está certo de forma direta"
+  ]
+}

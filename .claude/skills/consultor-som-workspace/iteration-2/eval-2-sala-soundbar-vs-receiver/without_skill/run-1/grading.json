@@ -1,0 +1,48 @@
+{
+  "expectations": [
+    {
+      "text": "Compara as três opções (soundbar, receiver+caixas, caixas ativas) com prós e contras",
+      "passed": true,
+      "evidence": "Tabela 'As três opções lado a lado' com música, filme, simplicidade, espaço, upgrade."
+    },
+    {
+      "text": "Faz uma recomendação clara com justificativa ligada ao uso (música > filme)",
+      "passed": true,
+      "evidence": "'no seu caso eu escolheria caixas ativas'; justificativa ligada à prioridade música."
+    },
+    {
+      "text": "Menciona acústica ou posicionamento da sala",
+      "passed": true,
+      "evidence": "'Dicas...': afastar 20-50 cm da parede, triângulo, não usar nichos, tapete/cortina."
+    },
+    {
+      "text": "Considera o mercado de usados como forma de ganhar custo-benefício",
+      "passed": true,
+      "evidence": "Receiver 'de preferência usado ou em promoção' (menção curta, mas presente como economia)."
+    },
+    {
+      "text": "Apresenta orçamento em R$ que respeita o limite de R$ 3000",
+      "passed": true,
+      "evidence": "Caixas R$ 1.800-2.500 + suportes/cabos R$ 150-300 = no máx. R$ 2.800 (<3.000)."
+    },
+    {
+      "text": "Foca em especificações que importam (sensibilidade, potência RMS, entradas) e não só em marcas",
+      "passed": false,
+      "evidence": "Cita entradas (ARC/óptico/saída de sub), mas não sensibilidade nem potência RMS; foco pesado em marcas/modelos (Edifier, Kanto, Audioengine, JBL, Yamaha...)."
+    },
+    {
+      "text": "Totais de orçamento batem com a soma dos itens listados",
+      "passed": false,
+      "evidence": "Não apresenta total de orçamento; não há total a conferir."
+    }
+  ],
+  "summary": {
+    "passed": 5,
+    "failed": 2,
+    "total": 7,
+    "pass_rate": 0.71
+  },
+  "timing": {
+    "executor_duration_seconds": 39.4
+  }
+}

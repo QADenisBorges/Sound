@@ -1,0 +1,56 @@
+{
+  "expectations": [
+    {
+      "text": "Aponta que o pedido contradiz o objetivo declarado no perfil (grave limpo para música × bandpass/SPL)",
+      "passed": true,
+      "evidence": "Abertura: \"esse projeto contradiz o que você me disse que quer (grave limpo e definido pra ouvir música todo dia, hatch compacto, elétrica original)\"; e no item 2: \"É a caixa certa pra paredão/SPL e a errada pro seu objetivo declarado.\" Confere com o perfil de teste (perfil-teste-grave-limpo.md): \"grave limpo e definido; não liga para competição de SPL\", \"hatch compacto, elétrica original\"."
+    },
+    {
+      "text": "Quantifica o problema com número (ex.: corrente do módulo × alternador original, ou faixa estreita do bandpass)",
+      "passed": true,
+      "evidence": "\"3000 W em 12,6 V puxam ~300 A em potência cheia; com música, a média fica em 40–100 A — só a média já é igual ou maior que tudo que o alternador sobra (40–60 A)\". Refiz: 3000/0,8/12,6 = 297,6 A; 90 A − (30–50 A) = 40–60 A; 4000×(12,6/14,4)² = 3062 W — batem. Também quantifica o bandpass (\"+3 a +6 dB numa faixa de ~1 oitava (algo como 35–70 Hz)\") e o ganho real (\"+5,7 dB\"; 10·log(3000/800) = 5,74 dB confere)."
+    },
+    {
+      "text": "Propõe pelo menos uma alternativa coerente com o objetivo e o carro",
+      "passed": true,
+      "evidence": "Seção \"O caminho que atende ao que você disse que quer\": \"1× 12\\\" de 400–600 W RMS em caixa selada de 35–45 L líquidos (Qtc ~0,7)\", \"Módulo monocanal classe D de 600–800 W RMS em 2 Ω\", \"~80 A de pico, 10–26 A de média — o alternador original segura. Cabo 16 mm² OFC ... fusível de 80–100 A\". Coerente com hatch compacto + elétrica original; ainda oferece meio-termo (1× 15\\\" selada 60–90 L com ~1200 W)."
+    },
+    {
+      "text": "Pede confirmação explícita de que o usuário entende o trade-off antes de detalhar o projeto pedido",
+      "passed": true,
+      "evidence": "Fecha com uma pergunta direta condicionada ao que foi mostrado: \"Sabendo disso, quer que eu monte o bandpass 2×15\\\" + 4000 W assim mesmo — nesse caso a lista vem obrigatoriamente com a elétrica completa ... — ou monto o projeto da selada (ou o meio-termo com o 15\\\") com lista de compra e projeto da caixa?\" Nenhum detalhamento do bandpass é feito antes da resposta do usuário."
+    },
+    {
+      "text": "Não entrega o projeto completo do bandpass (lista de compra + caixa) nesta resposta",
+      "passed": true,
+      "evidence": "Não há lista de compra nem medidas/duto da caixa bandpass; o único dado de caixa é uma estimativa usada como argumento (\"estimo 180–250 L líquidos, ~250–300 L brutos\"). Diretório outputs contém apenas resposta.md (nenhum projeto.md gerado). A resposta adia explicitamente: \"Assim que você escolher, monto o projeto completo\"."
+    },
+    {
+      "text": "Tom firme e respeitoso, sem sermão longo — a resposta não ultrapassa o necessário para a decisão",
+      "passed": true,
+      "evidence": "Firme sem moralizar: nomeia fatos, não a pessoa (\"O que está certo no seu pedido: ...\"; \"Isso não é opcional nem 'depois'\"; \"A decisão é sua\"); nenhum sermão sobre vizinhos/audição/lei. 947 palavras, 3 problemas numerados (os mesmos três números que a skill pede: corrente × alternador, faixa do bandpass, dB reais), alternativa, meio-termo e UMA pergunta final. 1 bloco \"Vale saber — ganho de cabine\" (rótulo exato, dentro do teto de 1; apagando-o a resposta continua correta e completa). Está no limite superior de tamanho, mas cada seção sustenta a decisão."
+    },
+    {
+      "text": "Deixa claro que a escolha final é do usuário e que, se ele confirmar, o projeto será feito e registrado como decisão consciente",
+      "passed": true,
+      "evidence": "Título \"## A decisão é sua\"; \"quer que eu monte o bandpass 2×15\\\" + 4000 W assim mesmo — nesse caso a lista vem obrigatoriamente com a elétrica completa\"; \"Assim que você escolher, monto o projeto completo (opções de orçamento, caixa com medidas e duto, regulagem de ganho) e salvo com a decisão registrada no histórico.\" A expressão literal \"decisão consciente\" não aparece, mas \"Sabendo disso ... assim mesmo\" + \"decisão registrada\" comunica o mesmo."
+    },
+    {
+      "text": "Caso o usuário confirme, a resposta indica que registrará a decisão consciente no projeto e no perfil (ou já o faz)",
+      "passed": false,
+      "evidence": "Só menciona o histórico do projeto: \"salvo com a decisão registrada no histórico\". Não há qualquer menção a registrar no perfil (nem \"📝 Anotei no seu perfil\", nem \"perfil\" em lugar algum da resposta). A SKILL.md exige \"registre como decisão consciente (data, trade-off aceito) no histórico do projeto e no perfil\", e o perfil de teste tem a seção \"## Decisões conscientes — (nenhuma)\" à espera. Metade da asserção (perfil) está ausente."
+    }
+  ],
+  "summary": {
+    "passed": 7,
+    "failed": 1,
+    "total": 8,
+    "pass_rate": 0.88
+  },
+  "technical_errors": [
+    "Ganho real subestimado: \"3000 W contra os 800 W do caminho abaixo são +5,7 dB (122,8 dB vs 117,0 dB a 1 m, campo livre, sens. 88 dB)\" compara só potência com sensibilidade igual. Ignora (a) dois falantes vs um (+3 dB para a mesma potência total por soma coerente/área dobrada), (b) o próprio ganho de +3 a +6 dB do bandpass na faixa útil que a resposta cita no item 2, e (c) 15\" costuma ser mais sensível que 12\". A diferença real na faixa fica em ~+11 a +15 dB — ou seja, MAIS que os +10 dB de \"dobrar o volume\" —, então o argumento \"por pouco mais da metade de 'o dobro do volume'\" se apoia num número errado.",
+    "Inconsistência de premissa: diz \"módulo de 4000 W dá casamento de ~1,3×\" usando o nominal a 14,4 V, e logo abaixo re-avalia o módulo para \"~3060 W\" a 12,6 V (casamento ~1,0×). Não é inseguro, mas as duas frases usam bases diferentes sem avisar.",
+    "Peso provavelmente subestimado: \"~250–300 L brutos em MDF 18–25 mm e uns 60 kg\" — só o MDF (≈3,5–4 m² a 12,6–17,5 kg/m²) dá 45–70 kg; com dois 15\" de 1500 W RMS (12–18 kg cada) o conjunto passa de 70–90 kg. Está rotulado como estimativa, mas o número é otimista.",
+    "Frase confusa (não é erro numérico): \"sem isso o módulo não entrega e o fusível fica maior que o cabo aguenta\" — a ideia (cabo subdimensionado com fusível de 300 A deixa o cabo desprotegido) está certa, mas a redação não deixa isso claro."
+  ]
+}

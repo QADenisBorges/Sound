@@ -1,0 +1,63 @@
+{
+  "expectations": [
+    {
+      "text": "Inclui BMS/proteção para a bateria de lítio e alerta de segurança",
+      "passed": true,
+      "evidence": "BMS 5S com balanceamento, fusível 7,5 A, 'nunca soldar célula com ferro', não deixar no sol, células falsas causam incêndio."
+    },
+    {
+      "text": "Calcula ou estima autonomia da bateria",
+      "passed": true,
+      "evidence": "Tabela de autonomia: 5S2P 6 Ah -> ~5,9 h a 15 W / ~3,6 h a 25 W (conferido: 111 Wh x0,8/15 = 5,9)."
+    },
+    {
+      "text": "Relaciona tensão da bateria/fonte com a potência real da TPA3116",
+      "passed": true,
+      "evidence": "Tabela 4S/5S/6S com P≈V²/(2Z): 21 V -> 55 W teto em 4 Ω, ~33-38 W limpos (conferido 21²/8=55,1)."
+    },
+    {
+      "text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada",
+      "passed": true,
+      "evidence": "Dutada, ~10 L líquidos por woofer, Fb ~55 Hz, duto 5 cm x 15,8 cm ou 4 cm x 9,5 cm com velocidade do ar (conferido pela fórmula)."
+    },
+    {
+      "text": "Trata o crossover/corte do tweeter",
+      "passed": true,
+      "evidence": "Crossover Butterworth 2ª ordem 3 kHz: 0,30 mH/9,4 µF (conferido), L-pad 1,2 Ω/10 Ω para -3 dB (conferido)."
+    },
+    {
+      "text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$",
+      "passed": true,
+      "evidence": "Tabela com coluna 'Onde comprar' (AliExpress/Shopee vs nacional com NF) e preços em R$ por item e opção."
+    },
+    {
+      "text": "Dá orientação de construção do gabinete (material, vedação)",
+      "passed": true,
+      "evidence": "Compensado 12-15 mm vs MDF, cola+parafuso, selar por dentro, fita de vedação nos falantes, divisória como travamento, manta."
+    },
+    {
+      "text": "Totais de orçamento batem com a soma dos itens listados",
+      "passed": true,
+      "evidence": "Somas conferidas: Econ 565/980, Equil 865/1600, Capr 1590/2955 - todas batem com as linhas."
+    },
+    {
+      "text": "Alerta que a saída BTL não pode ter o negativo do falante ligado ao terra/comum",
+      "passed": true,
+      "evidence": "'sem nunca unir os negativos dos dois canais nem ligá-los ao GND'; 'Nunca ligue o negativo do falante no GND da bateria'."
+    },
+    {
+      "text": "Se usar crossover passivo de 2ª ordem, indica ligar o tweeter com polaridade invertida",
+      "passed": true,
+      "evidence": "'Polaridade do tweeter: ligue invertido. Um filtro de 2ª ordem defasa 180° no corte'."
+    }
+  ],
+  "summary": {
+    "passed": 10,
+    "failed": 0,
+    "total": 10,
+    "pass_rate": 1.0
+  },
+  "timing": {
+    "executor_duration_seconds": 261.7
+  }
+}

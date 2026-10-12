@@ -1,0 +1,1 @@
+incorporar melhorias dos testes do revisor (calc spl --ref 2.83v; polaridade de crossover)

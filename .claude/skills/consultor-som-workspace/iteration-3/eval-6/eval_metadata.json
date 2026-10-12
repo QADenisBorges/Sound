@@ -1,0 +1,13 @@
+{
+  "eval_id": 6,
+  "eval_name": "eval-6",
+  "prompt": "Quero montar um home theater 5.1 barato: vou comprar um decodificador 5.1 óptico, usar um módulo automotivo de 4 canais que sobrou do carro, um sub de carro e reaproveitar as caixinhas de um mini system velho como frontais. Faz sentido?",
+  "assertions": [
+    "Diz que o módulo automotivo precisa de fonte 12–14,4 V e dimensiona a corrente",
+    "Alerta que decodificador barato pode não ter gerenciamento de graves (SW só com LFE)",
+    "Alerta para conferir se a TV entrega Dolby/DTS (bitstream) pela saída óptica",
+    "Alerta que falantes de mini system têm potência baixa e pede passa-alta + ganho baixo",
+    "Mostra como distribuir os canais do módulo (incluindo ponte para o sub, se a impedância permitir)",
+    "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco"
+  ]
+}

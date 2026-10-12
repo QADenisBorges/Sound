@@ -1,0 +1,71 @@
+{
+  "expectations": [
+    {
+      "text": "Contesta a premissa de 3000W sem mexer na elétrica no corpo da resposta, antes do dimensionamento/opções, nomeando o fato e não a pessoa (sem 'você está errado', 'você confundiu', 'na verdade')",
+      "passed": true,
+      "evidence": "Resumo (linha 5): 'Do jeito que está, não fecha — e o problema não é gosto, é física e dinheiro. Você colocou três restrições que se contradizem: 3000 W RMS, elétrica original intocada e R$ 2500.' Depois, seção '## Onde a ideia não fecha (com números)' → '### 1. Elétrica: 3000 W não roda em alternador de carro popular' (linhas 18–36), que vem antes de '## Dimensionamento' (linha 104) e '## Opções de orçamento' (linha 128). grep case-insensitive por 'você está errado', 'você confundiu' e 'na verdade' retornou 0 ocorrências. O texto nomeia o fato (restrições incompatíveis entre si, alternador de ~100–110 A insuficiente), não a pessoa."
+    },
+    {
+      "text": "Mostra conta de corrente do módulo (A) em relação ao alternador/bateria",
+      "passed": true,
+      "evidence": "'Corrente de alimentação ≈ potência ÷ (tensão × eficiência). Para classe D (eficiência ~0,8) a 12,6 V' + tabela: 3000 W → 298 A pico / 37–99 A média; 1200 W → 119 A; 1000 W → 99 A; 800 W → 79 A. Comparação explícita: 'Seu alternador tem ~100–110 A, e o carro sozinho já usa 30–50 A ... Sobram 50–80 A. Só a média do módulo de 3000 W já disputa com o alternador; os picos de 300 A viriam da bateria de 60 Ah'. Recalculado: 3000/(12,6×0,8) = 297,6 A; 1200/(12,6×0,8) = 119,0 A; 298/8 a 298/3 = 37–99 A. Bate."
+    },
+    {
+      "text": "Propõe alternativa coerente dentro de R$ 2500",
+      "passed": true,
+      "evidence": "Caminho B: '1× 12\" de 500–600 W RMS + módulo mono 1000–1200 W ... Cabe nos R$ 2500. A elétrica original aguenta (99–119 A de pico, 12–40 A de média)'. Coluna 'Equilibrado (recomendado)' totaliza R$ 1780–2800 e o texto diz 'escolhido com calma fecha em ~R$ 2300 — dentro dos seus R$ 2500. O topo da faixa é se pegar tudo de linha superior'; a coluna 'Econômico' (R$ 1260–2000) cabe inteira. Coerência técnica: módulo com 1,5–2× o RMS do sub, ganho regulado para 500–600 W, cabo 4 AWG + ANL 100–125 A dimensionados para 119 A, caixa e subsônico especificados. Ressalva: o teto da faixa recomendada (R$ 2800) ultrapassa o orçamento, mas isso é reconhecido e tratado."
+    },
+    {
+      "text": "Trata a integração com o rádio original (entrada de alto nível ou conversor RCA)",
+      "passed": true,
+      "evidence": "Premissas: 'Rádio original (MyLink ou rádio simples) sem saída RCA → o módulo recebe sinal pela entrada de alto nível (direto dos fios dos falantes traseiros) ou por um LOC (conversor de nível, que transforma saída de falante em RCA)'. Arquitetura: 'Rádio original (fios dos falantes traseiros) → entrada de alto nível do módulo [ou LOC ajustável → RCA]' e 'remote: auto-ligamento pelo alto nível'. Riscos: 'alguns rádios GM reduzem o grave em volume alto ... o caminho é um LOC com ajuste ou um mini DSP'. Linha 'Sinal' na tabela de orçamento."
+    },
+    {
+      "text": "Menciona fusível no positivo perto da bateria",
+      "passed": true,
+      "evidence": "Arquitetura: 'bateria 60 Ah (+) → fusível ANL 100–125 A a ≤ 30–45 cm da bateria → cabo OFC 21 mm² (4 AWG)'. Riscos: 'Fusível só no módulo não protege o cabo: precisa de fusível a ≤ 45 cm da bateria'. Próximos passos, item 4: 'fusível perto da bateria'."
+    },
+    {
+      "text": "Diferencia cabo OFC de CCA (ou alerta sobre cabo de alumínio cobreado)",
+      "passed": true,
+      "evidence": "Tabela de dimensionamento: 'Mesmo cabo em CCA (alumínio cobreado) para 99 A | 27,7 mm² → 33,6 mm² | CCA pede uma bitola acima; prefira OFC'. Riscos: 'CCA vendido como \"cobre\": desconfie de kit barato de 4 AWG com preço de 8 AWG. Cobre é avermelhado no corte; CCA é prateado por dentro'. Tabela de orçamento: 'OFC de verdade 21 mm² ... (CCA vendido como cobre é comum)'."
+    },
+    {
+      "text": "Explica como evitar grave embolado (tipo de caixa, subsônico, regulagem de ganho)",
+      "passed": true,
+      "evidence": "Seção '3. Som: o embolado que você não quer vem justamente daí' lista as causas (caixa dutada sintonizada alto 40–50 Hz, sem subsônico, clipping por ganho/bass boost, módulo em 1 Ω com tensão caindo, muito cone em pouco carro). Caminho B prescreve caixa 'selada de 35–40 L' ou 'dutada de ~45 L sintonizada em 32–34 Hz com subsônico em 28–30 Hz'; arquitetura fixa 'LPF 70–80 Hz | subsônico 28–30 Hz (se dutada) | bass boost = 0'; ganho: 'Regule com multímetro (31,6 V AC para 500 W em 2 Ω) e deixe bass boost em zero'. Conferido: √(500×2) = 31,6 V; √(600×4) = 49,0 V."
+    },
+    {
+      "text": "Apresenta opções de orçamento em R$ em níveis diferentes",
+      "passed": true,
+      "evidence": "Tabela '## Opções de orçamento' com três colunas — 'Econômico', 'Equilibrado (recomendado)' e 'Caprichado' — com valores em R$ por item (subwoofer, módulo, caixa, cabo+fusível+terminais, sinal, ferramentas/acabamento) e totais 'R$ 1260–2000', 'R$ 1780–2800' e 'R$ 2580–3900'."
+    },
+    {
+      "text": "Informa total de orçamento e ele bate com a soma dos itens listados",
+      "passed": true,
+      "evidence": "Recalculado por coluna: Econômico 400+400+200+200+0+60 = 1260 e 550+550+350+350+80+120 = 2000 (tabela: R$ 1260–2000, bate). Equilibrado 550+550+300+250+50+80 = 1780 e 800+850+500+380+100+170 = 2800 (bate). Caprichado 800+700+500+400+80+100 = 2580 e 1100+1000+800+600+150+250 = 3900 (bate). Custo da proposta original também bate: 1400+1000+500+500+800 = 4200 e 2400+1600+900+900+1500 = 7300 ('R$ 4200–7300'). Ponto médio do Equilibrado = 2290 ≈ '~R$ 2300' declarado."
+    },
+    {
+      "text": "Fusível sugerido não é maior do que a bitola de cabo indicada suporta",
+      "passed": true,
+      "evidence": "Recomendado: cabo OFC 21,2 mm² (4 AWG) com 'fusível ANL 100–125 A' — 4 AWG OFC suporta tipicamente 125–150 A em runs de ~5 m; 100–125 A está dentro. Caprichado: '35 mm² + ANL 150 A' — 35 mm² (~2 AWG) suporta ~150–200 A. Comparativo 3000 W: '53,5 mm² (0 AWG) com fusível de 250–300 A' — 1/0 AWG suporta ~250–300 A. Nenhum fusível excede a capacidade do cabo indicado. Conferido o dimensionamento do cabo: 0,0172 Ω·mm²/m × 5 m × 119 A / 0,5 V = 20,5 mm² → 4 AWG."
+    },
+    {
+      "text": "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco",
+      "passed": true,
+      "evidence": "Condição não ocorre: grep case-insensitive por 'vale saber' e 'dicas' em resposta.md retornou 0 ocorrências. Não há blocos 'Vale saber' nem seção/lista 'Dicas'; asserção condicional passa."
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "failed": 0,
+    "total": 11,
+    "pass_rate": 1.0
+  },
+  "technical_errors": [
+    "Tabela de SPL subestima as configurações com dois subs e contradiz o próprio texto: '2× 12\" com 500 W cada (1000 W total) | ~118 dB' e '2× 12\" com 800 W cada (1600 W) | ~120 dB'. Esses valores tratam os dois subs como um só falante recebendo a potência total (soma de energia, +10·log10 n — é o que calc_som.py faz na linha 107). Mas dois subs acoplados no grave somam de forma coerente: ~+6 dB sobre um sub com a mesma potência por falante, exatamente o que a resposta afirma no caminho C ('mais área de cone → +3 dB à mesma potência total'). Valores consistentes: ~121 dB e ~123 dB; a vantagem da proposta original sobre 1× 12\" com 500 W seria ~+8 dB, não '~+5 dB'. A conclusão (não compensa pelo custo/elétrica) não muda, mas o número está internamente inconsistente.",
+    "Tensão interna leve: a resposta declara 'até ~800–1000 W RMS o sistema elétrico original costuma aguentar com bons cabos. Esse é o teto de não mexer na elétrica' e em seguida recomenda módulo de 1200 W (119 A de pico). É mitigado pela nota de que o módulo entrega ~920 W reais a 12,6 V e pelo ganho regulado para 500–600 W, mas a recomendação fica ligeiramente acima do teto que ela mesma fixou.",
+    "Comparação OFC × CCA não é como-para-como: a linha CCA usa 99 A ('Mesmo cabo em CCA (alumínio cobreado) para 99 A | 27,7 mm² → 33,6 mm²') enquanto a linha OFC usa 119 A, e usa resistividade de alumínio puro (0,028 Ω·mm²/m, ~1,63× o cobre) quando CCA típico fica em ~1,4–1,5×. Conservador, não inseguro; a conclusão 'uma bitola acima' se mantém (para 119 A em CCA daria ~33 mm² → 2 AWG).",
+    "Velocidade de ar no duto estimada por Sd × Xmax × 2π·Fb ('ar a 15,8 m/s em Xmax 12 mm → OK (< 17 m/s)') é regra de bolso grosseira: na sintonia a excursão do cone é mínima e a velocidade no duto depende da potência aplicada, não do Xmax. A resposta manda refazer com o datasheet/WinISD, o que atenua o problema."
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "expectations": [
+    {
+      "text": "Reconhece o que está certo no raciocínio (ex.: impedância muda a potência do módulo; potência disponível por si não queima — o ganho decide) e corrige sem veredito sobre a pessoa (sem 'você está errado', 'você confundiu', 'na verdade')",
+      "passed": true,
+      "evidence": "Os dois núcleos corretos do usuário são concedidos no corpo: \"Clipping e excursão excessiva é o que queima falante; 'potência sobrando' no módulo, não\" (potência disponível não queima) e \"Baixar a impedância sobe o teto do módulo\" / \"E o 'dobra' é teoria\" (impedância muda a potência do módulo). Nenhuma das frases proibidas aparece (busca por 'errado', 'confundiu', 'na verdade' = 0 ocorrências); a correção nomeia fatos e ideias (\"as duas ideias erram no mesmo ponto\", \"Volume não é a proteção\"), não a pessoa. Ressalva: o reconhecimento é implícito — a resposta abre com \"Não —\" em vez de partir do que está certo, como a skill pede."
+    },
+    {
+      "text": "Corrige o mal-entendido de que volume baixo protege o falante, explicando ganho × volume e clipping",
+      "passed": true,
+      "evidence": "\"Volume não é a proteção. O que chega no sub é definido pelo ganho do módulo e pela impedância, não pelo botão do rádio: com o ganho alto, 60% do volume já entrega os 1200 W — ou, pior, o módulo bate no teto e sai sinal clipado (onda quadrada, que vira calor na bobina). Clipping e excursão excessiva é o que queima falante\"."
+    },
+    {
+      "text": "Explica o que ligar em 1 Ω realmente faz (potência do módulo sobe, corrente/calor/queda de tensão) e por que não compensa neste caso",
+      "passed": true,
+      "evidence": "Potência sobe: \"Baixar a impedância sobe o teto do módulo... Em 1 Ω ele pode mandar 1200 W (34,6 V na saída)\". Corrente/calor/queda: \"em 1 Ω, a potência cheia puxa ~119 A... alternador original sofrendo\", \"módulo mais frio\" em 4 Ω, \"porque a tensão cai e a eficiência piora\". Por que não compensa: \"Você não tem falta de potência, tem 3× sobrando... exatamente o contrário do que você precisa\". Conta conferida: 1200/0,8/12,6 = 119 A; 1200/400 = 3×."
+    },
+    {
+      "text": "Dá o passo prático: regular o ganho pela tensão alvo (√(P×R)) e/ou manter impedância maior",
+      "passed": true,
+      "evidence": "\"regular o ganho pela tensão alvo do falante: V = √(P × R). Para 400 W em 4 Ω são 40 V AC na saída; em 1 Ω, 20 V\" seguido do procedimento (tom 40 Hz 0 dB, ~80% do volume, bass boost off, falante desconectado, multímetro AC, sobe o ganho até o alvo) e \"Ligue as bobinas em série → 4 Ω\". Contas conferidas: √(400×4)=40,0 V; √(400×1)=20,0 V; √1200=34,6 V; 34,6²/4≈300 W."
+    },
+    {
+      "text": "Resposta curta, no modo dúvida (ordem de 300–600 palavras): sem Premissas/Dimensionamento como seções de projeto, sem tabela de orçamento",
+      "passed": false,
+      "evidence": "Contagem: 557 palavras (wc: 559) — dentro da faixa, mas no teto. Falha na estrutura: há um parágrafo rotulado \"**Premissas:** sub com bobina dupla 2+2 Ω... módulo de 1200 W RMS declarados em 1 Ω, carro com elétrica original\" e um parágrafo \"**Elétrica:**\" que é dimensionamento de projeto (\"~119 A... cabo de 21 mm² (4 AWG), fusível de 125 A... 10 mm² OFC (16 mm² já dá folga) e fusível de 50–60 A na bateria, a até ~40 cm do polo\"). A própria skill diz que numa dúvida \"o que sobrar (dimensionamento, elétrica, tabela) vira oferta de uma linha\". Não há tabela de orçamento (esse item passa)."
+    },
+    {
+      "text": "A correção dos dois mal-entendidos está no corpo; blocos 'Vale saber' (se houver): no máximo 1, rótulo fixo, e apagando-os a resposta continua correta e completa",
+      "passed": true,
+      "evidence": "Correções no corpo: parágrafos \"Volume não é a proteção\" e \"1 Ω não compensa nada — piora\". Blocos contados: 1 (\"> **Vale saber — o módulo é uma fonte de tensão:**\"), rótulo idêntico ao modelo fixo da skill \"**Vale saber — <conceito>:**\". Removendo o bloco (fica em 506 palavras), o corpo ainda traz V=√(P×R), os 40 V/20 V alvo, a ligação em série → 4 Ω e o ~300 W a 34,6 V — a resposta continua correta e completa; o bloco só explica P=V²/R por trás dos números."
+    },
+    {
+      "text": "Não redefine termos que o usuário já usou corretamente (RMS, ohm)",
+      "passed": true,
+      "evidence": "'RMS' aparece 2 vezes (\"1200 W RMS declarados em 1 Ω\", \"o RMS do sub\") e 'Ω' várias vezes, sempre usados, nunca definidos. Só são explicados termos novos: \"clipado (onda quadrada, que vira calor na bobina)\" e \"fonte de tensão\"."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.86
+  },
+  "technical_errors": [
+    "\"A partir daí o volume da fonte deixa de ser risco — o teto está travado onde o sub aguenta.\" — Impreciso: o ganho foi ajustado com a fonte a ~80%; acima desse ponto a fonte clipa e o módulo passa a entregar sinal clipado com RMS maior que os 40 V medidos. Falta a ressalva padrão 'não passe do volume usado no ajuste'.",
+    "Numeros conferidos e corretos: 40 V (√1600), 20 V (√400), 34,6 V (√1200), ~300 W (34,6²/4), ~119 A (1200/0,8/12,6), ~30–40 A (300–400 W/0,8/12,6), 21 mm² ≈ 4 AWG, 3× (1200/400). Nenhum erro numérico encontrado."
+  ]
+}

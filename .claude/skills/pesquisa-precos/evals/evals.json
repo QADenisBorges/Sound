@@ -1,0 +1,23 @@
+{
+  "skill_name": "pesquisa-precos",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "acha pra mim o modulo taramps TS 400x4 mais barato, novo, com frete pro meu cep",
+      "expected_output": "Identifica o modelo exato (TS 400x4, não TS 400x2 nem versões diferentes), pesquisa ML + pelo menos outro marketplace + Google, confirma o frete para o CEP do perfil, tabela ranqueada por custo total com links e destaques separados (mais barata / custo-benefício / atenção), fontes que falharam declaradas.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "preciso de 4 alto-falantes de 6 polegadas 4 ohms pra porta do carro, uns 100W RMS cada, aceito qualquer marca boa. qual sai mais barato no total? pode ser par ou unidade",
+      "expected_output": "Pede ou assume requisitos explicitamente, aceita equivalentes, normaliza par × unidade em custo por unidade e total para 4 unidades, exclui ofertas com potência só em pico/PMPO, ranking por custo total.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "vi uma placa amplificadora TPA3255 no aliexpress por uns 90 reais, compensa mais que comprar aqui no brasil? quero saber o custo final real",
+      "expected_output": "Compara o importado (imposto incluso no checkout ou estimado e rotulado) com ofertas nacionais (ML/Shopee nacional) do mesmo chip/placa, considera prazo e garantia, não afirma alíquota como certa sem rótulo.",
+      "files": []
+    }
+  ]
+}

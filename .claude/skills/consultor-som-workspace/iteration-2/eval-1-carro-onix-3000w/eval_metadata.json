@@ -1,0 +1,16 @@
+{
+  "eval_id": 1,
+  "eval_name": "eval-1-carro-onix-3000w",
+  "prompt": "Tenho um Onix 2019 com o rádio original e a bateria original de 60Ah. Tô pensando em colocar dois subs de 12 de 800W RMS cada e um módulo de 3000W pra ficar bem forte, mas não quero mexer em nada da parte elétrica do carro. Tenho uns R$ 2500. Faz sentido? Gosto de ouvir rap e eletrônica, mas também não quero aquele grave embolado.",
+  "assertions": [
+    "Contesta a premissa de 3000W sem mexer na elétrica (aponta incoerência)",
+    "Mostra conta de corrente do módulo (A) em relação ao alternador/bateria",
+    "Propõe alternativa coerente dentro de R$ 2500",
+    "Trata a integração com o rádio original (entrada de alto nível ou conversor RCA)",
+    "Menciona fusível no positivo perto da bateria",
+    "Diferencia cabo OFC de CCA (ou alerta sobre cabo de alumínio cobreado)",
+    "Explica como evitar grave embolado (tipo de caixa, subsônico, regulagem de ganho)",
+    "Apresenta opções de orçamento em R$ em níveis diferentes",
+    "Totais de orçamento batem com a soma dos itens listados"
+  ]
+}

@@ -1,0 +1,17 @@
+As duas contas fecham. Vou direto nelas e depois em uma coisa que você não perguntou mas que muda como você vai regular o ganho.
+
+**Fusível de 100 A — confere.** A corrente que o módulo puxa em potência cheia é I = P / (V × eficiência): 600 / (12,6 × 0,8) = 59,5 A; com classe D um pouco menos eficiente (0,75), 63,5 A. O fusível da bateria protege o *cabo*, não o módulo, então ele precisa ficar numa janela: acima da corrente máxima do sistema (~64 A) e abaixo do que o cabo aguenta — para 21 mm² (4 AWG) em cobre OFC o teto é ~125 A. 100 A está dentro da janela, com folga dos dois lados. 80 A também serviria e é mais justo; 100 A é ok e mais fácil de achar. A 30 cm da bateria está dentro da regra (≤ 30–45 cm). Um detalhe que só importa se o cabo não for o que diz ser: se for CCA (alumínio cobreado) vendido como OFC — acontece no Mercado Livre —, a capacidade cai um degrau e o teto vira ~80 A; vale conferir se o miolo é cobre até o centro antes de fechar.
+
+**5 m de cabo — queda aceitável, e com margem.** Em 21,2 mm², 5 m e 59,5–63,5 A: ΔV = 0,0172 × 5 × I / 21,2 = 0,24–0,26 V, ou ~2 % de 12,6 V — metade do limite de 0,5 V que uso em 12 V automotivo. Para comparar, 16 mm² daria 0,32 V e também passaria; 21 mm² não é exagero, é uma bitola confortável. A premissa aqui: os 5 m são só o positivo, e o negativo vai curto (≤ 1 m), na mesma bitola, direto no chassi lixado. Se você resolver levar o negativo até a bateria também, o circuito vira 10 m e a queda vai a ~0,5 V — no limite. Mantenha o negativo curto no chassi.
+
+**O 49 V está certo — desde que o módulo entregue 600 W na tensão em que você vai medir.** √(600 × 4) = 49,0 V, confere. Mas muitas marcas nacionais medem o RMS a 14,4 V; se o seu for assim, com o motor desligado (12,6 V) ele entrega ~600 × (12,6/14,4)² ≈ 460 W e o teto da saída é ~43 V — você gira o ganho, a tensão para de subir antes de 49 V, e o módulo já está clipando. Olhe a nota da tabela de especificações no manual: se diz 14,4 V, regule com o motor ligado (~13,8 V → teto ~47 V) ou aceite o alvo menor; se diz 12,6 V (padrão CTA-2006), os 49 V valem como estão. Se a tensão parar de responder ao ganho, recue até ela voltar a subir e fique um pouco abaixo. Duas outras premissas que você conhece, mas registro: tom senoidal de 40 Hz a 0 dB, fonte em ~75–85 % do volume, bass boost e EQ zerados, falante desconectado.
+
+Assumi também que o **sub aguenta ≥ 600 W RMS**. Se for, por exemplo, um 400 W RMS, o alvo passa a ser o do falante, não o do módulo: √(400 × 4) = 40 V. Com 500 W, 44,7 V.
+
+A cadeia fecha com a elétrica original do seu hatch: 600 W classe D fica bem abaixo da faixa (~800–1000 W) em que o alternador original começa a sofrer, e com música a corrente média é ~7–20 A, não os 60 A.
+
+> **Vale saber — fator de crista:** música não é senoide contínua; a potência média fica em 1/8 a 1/3 do RMS máximo. Por isso o cabo e o fusível se dimensionam pelo pico (60 A, onde um tom de teste ou um grave sustentado chegam) e o alternador/bateria pela média (7–20 A) — os dois números estão certos ao mesmo tempo.
+
+Série 2+2 Ω = 4 Ω e caixa selada de 38 L com Qtc 0,72 estão coerentes com o que você quer (grave limpo, carro pequeno, onde o ganho de cabine ajuda a selada). Se quiser, depois confiro os 38 L contra os T/S do falante no WinISD com você — mas não é pré-requisito para comprar cabo e fusível.
+
+Salvei o projeto fechado, com as contas e o histórico, em `C:\Users\denis\Desktop\Som\.claude\skills\consultor-som-workspace\iteration-4\eval-7\with_skill\run-1\outputs\projetos\sub-12-selado\projeto.md`.

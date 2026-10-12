@@ -1,0 +1,18 @@
+{
+  "eval_id": 3,
+  "eval_name": "eval-3",
+  "prompt": "Queria construir uma caixa bluetooth portátil pra levar em churrasco, com bateria, usando placa do AliExpress. Pensei em usar uma TPA3116 e dois falantes de 6 polegadas + tweeter. Nunca fiz caixa, sei soldar. Me ajuda a montar o projeto? Quero gastar pouco mas que fique boa e dure.",
+  "assertions": [
+    "Inclui BMS/proteção para a bateria de lítio e alerta de segurança",
+    "Calcula ou estima autonomia da bateria",
+    "Relaciona tensão da bateria/fonte com a potência real da TPA3116",
+    "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada",
+    "Trata o crossover/corte do tweeter",
+    "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$",
+    "Dá orientação de construção do gabinete (material, vedação)",
+    "Informa total de orçamento e ele bate com a soma dos itens listados",
+    "Alerta que a saída BTL não pode ter o negativo do falante ligado ao terra/comum",
+    "Indica a polaridade correta do tweeter para a ordem de crossover escolhida (invertido em 2ª ordem, normal em 1ª)",
+    "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco"
+  ]
+}

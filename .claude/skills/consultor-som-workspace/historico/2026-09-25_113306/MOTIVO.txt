@@ -1,0 +1,1 @@
+diy.md: capacitor em serie perto da ressonancia do falante

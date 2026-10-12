@@ -1,0 +1,54 @@
+{
+  "expectations": [
+    {
+      "text": "Reconhece que módulo com mais RMS que o sub não é problema em si (headroom), e corrige sem veredito sobre a pessoa (sem 'você está errado', 'você confundiu', 'na verdade')",
+      "passed": true,
+      "evidence": "Headroom explícito: \"Módulo com mais potência que o sub e ganho certo é até saudável: sobra reserva (headroom) e ele não clipa nos picos.\" Grep por 'você está errado', 'você confundiu', 'na verdade': zero ocorrências. A correção nomeia o fato, não a pessoa (\"as duas conclusões estão invertidas\", \"verdade parcial, conclusão errada\")."
+    },
+    {
+      "text": "Corrige o mal-entendido de que volume baixo protege o falante, explicando ganho × volume e clipping",
+      "passed": true,
+      "evidence": "Seção 1: \"Volume e ganho são coisas diferentes. O botão de volume da fonte controla o sinal de entrada; o ganho do módulo diz quanto ele amplifica esse sinal. Se o ganho estiver alto, o módulo pode chegar a 1200 W com o volume na metade\". Clipping: \"quando o módulo (ou a fonte) satura e o sinal vira quadrado, a bobina recebe muito mais energia média do que o RMS musical\"."
+    },
+    {
+      "text": "Explica o que ligar em 1 Ω realmente faz (potência do módulo sobe, corrente/calor/queda de tensão) e por que não compensa neste caso",
+      "passed": true,
+      "evidence": "Potência sobe: \"P = V²/R: metade da impedância ≈ dobro da potência. Isso vale para o módulo. O sub não fica 'mais forte' em 1 Ω\". Corrente: \"1200 W classe D em 12,6 V ≈ 119 A\" (conferido: 1200/(12,6×0,8) = 119 A). Calor: \"módulo no limite térmico e de corrente\". Queda de tensão: coluna 12,6 V ×0,77 (conferido (12,6/14,4)² = 0,766) e \"alternador... vai sofrer — luz piscando e módulo em proteção\". Por que não compensa: \"Seu problema já é potência sobrando — então 1 Ω 'compensa' ao contrário\"."
+    },
+    {
+      "text": "Dá o passo prático: regular o ganho pela tensão alvo (√(P×R)) e/ou manter impedância maior",
+      "passed": true,
+      "evidence": "Passo 4: \"Subir o ganho até: 40,0 V AC em 4 Ω ou 28,3 V AC em 2 Ω (= 400 W)\" — conferido: √(400×4) = 40,0 V; √(400×2) = 28,28 V; 36 V em 4 Ω → 36²/4 = 324 W (\"~325 W\"). Impedância maior: \"ligar na impedância mais alta em que o módulo entregue perto dos 400 W (normalmente 4 Ω)\" e \"Bobina dupla 2+2 Ω → em série = 4 Ω (recomendado); em paralelo = 1 Ω (não faça)\"."
+    },
+    {
+      "text": "Resposta curta, no modo dúvida — não vira projeto completo com tabela de orçamento",
+      "passed": false,
+      "evidence": "Não há tabela de orçamento, mas a resposta não é curta nem está no modo dúvida: 7.842 caracteres / 1.360 palavras; 6 seções H2 incluindo \"Premissas (me corrija se for diferente)\" (seção do formato de projeto da skill), tabela 3×4 de potência por impedância, passo de elétrica completo (\"cabo 10 mm² OFC para ~5 m... fusível de 50–60 A... negativo curto, mesma bitola, no chassi lixado. Cabo CCA...\"), seção \"Sobre o precinho\", 3 perguntas em \"Para afinar\" e o disclaimer de projeto \"Preços e specs citados são estimativas\" sem nenhum preço citado. A skill define o modo dúvida como \"explicação clara, um exemplo concreto... Curto e direto; ofereça aprofundar\" — a resposta virou um mini-projeto em vez de responder curto e oferecer aprofundar."
+    },
+    {
+      "text": "A correção dos dois mal-entendidos está no corpo; blocos 'Vale saber' (se houver): no máximo 1, rótulo fixo, e apagando-os a resposta continua correta e completa",
+      "passed": true,
+      "evidence": "Grep 'Vale saber': 0 blocos — a condição 'se houver' não ocorre. As duas correções estão no corpo: itens 1 e 2 logo abaixo de \"Resposta curta:\" no topo e desenvolvidas nas seções H2 \"1. 'Não colocar o volume no máximo' — por que isso não protege\" e \"2. '1 Ω dobra a potência' — verdade parcial, conclusão errada\", sem nota lateral."
+    },
+    {
+      "text": "Não redefine termos que o usuário já usou corretamente (RMS, ohm)",
+      "passed": true,
+      "evidence": "Grep por definições ('RMS é/significa', 'ohm é', 'impedância é', 'root mean'): nenhuma. \"400 W RMS é o limite térmico contínuo da bobina\" usa o termo para explicar o mecanismo de calor, não o redefine. Os termos explicados (ganho vs. volume, clipping, headroom, PMPO, fator de amortecimento) são os que o usuário não usou ou usou errado."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 1,
+    "total": 7,
+    "pass_rate": 0.86
+  },
+  "technical_errors": [
+    "\"dobrar potência é +3 dB, mal perceptível\" — +3 dB é uma diferença claramente audível (o limiar de percepção é ~1 dB); 'mal perceptível' exagera. A conta em si (10·log10(2) = 3,01 dB) está certa.",
+    "\"Em termos de botão, é 'meia volta' a mais no ganho triplicando a potência\" — +4,8 dB num potenciômetro de ganho típico (~25–30 dB de faixa em ~270°) corresponde a ~40–50°, não a meia volta; analogia solta e não verificável, dá falsa noção de folga.",
+    "\"1200 W classe D em 12,6 V ≈ 119 A de pico na alimentação\" — o número é a corrente média a plena potência contínua com η ≈ 0,8 (1200/(12,6×0,8) = 119 A); os picos reais são maiores. Terminologia frouxa, não erro de conta.",
+    "Coluna \"Motor desligado (12,6 V, ×0,77)\" assume fonte não regulada (P ∝ V²); muitos módulos nacionais classe D têm SMPS parcialmente regulada e caem menos. A resposta avisa 'ordem de grandeza', então é caveat, não erro.",
+    "Linha 4 Ω da tabela: \"ganho quase no máximo sem risco\" — com fonte de saída alta, ganho no máximo ainda pode clipar o módulo; o procedimento com multímetro (passo 4) corrige isso depois, mas a frase isolada é otimista.",
+    "Rodapé \"Preços e specs citados são estimativas por ordem de grandeza\" — nenhum preço foi citado; sobra do template de projeto (inconsistência de formato, não erro técnico).",
+    "Nenhum conselho inseguro encontrado: fusível 50–60 A a ≤45 cm da bateria para 10 mm²/40 A, sub desconectado na medição, 'não faça' no paralelo de 1 Ω e limite de impedância mínima do módulo estão corretos."
+  ]
+}

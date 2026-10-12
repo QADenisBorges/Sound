@@ -1,0 +1,43 @@
+{
+  "expectations": [
+    {
+      "text": "Confirma a corrente máxima do módulo (~55–65 A) e que o fusível de 100 A protege o cabo de 21 mm² e cobre a corrente do sistema",
+      "passed": true,
+      "evidence": "Resposta: 'I = P / (V × η) = 600 / (12,6 × 0,8) ≈ 60 A ... Se a sua for 75 %, ~64 A' (recomputado: 59,5 A e 63,5 A). 'O fusível na bateria protege o cabo ... acima da corrente máxima do sistema (~64 A) ... e abaixo do que o cabo aguenta — 21 mm² (4 AWG) OFC fica em torno de 125 A ... 100 A cabe com folga dos dois lados'. Janela 64 A < 100 A < 125 A bate com references/automotivo.md (21 mm² ≤ 125 A)."
+    },
+    {
+      "text": "Calcula a queda de tensão em 5 m (~0,2–0,3 V) e diz que é aceitável",
+      "passed": true,
+      "evidence": "Resposta: 'ΔV = ρ × L × I / A = 0,0172 × 5 × 60 / 21,2 ≈ 0,24 V (~2 % de 12,6 V)' e 'No pior caso, 64 A e mais 0,5 m de negativo: ~0,29 V. O limite prático em 12 V é 0,5 V — você está na metade.' Recomputado: 0,243 V e 0,286 V; 1,9 %. Título da seção: '5 m de cabo — queda aceitável, com folga.'"
+    },
+    {
+      "text": "Não redefine termos que o usuário já usou corretamente (DVC, Qtc, OFC, RMS, classe D, ganho por tensão)",
+      "passed": true,
+      "evidence": "Nenhuma definição de DVC, Qtc, OFC, RMS, classe D ou do método de ganho por tensão: DVC/Qtc/OFC aparecem só como dados ('12\" DVC 2+2 Ω em série', '38 L selada com Qtc 0,72', 'o cabo ser OFC de verdade'); o ganho é só conferido ('√(600 × 4) = 49,0 V'). Os únicos glossários são de símbolos introduzidos pela própria resposta ('η = eficiência', 'ρ = resistividade do cobre') e de um termo que o usuário não usou ('CCA (alumínio cobreado)'); 'classe D fica entre 75 e 85 %' é o valor do parâmetro da conta, não uma definição."
+    },
+    {
+      "text": "No máximo 1 bloco 'Vale saber', e se houver ele traz algo que muda uma decisão ou o próximo elo (não curiosidade)",
+      "passed": true,
+      "evidence": "Contagem: exatamente 1 ocorrência (grep). Rótulo exato: '> **Vale saber — multímetro não enxerga clipping:**', no padrão fixo '**Vale saber — <conceito>:**', logo após a seção de ganho a que se refere. Conteúdo muda o próximo elo (regulagem do ganho): 'Se o módulo não tem 600 W na tensão em que você mede, você chega aos 49 V no mostrador com o sinal já quadrado ... O alvo tem que ser a potência que o módulo entrega de fato na condição da medição' — é o porquê da instrução do corpo ('Regule com o motor ligado ... ~460 W, ou seja, ~43 V limpos'). Apagando o bloco, fusível, queda e a instrução de regular com motor ligado continuam no corpo: resposta segue correta e completa."
+    },
+    {
+      "text": "Resposta curta, no modo dúvida: sem tabela de orçamento, sem reabrir escolhas já fechadas (selada, 4 Ω) a não ser que haja erro real",
+      "passed": true,
+      "evidence": "Sem tabela de orçamento (grep por 'orçamento', '|' e 'R$' não retorna nada) e sem seções do template de projeto na resposta (Resumo/Arquitetura/Orçamento foram para projeto.md). Não reabre selada nem 4 Ω — só confirma: 'O resto da cadeia fecha ... 4 Ω em série é a carga mais folgada para o módulo ... 38 L selada com Qtc 0,72 num hatch aproveita o ganho de cabine'. Abre direto com 'As duas contas fecham.' Ressalva: 677 palavras / 3.852 caracteres — quase metade (premissas do ganho, bloco Vale saber, parágrafo 'O resto da cadeia fecha') vai além das duas perguntas feitas, mas fica dentro do teto de 1 bloco e a confirmação dos 49 V está prevista no expected_output."
+    },
+    {
+      "text": "Não contém veredito sobre a pessoa nem 'parabéns' ritual; confirma o que está certo de forma direta",
+      "passed": true,
+      "evidence": "Grep por 'parab', 'ótimo', 'excelente', 'bem pensado', 'boa escolha', 'acertou', 'bom trabalho' não retorna nada. Confirmações diretas e sobre o fato, não sobre a pessoa: 'As duas contas fecham.', 'Fusível de 100 A — correto para esse cabo.', '5 m de cabo — queda aceitável, com folga.', 'Ganho a 49 V — a conta bate'. A única menção ao que o usuário domina está na nota de perfil ('entram como conceitos dominados'), que é o registro da seção 'Conceitos já dominados' do perfil, não um julgamento no corpo."
+    }
+  ],
+  "summary": {
+    "passed": 6,
+    "failed": 0,
+    "total": 6,
+    "pass_rate": 1.0
+  },
+  "technical_errors": [
+    "Menor, sem impacto na conclusão: 'Só pela queda, 16 mm² bastaria (área mínima calculada: 11–13 mm²)' — pela mesma fórmula e ρ = 0,0172, a área mínima para ΔV ≤ 0,5 V é 10,3 mm² (5 m, 60 A) a 12,1 mm² (5,5 m, 64 A); o calc_som.py da skill dá 10,32 e 12,11 mm². A faixa foi levemente superestimada; a conclusão (16 mm² basta) permanece."
+  ]
+}

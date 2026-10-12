@@ -1,0 +1,1 @@
+ganho com DSP/fonte digital: referencia = sinal maximo; ponte com duas saidas de DSP identicas

@@ -1,0 +1,13 @@
+{
+  "eval_id": 2,
+  "eval_name": "sala-soundbar-vs-receiver",
+  "prompt": "Quero montar um som pra minha sala, uns 20m², pra ouvir música (MPB, jazz, rock) e ver filme de vez em quando. Tenho uns R$ 3000. Fico na dúvida entre comprar uma soundbar boa, um receiver com caixas ou caixas ativas. O que você faria e por quê?",
+  "assertions": [
+    "Compara as três opções (soundbar, receiver+caixas, caixas ativas) com prós e contras",
+    "Faz uma recomendação clara com justificativa ligada ao uso (música > filme)",
+    "Menciona acústica ou posicionamento da sala",
+    "Considera o mercado de usados como forma de ganhar custo-benefício",
+    "Apresenta orçamento em R$ que respeita o limite de R$ 3000",
+    "Foca em especificações que importam (sensibilidade, potência RMS, entradas) e não só em marcas"
+  ]
+}

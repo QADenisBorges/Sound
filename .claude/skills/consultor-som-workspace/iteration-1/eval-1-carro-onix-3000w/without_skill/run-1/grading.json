@@ -1,0 +1,25 @@
+{
+  "expectations": [
+    {"text": "Contesta a premissa de 3000W sem mexer na elétrica (aponta incoerência)", "passed": true, "evidence": "'do jeito que você descreveu, não faz sentido... um sistema desse tamanho não funciona com a elétrica original do Onix'."},
+    {"text": "Mostra conta de corrente do módulo (A) em relação ao alternador/bateria", "passed": true, "evidence": "'2000 W ÷ 13,5 V ≈ 150 A só pro som, no pico'; alternador 90-100 A, carro gasta 30-50 A, sobram 40-60 A. Nota: a conta usa os 1600 W dos subs, não os 3000 W do módulo."},
+    {"text": "Propõe alternativa coerente dentro de R$ 2500", "passed": true, "evidence": "1 sub 12\" 350-500 W + módulo 400-600 W + caixa selada; 'Dá pra fechar dentro dos R$ 2500 escolhendo bem'. Faixa total listada (R$ 1700-2900) passa do teto, mas é explicitamente ajustável."},
+    {"text": "Trata a integração com o rádio original (entrada de alto nível ou conversor RCA)", "passed": true, "evidence": "'Conversor de alto pra baixo nível (line output converter) ligado nos fios de alto-falante do rádio original', R$ 60-150."},
+    {"text": "Menciona fusível perto da bateria e bitola/qualidade do cabo (OFC vs CCA)", "passed": true, "evidence": "'com fusível perto do polo'; 'cabo de alimentação de cobre 21 mm² (4 AWG), porta-fusível perto da bateria'. Não cita OFC vs CCA explicitamente, apenas 'cobre'; passou pelo fusível + bitola."},
+    {"text": "Explica como evitar grave embolado (tipo de caixa, subsônico, regulagem de ganho)", "passed": true, "evidence": "Seção 'Ajustes que fazem a diferença': LPF 70-80 Hz, subsônico 25-30 Hz, bass boost zero, ganho medido, teste de fase; selada vs dutada 32-35 Hz."},
+    {"text": "Apresenta opções de orçamento em R$ em níveis diferentes", "passed": false, "evidence": "Apenas uma proposta única com faixa de preço (~R$ 1700-2900); não há níveis/tiers distintos. Menciona upgrade elétrico futuro (R$ 1500-3000) mas não como opção de orçamento do sistema."}
+  ],
+  "summary": {"passed": 6, "failed": 1, "total": 7, "pass_rate": 0.86},
+  "timing": {"executor_duration_seconds": 54.1, "total_duration_seconds": 54.1},
+  "claims": [
+    {"claim": "1600 W RMS / 0,8 = 2000 W; 2000/13,5 ≈ 150 A", "type": "factual", "verified": true, "evidence": "2000/13.5 = 148 A. Correto, mas ignora que o módulo de 3000 W pode puxar ~300 A."},
+    {"claim": "Sobram 40-60 A => 400-600 W RMS com folga", "type": "factual", "verified": true, "evidence": "50 A x 13,5 V x 0,8 ≈ 540 W. Coerente."},
+    {"claim": "Total da proposta R$ 1700-2900 cabe em R$ 2500", "type": "quality", "verified": false, "evidence": "Só cabe na metade inferior das faixas; o texto não mostra uma configuração fechada dentro do teto."}
+  ],
+  "user_notes_summary": {"uncertainties": [], "needs_review": [], "workarounds": []},
+  "eval_feedback": {
+    "suggestions": [
+      {"assertion": "Menciona fusível perto da bateria e bitola/qualidade do cabo (OFC vs CCA)", "reason": "Ambíguo: não fica claro se 'OFC vs CCA' é obrigatório. Esta resposta passou só com 'cobre 21 mm²'. Separe em duas assertions (fusível; distinção OFC/CCA) para discriminar melhor."}
+    ],
+    "overall": "Resposta tecnicamente correta; diferença principal para with_skill é ausência de tiers de orçamento e de números de SPL/ganho."
+  }
+}

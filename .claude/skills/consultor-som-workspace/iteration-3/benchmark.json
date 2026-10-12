@@ -1,0 +1,833 @@
+{
+  "metadata": {
+    "skill_name": "consultor-som",
+    "skill_path": "<path/to/skill>",
+    "executor_model": "<model-name>",
+    "analyzer_model": "<model-name>",
+    "timestamp": "2026-09-25T12:35:48Z",
+    "evals_run": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "runs_per_configuration": 3
+  },
+  "runs": [
+    {
+      "eval_id": 1,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 11,
+        "failed": 0,
+        "total": 11,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Contesta a premissa de 3000W sem mexer na el\u00e9trica no corpo da resposta, antes do dimensionamento/op\u00e7\u00f5es, nomeando o fato e n\u00e3o a pessoa (sem 'voc\u00ea est\u00e1 errado', 'voc\u00ea confundiu', 'na verdade')",
+          "passed": true,
+          "evidence": "Resumo (linha 5): 'Do jeito que est\u00e1, n\u00e3o fecha \u2014 e o problema n\u00e3o \u00e9 gosto, \u00e9 f\u00edsica e dinheiro. Voc\u00ea colocou tr\u00eas restri\u00e7\u00f5es que se contradizem: 3000 W RMS, el\u00e9trica original intocada e R$ 2500.' Depois, se\u00e7\u00e3o '## Onde a ideia n\u00e3o fecha (com n\u00fameros)' \u2192 '### 1. El\u00e9trica: 3000 W n\u00e3o roda em alternador de carro popular' (linhas 18\u201336), que vem antes de '## Dimensionamento' (linha 104) e '## Op\u00e7\u00f5es de or\u00e7amento' (linha 128). grep case-insensitive por 'voc\u00ea est\u00e1 errado', 'voc\u00ea confundiu' e 'na verdade' retornou 0 ocorr\u00eancias. O texto nomeia o fato (restri\u00e7\u00f5es incompat\u00edveis entre si, alternador de ~100\u2013110 A insuficiente), n\u00e3o a pessoa."
+        },
+        {
+          "text": "Mostra conta de corrente do m\u00f3dulo (A) em rela\u00e7\u00e3o ao alternador/bateria",
+          "passed": true,
+          "evidence": "'Corrente de alimenta\u00e7\u00e3o \u2248 pot\u00eancia \u00f7 (tens\u00e3o \u00d7 efici\u00eancia). Para classe D (efici\u00eancia ~0,8) a 12,6 V' + tabela: 3000 W \u2192 298 A pico / 37\u201399 A m\u00e9dia; 1200 W \u2192 119 A; 1000 W \u2192 99 A; 800 W \u2192 79 A. Compara\u00e7\u00e3o expl\u00edcita: 'Seu alternador tem ~100\u2013110 A, e o carro sozinho j\u00e1 usa 30\u201350 A ... Sobram 50\u201380 A. S\u00f3 a m\u00e9dia do m\u00f3dulo de 3000 W j\u00e1 disputa com o alternador; os picos de 300 A viriam da bateria de 60 Ah'. Recalculado: 3000/(12,6\u00d70,8) = 297,6 A; 1200/(12,6\u00d70,8) = 119,0 A; 298/8 a 298/3 = 37\u201399 A. Bate."
+        },
+        {
+          "text": "Prop\u00f5e alternativa coerente dentro de R$ 2500",
+          "passed": true,
+          "evidence": "Caminho B: '1\u00d7 12\" de 500\u2013600 W RMS + m\u00f3dulo mono 1000\u20131200 W ... Cabe nos R$ 2500. A el\u00e9trica original aguenta (99\u2013119 A de pico, 12\u201340 A de m\u00e9dia)'. Coluna 'Equilibrado (recomendado)' totaliza R$ 1780\u20132800 e o texto diz 'escolhido com calma fecha em ~R$ 2300 \u2014 dentro dos seus R$ 2500. O topo da faixa \u00e9 se pegar tudo de linha superior'; a coluna 'Econ\u00f4mico' (R$ 1260\u20132000) cabe inteira. Coer\u00eancia t\u00e9cnica: m\u00f3dulo com 1,5\u20132\u00d7 o RMS do sub, ganho regulado para 500\u2013600 W, cabo 4 AWG + ANL 100\u2013125 A dimensionados para 119 A, caixa e subs\u00f4nico especificados. Ressalva: o teto da faixa recomendada (R$ 2800) ultrapassa o or\u00e7amento, mas isso \u00e9 reconhecido e tratado."
+        },
+        {
+          "text": "Trata a integra\u00e7\u00e3o com o r\u00e1dio original (entrada de alto n\u00edvel ou conversor RCA)",
+          "passed": true,
+          "evidence": "Premissas: 'R\u00e1dio original (MyLink ou r\u00e1dio simples) sem sa\u00edda RCA \u2192 o m\u00f3dulo recebe sinal pela entrada de alto n\u00edvel (direto dos fios dos falantes traseiros) ou por um LOC (conversor de n\u00edvel, que transforma sa\u00edda de falante em RCA)'. Arquitetura: 'R\u00e1dio original (fios dos falantes traseiros) \u2192 entrada de alto n\u00edvel do m\u00f3dulo [ou LOC ajust\u00e1vel \u2192 RCA]' e 'remote: auto-ligamento pelo alto n\u00edvel'. Riscos: 'alguns r\u00e1dios GM reduzem o grave em volume alto ... o caminho \u00e9 um LOC com ajuste ou um mini DSP'. Linha 'Sinal' na tabela de or\u00e7amento."
+        },
+        {
+          "text": "Menciona fus\u00edvel no positivo perto da bateria",
+          "passed": true,
+          "evidence": "Arquitetura: 'bateria 60 Ah (+) \u2192 fus\u00edvel ANL 100\u2013125 A a \u2264 30\u201345 cm da bateria \u2192 cabo OFC 21 mm\u00b2 (4 AWG)'. Riscos: 'Fus\u00edvel s\u00f3 no m\u00f3dulo n\u00e3o protege o cabo: precisa de fus\u00edvel a \u2264 45 cm da bateria'. Pr\u00f3ximos passos, item 4: 'fus\u00edvel perto da bateria'."
+        },
+        {
+          "text": "Diferencia cabo OFC de CCA (ou alerta sobre cabo de alum\u00ednio cobreado)",
+          "passed": true,
+          "evidence": "Tabela de dimensionamento: 'Mesmo cabo em CCA (alum\u00ednio cobreado) para 99 A | 27,7 mm\u00b2 \u2192 33,6 mm\u00b2 | CCA pede uma bitola acima; prefira OFC'. Riscos: 'CCA vendido como \"cobre\": desconfie de kit barato de 4 AWG com pre\u00e7o de 8 AWG. Cobre \u00e9 avermelhado no corte; CCA \u00e9 prateado por dentro'. Tabela de or\u00e7amento: 'OFC de verdade 21 mm\u00b2 ... (CCA vendido como cobre \u00e9 comum)'."
+        },
+        {
+          "text": "Explica como evitar grave embolado (tipo de caixa, subs\u00f4nico, regulagem de ganho)",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o '3. Som: o embolado que voc\u00ea n\u00e3o quer vem justamente da\u00ed' lista as causas (caixa dutada sintonizada alto 40\u201350 Hz, sem subs\u00f4nico, clipping por ganho/bass boost, m\u00f3dulo em 1 \u03a9 com tens\u00e3o caindo, muito cone em pouco carro). Caminho B prescreve caixa 'selada de 35\u201340 L' ou 'dutada de ~45 L sintonizada em 32\u201334 Hz com subs\u00f4nico em 28\u201330 Hz'; arquitetura fixa 'LPF 70\u201380 Hz | subs\u00f4nico 28\u201330 Hz (se dutada) | bass boost = 0'; ganho: 'Regule com mult\u00edmetro (31,6 V AC para 500 W em 2 \u03a9) e deixe bass boost em zero'. Conferido: \u221a(500\u00d72) = 31,6 V; \u221a(600\u00d74) = 49,0 V."
+        },
+        {
+          "text": "Apresenta op\u00e7\u00f5es de or\u00e7amento em R$ em n\u00edveis diferentes",
+          "passed": true,
+          "evidence": "Tabela '## Op\u00e7\u00f5es de or\u00e7amento' com tr\u00eas colunas \u2014 'Econ\u00f4mico', 'Equilibrado (recomendado)' e 'Caprichado' \u2014 com valores em R$ por item (subwoofer, m\u00f3dulo, caixa, cabo+fus\u00edvel+terminais, sinal, ferramentas/acabamento) e totais 'R$ 1260\u20132000', 'R$ 1780\u20132800' e 'R$ 2580\u20133900'."
+        },
+        {
+          "text": "Informa total de or\u00e7amento e ele bate com a soma dos itens listados",
+          "passed": true,
+          "evidence": "Recalculado por coluna: Econ\u00f4mico 400+400+200+200+0+60 = 1260 e 550+550+350+350+80+120 = 2000 (tabela: R$ 1260\u20132000, bate). Equilibrado 550+550+300+250+50+80 = 1780 e 800+850+500+380+100+170 = 2800 (bate). Caprichado 800+700+500+400+80+100 = 2580 e 1100+1000+800+600+150+250 = 3900 (bate). Custo da proposta original tamb\u00e9m bate: 1400+1000+500+500+800 = 4200 e 2400+1600+900+900+1500 = 7300 ('R$ 4200\u20137300'). Ponto m\u00e9dio do Equilibrado = 2290 \u2248 '~R$ 2300' declarado."
+        },
+        {
+          "text": "Fus\u00edvel sugerido n\u00e3o \u00e9 maior do que a bitola de cabo indicada suporta",
+          "passed": true,
+          "evidence": "Recomendado: cabo OFC 21,2 mm\u00b2 (4 AWG) com 'fus\u00edvel ANL 100\u2013125 A' \u2014 4 AWG OFC suporta tipicamente 125\u2013150 A em runs de ~5 m; 100\u2013125 A est\u00e1 dentro. Caprichado: '35 mm\u00b2 + ANL 150 A' \u2014 35 mm\u00b2 (~2 AWG) suporta ~150\u2013200 A. Comparativo 3000 W: '53,5 mm\u00b2 (0 AWG) com fus\u00edvel de 250\u2013300 A' \u2014 1/0 AWG suporta ~250\u2013300 A. Nenhum fus\u00edvel excede a capacidade do cabo indicado. Conferido o dimensionamento do cabo: 0,0172 \u03a9\u00b7mm\u00b2/m \u00d7 5 m \u00d7 119 A / 0,5 V = 20,5 mm\u00b2 \u2192 4 AWG."
+        },
+        {
+          "text": "Blocos 'Vale saber' (se houver): r\u00f3tulo fixo '**Vale saber \u2014 <conceito>:**', no m\u00e1ximo 2, dentro da se\u00e7\u00e3o a que se referem, sem se\u00e7\u00e3o/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de seguran\u00e7a aparece s\u00f3 dentro de um bloco",
+          "passed": true,
+          "evidence": "Condi\u00e7\u00e3o n\u00e3o ocorre: grep case-insensitive por 'vale saber' e 'dicas' em resposta.md retornou 0 ocorr\u00eancias. N\u00e3o h\u00e1 blocos 'Vale saber' nem se\u00e7\u00e3o/lista 'Dicas'; asser\u00e7\u00e3o condicional passa."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 8,
+        "failed": 0,
+        "total": 8,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Compara as tr\u00eas op\u00e7\u00f5es (soundbar, receiver+caixas, caixas ativas) com pr\u00f3s e contras",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o 'As tr\u00eas arquiteturas, lado a lado': tabela com as tr\u00eas op\u00e7\u00f5es (+ a escolha 2.0) avaliadas em M\u00fasica, Filme, Simplicidade, Especifica\u00e7\u00f5es p\u00fablicas, Caminho de upgrade e Mercado de usados, com pr\u00f3 e contra em cada c\u00e9lula (ex.: soundbar 'Simplicidade: M\u00e1xima' vs 'M\u00fasica: Fraca... a 3 m o est\u00e9reo vira quase mono'; receiver 'Filme: Melhor' vs 'Simplicidade: M\u00ednima'; ativas 'Alta (2 tomadas + 1 cabo)' vs 'monitores... a 3 m faltam grave'). Seguida de 'Quando cada uma seria a escolha certa' com um cen\u00e1rio por op\u00e7\u00e3o."
+        },
+        {
+          "text": "Faz uma recomenda\u00e7\u00e3o clara com justificativa ligada ao uso (m\u00fasica > filme)",
+          "passed": true,
+          "evidence": "Resumo: 'Eu montaria um est\u00e9reo 2.0 de verdade: um par de caixas de estante... + um amplificador est\u00e9reo compacto (classe D)... N\u00e3o compraria soundbar nem receiver AV'. Justificativa: 'seu uso principal \u00e9 m\u00fasica (MPB, jazz, rock), e filme \u00e9 \"de vez em quando\". M\u00fasica pede dois falantes de verdade... \u00e9 exatamente o que uma soundbar n\u00e3o tem'. Fechamento: 'com R$ 3.000 e m\u00fasica em primeiro lugar... soundbar n\u00e3o; receiver AV s\u00f3 se o plano for 5.1'."
+        },
+        {
+          "text": "Menciona ac\u00fastica ou posicionamento da sala",
+          "passed": true,
+          "evidence": "Item '5. A sala': modos axiais de 5\u00d74\u00d72,7 m = '34 Hz, 43 Hz e 63 Hz' (recalculei: 34,3/42,9/63,5 Hz \u2014 corretos), 'caixa no canto fica embolada (excita todos os modos)', e posicionamento 'caixas 20\u201340 cm da parede de tr\u00e1s, afastadas das laterais, tweeter na altura do ouvido, tri\u00e2ngulo equil\u00e1tero com o sof\u00e1... sof\u00e1 em ~38% do comprimento (\u22481,9 m)'. Refor\u00e7ado em Pr\u00f3ximos passos 4 (toe-in) e 6 (medir com REW)."
+        },
+        {
+          "text": "Considera o mercado de usados como forma de ganhar custo-benef\u00edcio",
+          "passed": true,
+          "evidence": "Linha 'Mercado de usados' na tabela comparativa; coluna Econ\u00f4mico: 'Usado JBL/Polk/Wharfedale \u2014 R$ 600\u20131.000' ('\u00e9 o melhor real gasto de todos'); 'receiver est\u00e9reo nacional usado (Gradiente/Sony/Technics)'; receiver AV 'usado (Denon/Yamaha/Onkyo/Pioneer de 5\u201310 anos, R$ 700\u20131.500) resolve'; em Riscos, checklist para testar caixa usada (cone, tweeter, borrach\u00e3o) e receiver usado."
+        },
+        {
+          "text": "A op\u00e7\u00e3o recomendada cabe no limite de R$ 3000 (ou a resposta avisa claramente quando pode ultrapassar)",
+          "passed": true,
+          "evidence": "Op\u00e7\u00e3o recomendada = coluna Equilibrado ('\u00e9 o que eu faria com R$ 3.000'), total declarado R$ 2.150\u20133.100 (soma conferida). O teto fura em R$ 100 e a resposta avisa no mesmo par\u00e1grafo: 'Se estourar, os pedestais ficam para depois (caixa no aparador funciona, s\u00f3 afasta 20 cm da parede)' \u2014 sem os pedestais (R$ 150\u2013300) o teto cai para <= R$ 2.950. Tamb\u00e9m alerta que pre\u00e7os s\u00e3o 'faixas aproximadas de mem\u00f3ria... confira antes de comprar' e que Caprichado s\u00f3 vale 'se voc\u00ea estiver disposto a esticar'. Passa pela cl\u00e1usula 'avisa claramente'."
+        },
+        {
+          "text": "Foca em especifica\u00e7\u00f5es que importam (sensibilidade, pot\u00eancia RMS, entradas) e n\u00e3o s\u00f3 em marcas",
+          "passed": true,
+          "evidence": "Coluna 'Especifica\u00e7\u00e3o que importa': caixas '2 vias, woofer 5\u20136,5\", sensibilidade >= 86 dB/1W (converta se for 2,83 V), 6\u20138 \u03a9, \u22123 dB <= 60 Hz'; amp 'TPA3255 ou similar, >= 40 W RMS/canal em 8 \u03a9 com a fonte que vem, fonte de marca, sa\u00edda de sub... DAC \u00f3ptico e Bluetooth embutidos'. Explica a armadilha 2,83 V vs 1 W ('86 dB/2,83V em 6 \u03a9... 84,7 dB/1W/1m' \u2014 recalculei 84,75). Pr\u00f3ximos passos 2: 'procure: sensibilidade..., imped\u00e2ncia nominal, frequ\u00eancia de \u22123 dB, tamanho do woofer. Passe longe de an\u00fancio sem essas quatro coisas'. Marcas aparecem s\u00f3 como 'ex.:'."
+        },
+        {
+          "text": "Informa total de or\u00e7amento e ele bate com a soma dos itens listados",
+          "passed": true,
+          "evidence": "Linha 'Total estimado' presente. Recalculei item a item: Econ\u00f4mico 600+350+60+0+40 = 1.050 e 1.000+550+120+0+60 = 1.730 (declarado R$ 1.050\u20131.730); Equilibrado 1.400+600+0+0+150 = 2.150 e 1.900+900+0+0+300 = 3.100 (declarado R$ 2.150\u20133.100); Caprichado 1.900+800+0+0+250 = 2.950 e 2.300+1.100+0+600+400 = 4.400 (declarado R$ 2.950\u20134.400). As tr\u00eas colunas batem exatamente. ('sobra R$ 1.300\u20131.900' do Econ\u00f4mico \u00e9 arredondamento de 1.270\u20131.950.)"
+        },
+        {
+          "text": "Blocos 'Vale saber' (se houver): r\u00f3tulo fixo '**Vale saber \u2014 <conceito>:**', no m\u00e1ximo 2, dentro da se\u00e7\u00e3o a que se referem, sem se\u00e7\u00e3o/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de seguran\u00e7a aparece s\u00f3 dentro de um bloco",
+          "passed": true,
+          "evidence": "grep -ci 'vale saber' = 0 e grep -ci 'dicas' = 0 em resposta.md. Nenhum bloco 'Vale saber' e nenhuma se\u00e7\u00e3o/lista 'Dicas' (t\u00edtulos: Resumo, Premissas, As tr\u00eas arquiteturas, Arquitetura recomendada, Dimensionamento, Op\u00e7\u00f5es de or\u00e7amento, Onde economizar, Riscos e cuidados, Pr\u00f3ximos passos). A condi\u00e7\u00e3o 'se houver' n\u00e3o ocorre, ent\u00e3o a asser\u00e7\u00e3o passa. Alertas de seguran\u00e7a (BTL, fonte, audi\u00e7\u00e3o) est\u00e3o na se\u00e7\u00e3o regular 'Riscos e cuidados'. Observa\u00e7\u00e3o: h\u00e1 um aparte did\u00e1tico n\u00e3o rotulado ('Termos, rapidinho: classe D = ..., DAC = ..., Sa\u00edda de sub = ...') que n\u00e3o usa o r\u00f3tulo fixo."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 11,
+        "failed": 0,
+        "total": 11,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Inclui BMS/prote\u00e7\u00e3o para a bateria de l\u00edtio e alerta de seguran\u00e7a",
+          "passed": true,
+          "evidence": "Resumo: 'bateria de l\u00edtio 18650 com BMS'; tabela: 'BMS 4S \u2265 15 A com balanceamento + carregador 16,8 V 2 A'; Riscos 2: 'L\u00edtio: BMS sempre; carregador com a tens\u00e3o exata; fus\u00edvel; c\u00e9lulas da mesma marca/lote; n\u00e3o solde direto na c\u00e9lula... Nas primeiras cargas, fique por perto'; 'Carregar l\u00edtio com fonte \"qualquer\" ou sem BMS \u00e9 onde caixa DIY pega fogo'. Fus\u00edvel 5 A na sa\u00edda da bateria tamb\u00e9m est\u00e1 na arquitetura."
+        },
+        {
+          "text": "Calcula ou estima autonomia da bateria",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o Dimensionamento 3 (tabela): VRLA 12 V 7 Ah = 84 Wh a 8 W \u2192 ~8 h (conte 5\u20136 h); 4S2P 5,2 Ah/77 Wh a 10 W \u2192 ~6 h (a 18 W \u2192 3,4 h); 5S3P 144 Wh a 14 W \u2192 ~8 h, com 80% da capacidade. Conferido: 0,8\u00d784/8 = 8,4 h; 0,8\u00d777/10 = 6,2 h; 0,8\u00d777/18 = 3,4 h; 0,8\u00d7144/14 = 8,2 h \u2014 batem."
+        },
+        {
+          "text": "Relaciona tens\u00e3o da bateria/fonte com a pot\u00eancia real da TPA3116",
+          "passed": true,
+          "evidence": "'P \u2248 V\u00b2 / (2 \u00d7 Z)' com tabela por bateria: 12,4 V \u2192 19 W te\u00f3rico/~12 W limpo; 4S 14,8 V \u2192 27 W/~17\u201319 W; 5S 18,5 V \u2192 43 W/~26\u201330 W; 6S 22,2 V \u2192 62 W (limite 26 V do chip). Conferido: 14,8\u00b2/8 = 27,4 W, 60\u201370% = 16,4\u201319,2 W; 18,5\u00b2/8 = 42,8 W; 22,2\u00b2/8 = 61,6 W \u2014 corretos. Tamb\u00e9m 'Em 8 \u03a9 tudo isso cai pela metade' e 'a 13 V no 4S voc\u00ea tem ~13 W' (13\u00b2/8\u00d70,6 = 12,7 W)."
+        },
+        {
+          "text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada",
+          "passed": true,
+          "evidence": "Dutada, 11,5 L l\u00edquidos por c\u00e2mara (57\u00d723\u00d723 = 30 L brutos, coluna 3,7 L, c\u00e2mara 23,5\u00d723\u00d723 = 12,4 L); duto PVC 50 mm (\u00d8 int. 4,6 cm), 12,7 cm para Fb 52 Hz, 11 cm para 55 Hz, velocidade ~10 m/s (limite ~17). Conferido por Helmholtz: Leff = 15,9 cm, menos corre\u00e7\u00e3o 0,732\u00b7D \u2192 12,6 cm (52 Hz) e 10,9 cm (55 Hz) \u2014 batem. Fallback selada definido ('Qts > 0,6 ou sem T/S: mesma c\u00e2mara, sem duto, forrada')."
+        },
+        {
+          "text": "Trata o crossover/corte do tweeter",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o 5: 2\u00aa ordem em 3,5 kHz, Butterworth 4 \u03a9: L 0,27 mH + C 8,2 \u00b5F (LP e HP), alternativa LR2 0,36 mH/5,6 \u00b5F, tweeter 8 \u03a9 3,9\u20134,7 \u00b5F + 0,51 mH; L-pad \u22123 dB 1,2 \u03a9 s\u00e9rie + 10 \u03a9 paralelo; justificativa do corte (diretividade do 6\" e limite de tweeter barato). Conferido: BW2 L = \u221a2\u00b74/(2\u03c0\u00b73500) = 0,257 mH, C = 8,04 \u00b5F; LR2 0,364 mH/5,68 \u00b5F; 8 \u03a9 4,02 \u00b5F/0,514 mH; L-pad 1,17 \u03a9/9,7 \u03a9 \u2014 todos batem."
+        },
+        {
+          "text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$",
+          "passed": true,
+          "evidence": "Tabela 'Op\u00e7\u00f5es de or\u00e7amento' com colunas Item / Especifica\u00e7\u00e3o / Onde comprar / Econ\u00f4mico / Equilibrado / Caprichado em R$. Ex.: placa 'Ali/Shopee 45\u201370 / 55\u201385 / 110\u2013180'; woofers 'Nacional 120\u2013200 / 180\u2013320 / 400\u2013700'; c\u00e9lulas 18650 'vendedor nacional com reputa\u00e7\u00e3o'; madeira 'Madeireira / home center'. Define 'Nacional' = ML loja oficial/MercadoL\u00edder, Amazon, loja de som."
+        },
+        {
+          "text": "D\u00e1 orienta\u00e7\u00e3o de constru\u00e7\u00e3o do gabinete (material, veda\u00e7\u00e3o)",
+          "passed": true,
+          "evidence": "Material: 'compensado 15 mm' (MDF s\u00f3 no Econ\u00f4mico, 'n\u00e3o pode molhar'; 'MDF incha com umidade e esfarela nos cantos'); dimens\u00f5es 60\u00d726\u00d726 cm, divis\u00f3rias como travamento, coluna central vedada. Veda\u00e7\u00e3o: Riscos 6 'Cola em todas as juntas, silicone por dentro, gaxeta de espuma nos falantes, passa-fio vedado'; Pr\u00f3ximos passos 4: 'Monte a seco, depois cola + parafuso, silicone por dentro, 24 h de cura, teste de vazamento (tampe o duto, empurre o cone...)'."
+        },
+        {
+          "text": "Informa total de or\u00e7amento e ele bate com a soma dos itens listados",
+          "passed": true,
+          "evidence": "Totais declarados: Econ\u00f4mico R$ 505\u2013855, Equilibrado R$ 825\u20131.420, Caprichado R$ 1.495\u20132.555. Soma refeita dos 11 itens: Econ 45+120+25+40+70+40+0+60+50+30+25 = 505 / 70+200+50+70+110+70+0+100+90+50+45 = 855; Equi = 825 / 1.420; Capr = 1.495 / 2.555 \u2014 batem exatamente nos seis extremos."
+        },
+        {
+          "text": "Alerta que a sa\u00edda BTL n\u00e3o pode ter o negativo do falante ligado ao terra/comum",
+          "passed": true,
+          "evidence": "Resumo: 'BTL \u2014 bridge-tied load: os dois fios de cada canal s\u00e3o \"vivos\", n\u00e3o existe negativo comum. Um tweeter s\u00f3... obrigaria a juntar os negativos de L e R \u2014 isso curto-circuita a sa\u00edda e queima a placa'. Arquitetura: 'nenhum negativo de falante vai para carca\u00e7a ou para o negativo da bateria (BTL)'. Riscos 1: 'nenhum fio de falante encosta em terra, carca\u00e7a, negativo da bateria ou no outro canal'."
+        },
+        {
+          "text": "Indica a polaridade correta do tweeter para a ordem de crossover escolhida (invertido em 2\u00aa ordem, normal em 1\u00aa)",
+          "passed": true,
+          "evidence": "Ordem escolhida: 2\u00aa (Butterworth/LR2 em 3,5 kHz). Texto: '**Tweeter com polaridade invertida**: filtro de 2\u00aa ordem gira 180\u00b0 no corte; ligado \"certo\" aparece um buraco em 3,5 kHz. Teste as duas liga\u00e7\u00f5es de ouvido'. Repetido em Pr\u00f3ximos passos 6 e no projeto.md ('Tweeter com polaridade invertida'). Correto para 2\u00aa ordem."
+        },
+        {
+          "text": "Blocos 'Vale saber' (se houver): r\u00f3tulo fixo '**Vale saber \u2014 <conceito>:**', no m\u00e1ximo 2, dentro da se\u00e7\u00e3o a que se referem, sem se\u00e7\u00e3o/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de seguran\u00e7a aparece s\u00f3 dentro de um bloco",
+          "passed": true,
+          "evidence": "Condi\u00e7\u00e3o n\u00e3o ocorre: grep 'Vale saber' = 0 ocorr\u00eancias e grep -i 'dicas' = 0 ocorr\u00eancias em resposta.md. Se\u00e7\u00f5es presentes: Resumo, Premissas, Arquitetura, Dimensionamento, Op\u00e7\u00f5es de or\u00e7amento, Onde economizar / onde n\u00e3o economizar, Riscos e cuidados, Pr\u00f3ximos passos. Asser\u00e7\u00e3o condicional \u2192 passa."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.86,
+        "passed": 6,
+        "failed": 1,
+        "total": 7,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reconhece que m\u00f3dulo com mais RMS que o sub n\u00e3o \u00e9 problema em si (headroom), e corrige sem veredito sobre a pessoa (sem 'voc\u00ea est\u00e1 errado', 'voc\u00ea confundiu', 'na verdade')",
+          "passed": true,
+          "evidence": "Headroom expl\u00edcito: \"M\u00f3dulo com mais pot\u00eancia que o sub e ganho certo \u00e9 at\u00e9 saud\u00e1vel: sobra reserva (headroom) e ele n\u00e3o clipa nos picos.\" Grep por 'voc\u00ea est\u00e1 errado', 'voc\u00ea confundiu', 'na verdade': zero ocorr\u00eancias. A corre\u00e7\u00e3o nomeia o fato, n\u00e3o a pessoa (\"as duas conclus\u00f5es est\u00e3o invertidas\", \"verdade parcial, conclus\u00e3o errada\")."
+        },
+        {
+          "text": "Corrige o mal-entendido de que volume baixo protege o falante, explicando ganho \u00d7 volume e clipping",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o 1: \"Volume e ganho s\u00e3o coisas diferentes. O bot\u00e3o de volume da fonte controla o sinal de entrada; o ganho do m\u00f3dulo diz quanto ele amplifica esse sinal. Se o ganho estiver alto, o m\u00f3dulo pode chegar a 1200 W com o volume na metade\". Clipping: \"quando o m\u00f3dulo (ou a fonte) satura e o sinal vira quadrado, a bobina recebe muito mais energia m\u00e9dia do que o RMS musical\"."
+        },
+        {
+          "text": "Explica o que ligar em 1 \u03a9 realmente faz (pot\u00eancia do m\u00f3dulo sobe, corrente/calor/queda de tens\u00e3o) e por que n\u00e3o compensa neste caso",
+          "passed": true,
+          "evidence": "Pot\u00eancia sobe: \"P = V\u00b2/R: metade da imped\u00e2ncia \u2248 dobro da pot\u00eancia. Isso vale para o m\u00f3dulo. O sub n\u00e3o fica 'mais forte' em 1 \u03a9\". Corrente: \"1200 W classe D em 12,6 V \u2248 119 A\" (conferido: 1200/(12,6\u00d70,8) = 119 A). Calor: \"m\u00f3dulo no limite t\u00e9rmico e de corrente\". Queda de tens\u00e3o: coluna 12,6 V \u00d70,77 (conferido (12,6/14,4)\u00b2 = 0,766) e \"alternador... vai sofrer \u2014 luz piscando e m\u00f3dulo em prote\u00e7\u00e3o\". Por que n\u00e3o compensa: \"Seu problema j\u00e1 \u00e9 pot\u00eancia sobrando \u2014 ent\u00e3o 1 \u03a9 'compensa' ao contr\u00e1rio\"."
+        },
+        {
+          "text": "D\u00e1 o passo pr\u00e1tico: regular o ganho pela tens\u00e3o alvo (\u221a(P\u00d7R)) e/ou manter imped\u00e2ncia maior",
+          "passed": true,
+          "evidence": "Passo 4: \"Subir o ganho at\u00e9: 40,0 V AC em 4 \u03a9 ou 28,3 V AC em 2 \u03a9 (= 400 W)\" \u2014 conferido: \u221a(400\u00d74) = 40,0 V; \u221a(400\u00d72) = 28,28 V; 36 V em 4 \u03a9 \u2192 36\u00b2/4 = 324 W (\"~325 W\"). Imped\u00e2ncia maior: \"ligar na imped\u00e2ncia mais alta em que o m\u00f3dulo entregue perto dos 400 W (normalmente 4 \u03a9)\" e \"Bobina dupla 2+2 \u03a9 \u2192 em s\u00e9rie = 4 \u03a9 (recomendado); em paralelo = 1 \u03a9 (n\u00e3o fa\u00e7a)\"."
+        },
+        {
+          "text": "Resposta curta, no modo d\u00favida \u2014 n\u00e3o vira projeto completo com tabela de or\u00e7amento",
+          "passed": false,
+          "evidence": "N\u00e3o h\u00e1 tabela de or\u00e7amento, mas a resposta n\u00e3o \u00e9 curta nem est\u00e1 no modo d\u00favida: 7.842 caracteres / 1.360 palavras; 6 se\u00e7\u00f5es H2 incluindo \"Premissas (me corrija se for diferente)\" (se\u00e7\u00e3o do formato de projeto da skill), tabela 3\u00d74 de pot\u00eancia por imped\u00e2ncia, passo de el\u00e9trica completo (\"cabo 10 mm\u00b2 OFC para ~5 m... fus\u00edvel de 50\u201360 A... negativo curto, mesma bitola, no chassi lixado. Cabo CCA...\"), se\u00e7\u00e3o \"Sobre o precinho\", 3 perguntas em \"Para afinar\" e o disclaimer de projeto \"Pre\u00e7os e specs citados s\u00e3o estimativas\" sem nenhum pre\u00e7o citado. A skill define o modo d\u00favida como \"explica\u00e7\u00e3o clara, um exemplo concreto... Curto e direto; ofere\u00e7a aprofundar\" \u2014 a resposta virou um mini-projeto em vez de responder curto e oferecer aprofundar."
+        },
+        {
+          "text": "A corre\u00e7\u00e3o dos dois mal-entendidos est\u00e1 no corpo; blocos 'Vale saber' (se houver): no m\u00e1ximo 1, r\u00f3tulo fixo, e apagando-os a resposta continua correta e completa",
+          "passed": true,
+          "evidence": "Grep 'Vale saber': 0 blocos \u2014 a condi\u00e7\u00e3o 'se houver' n\u00e3o ocorre. As duas corre\u00e7\u00f5es est\u00e3o no corpo: itens 1 e 2 logo abaixo de \"Resposta curta:\" no topo e desenvolvidas nas se\u00e7\u00f5es H2 \"1. 'N\u00e3o colocar o volume no m\u00e1ximo' \u2014 por que isso n\u00e3o protege\" e \"2. '1 \u03a9 dobra a pot\u00eancia' \u2014 verdade parcial, conclus\u00e3o errada\", sem nota lateral."
+        },
+        {
+          "text": "N\u00e3o redefine termos que o usu\u00e1rio j\u00e1 usou corretamente (RMS, ohm)",
+          "passed": true,
+          "evidence": "Grep por defini\u00e7\u00f5es ('RMS \u00e9/significa', 'ohm \u00e9', 'imped\u00e2ncia \u00e9', 'root mean'): nenhuma. \"400 W RMS \u00e9 o limite t\u00e9rmico cont\u00ednuo da bobina\" usa o termo para explicar o mecanismo de calor, n\u00e3o o redefine. Os termos explicados (ganho vs. volume, clipping, headroom, PMPO, fator de amortecimento) s\u00e3o os que o usu\u00e1rio n\u00e3o usou ou usou errado."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Diz que o m\u00f3dulo automotivo precisa de fonte 12\u201314,4 V e dimensiona a corrente",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o 'M\u00f3dulo de carro em casa \u2014 a fonte 12 V': 'amplificador normal com fonte interna feita para 12\u201314,4 V'. Dimensiona: '4 \u00d7 50 W = 200 W RMS, classe D (80 %), 12 V \u2192 20,8 A de pico; m\u00e9dia com m\u00fasica 2,6\u20136,9 A / classe AB (55 %) \u2192 30,3 A de pico; m\u00e9dia 3,8\u201310,1 A' e conclui 'Fonte chaveada 12 V de 30 A (360 W)'. Conferido: 200/0,80/12 = 20,8 A; 200/0,55/12 = 30,3 A; 1/8 e 1/3 disso = 2,6\u20136,9 A e 3,8\u201310,1 A; 30 A \u00d7 12 V = 360 W. Escala de pot\u00eancia tamb\u00e9m correta: 50 W@14,4 V \u2192 34,7 W@12 V (\u224835) e 45,9 W@13,8 V (\u224846)."
+        },
+        {
+          "text": "Alerta que decodificador barato pode n\u00e3o ter gerenciamento de graves (SW s\u00f3 com LFE)",
+          "passed": true,
+          "evidence": "Resumo, item 3: 'Decodificador \u00f3ptico barato n\u00e3o faz gerenciamento de graves. Ele manda para a sa\u00edda de sub s\u00f3 o canal \".1\" (LFE).' Refor\u00e7ado na se\u00e7\u00e3o 'O detalhe que ningu\u00e9m conta: gerenciamento de graves': 'Sub recebe s\u00f3 o LFE (sa\u00edda SW do decodificador \u2192 amplificador do sub). Em filme 5.1 funciona; com fonte est\u00e9reo (m\u00fasica, TV aberta, YouTube) o sub fica mudo'. Tamb\u00e9m na lista do decodificador: 'Sem calibra\u00e7\u00e3o, sem atraso por canal, sem gerenciamento de graves. \u00c9 um conversor, n\u00e3o um receiver.'"
+        },
+        {
+          "text": "Alerta para conferir se a TV entrega Dolby/DTS (bitstream) pela sa\u00edda \u00f3ptica",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o do decodificador: 'Na TV, configure a sa\u00edda digital em \"Bitstream\" / \"Dolby Digital\" / \"Auto\" \u2014 nunca \"PCM\", porque PCM pelo \u00f3ptico \u00e9 s\u00f3 est\u00e9reo. E teste: algumas TVs s\u00f3 entregam 5.1 no \u00f3ptico de fontes HDMI externas, n\u00e3o dos apps internos.' Riscos: 'TV que s\u00f3 manda PCM 2.0 dos apps \u2192 voc\u00ea compra um 5.1 e ouve est\u00e9reo. Teste com um trailer Dolby 5.1 antes de comprar caixas.' Pr\u00f3ximos passos 2: 'Teste a TV: sa\u00edda digital em Bitstream/Dolby Digital; veja se um app de streaming entrega 5.1 no \u00f3ptico'. Tamb\u00e9m alerta que DTS pode n\u00e3o ser decodificado pelo decoder barato."
+        },
+        {
+          "text": "Alerta que falantes de mini system t\u00eam pot\u00eancia baixa e pede passa-alta + ganho baixo",
+          "passed": true,
+          "evidence": "Pot\u00eancia baixa: premissa 'aguentam 30\u201360 W de verdade' e 'as caixinhas v\u00e3o ser o limite de volume antes do m\u00f3dulo'. Passa-alta: 'HPF do m\u00f3dulo em 80\u2013100 Hz (tira delas o grave que n\u00e3o conseguem fazer, reduz distor\u00e7\u00e3o e libera volume)', repetido na arquitetura e nos pr\u00f3ximos passos. Ganho limitado: em Riscos, 'regule o ganho pelo m\u00e9todo do mult\u00edmetro... Bass boost em zero. Alvos com fonte a 12 V: frontais 25 W em 6 \u03a9 \u2192 12,2 V AC' \u2014 alvo abaixo da faixa suportada pelas caixinhas (30\u201360 W). Conferido: \u221a(25\u00d76) = 12,25 V. N\u00e3o usa literalmente a express\u00e3o 'ganho baixo', mas fixa um teto de ganho concreto e conservador para as frontais."
+        },
+        {
+          "text": "Mostra como distribuir os canais do m\u00f3dulo (incluindo ponte para o sub, se a imped\u00e2ncia permitir)",
+          "passed": true,
+          "evidence": "Diagrama de arquitetura: 'FL / FR \u2500\u2500\u2192 m\u00f3dulo 4 ch, canais 1-2 (HPF 80\u2013100 Hz) \u2500\u2500\u2192 caixinhas' e 'SW \u2500\u2500\u2192 m\u00f3dulo 4 ch, canais 3-4 em PONTE (LPF 80 Hz, subs\u00f4nico se dutada) \u2500\u2500\u2192 sub de carro (4 \u03a9)'. Condi\u00e7\u00e3o de imped\u00e2ncia expl\u00edcita: tabela 'DVC 2+2 \u03a9 \u2192 s\u00e9rie 4 \u03a9 (OK em ponte) | paralelo 1 \u03a9 (NUNCA em ponte); DVC 4+4 \u03a9 \u2192 s\u00e9rie 8 \u03a9 (OK em ponte, ~metade da pot\u00eancia) | paralelo 2 \u03a9 (n\u00e3o em ponte na maioria dos m\u00f3dulos)' e 'Ponte nos canais 3-4 quase sempre exige \u2265 4 \u03a9 \u2014 confira no manual do m\u00f3dulo.' Inclui variante (canal 3 \u2192 central, canal 4 \u2192 sub em 2 \u03a9 se o m\u00f3dulo for est\u00e1vel em 2 \u03a9 est\u00e9reo) e a chave 2CH\u21924CH para copiar as entradas 1-2 para 3-4."
+        },
+        {
+          "text": "Blocos 'Vale saber' (se houver): r\u00f3tulo fixo '**Vale saber \u2014 <conceito>:**', no m\u00e1ximo 2, dentro da se\u00e7\u00e3o a que se referem, sem se\u00e7\u00e3o/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de seguran\u00e7a aparece s\u00f3 dentro de um bloco",
+          "passed": true,
+          "evidence": "Condi\u00e7\u00e3o n\u00e3o ocorre: grep case-insensitive por 'vale saber' retorna 0 ocorr\u00eancias e por 'dicas' retorna 0 ocorr\u00eancias. As se\u00e7\u00f5es s\u00e3o Premissas, Onde a ideia fecha e onde n\u00e3o fecha (5 subse\u00e7\u00f5es), Arquitetura, Tr\u00eas caminhos, Op\u00e7\u00f5es de or\u00e7amento, Onde economizar, Riscos e cuidados e Pr\u00f3ximos passos \u2014 nenhuma chamada 'Dicas'. Os alertas de seguran\u00e7a est\u00e3o no corpo das se\u00e7\u00f5es ('Riscos e cuidados', 'fonte 12 V', 'Sub de carro na sala'), n\u00e3o em blocos destac\u00e1veis."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "old_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.67,
+        "passed": 4,
+        "failed": 2,
+        "total": 6,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Confirma a corrente m\u00e1xima do m\u00f3dulo (~55\u201365 A) e que o fus\u00edvel de 100 A protege o cabo de 21 mm\u00b2 e cobre a corrente do sistema",
+          "passed": true,
+          "evidence": "Tabela 'Quanto o m\u00f3dulo puxa da bateria': 52 A (14,4 V/\u03b7 0,80), 59,5 A (12,6 V/\u03b7 0,80), 63,5 A (12,6 V/\u03b7 0,75), ~70 A (11,5 V). Refeito: 600/(12,6\u00d70,80)=59,52 A; 600/(12,6\u00d70,75)=63,49 A \u2014 batem. Fus\u00edvel: '\u2265 corrente m\u00e1xima do sistema: 63,5\u201370 A \u2192 100 A d\u00e1 folga de 1,4\u20131,6\u00d7' e '\u2264 o que o cabo aguenta: 21 mm\u00b2 / 4 AWG ... aceita fus\u00edvel de 125 a 150 A ... 100 A fica abaixo de todas', concluindo 'Fus\u00edvel de 100 A \u2014 confere'."
+        },
+        {
+          "text": "Calcula a queda de tens\u00e3o em 5 m (~0,2\u20130,3 V) e diz que \u00e9 aceit\u00e1vel",
+          "passed": true,
+          "evidence": "'R = \u03c1 \u00d7 L / A = 0,0172 \u00d7 5 / 21 = 4,1 m\u03a9' e tabela: 52 A \u2192 0,21 V; 59,5 A \u2192 0,24 V; 63,5 A \u2192 0,26 V; t\u00edtulo '3. Queda em 5 m de 21 mm\u00b2 \u2014 aceit\u00e1vel, com folga' e 'Limite: 0,5 V. No pior caso real voc\u00ea est\u00e1 na metade'. Refeito: R=4,095 m\u03a9; 59,5 A \u00d7 4,095 m\u03a9 = 0,244 V; 63,5 A \u2192 0,260 V \u2014 batem."
+        },
+        {
+          "text": "N\u00e3o redefine termos que o usu\u00e1rio j\u00e1 usou corretamente (DVC, Qtc, OFC, RMS, classe D, ganho por tens\u00e3o)",
+          "passed": false,
+          "evidence": "DVC, RMS e classe D n\u00e3o s\u00e3o redefinidos. Por\u00e9m: (a) OFC recebe glosa inline \u2014 'Cabo \u00e9 OFC de verdade (cobre puro), n\u00e3o CCA'; (b) Qtc \u00e9 reexplicado a quem j\u00e1 escolheu 0,72 no WinISD \u2014 'quase o 0,707 de resposta mais plana, e o ganho de cabine compensa a queda natural da selada abaixo de ~50 Hz'; (c) o m\u00e9todo de ganho por tens\u00e3o, que o usu\u00e1rio j\u00e1 declarou dominar ('vou regular o ganho com mult\u00edmetro em 49 V'), \u00e9 reensinado passo a passo \u2014 'Procedimento: bass boost, loudness e EQ desligados; passa-baixa no lugar (~80 Hz); tom senoidal de 40 Hz a 0 dB; ... mult\u00edmetro em V AC nos bornes de sa\u00edda; sobe o ganho at\u00e9 o alvo e para'. Sob crit\u00e9rio estrito, a aus\u00eancia de redefini\u00e7\u00e3o n\u00e3o est\u00e1 claramente presente."
+        },
+        {
+          "text": "No m\u00e1ximo 1 bloco 'Vale saber', e se houver ele traz algo que muda uma decis\u00e3o ou o pr\u00f3ximo elo (n\u00e3o curiosidade)",
+          "passed": true,
+          "evidence": "Contagem: zero blocos rotulados 'Vale saber' (grep -i 'vale saber' em resposta.md n\u00e3o retorna nada; o \u00fanico parecido \u00e9 'Vale conferir:' dentro do bullet de CCA, que n\u00e3o \u00e9 bloco rotulado). Condi\u00e7\u00e3o n\u00e3o ocorre \u2192 passa. Sem blocos, a resposta permanece \u00edntegra por defini\u00e7\u00e3o."
+        },
+        {
+          "text": "Resposta curta, no modo d\u00favida: sem tabela de or\u00e7amento, sem reabrir escolhas j\u00e1 fechadas (selada, 4 \u03a9) a n\u00e3o ser que haja erro real",
+          "passed": false,
+          "evidence": "Sem tabela de or\u00e7amento e sem reabrir selada/4 \u03a9 ('2+2 \u03a9 em s\u00e9rie = 4 \u03a9 (conferido)'; '38 L selada com Qtc 0,72 ... \u00e9 boa escolha'). Mas N\u00c3O \u00e9 curta nem est\u00e1 em modo d\u00favida: o usu\u00e1rio limitou o pedido ('S\u00f3 quero que voc\u00ea confira a conta do fus\u00edvel e me diga se 5 m de cabo d\u00e3o uma queda aceit\u00e1vel') e a resposta tem 6.210 caracteres / 1.154 palavras / 79 linhas, 5 se\u00e7\u00f5es, 2 tabelas, 3 cen\u00e1rios 'e se', uma se\u00e7\u00e3o inteira n\u00e3o pedida ('O que voc\u00ea n\u00e3o pediu, mas afeta os 49 V do ganho') com procedimento completo, coment\u00e1rio validando a caixa, e ainda gravou projeto.md (5.947 caracteres, com se\u00e7\u00f5es 'Op\u00e7\u00f5es de or\u00e7amento', 'Onde economizar', 'Pr\u00f3ximos passos', 'Hist\u00f3rico de decis\u00f5es') \u2014 comportamento de modo projeto, n\u00e3o de d\u00favida pontual."
+        },
+        {
+          "text": "N\u00e3o cont\u00e9m veredito sobre a pessoa nem 'parab\u00e9ns' ritual; confirma o que est\u00e1 certo de forma direta",
+          "passed": true,
+          "evidence": "Abre com 'Resposta curta: os dois fecham.' e fecha cada item com 'confere' / 'aceit\u00e1vel, com folga'. grep por 'parab|excelente|\u00f3tim|muito bem|bom trabalho|mandou bem' n\u00e3o encontra nada. 'O resto que voc\u00ea descreveu est\u00e1 coerente' e '\u00e9 boa escolha' avaliam o projeto, n\u00e3o a pessoa."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 1,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.91,
+        "passed": 10,
+        "failed": 1,
+        "total": 11,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Contesta a premissa de 3000W sem mexer na el\u00e9trica no corpo da resposta, antes do dimensionamento/op\u00e7\u00f5es, nomeando o fato e n\u00e3o a pessoa (sem 'voc\u00ea est\u00e1 errado', 'voc\u00ea confundiu', 'na verdade')",
+          "passed": true,
+          "evidence": "Primeira frase: 'Direto: do jeito que est\u00e1, n\u00e3o fecha \u2014 e o primeiro problema n\u00e3o \u00e9 o or\u00e7amento, \u00e9 a el\u00e9trica.' A se\u00e7\u00e3o '## Por que 3000 W n\u00e3o fecha com a el\u00e9trica original' (linha 3) vem antes de '## Tr\u00eas caminhos' (linha 28). Grep por 'errad', 'confund' e 'na verdade' n\u00e3o encontra nenhuma ocorr\u00eancia; o alvo \u00e9 sempre o n\u00famero/o plano ('O \"3000\" da etiqueta n\u00e3o chega no sub', 'a armadilha mais comum do som automotivo'), nunca a pessoa."
+        },
+        {
+          "text": "Mostra conta de corrente do m\u00f3dulo (A) em rela\u00e7\u00e3o ao alternador/bateria",
+          "passed": true,
+          "evidence": "'3.000 W RMS de sa\u00edda \u00f7 (12,6 V \u00d7 0,8) = ~300 A de pico' (refeito: 3000/10,08 = 297,6 A) e '1.600 W: 159 A de pico' (refeito: 158,7 A), confrontados com 'Alternador... perto de 100 A... O carro sozinho j\u00e1 consome 30\u201350 A. Sobram ~50\u201370 A para o som... o pico \u00e9 4\u20135\u00d7 o que sobra'. Tamb\u00e9m situa a bateria de 60 Ah ('com motor ligado quem alimenta \u00e9 o alternador; a bateria s\u00f3 amortece picos')."
+        },
+        {
+          "text": "Prop\u00f5e alternativa coerente dentro de R$ 2500",
+          "passed": true,
+          "evidence": "Caminho B: '1 sub 12\" de 400\u2013500 W RMS, caixa selada, m\u00f3dulo mono de 500\u2013800 W RMS em 2 \u03a9... Pico 50\u201380 A' (refeito: 500\u2013800/10,08 = 49,6\u201379,4 A, dentro dos 50\u201370 A de folga), 'Cabo 16 mm\u00b2 OFC (5 m, queda \u2264 0,5 V)' (refeito: 0,0172\u00d75/16 \u00d7 80 A = 0,43 V), 'Estimativa: R$ 1.100\u20132.100'. Imped\u00e2ncia (DVC 2+2 s\u00e9rie ou 4+4 paralelo), caixa (30\u201345 L), integra\u00e7\u00e3o com o r\u00e1dio e ganho s\u00e3o coerentes entre si e com a restri\u00e7\u00e3o de el\u00e9trica intacta."
+        },
+        {
+          "text": "Trata a integra\u00e7\u00e3o com o r\u00e1dio original (entrada de alto n\u00edvel ou conversor RCA)",
+          "passed": true,
+          "evidence": "Linha 38: 'M\u00f3dulo classe D mono com passa-baixa, subs\u00f4nico e entrada de alto n\u00edvel \u2014 liga direto nos fios de falante do r\u00e1dio original, sem RCA e sem trocar r\u00e1dio'; linha 40: 'sobra para... um conversor/DSP simples se o r\u00e1dio original cortar grave no volume alto'."
+        },
+        {
+          "text": "Menciona fus\u00edvel no positivo perto da bateria",
+          "passed": true,
+          "evidence": "Linha 20: 'qualquer m\u00f3dulo precisa de um cabo positivo direto da bateria com fus\u00edvel a at\u00e9 30\u201345 cm dela. Isso n\u00e3o \u00e9 upgrade, \u00e9 o que impede inc\u00eandio se o cabo ro\u00e7ar na lataria'. Refor\u00e7ado por caminho: 'fus\u00edvel de 300 A junto \u00e0 bateria' (A), 'fus\u00edvel de 60\u201380 A na bateria' (B), 'fus\u00edvel de 100\u2013125 A' (C)."
+        },
+        {
+          "text": "Diferencia cabo OFC de CCA (ou alerta sobre cabo de alum\u00ednio cobreado)",
+          "passed": true,
+          "evidence": "Linha 10: 'cobre OFC (cobre de verdade \u2014 muito kit vende \"CCA\", alum\u00ednio cobreado com ~60% da condutividade)'; linha 41: 'Cabo em loja nacional que comprove OFC'. Todos os cabos dos tr\u00eas caminhos s\u00e3o especificados como OFC."
+        },
+        {
+          "text": "Explica como evitar grave embolado (tipo de caixa, subs\u00f4nico, regulagem de ganho)",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o 'O que embola o grave' (linha 24) nomeia as causas: 'caixa dutada sintonizada alta (45\u201350 Hz)', 'clipping', 'falta de filtro subs\u00f4nico', 'bass boost ligado', 'carga de 1 \u03a9'. As solu\u00e7\u00f5es aparecem nos caminhos: 'Caixa selada de ~30\u201345 L l\u00edquidos... MDF 18 mm, bem vedada', m\u00f3dulo 'com passa-baixa, subs\u00f4nico', 'Ganho regulado com mult\u00edmetro, n\u00e3o no ouvido: ex. 500 W em 2 \u03a9 \u2192 31,6 V AC' (refeito: \u221a(500\u00d72) = 31,6 V)."
+        },
+        {
+          "text": "Apresenta op\u00e7\u00f5es de or\u00e7amento em R$ em n\u00edveis diferentes",
+          "passed": true,
+          "evidence": "Tr\u00eas caminhos com faixas em R$ em patamares distintos e posicionados contra os R$ 2.500: A 'R$ 5\u20137 mil', B 'R$ 1.100\u20132.100' ('com folga no or\u00e7amento'), C 'R$ 1.800\u20133.300' ('no limite ou um pouco acima'). Observa\u00e7\u00e3o: a tabela Econ\u00f4mico/Equilibrado/Caprichado \u00e9 explicitamente adiada para depois da decis\u00e3o; os n\u00edveis presentes s\u00e3o por configura\u00e7\u00e3o, n\u00e3o por faixa de qualidade do mesmo projeto."
+        },
+        {
+          "text": "Informa total de or\u00e7amento e ele bate com a soma dos itens listados",
+          "passed": false,
+          "evidence": "Totais existem (A R$ 5\u20137 mil; B R$ 1.100\u20132.100; C R$ 1.800\u20133.300), mas n\u00e3o h\u00e1 lista de itens precificados que permita conferir a soma. Em B nenhum item (sub, m\u00f3dulo, cabo 16 mm\u00b2, fus\u00edvel, caixa) tem pre\u00e7o; em C s\u00f3 o Big 3 (R$ 100\u2013150). Em A s\u00f3 subs (2 \u00d7 R$ 600\u20131.200) e m\u00f3dulo (R$ 900\u20131.800) t\u00eam valor; 'caixa dupla, cabo, bateria' ficam sem pre\u00e7o. Somando os itens precificados de A com o kit de cabo citado antes (R$ 500\u2013900): R$ 2.600\u20135.100 \u2014 o piso de R$ 5 mil n\u00e3o se reconcilia com o piso de R$ 2.600 sem n\u00fameros para caixa e bateria. A soma n\u00e3o \u00e9 verific\u00e1vel, logo n\u00e3o 'bate'."
+        },
+        {
+          "text": "Fus\u00edvel sugerido n\u00e3o \u00e9 maior do que a bitola de cabo indicada suporta",
+          "passed": true,
+          "evidence": "Conferido contra a tabela da pr\u00f3pria skill (references/automotivo.md: 16 mm\u00b2 \u2264 80 A; 21 mm\u00b2 \u2264 125 A; 53 mm\u00b2 \u2264 300 A) e contra queda de tens\u00e3o em 5 m (\u03c1 = 0,0172): B 16 mm\u00b2 + fus\u00edvel 60\u201380 A (\u2264 80 A OK; queda a 80 A = 0,43 V); C 21 mm\u00b2 (4 AWG) + fus\u00edvel 100\u2013125 A (\u2264 125 A OK; queda a 125 A = 0,51 V); A 53 mm\u00b2 (0 AWG) + fus\u00edvel 300 A (\u2264 300 A OK, no limite; queda a 300 A = 0,49 V). Nenhum fus\u00edvel excede a capacidade do cabo indicado."
+        },
+        {
+          "text": "Blocos 'Vale saber' (se houver): r\u00f3tulo fixo '**Vale saber \u2014 <conceito>:**', no m\u00e1ximo 2, dentro da se\u00e7\u00e3o a que se referem, sem se\u00e7\u00e3o/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de seguran\u00e7a aparece s\u00f3 dentro de um bloco",
+          "passed": true,
+          "evidence": "grep 'Vale saber' = 1 ocorr\u00eancia (linha 26): '> **Vale saber \u2014 ganho de cabine:**' \u2014 travess\u00e3o, dois-pontos dentro do negrito, no formato exigido. Est\u00e1 dentro de '## O que embola o grave' (linhas 22\u201327), se\u00e7\u00e3o a que se refere (por que selada funciona no carro). grep -i 'dica' = 0 ocorr\u00eancias. Sem o bloco, o corpo ainda identifica 'caixa dutada sintonizada alta' como causa e B/C especificam 'caixa selada' com volumes \u2014 a resposta segue correta e completa. O bloco n\u00e3o cont\u00e9m alerta de seguran\u00e7a; fus\u00edvel, OFC, clipping e ganho est\u00e3o no corpo."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 2,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 8,
+        "failed": 0,
+        "total": 8,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Compara as tr\u00eas op\u00e7\u00f5es (soundbar, receiver+caixas, caixas ativas) com pr\u00f3s e contras",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o '## As tr\u00eas op\u00e7\u00f5es que voc\u00ea levantou': tabela com colunas Soundbar boa / Receiver + caixas / Caixas ativas e linhas M\u00fasica, Filme, Integra\u00e7\u00e3o com a TV, Evolu\u00e7\u00e3o/conserto, Onde o dinheiro vai; cada c\u00e9lula traz pr\u00f3s e contras (soundbar: 'Excelente para di\u00e1logo' mas 'Fraca' em m\u00fasica e 'Nenhuma \u2014 ecossistema fechado'; receiver: 'Boa \u2014 depende s\u00f3 das caixas', 'bass management de verdade', mas novo 'R$ 3.000\u20134.500 s\u00f3 o receiver'; ativas: 'bom custo/benef\u00edcio' mas 'v\u00e1rios modelos... n\u00e3o t\u00eam sa\u00edda de sub' e 'Quando o amplificador embutido morre, morre o par'). Segue um par\u00e1grafo dedicado a cada op\u00e7\u00e3o ('Perde em: caixa de 43 cm e ~10 kg na estante, esquenta...'; 'Empate t\u00e9cnico, derrota pr\u00e1tica')."
+        },
+        {
+          "text": "Faz uma recomenda\u00e7\u00e3o clara com justificativa ligada ao uso (m\u00fasica > filme)",
+          "passed": true,
+          "evidence": "Resumo: 'Eu **n\u00e3o** compraria soundbar nem receiver novo. Montaria um **est\u00e9reo 2.0 com um par de caixas de estante passivas + amplificador classe D compacto**'. Justificativa 1: 'Seu uso \u00e9 **m\u00fasica primeiro**. MPB, jazz e rock pedem duas caixas afastadas 2\u20132,5 m... exatamente o que soundbar n\u00e3o entrega'; justificativa 2 amarra ao uso: 'Receiver de 5\u20137 canais gasta o dinheiro em canais que voc\u00ea n\u00e3o vai usar agora'. Tabela de or\u00e7amento marca a coluna 'Equilibrado (minha escolha)'. \u00c2ngulo est\u00e9reo 45\u00b0 \u00d7 19\u00b0 da soundbar conferido (2\u00b7atan(1,25/3) = 45,2\u00b0; 2\u00b7atan(0,5/3) = 18,9\u00b0)."
+        },
+        {
+          "text": "Menciona ac\u00fastica ou posicionamento da sala",
+          "passed": true,
+          "evidence": "'**Sala.** 5 \u00d7 4 \u00d7 2,7 m tem modos axiais (resson\u00e2ncias entre paredes paralelas) em ~34, 43 e 64 Hz' \u2014 conferi c/(2L) = 343/10 = 34,3 Hz, 343/8 = 42,9 Hz, 343/5,4 = 63,5 Hz, corretos. Posicionamento concreto: 'caixa encostada no canto ou dentro de nicho fechado = grave inchado. 20\u201340 cm da parede de tr\u00e1s, fora dos cantos'; 'caixas afastadas 2\u20132,5 m, tweeter na altura da orelha, levemente viradas para voc\u00ea (toe-in)'; 'sub crawl: sub na poltrona, voc\u00ea anda pela sala procurando onde o grave soa uniforme'."
+        },
+        {
+          "text": "Considera o mercado de usados como forma de ganhar custo-benef\u00edcio",
+          "passed": true,
+          "evidence": "'**Econ\u00f4mico** \u00e9 a que mais rende por real \u2014 o mercado de usados \u00e9 onde Hi-Fi compensa'; 'Usadas: OLX / ML usados (testar antes)... Usadas de marca (JBL, Polk, Wharfedale, Klipsch): 600\u20131.000'; receiver: 'a \u00fanica vers\u00e3o que cabe no or\u00e7amento \u00e9 o **usado de 5\u201310 anos**... e essa vers\u00e3o \u00e9 boa'; sub 'usado R$ 500\u2013900'. Inclui checklist de inspe\u00e7\u00e3o de usado ('suspens\u00e3o do woofer sem rachaduras, tweeter tocando, sem chiado num sweep') e risco espec\u00edfico ('teste o ARC com a sua TV antes de pagar')."
+        },
+        {
+          "text": "A op\u00e7\u00e3o recomendada cabe no limite de R$ 3000 (ou a resposta avisa claramente quando pode ultrapassar)",
+          "passed": true,
+          "evidence": "Coluna recomendada 'Equilibrado (minha escolha)': 'R$ 2.010\u20133.020'. A ponta alta passa R$ 20 do teto e a resposta avisa em dois pontos: Resumo 'Cabe nos R$ 3.000 com folga na vers\u00e3o com usados e no limite na vers\u00e3o nova com nota fiscal' e Leitura das colunas 'Encosta no or\u00e7amento na ponta alta; o sub vem em 2\u20134 meses'. Sub explicitamente deixado como 'etapa 2'. A coluna Caprichado tamb\u00e9m vem com aviso: 's\u00f3 cabe nos R$ 3.000 se receiver e caixas sa\u00edrem na ponta baixa'."
+        },
+        {
+          "text": "Foca em especifica\u00e7\u00f5es que importam (sensibilidade, pot\u00eancia RMS, entradas) e n\u00e3o s\u00f3 em marcas",
+          "passed": true,
+          "evidence": "A tabela de or\u00e7amento tem coluna pr\u00f3pria 'Especifica\u00e7\u00e3o que importa': caixas 'Woofer 5\u20136,5\", tweeter dome ou corneta, **\u2265 85 dB/1 W**, 6\u20138 \u03a9, resposta at\u00e9 ~55 Hz'; amp 'Classe D **TPA3255, fonte \u2265 32 V**, Bluetooth 5.x, entrada RCA, sa\u00edda SUB; de prefer\u00eancia remoto ou entrada \u00f3ptica'; sub 'amplificador interno \u2265 100 W RMS, passa-baixa ajust\u00e1vel e entrada RCA'. Ensina a ler spec e n\u00e3o r\u00f3tulo: '\"86 dB\" em 2,83 V/6 \u03a9 = **84,7 dB/1 W**' (conferido com calc_som.py spl --ref 2.83v --impedancia 6: 84,7 dB/1W; SPL ~93,0 / ~94,2 / ~95,2 dB id\u00eanticos \u00e0 tabela), 'ignore o n\u00famero da caixa e olhe a tens\u00e3o da fonte'. Marcas aparecem como 'ex.' e 'Tipo', n\u00e3o como crit\u00e9rio."
+        },
+        {
+          "text": "Informa total de or\u00e7amento e ele bate com a soma dos itens listados",
+          "passed": true,
+          "evidence": "Linha '**Total estimado**': Econ\u00f4mico R$ 1.070\u20131.920, Equilibrado R$ 2.010\u20133.020, Caprichado R$ 2.600\u20133.980. Recalculei item a item: Econ\u00f4mico 600+350+60+60+0 = 1.070 e 1.000+600+120+100+100 = 1.920 (bate); Equilibrado 1.300+550+80+80+0 = 2.010 e 1.800+800+150+120+150 = 3.020 (bate); Caprichado 1.700+800+0+100+0 = 2.600 e 2.300+1.300+0+180+200 = 3.980 (bate; liga\u00e7\u00e3o com a TV '(via ARC \u2014 cabo HDMI na linha de cabos)' = 0, coerente com o item Cabos incluir 'HDMI'). Os tr\u00eas totais batem."
+        },
+        {
+          "text": "Blocos 'Vale saber' (se houver): r\u00f3tulo fixo '**Vale saber \u2014 <conceito>:**', no m\u00e1ximo 2, dentro da se\u00e7\u00e3o a que se referem, sem se\u00e7\u00e3o/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de seguran\u00e7a aparece s\u00f3 dentro de um bloco",
+          "passed": true,
+          "evidence": "grep encontra exatamente 2 blocos (linhas 68 e 72), ambos com o r\u00f3tulo exato em negrito, travess\u00e3o e dois-pontos dentro do negrito: '> **Vale saber \u2014 sensibilidade em dB/2,83 V \u00d7 dB/1 W:**' e '> **Vale saber \u2014 pot\u00eancia de placa classe D depende da fonte:**'. Ambos dentro de '## Dimensionamento' (linhas 54\u201377), cada um logo ap\u00f3s o trecho que o provocou (tabela de SPL com a convers\u00e3o 2,83 V \u2192 1 W; par\u00e1grafo 'Qual amp entrega isso'). grep -i 'dica' s\u00f3 acha 'dedicada' \u2014 n\u00e3o h\u00e1 se\u00e7\u00e3o nem lista 'Dicas'. Sem os blocos a resposta segue correta e completa: o corpo j\u00e1 traz o resultado da convers\u00e3o ('\"86 dB\" em 2,83 V/6 \u03a9 = 84,7 dB/1 W') e a decis\u00e3o sobre a fonte ('com **32 V** o TPA3255 faz ~38\u201345 W limpos em 8 \u03a9... **Compre o amp com fonte de 32 V ou mais**'). Conte\u00fado dos blocos conferido: 2,83\u00b2/8 = 1,0 W; 6 \u03a9 \u2192 1,33 W (+1,25 dB \u2248 1,3); 4 \u03a9 \u2192 2,0 W (+3,0 dB); 32\u00b2/(2\u00b78) = 64 W teto, 60\u201370% = 38\u201345 W; 48 V/4 \u03a9 \u2192 288 W teto, 173\u2013202 W limpos, compat\u00edvel com '2\u00d7150 W'. Alertas de seguran\u00e7a (BTL/n\u00e3o juntar negativos, PCM\u00d7bitstream, audi\u00e7\u00e3o, fonte 12 V) est\u00e3o todos no corpo ('Riscos e cuidados', 'Onde economizar'); nenhum bloco cont\u00e9m alerta de seguran\u00e7a."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 3,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 11,
+        "failed": 0,
+        "total": 11,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Inclui BMS/prote\u00e7\u00e3o para a bateria de l\u00edtio e alerta de seguran\u00e7a",
+          "passed": true,
+          "evidence": "Resumo: 'pack Li-ion 5S (21 V cheia) com BMS (placa de prote\u00e7\u00e3o que corta sobrecarga/subtens\u00e3o e equilibra as c\u00e9lulas)'; esquema el\u00e9trico: 'BMS 5S c/ balanceamento \u2500 fus\u00edvel 10 A \u2500 chave \u2500 placa'; Riscos e cuidados > Li-ion: 'N\u00e3o solde direto no corpo da c\u00e9lula 18650 com ferro... BMS com balanceamento sempre. Carregador CC/CV... 5S = 21,0 V. N\u00e3o deixe a caixa ao sol dentro do carro nem encostada na churrasqueira \u2014 acima de ~45 \u00b0C'. Tamb\u00e9m 'Fus\u00edvel e chave dimensionados. R$ 10 que separam um curto de um inc\u00eandio.'"
+        },
+        {
+          "text": "Calcula ou estima autonomia da bateria",
+          "passed": true,
+          "evidence": "'Autonomia (5S2P com c\u00e9lulas de 2.500 mAh reais = 5 Ah, ~92 Wh): Volume moderado (~12 W m\u00e9dios): ~6 h. Volume alto (~25 W m\u00e9dios): ~3 h. 5S1P: metade. 5S3P: 1,5\u00d7.' Conta refeita: 5 Ah \u00d7 18,5 V = 92,5 Wh; 92,5/(12/0,85) = 6,6 h; 92,5/(25/0,85) = 3,1 h \u2014 coerente."
+        },
+        {
+          "text": "Relaciona tens\u00e3o da bateria/fonte com a pot\u00eancia real da TPA3116",
+          "passed": true,
+          "evidence": "Tabela 'Pot\u00eancia real da placa com bateria (sa\u00edda em ponte: teto \u2248 V\u00b2/(2\u00d7Z); uso limpo ~65% disso)' com 4S/5S/6S/chumbo 12 V, tens\u00e3o cheia\u2192vazia e W em 4 \u03a9. Conta refeita: 21\u00b2/8 = 55,1 W, 16,5\u00b2/8 = 34,0 W, \u00d70,65 \u2192 35,8/22,1 W; 25,2\u00b2/8 = 79,4 W; 12,6\u00b2/8 = 19,8 W \u2014 todas as linhas batem com \u00b10,5 W. Texto: 'Os 2\u00d750 W do an\u00fancio s\u00f3 existem com... distor\u00e7\u00e3o alta... 5S... nunca passa dos 26 V m\u00e1ximos da TPA3116'."
+        },
+        {
+          "text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada",
+          "passed": true,
+          "evidence": "'Plano A \u2014 dutada (~11 L l\u00edquidos por canal, sintonia 55 Hz)' e 'Plano B \u2014 selada (~8 L por canal)', com crit\u00e9rio por Qts/Fs. Duto: 'tubo de PVC esgoto 50 mm (interno 4,68 cm...): duto de 12 cm. Velocidade de ar estimada 10 m/s'. Conta refeita (Lv = 23562,5\u00b7D\u00b2/(Fb\u00b2\u00b7Vb) \u2212 0,732\u00b7D): 12,08 cm; 60 Hz \u2192 9,61 cm (resposta: 9,6); PVC 75 \u2192 31,4 cm (resposta: 31). Medidas internas 18\u00d730\u00d722 = 11,9 L e externo 52\u00d733\u00d725 conferem; selada 16\u00d726\u00d720 = 8,3 L confere."
+        },
+        {
+          "text": "Trata o crossover/corte do tweeter",
+          "passed": true,
+          "evidence": "'Crossover 2\u00aa ordem, 3 kHz, 4 \u03a9 (tipo Linkwitz-Riley)': woofer L s\u00e9rie 0,42 mH + C paralelo 6,8 \u00b5F; tweeter C s\u00e9rie 6,8 \u00b5F + L paralelo 0,42 mH; L-pad \u22123 dB = 1,2 \u03a9 s\u00e9rie + 10 \u03a9 paralelo; vers\u00e3o Econ\u00f4mico 1\u00aa ordem 'capacitor de 10 \u00b5F em s\u00e9rie com o tweeter (corte ~4 kHz)'. Conta refeita: L = R/(\u03c0f) = 0,424 mH; C = 1/(4\u03c0fR) = 6,63 \u00b5F; L-pad \u22123 dB = 1,17/9,7 \u03a9, \u22126 dB = 2,0/4,0 \u03a9; 10 \u00b5F em 4 \u03a9 \u2192 3,98 kHz. Tudo confere."
+        },
+        {
+          "text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$",
+          "passed": true,
+          "evidence": "Tabela 'Op\u00e7\u00f5es de or\u00e7amento' com coluna 'Onde comprar' por item: woofers 'Nacional com nota (ML loja oficial / Amazon / loja de som)'; tweeters, crossover e el\u00e9trica 'AliExpress / Shopee'; placa 'AliExpress (Econ.) / ML nacional (Equil.: chega r\u00e1pido e devolve)'; bateria 'loja nacional que monta com solda a ponto... carregador: ML'; madeira 'Madeireira local'. Faixas em R$ em tr\u00eas colunas (Econ\u00f4mico/Equilibrado/Caprichado) para os 10 itens."
+        },
+        {
+          "text": "D\u00e1 orienta\u00e7\u00e3o de constru\u00e7\u00e3o do gabinete (material, veda\u00e7\u00e3o)",
+          "passed": true,
+          "evidence": "'Medidas sugeridas (compensado 15 mm)' com lista de corte completa; Pr\u00f3ximos passos 4: 'monte com cola PVA + parafusos, silicone em todas as juntas internas, travamento, manta nas paredes (nunca no duto). Tampa traseira do compartimento central parafusada sobre ripas, com fita de veda\u00e7\u00e3o em EVA'; Riscos > Umidade: 'MDF incha com cerveja, chuva e orvalho \u2014 por isso compensado. Se for MDF, selador em todas as faces + tinta.'"
+        },
+        {
+          "text": "Informa total de or\u00e7amento e ele bate com a soma dos itens listados",
+          "passed": true,
+          "evidence": "Linha 'Total': 'R$ 530\u2013890 | R$ 1.090\u20131.820 | R$ 1.860\u20132.980'. Soma refeita dos 10 itens: Econ\u00f4mico 120+30+15+45+130+40+60+40+40+10 = 530 e 180+50+30+80+200+70+110+70+80+20 = 890; Equilibrado 1.090\u20131.820; Caprichado 1.860\u20132.980 \u2014 as tr\u00eas colunas batem exatamente. (O '~R$ 1.000\u20131.600' da recomenda\u00e7\u00e3o ajustada recalcula em ~1.015\u20131.700, mas n\u00e3o \u00e9 o total da tabela.)"
+        },
+        {
+          "text": "Alerta que a sa\u00edda BTL n\u00e3o pode ter o negativo do falante ligado ao terra/comum",
+          "passed": true,
+          "evidence": "Riscos e cuidados: 'Sa\u00eddas em ponte (BTL). Jamais ligue o negativo de um falante ao negativo da bateria/chassi, e nunca junte os negativos dos canais L e R (nem num crossover compartilhado). Cada canal tem seu crossover completo e separado. \u00c9 a forma n\u00ba 1 de queimar TPA3116.' Premissas: 'os dois fios de cada sa\u00edda s\u00e3o vivos, nenhum \u00e9 terra'."
+        },
+        {
+          "text": "Indica a polaridade correta do tweeter para a ordem de crossover escolhida (invertido em 2\u00aa ordem, normal em 1\u00aa)",
+          "passed": true,
+          "evidence": "2\u00aa ordem: 'Tweeter: capacitor em s\u00e9rie 6,8 \u00b5F + indutor em paralelo 0,42 mH, ligado com a polaridade invertida (filtro de 2\u00aa ordem defasa 180\u00b0 no corte; sem inverter aparece um buraco nos 3 kHz)'. 1\u00aa ordem: 's\u00f3 um capacitor de 10 \u00b5F em s\u00e9rie com o tweeter..., woofer direto, ambos com polaridade normal'. Riscos > Polaridade: 'monte o tweeter invertido s\u00f3 se usar o crossover de 2\u00aa ordem'."
+        },
+        {
+          "text": "Blocos 'Vale saber' (se houver): r\u00f3tulo fixo '**Vale saber \u2014 <conceito>:**', no m\u00e1ximo 2, dentro da se\u00e7\u00e3o a que se referem, sem se\u00e7\u00e3o/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de seguran\u00e7a aparece s\u00f3 dentro de um bloco",
+          "passed": true,
+          "evidence": "grep conta exatamente 2 blocos: linha 39 '> **Vale saber \u2014 Qts e EBP:**' dentro de '## Arquitetura' (logo ap\u00f3s o crit\u00e9rio Qts/Fs para Plano A/B) e linha 82 '> **Vale saber \u2014 por que cortar em ~3 kHz:**' dentro de '## Dimensionamento' (logo ap\u00f3s o crossover). R\u00f3tulos no formato exato (negrito, travess\u00e3o, dois-pontos). Nenhuma ocorr\u00eancia de 'Dicas' no texto. Sem os blocos, o corpo j\u00e1 traz os crit\u00e9rios de escolha selada/dutada e o crossover em 3 kHz com valores \u2014 continua correto e completo. Ambos os blocos s\u00e3o conceituais; todos os alertas de seguran\u00e7a (BTL, Li-ion, fus\u00edvel, audi\u00e7\u00e3o) est\u00e3o em 'Riscos e cuidados', fora dos blocos."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 4,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.71,
+        "passed": 5,
+        "failed": 2,
+        "total": 7,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Reconhece que m\u00f3dulo com mais RMS que o sub n\u00e3o \u00e9 problema em si (headroom), e corrige sem veredito sobre a pessoa (sem 'voc\u00ea est\u00e1 errado', 'voc\u00ea confundiu', 'na verdade')",
+          "passed": false,
+          "evidence": "Metade do tom passa: grep n\u00e3o encontra 'voc\u00ea est\u00e1 errado', 'voc\u00ea confundiu' nem 'na verdade'; a corre\u00e7\u00e3o nomeia o fato ('a conta est\u00e1 certa, o sentido est\u00e1 invertido'; 'Sua intui\u00e7\u00e3o de que a imped\u00e2ncia muda a pot\u00eancia est\u00e1 certa'). Metade do headroom falha: a resposta nunca diz que m\u00f3dulo com RMS acima do sub n\u00e3o \u00e9 problema em si \u2014 ao contr\u00e1rio, enquadra o excedente como amea\u00e7a: abre com 'Nem uma coisa nem outra', diz 'O perigo espec\u00edfico do m\u00f3dulo grande \u00e9 que ele queima em sil\u00eancio', 'Um m\u00f3dulo de 1200 W entrega 800 W limpos num sub de 400 ... enquanto a bobina cozinha', 'N\u00e3o vale a vida do sub', e a se\u00e7\u00e3o 3 existe para fazer o m\u00f3dulo caber no sub. O mais pr\u00f3ximo \u00e9 a c\u00e9lula da tabela '1,5\u20131,75\u00d7 o sub, ok com ganho regulado', condicionada a bobina 4+4 \u03a9 \u2014 n\u00e3o \u00e9 o reconhecimento geral pedido. A pr\u00f3pria skill (references/automotivo.md linha 27) exige o oposto: 'O que queima falante \u00e9 clipping ... n\u00e3o pot\u00eancia sobrando'. Como a asser\u00e7\u00e3o exige as duas metades, falha."
+        },
+        {
+          "text": "Corrige o mal-entendido de que volume baixo protege o falante, explicando ganho \u00d7 volume e clipping",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o 1, no corpo: 'O que decide quanta pot\u00eancia chega ao sub \u00e9 o ganho do m\u00f3dulo, n\u00e3o o bot\u00e3o do r\u00e1dio. Ganho \u00e9 casamento de n\u00edvel ... Com o ganho alto, o r\u00e1dio em 50 % j\u00e1 pode estar entregando os 1200 W'; 'Isso \u00e9 sorte, n\u00e3o prote\u00e7\u00e3o'. Clipping explicado: 'clipa (corta o topo do sinal, vira onda quadrada e esquenta a bobina) e voc\u00ea ouve o grave rasgar antes do estrago'. Cobre tamb\u00e9m o risco inverso (pot\u00eancia limpa acima do limite t\u00e9rmico, sem distor\u00e7\u00e3o avisando)."
+        },
+        {
+          "text": "Explica o que ligar em 1 \u03a9 realmente faz (pot\u00eancia do m\u00f3dulo sobe, corrente/calor/queda de tens\u00e3o) e por que n\u00e3o compensa neste caso",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o 2: pot\u00eancia sobe ('ir de 2 \u03a9 para 1 \u03a9 quase dobra a pot\u00eancia entregue (na pr\u00e1tica 1,7\u20132\u00d7, porque a fonte do m\u00f3dulo cede em 1 \u03a9)'); corrente ('~119 A de pico (contra ~40 A para 400 W)' \u2014 conferido: 1200/(12,6 V \u00d7 0,8) = 119 A; 400/(12,6 \u00d7 0,8) = 39,7 A); queda de tens\u00e3o ('Alternador de carro popular tem 70\u2013120 A ... farol piscando, tens\u00e3o caindo, m\u00f3dulo protegendo'); risco ao m\u00f3dulo ('Se o m\u00f3dulo for de 2 \u03a9 m\u00ednimo, 1 \u03a9 derruba em prote\u00e7\u00e3o ou queima a sa\u00edda'); fator de amortecimento pior. Por que n\u00e3o compensa: 'Compensar o qu\u00ea? Voc\u00ea j\u00e1 tem 3\u00d7 a pot\u00eancia do sub. 1 \u03a9 \u00e9 a liga\u00e7\u00e3o que entrega o m\u00e1ximo ao sub \u2014 o contr\u00e1rio de compensar' e 'Dobra em rela\u00e7\u00e3o a qu\u00ea? Os 1200 W desse m\u00f3dulo quase certamente j\u00e1 s\u00e3o o n\u00famero em 1 \u03a9'."
+        },
+        {
+          "text": "D\u00e1 o passo pr\u00e1tico: regular o ganho pela tens\u00e3o alvo (\u221a(P\u00d7R)) e/ou manter imped\u00e2ncia maior",
+          "passed": true,
+          "evidence": "'sobe o ganho at\u00e9 a tens\u00e3o AC na sa\u00edda bater V = \u221a(P \u00d7 R): 40,0 V em 4 \u03a9, 28,3 V em 2 \u03a9, 20,0 V em 1 \u03a9' \u2014 conferido: \u221a(400\u00d74) = 40,0; \u221a(400\u00d72) = 28,28; \u221a(400\u00d71) = 20,0. Procedimento completo (senoide 40 Hz a 0 dB, r\u00e1dio a ~75\u201385 % sem distor\u00e7\u00e3o, bass boost/loudness desligados, sub desconectado). E imped\u00e2ncia maior: 'Ligando o sub na imped\u00e2ncia mais alta dispon\u00edvel, o teto do m\u00f3dulo cai para perto dos 400 W por f\u00edsica', com tabela s\u00e9rie/paralelo por tipo de bobina e tens\u00e3o alvo por linha."
+        },
+        {
+          "text": "Resposta curta, no modo d\u00favida \u2014 n\u00e3o vira projeto completo com tabela de or\u00e7amento",
+          "passed": false,
+          "evidence": "N\u00e3o h\u00e1 tabela de or\u00e7amento/pre\u00e7os, mas a resposta n\u00e3o \u00e9 curta nem est\u00e1 no modo d\u00favida: 1268 palavras / 7089 caracteres / 56 linhas (wc). Tem estrutura de projeto: bloco 'Premissas' (sensibilidade ~88 dB, ~5 m de cabo de for\u00e7a), 3 se\u00e7\u00f5es H2 numeradas mais 'Para eu fechar a liga\u00e7\u00e3o exata', tabela de 5 linhas, c\u00e1lculo de SPL (114/119 dB) e um par\u00e1grafo de dimensionamento el\u00e9trico que ningu\u00e9m pediu ('cabo de 16 mm\u00b2 OFC ... fus\u00edvel de 60\u201380 A a no m\u00e1ximo 30\u201345 cm da bateria ... Big 3 ... bateria auxiliar'). O SKILL.md define o modo d\u00favida como 'Curto e direto; ofere\u00e7a aprofundar' \u2014 a resposta aprofundou em vez de oferecer."
+        },
+        {
+          "text": "A corre\u00e7\u00e3o dos dois mal-entendidos est\u00e1 no corpo; blocos 'Vale saber' (se houver): no m\u00e1ximo 1, r\u00f3tulo fixo, e apagando-os a resposta continua correta e completa",
+          "passed": true,
+          "evidence": "As duas corre\u00e7\u00f5es est\u00e3o no corpo, sem marcador, logo no in\u00edcio (se\u00e7\u00f5es 1 e 2). Contagem: grep 'Vale saber' = 1 ocorr\u00eancia (linha 29) \u2264 1. R\u00f3tulo confere com o formato fixo do SKILL.md linha 48 ('> **Vale saber \u2014 <conceito>:**'): '> **Vale saber \u2014 por que a imped\u00e2ncia define a pot\u00eancia do m\u00f3dulo:**', em ~3 linhas, dentro da se\u00e7\u00e3o 2 a que se refere. Apagando o bloco a resposta continua correta e completa: o corpo j\u00e1 diz 'ir de 2 \u03a9 para 1 \u03a9 quase dobra a pot\u00eancia', a se\u00e7\u00e3o 3 diz 'o teto do m\u00f3dulo cai para perto dos 400 W por f\u00edsica', a tabela traz 300\u2013400 W em 4 \u03a9 / 600\u2013700 W em 2 \u03a9 / 900\u20131200 W em 1 \u03a9 e a corrente (119 A) est\u00e1 no corpo. O bloco carrega s\u00f3 o conceito por tr\u00e1s (P = V\u00b2/R)."
+        },
+        {
+          "text": "N\u00e3o redefine termos que o usu\u00e1rio j\u00e1 usou corretamente (RMS, ohm)",
+          "passed": true,
+          "evidence": "Nenhuma defini\u00e7\u00e3o de RMS nem de ohm/imped\u00e2ncia; 'RMS' e '\u03a9' s\u00e3o usados diretamente ao longo do texto. A frase 'Os 400 W RMS do sub s\u00e3o um limite t\u00e9rmico \u2014 quanto calor a bobina dissipa por tempo longo' qualifica o que a especifica\u00e7\u00e3o limita (premissa necess\u00e1ria ao argumento de que pot\u00eancia limpa acima do RMS aquece sem distorcer), n\u00e3o redefine o termo. Os termos explicados na primeira apari\u00e7\u00e3o (Xmax, fator de amortecimento, CCA, Big 3) n\u00e3o foram usados pelo usu\u00e1rio. S\u00e9rie/paralelo de bobinas corrige a ideia de escolher a imped\u00e2ncia no m\u00f3dulo, n\u00e3o define ohm."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 5,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 0.88,
+        "passed": 7,
+        "failed": 1,
+        "total": 8,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Aponta que o pedido contradiz o objetivo declarado no perfil (grave limpo para m\u00fasica \u00d7 bandpass/SPL)",
+          "passed": true,
+          "evidence": "Abertura: \"esse projeto contradiz o que voc\u00ea me disse que quer (grave limpo e definido pra ouvir m\u00fasica todo dia, hatch compacto, el\u00e9trica original)\"; e no item 2: \"\u00c9 a caixa certa pra pared\u00e3o/SPL e a errada pro seu objetivo declarado.\" Confere com o perfil de teste (perfil-teste-grave-limpo.md): \"grave limpo e definido; n\u00e3o liga para competi\u00e7\u00e3o de SPL\", \"hatch compacto, el\u00e9trica original\"."
+        },
+        {
+          "text": "Quantifica o problema com n\u00famero (ex.: corrente do m\u00f3dulo \u00d7 alternador original, ou faixa estreita do bandpass)",
+          "passed": true,
+          "evidence": "\"3000 W em 12,6 V puxam ~300 A em pot\u00eancia cheia; com m\u00fasica, a m\u00e9dia fica em 40\u2013100 A \u2014 s\u00f3 a m\u00e9dia j\u00e1 \u00e9 igual ou maior que tudo que o alternador sobra (40\u201360 A)\". Refiz: 3000/0,8/12,6 = 297,6 A; 90 A \u2212 (30\u201350 A) = 40\u201360 A; 4000\u00d7(12,6/14,4)\u00b2 = 3062 W \u2014 batem. Tamb\u00e9m quantifica o bandpass (\"+3 a +6 dB numa faixa de ~1 oitava (algo como 35\u201370 Hz)\") e o ganho real (\"+5,7 dB\"; 10\u00b7log(3000/800) = 5,74 dB confere)."
+        },
+        {
+          "text": "Prop\u00f5e pelo menos uma alternativa coerente com o objetivo e o carro",
+          "passed": true,
+          "evidence": "Se\u00e7\u00e3o \"O caminho que atende ao que voc\u00ea disse que quer\": \"1\u00d7 12\\\" de 400\u2013600 W RMS em caixa selada de 35\u201345 L l\u00edquidos (Qtc ~0,7)\", \"M\u00f3dulo monocanal classe D de 600\u2013800 W RMS em 2 \u03a9\", \"~80 A de pico, 10\u201326 A de m\u00e9dia \u2014 o alternador original segura. Cabo 16 mm\u00b2 OFC ... fus\u00edvel de 80\u2013100 A\". Coerente com hatch compacto + el\u00e9trica original; ainda oferece meio-termo (1\u00d7 15\\\" selada 60\u201390 L com ~1200 W)."
+        },
+        {
+          "text": "Pede confirma\u00e7\u00e3o expl\u00edcita de que o usu\u00e1rio entende o trade-off antes de detalhar o projeto pedido",
+          "passed": true,
+          "evidence": "Fecha com uma pergunta direta condicionada ao que foi mostrado: \"Sabendo disso, quer que eu monte o bandpass 2\u00d715\\\" + 4000 W assim mesmo \u2014 nesse caso a lista vem obrigatoriamente com a el\u00e9trica completa ... \u2014 ou monto o projeto da selada (ou o meio-termo com o 15\\\") com lista de compra e projeto da caixa?\" Nenhum detalhamento do bandpass \u00e9 feito antes da resposta do usu\u00e1rio."
+        },
+        {
+          "text": "N\u00e3o entrega o projeto completo do bandpass (lista de compra + caixa) nesta resposta",
+          "passed": true,
+          "evidence": "N\u00e3o h\u00e1 lista de compra nem medidas/duto da caixa bandpass; o \u00fanico dado de caixa \u00e9 uma estimativa usada como argumento (\"estimo 180\u2013250 L l\u00edquidos, ~250\u2013300 L brutos\"). Diret\u00f3rio outputs cont\u00e9m apenas resposta.md (nenhum projeto.md gerado). A resposta adia explicitamente: \"Assim que voc\u00ea escolher, monto o projeto completo\"."
+        },
+        {
+          "text": "Tom firme e respeitoso, sem serm\u00e3o longo \u2014 a resposta n\u00e3o ultrapassa o necess\u00e1rio para a decis\u00e3o",
+          "passed": true,
+          "evidence": "Firme sem moralizar: nomeia fatos, n\u00e3o a pessoa (\"O que est\u00e1 certo no seu pedido: ...\"; \"Isso n\u00e3o \u00e9 opcional nem 'depois'\"; \"A decis\u00e3o \u00e9 sua\"); nenhum serm\u00e3o sobre vizinhos/audi\u00e7\u00e3o/lei. 947 palavras, 3 problemas numerados (os mesmos tr\u00eas n\u00fameros que a skill pede: corrente \u00d7 alternador, faixa do bandpass, dB reais), alternativa, meio-termo e UMA pergunta final. 1 bloco \"Vale saber \u2014 ganho de cabine\" (r\u00f3tulo exato, dentro do teto de 1; apagando-o a resposta continua correta e completa). Est\u00e1 no limite superior de tamanho, mas cada se\u00e7\u00e3o sustenta a decis\u00e3o."
+        },
+        {
+          "text": "Deixa claro que a escolha final \u00e9 do usu\u00e1rio e que, se ele confirmar, o projeto ser\u00e1 feito e registrado como decis\u00e3o consciente",
+          "passed": true,
+          "evidence": "T\u00edtulo \"## A decis\u00e3o \u00e9 sua\"; \"quer que eu monte o bandpass 2\u00d715\\\" + 4000 W assim mesmo \u2014 nesse caso a lista vem obrigatoriamente com a el\u00e9trica completa\"; \"Assim que voc\u00ea escolher, monto o projeto completo (op\u00e7\u00f5es de or\u00e7amento, caixa com medidas e duto, regulagem de ganho) e salvo com a decis\u00e3o registrada no hist\u00f3rico.\" A express\u00e3o literal \"decis\u00e3o consciente\" n\u00e3o aparece, mas \"Sabendo disso ... assim mesmo\" + \"decis\u00e3o registrada\" comunica o mesmo."
+        },
+        {
+          "text": "Caso o usu\u00e1rio confirme, a resposta indica que registrar\u00e1 a decis\u00e3o consciente no projeto e no perfil (ou j\u00e1 o faz)",
+          "passed": false,
+          "evidence": "S\u00f3 menciona o hist\u00f3rico do projeto: \"salvo com a decis\u00e3o registrada no hist\u00f3rico\". N\u00e3o h\u00e1 qualquer men\u00e7\u00e3o a registrar no perfil (nem \"\ud83d\udcdd Anotei no seu perfil\", nem \"perfil\" em lugar algum da resposta). A SKILL.md exige \"registre como decis\u00e3o consciente (data, trade-off aceito) no hist\u00f3rico do projeto e no perfil\", e o perfil de teste tem a se\u00e7\u00e3o \"## Decis\u00f5es conscientes \u2014 (nenhuma)\" \u00e0 espera. Metade da asser\u00e7\u00e3o (perfil) est\u00e1 ausente."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 6,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Diz que o m\u00f3dulo automotivo precisa de fonte 12\u201314,4 V e dimensiona a corrente",
+          "passed": true,
+          "evidence": "Elo 3: \"precisa de fonte chaveada de 12\u201314,4 V, dimensionada pela corrente m\u00e9dia, n\u00e3o pelo pico. Para 400 W RMS totais em 13,8 V (classe D, ~80 % de efici\u00eancia): 36 A na pot\u00eancia cheia cont\u00ednua, 4,5\u201312 A de m\u00e9dia com m\u00fasica\" e \"fonte de 30 A (~360 W)\". Conta refeita: 400/0,8/13,8 = 36,2 A; 1/8\u20131/3 = 4,5\u201312,1 A; 30 A \u00d7 12 V = 360 W. calc_som.py corrente devolve os mesmos 36,2 A e 4,5\u201312,1 A."
+        },
+        {
+          "text": "Alerta que decodificador barato pode n\u00e3o ter gerenciamento de graves (SW s\u00f3 com LFE)",
+          "passed": true,
+          "evidence": "Elo 2: \"A spec que decide \u00e9 o gerenciamento de graves (bass management)... Sem isso, a sa\u00edda SW leva s\u00f3 o LFE (a trilha de efeitos), e o grave da m\u00fasica e das vozes vai para as caixas\"; refor\u00e7ado em Riscos: \"an\u00fancio sem spec de bass management e sem controle remoto = n\u00e3o compre\"."
+        },
+        {
+          "text": "Alerta para conferir se a TV entrega Dolby/DTS (bitstream) pela sa\u00edda \u00f3ptica",
+          "passed": true,
+          "evidence": "Elo 1: \"confira no menu de \u00e1udio da TV se existe a op\u00e7\u00e3o 'Bitstream' / 'Dolby Digital' na sa\u00edda digital. Muitas TVs mandam s\u00f3 PCM est\u00e9reo pela \u00f3ptica nos apps de streaming, e v\u00e1rias n\u00e3o passam DTS. Sem bitstream, o decodificador recebe 2.0\"; repetido como item 1 de 'Antes de comprar qualquer coisa'."
+        },
+        {
+          "text": "Alerta que falantes de mini system t\u00eam pot\u00eancia baixa e pede passa-alta + ganho baixo",
+          "passed": true,
+          "evidence": "Premissas: \"~10 W RMS reais\"; Elo 4: \"O canal do m\u00f3dulo entrega ~30 W em 8 \u03a9 \u2014 tr\u00eas vezes o que a caixinha aguenta \u2014, ent\u00e3o o ganho tem que ser regulado baixo: alvo de ~8,9 V AC na sa\u00edda (10 W em 8 \u03a9; 7,7 V se forem 6 \u03a9)... E HPF em 80\u2013100 Hz sempre ativo\". Conta refeita: \u221a(10\u00d78) = 8,94 V; \u221a(10\u00d76) = 7,75 V; 30/10 = 3\u00d7."
+        },
+        {
+          "text": "Mostra como distribuir os canais do m\u00f3dulo (incluindo ponte para o sub, se a imped\u00e2ncia permitir)",
+          "passed": true,
+          "evidence": "Tabela, linha 'Canais do m\u00f3dulo': A = \"par 1/2 = E/D com HPF 80 Hz; par 3/4 = central + sub em FULL\"; B = \"m\u00f3dulo: E, D, central, sub; TPA3116... caixinhas do mini system\"; C = \"m\u00f3dulo em ponte s\u00f3 no sub\". Condi\u00e7\u00e3o de imped\u00e2ncia no Elo 5: \"em ponte (~200 W em 4 \u03a9)... ponte pede 4 \u03a9 (bobina dupla 2+2 \u03a9 em s\u00e9rie = 4 \u03a9; sub simples de 2 \u03a9 n\u00e3o vai em ponte)\" e aviso da chave 2CH/4CH."
+        },
+        {
+          "text": "Blocos 'Vale saber' (se houver): r\u00f3tulo fixo '**Vale saber \u2014 <conceito>:**', no m\u00e1ximo 2, dentro da se\u00e7\u00e3o a que se referem, sem se\u00e7\u00e3o/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de seguran\u00e7a aparece s\u00f3 dentro de um bloco",
+          "passed": true,
+          "evidence": "grep: exatamente 1 bloco (linha 29): \"> **Vale saber \u2014 ganho de cabine:** ...\" \u2014 r\u00f3tulo id\u00eantico ao formato fixo. Est\u00e1 dentro do item 5 'Sub de carro na sala' (se\u00e7\u00e3o 'Elo por elo'), logo ap\u00f3s a frase que o provoca. Nenhuma ocorr\u00eancia de 'Dicas' no texto (headings: Resposta curta, Premissas, Elo por elo, Tr\u00eas caminhos, O que eu faria, Riscos que valem uma linha, Antes de comprar). Apagando o bloco, a decis\u00e3o continua no corpo: \"a caixa que ele tinha no carro provavelmente n\u00e3o serve em casa\" + \"Ponto de partida para 12\\\": ~55\u201365 L l\u00edquidos, sintonia ~30\u201332 Hz\" + medidas de duto; o bloco s\u00f3 traz o conceito (ganho de cabine). Os alertas de seguran\u00e7a (fus\u00edvel no positivo, fonte com terra/mesma tomada, filtro subs\u00f4nico/Xmax, ganho limitado, audi\u00e7\u00e3o) est\u00e3o todos no corpo, nenhum s\u00f3 no bloco."
+        }
+      ],
+      "notes": []
+    },
+    {
+      "eval_id": 7,
+      "configuration": "with_skill",
+      "run_number": 1,
+      "result": {
+        "pass_rate": 1.0,
+        "passed": 6,
+        "failed": 0,
+        "total": 6,
+        "time_seconds": 0.0,
+        "tokens": 0,
+        "tool_calls": 0,
+        "errors": 0
+      },
+      "expectations": [
+        {
+          "text": "Confirma a corrente m\u00e1xima do m\u00f3dulo (~55\u201365 A) e que o fus\u00edvel de 100 A protege o cabo de 21 mm\u00b2 e cobre a corrente do sistema",
+          "passed": true,
+          "evidence": "Resposta: 'I = P / (V \u00d7 \u03b7) = 600 / (12,6 \u00d7 0,8) \u2248 60 A ... Se a sua for 75 %, ~64 A' (recomputado: 59,5 A e 63,5 A). 'O fus\u00edvel na bateria protege o cabo ... acima da corrente m\u00e1xima do sistema (~64 A) ... e abaixo do que o cabo aguenta \u2014 21 mm\u00b2 (4 AWG) OFC fica em torno de 125 A ... 100 A cabe com folga dos dois lados'. Janela 64 A < 100 A < 125 A bate com references/automotivo.md (21 mm\u00b2 \u2264 125 A)."
+        },
+        {
+          "text": "Calcula a queda de tens\u00e3o em 5 m (~0,2\u20130,3 V) e diz que \u00e9 aceit\u00e1vel",
+          "passed": true,
+          "evidence": "Resposta: '\u0394V = \u03c1 \u00d7 L \u00d7 I / A = 0,0172 \u00d7 5 \u00d7 60 / 21,2 \u2248 0,24 V (~2 % de 12,6 V)' e 'No pior caso, 64 A e mais 0,5 m de negativo: ~0,29 V. O limite pr\u00e1tico em 12 V \u00e9 0,5 V \u2014 voc\u00ea est\u00e1 na metade.' Recomputado: 0,243 V e 0,286 V; 1,9 %. T\u00edtulo da se\u00e7\u00e3o: '5 m de cabo \u2014 queda aceit\u00e1vel, com folga.'"
+        },
+        {
+          "text": "N\u00e3o redefine termos que o usu\u00e1rio j\u00e1 usou corretamente (DVC, Qtc, OFC, RMS, classe D, ganho por tens\u00e3o)",
+          "passed": true,
+          "evidence": "Nenhuma defini\u00e7\u00e3o de DVC, Qtc, OFC, RMS, classe D ou do m\u00e9todo de ganho por tens\u00e3o: DVC/Qtc/OFC aparecem s\u00f3 como dados ('12\" DVC 2+2 \u03a9 em s\u00e9rie', '38 L selada com Qtc 0,72', 'o cabo ser OFC de verdade'); o ganho \u00e9 s\u00f3 conferido ('\u221a(600 \u00d7 4) = 49,0 V'). Os \u00fanicos gloss\u00e1rios s\u00e3o de s\u00edmbolos introduzidos pela pr\u00f3pria resposta ('\u03b7 = efici\u00eancia', '\u03c1 = resistividade do cobre') e de um termo que o usu\u00e1rio n\u00e3o usou ('CCA (alum\u00ednio cobreado)'); 'classe D fica entre 75 e 85 %' \u00e9 o valor do par\u00e2metro da conta, n\u00e3o uma defini\u00e7\u00e3o."
+        },
+        {
+          "text": "No m\u00e1ximo 1 bloco 'Vale saber', e se houver ele traz algo que muda uma decis\u00e3o ou o pr\u00f3ximo elo (n\u00e3o curiosidade)",
+          "passed": true,
+          "evidence": "Contagem: exatamente 1 ocorr\u00eancia (grep). R\u00f3tulo exato: '> **Vale saber \u2014 mult\u00edmetro n\u00e3o enxerga clipping:**', no padr\u00e3o fixo '**Vale saber \u2014 <conceito>:**', logo ap\u00f3s a se\u00e7\u00e3o de ganho a que se refere. Conte\u00fado muda o pr\u00f3ximo elo (regulagem do ganho): 'Se o m\u00f3dulo n\u00e3o tem 600 W na tens\u00e3o em que voc\u00ea mede, voc\u00ea chega aos 49 V no mostrador com o sinal j\u00e1 quadrado ... O alvo tem que ser a pot\u00eancia que o m\u00f3dulo entrega de fato na condi\u00e7\u00e3o da medi\u00e7\u00e3o' \u2014 \u00e9 o porqu\u00ea da instru\u00e7\u00e3o do corpo ('Regule com o motor ligado ... ~460 W, ou seja, ~43 V limpos'). Apagando o bloco, fus\u00edvel, queda e a instru\u00e7\u00e3o de regular com motor ligado continuam no corpo: resposta segue correta e completa."
+        },
+        {
+          "text": "Resposta curta, no modo d\u00favida: sem tabela de or\u00e7amento, sem reabrir escolhas j\u00e1 fechadas (selada, 4 \u03a9) a n\u00e3o ser que haja erro real",
+          "passed": true,
+          "evidence": "Sem tabela de or\u00e7amento (grep por 'or\u00e7amento', '|' e 'R$' n\u00e3o retorna nada) e sem se\u00e7\u00f5es do template de projeto na resposta (Resumo/Arquitetura/Or\u00e7amento foram para projeto.md). N\u00e3o reabre selada nem 4 \u03a9 \u2014 s\u00f3 confirma: 'O resto da cadeia fecha ... 4 \u03a9 em s\u00e9rie \u00e9 a carga mais folgada para o m\u00f3dulo ... 38 L selada com Qtc 0,72 num hatch aproveita o ganho de cabine'. Abre direto com 'As duas contas fecham.' Ressalva: 677 palavras / 3.852 caracteres \u2014 quase metade (premissas do ganho, bloco Vale saber, par\u00e1grafo 'O resto da cadeia fecha') vai al\u00e9m das duas perguntas feitas, mas fica dentro do teto de 1 bloco e a confirma\u00e7\u00e3o dos 49 V est\u00e1 prevista no expected_output."
+        },
+        {
+          "text": "N\u00e3o cont\u00e9m veredito sobre a pessoa nem 'parab\u00e9ns' ritual; confirma o que est\u00e1 certo de forma direta",
+          "passed": true,
+          "evidence": "Grep por 'parab', '\u00f3timo', 'excelente', 'bem pensado', 'boa escolha', 'acertou', 'bom trabalho' n\u00e3o retorna nada. Confirma\u00e7\u00f5es diretas e sobre o fato, n\u00e3o sobre a pessoa: 'As duas contas fecham.', 'Fus\u00edvel de 100 A \u2014 correto para esse cabo.', '5 m de cabo \u2014 queda aceit\u00e1vel, com folga.', 'Ganho a 49 V \u2014 a conta bate'. A \u00fanica men\u00e7\u00e3o ao que o usu\u00e1rio domina est\u00e1 na nota de perfil ('entram como conceitos dominados'), que \u00e9 o registro da se\u00e7\u00e3o 'Conceitos j\u00e1 dominados' do perfil, n\u00e3o um julgamento no corpo."
+        }
+      ],
+      "notes": []
+    }
+  ],
+  "run_summary": {
+    "old_skill": {
+      "pass_rate": {
+        "mean": 0.9217,
+        "stddev": 0.1354,
+        "min": 0.67,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "with_skill": {
+      "pass_rate": {
+        "mean": 0.9286,
+        "stddev": 0.1087,
+        "min": 0.71,
+        "max": 1.0
+      },
+      "time_seconds": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0.0,
+        "max": 0.0
+      },
+      "tokens": {
+        "mean": 0.0,
+        "stddev": 0.0,
+        "min": 0,
+        "max": 0
+      }
+    },
+    "delta": {
+      "pass_rate": "-0.01",
+      "time_seconds": "+0.0",
+      "tokens": "+0"
+    }
+  },
+  "notes": []
+}

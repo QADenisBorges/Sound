@@ -1,0 +1,71 @@
+{
+  "expectations": [
+    {
+      "text": "Inclui BMS/proteção para a bateria de lítio e alerta de segurança",
+      "passed": true,
+      "evidence": "Resumo: 'bateria de lítio 18650 com BMS'; tabela: 'BMS 4S ≥ 15 A com balanceamento + carregador 16,8 V 2 A'; Riscos 2: 'Lítio: BMS sempre; carregador com a tensão exata; fusível; células da mesma marca/lote; não solde direto na célula... Nas primeiras cargas, fique por perto'; 'Carregar lítio com fonte \"qualquer\" ou sem BMS é onde caixa DIY pega fogo'. Fusível 5 A na saída da bateria também está na arquitetura."
+    },
+    {
+      "text": "Calcula ou estima autonomia da bateria",
+      "passed": true,
+      "evidence": "Seção Dimensionamento 3 (tabela): VRLA 12 V 7 Ah = 84 Wh a 8 W → ~8 h (conte 5–6 h); 4S2P 5,2 Ah/77 Wh a 10 W → ~6 h (a 18 W → 3,4 h); 5S3P 144 Wh a 14 W → ~8 h, com 80% da capacidade. Conferido: 0,8×84/8 = 8,4 h; 0,8×77/10 = 6,2 h; 0,8×77/18 = 3,4 h; 0,8×144/14 = 8,2 h — batem."
+    },
+    {
+      "text": "Relaciona tensão da bateria/fonte com a potência real da TPA3116",
+      "passed": true,
+      "evidence": "'P ≈ V² / (2 × Z)' com tabela por bateria: 12,4 V → 19 W teórico/~12 W limpo; 4S 14,8 V → 27 W/~17–19 W; 5S 18,5 V → 43 W/~26–30 W; 6S 22,2 V → 62 W (limite 26 V do chip). Conferido: 14,8²/8 = 27,4 W, 60–70% = 16,4–19,2 W; 18,5²/8 = 42,8 W; 22,2²/8 = 61,6 W — corretos. Também 'Em 8 Ω tudo isso cai pela metade' e 'a 13 V no 4S você tem ~13 W' (13²/8×0,6 = 12,7 W)."
+    },
+    {
+      "text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada",
+      "passed": true,
+      "evidence": "Dutada, 11,5 L líquidos por câmara (57×23×23 = 30 L brutos, coluna 3,7 L, câmara 23,5×23×23 = 12,4 L); duto PVC 50 mm (Ø int. 4,6 cm), 12,7 cm para Fb 52 Hz, 11 cm para 55 Hz, velocidade ~10 m/s (limite ~17). Conferido por Helmholtz: Leff = 15,9 cm, menos correção 0,732·D → 12,6 cm (52 Hz) e 10,9 cm (55 Hz) — batem. Fallback selada definido ('Qts > 0,6 ou sem T/S: mesma câmara, sem duto, forrada')."
+    },
+    {
+      "text": "Trata o crossover/corte do tweeter",
+      "passed": true,
+      "evidence": "Seção 5: 2ª ordem em 3,5 kHz, Butterworth 4 Ω: L 0,27 mH + C 8,2 µF (LP e HP), alternativa LR2 0,36 mH/5,6 µF, tweeter 8 Ω 3,9–4,7 µF + 0,51 mH; L-pad −3 dB 1,2 Ω série + 10 Ω paralelo; justificativa do corte (diretividade do 6\" e limite de tweeter barato). Conferido: BW2 L = √2·4/(2π·3500) = 0,257 mH, C = 8,04 µF; LR2 0,364 mH/5,68 µF; 8 Ω 4,02 µF/0,514 mH; L-pad 1,17 Ω/9,7 Ω — todos batem."
+    },
+    {
+      "text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$",
+      "passed": true,
+      "evidence": "Tabela 'Opções de orçamento' com colunas Item / Especificação / Onde comprar / Econômico / Equilibrado / Caprichado em R$. Ex.: placa 'Ali/Shopee 45–70 / 55–85 / 110–180'; woofers 'Nacional 120–200 / 180–320 / 400–700'; células 18650 'vendedor nacional com reputação'; madeira 'Madeireira / home center'. Define 'Nacional' = ML loja oficial/MercadoLíder, Amazon, loja de som."
+    },
+    {
+      "text": "Dá orientação de construção do gabinete (material, vedação)",
+      "passed": true,
+      "evidence": "Material: 'compensado 15 mm' (MDF só no Econômico, 'não pode molhar'; 'MDF incha com umidade e esfarela nos cantos'); dimensões 60×26×26 cm, divisórias como travamento, coluna central vedada. Vedação: Riscos 6 'Cola em todas as juntas, silicone por dentro, gaxeta de espuma nos falantes, passa-fio vedado'; Próximos passos 4: 'Monte a seco, depois cola + parafuso, silicone por dentro, 24 h de cura, teste de vazamento (tampe o duto, empurre o cone...)'."
+    },
+    {
+      "text": "Informa total de orçamento e ele bate com a soma dos itens listados",
+      "passed": true,
+      "evidence": "Totais declarados: Econômico R$ 505–855, Equilibrado R$ 825–1.420, Caprichado R$ 1.495–2.555. Soma refeita dos 11 itens: Econ 45+120+25+40+70+40+0+60+50+30+25 = 505 / 70+200+50+70+110+70+0+100+90+50+45 = 855; Equi = 825 / 1.420; Capr = 1.495 / 2.555 — batem exatamente nos seis extremos."
+    },
+    {
+      "text": "Alerta que a saída BTL não pode ter o negativo do falante ligado ao terra/comum",
+      "passed": true,
+      "evidence": "Resumo: 'BTL — bridge-tied load: os dois fios de cada canal são \"vivos\", não existe negativo comum. Um tweeter só... obrigaria a juntar os negativos de L e R — isso curto-circuita a saída e queima a placa'. Arquitetura: 'nenhum negativo de falante vai para carcaça ou para o negativo da bateria (BTL)'. Riscos 1: 'nenhum fio de falante encosta em terra, carcaça, negativo da bateria ou no outro canal'."
+    },
+    {
+      "text": "Indica a polaridade correta do tweeter para a ordem de crossover escolhida (invertido em 2ª ordem, normal em 1ª)",
+      "passed": true,
+      "evidence": "Ordem escolhida: 2ª (Butterworth/LR2 em 3,5 kHz). Texto: '**Tweeter com polaridade invertida**: filtro de 2ª ordem gira 180° no corte; ligado \"certo\" aparece um buraco em 3,5 kHz. Teste as duas ligações de ouvido'. Repetido em Próximos passos 6 e no projeto.md ('Tweeter com polaridade invertida'). Correto para 2ª ordem."
+    },
+    {
+      "text": "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco",
+      "passed": true,
+      "evidence": "Condição não ocorre: grep 'Vale saber' = 0 ocorrências e grep -i 'dicas' = 0 ocorrências em resposta.md. Seções presentes: Resumo, Premissas, Arquitetura, Dimensionamento, Opções de orçamento, Onde economizar / onde não economizar, Riscos e cuidados, Próximos passos. Asserção condicional → passa."
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "failed": 0,
+    "total": 11,
+    "pass_rate": 1.0
+  },
+  "technical_errors": [
+    "Menor, sem impacto na recomendação: 'a conta pede só 0,26 mm² para 0,2 V de queda em 0,6 m' — 0,26 mm² só sai usando 5 A (valor do fusível) e 0,6 m de ida sem contar o retorno; com a corrente máxima declarada (2,9 A) e ida+volta (1,2 m) a bitola mínima é ~0,30 mm² (com 5 A ida+volta, ~0,52 mm²). Ambas ficam bem abaixo dos 1,0–1,5 mm² recomendados, então o conselho final está correto.",
+    "Caveat não mencionado (omissão, não erro numérico): a premissa '89 dB/1W/1m' para woofer de 4 Ω pode ser otimista em ~3 dB, porque fabricantes costumam publicar sensibilidade a 2,83 V (= 2 W em 4 Ω). Se o datasheet do falante escolhido for '89 dB @ 2,83 V', os SPL da tabela (92,5 dB a 4 m etc.) caem ~3 dB. A resposta pede o datasheet antes de fechar o projeto, o que mitiga.",
+    "Menor: a coluna 'Tensão nominal (cheia)' mistura convenções na primeira linha — 12,4 V para chumbo (tensão de repouso quase cheia, não nominal) e 11,1 V para 3S Li-ion (nominal, sem indicar 12,6 V cheia). Não altera as conclusões.",
+    "Nenhum conselho inseguro encontrado: fusível na saída da bateria, BMS obrigatório, carregador 16,8 V/21 V corretos para 4S/5S, proibição de soldar direto na célula, alerta de 6S no limite de 26 V do chip, teste de polaridade com pilha só no woofer — tudo coerente."
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "eval_id": 2,
+  "eval_name": "eval-2",
+  "prompt": "Quero montar um som pra minha sala, uns 20m², pra ouvir música (MPB, jazz, rock) e ver filme de vez em quando. Tenho uns R$ 3000. Fico na dúvida entre comprar uma soundbar boa, um receiver com caixas ou caixas ativas. O que você faria e por quê?",
+  "assertions": [
+    "Compara as três opções (soundbar, receiver+caixas, caixas ativas) com prós e contras",
+    "Faz uma recomendação clara com justificativa ligada ao uso (música > filme)",
+    "Menciona acústica ou posicionamento da sala",
+    "Considera o mercado de usados como forma de ganhar custo-benefício",
+    "A opção recomendada cabe no limite de R$ 3000 (ou a resposta avisa claramente quando pode ultrapassar)",
+    "Foca em especificações que importam (sensibilidade, potência RMS, entradas) e não só em marcas",
+    "Informa total de orçamento e ele bate com a soma dos itens listados",
+    "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco"
+  ]
+}

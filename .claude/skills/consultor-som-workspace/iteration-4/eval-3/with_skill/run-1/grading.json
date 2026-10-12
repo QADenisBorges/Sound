@@ -1,0 +1,109 @@
+{
+  "expectations": [
+    {
+      "text": "Inclui BMS/proteção para a bateria de lítio e alerta de segurança",
+      "passed": true,
+      "evidence": "Resumo: 'pack Li-ion 5S (21 V cheia) com BMS (placa de proteção que corta sobrecarga/subtensão e equilibra as células)'; esquema elétrico: 'BMS 5S c/ balanceamento ─ fusível 10 A ─ chave ─ placa'; Riscos e cuidados > Li-ion: 'Não solde direto no corpo da célula 18650 com ferro... BMS com balanceamento sempre. Carregador CC/CV... 5S = 21,0 V. Não deixe a caixa ao sol dentro do carro nem encostada na churrasqueira — acima de ~45 °C'. Também 'Fusível e chave dimensionados. R$ 10 que separam um curto de um incêndio.'"
+    },
+    {
+      "text": "Calcula ou estima autonomia da bateria",
+      "passed": true,
+      "evidence": "'Autonomia (5S2P com células de 2.500 mAh reais = 5 Ah, ~92 Wh): Volume moderado (~12 W médios): ~6 h. Volume alto (~25 W médios): ~3 h. 5S1P: metade. 5S3P: 1,5×.' Conta refeita: 5 Ah × 18,5 V = 92,5 Wh; 92,5/(12/0,85) = 6,6 h; 92,5/(25/0,85) = 3,1 h — coerente."
+    },
+    {
+      "text": "Relaciona tensão da bateria/fonte com a potência real da TPA3116",
+      "passed": true,
+      "evidence": "Tabela 'Potência real da placa com bateria (saída em ponte: teto ≈ V²/(2×Z); uso limpo ~65% disso)' com 4S/5S/6S/chumbo 12 V, tensão cheia→vazia e W em 4 Ω. Conta refeita: 21²/8 = 55,1 W, 16,5²/8 = 34,0 W, ×0,65 → 35,8/22,1 W; 25,2²/8 = 79,4 W; 12,6²/8 = 19,8 W — todas as linhas batem com ±0,5 W. Texto: 'Os 2×50 W do anúncio só existem com... distorção alta... 5S... nunca passa dos 26 V máximos da TPA3116'."
+    },
+    {
+      "text": "Define volume da caixa e tipo (selada/dutada), com duto dimensionado se dutada",
+      "passed": true,
+      "evidence": "'Plano A — dutada (~11 L líquidos por canal, sintonia 55 Hz)' e 'Plano B — selada (~8 L por canal)', com critério por Qts/Fs. Duto: 'tubo de PVC esgoto 50 mm (interno 4,68 cm...): duto de 12 cm. Velocidade de ar estimada 10 m/s'. Conta refeita (Lv = 23562,5·D²/(Fb²·Vb) − 0,732·D): 12,08 cm; 60 Hz → 9,61 cm (resposta: 9,6); PVC 75 → 31,4 cm (resposta: 31). Medidas internas 18×30×22 = 11,9 L e externo 52×33×25 conferem; selada 16×26×20 = 8,3 L confere."
+    },
+    {
+      "text": "Trata o crossover/corte do tweeter",
+      "passed": true,
+      "evidence": "'Crossover 2ª ordem, 3 kHz, 4 Ω (tipo Linkwitz-Riley)': woofer L série 0,42 mH + C paralelo 6,8 µF; tweeter C série 6,8 µF + L paralelo 0,42 mH; L-pad −3 dB = 1,2 Ω série + 10 Ω paralelo; versão Econômico 1ª ordem 'capacitor de 10 µF em série com o tweeter (corte ~4 kHz)'. Conta refeita: L = R/(πf) = 0,424 mH; C = 1/(4πfR) = 6,63 µF; L-pad −3 dB = 1,17/9,7 Ω, −6 dB = 2,0/4,0 Ω; 10 µF em 4 Ω → 3,98 kHz. Tudo confere."
+    },
+    {
+      "text": "Lista componentes com onde comprar (AliExpress vs loja nacional) e custo estimado em R$",
+      "passed": true,
+      "evidence": "Tabela 'Opções de orçamento' com coluna 'Onde comprar' por item: woofers 'Nacional com nota (ML loja oficial / Amazon / loja de som)'; tweeters, crossover e elétrica 'AliExpress / Shopee'; placa 'AliExpress (Econ.) / ML nacional (Equil.: chega rápido e devolve)'; bateria 'loja nacional que monta com solda a ponto... carregador: ML'; madeira 'Madeireira local'. Faixas em R$ em três colunas (Econômico/Equilibrado/Caprichado) para os 10 itens."
+    },
+    {
+      "text": "Dá orientação de construção do gabinete (material, vedação)",
+      "passed": true,
+      "evidence": "'Medidas sugeridas (compensado 15 mm)' com lista de corte completa; Próximos passos 4: 'monte com cola PVA + parafusos, silicone em todas as juntas internas, travamento, manta nas paredes (nunca no duto). Tampa traseira do compartimento central parafusada sobre ripas, com fita de vedação em EVA'; Riscos > Umidade: 'MDF incha com cerveja, chuva e orvalho — por isso compensado. Se for MDF, selador em todas as faces + tinta.'"
+    },
+    {
+      "text": "Informa total de orçamento e ele bate com a soma dos itens listados",
+      "passed": true,
+      "evidence": "Linha 'Total': 'R$ 530–890 | R$ 1.090–1.820 | R$ 1.860–2.980'. Soma refeita dos 10 itens: Econômico 120+30+15+45+130+40+60+40+40+10 = 530 e 180+50+30+80+200+70+110+70+80+20 = 890; Equilibrado 1.090–1.820; Caprichado 1.860–2.980 — as três colunas batem exatamente. (O '~R$ 1.000–1.600' da recomendação ajustada recalcula em ~1.015–1.700, mas não é o total da tabela.)"
+    },
+    {
+      "text": "Alerta que a saída BTL não pode ter o negativo do falante ligado ao terra/comum",
+      "passed": true,
+      "evidence": "Riscos e cuidados: 'Saídas em ponte (BTL). Jamais ligue o negativo de um falante ao negativo da bateria/chassi, e nunca junte os negativos dos canais L e R (nem num crossover compartilhado). Cada canal tem seu crossover completo e separado. É a forma nº 1 de queimar TPA3116.' Premissas: 'os dois fios de cada saída são vivos, nenhum é terra'."
+    },
+    {
+      "text": "Indica a polaridade correta do tweeter para a ordem de crossover escolhida (invertido em 2ª ordem, normal em 1ª)",
+      "passed": true,
+      "evidence": "2ª ordem: 'Tweeter: capacitor em série 6,8 µF + indutor em paralelo 0,42 mH, ligado com a polaridade invertida (filtro de 2ª ordem defasa 180° no corte; sem inverter aparece um buraco nos 3 kHz)'. 1ª ordem: 'só um capacitor de 10 µF em série com o tweeter..., woofer direto, ambos com polaridade normal'. Riscos > Polaridade: 'monte o tweeter invertido só se usar o crossover de 2ª ordem'."
+    },
+    {
+      "text": "Blocos 'Vale saber' (se houver): rótulo fixo '**Vale saber — <conceito>:**', no máximo 2, dentro da seção a que se referem, sem seção/lista chamada 'Dicas'; apagando todos os blocos a resposta continua correta e completa, e nenhum alerta de segurança aparece só dentro de um bloco",
+      "passed": true,
+      "evidence": "grep conta exatamente 2 blocos: linha 39 '> **Vale saber — Qts e EBP:**' dentro de '## Arquitetura' (logo após o critério Qts/Fs para Plano A/B) e linha 82 '> **Vale saber — por que cortar em ~3 kHz:**' dentro de '## Dimensionamento' (logo após o crossover). Rótulos no formato exato (negrito, travessão, dois-pontos). Nenhuma ocorrência de 'Dicas' no texto. Sem os blocos, o corpo já traz os critérios de escolha selada/dutada e o crossover em 3 kHz com valores — continua correto e completo. Ambos os blocos são conceituais; todos os alertas de segurança (BTL, Li-ion, fusível, audição) estão em 'Riscos e cuidados', fora dos blocos."
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "failed": 0,
+    "total": 11,
+    "pass_rate": 1.0
+  },
+  "technical_errors": [
+    "Imprecisão menor — 'Os 2×50 W do anúncio só existem com 24 V e distorção alta': o datasheet da TPA3116D2 especifica 2×50 W em 4 Ω a 21 V (10% THD), e a própria tabela da resposta dá teto de 55 W a 21 V. A conclusão (50 W só com distorção alta) está certa; a tensão citada não.",
+    "Aritmética menor — 'Fica em ~R$ 1.000–1.600' (Equilibrado com placa do Ali −R$ 40 e ferragens Econômico): refazendo pela tabela, 1.090−35−40 = 1.015 e 1.820−50−70 = 1.700; o teto está ~R$ 100 abaixo.",
+    "Estimativa otimista — 'Chumbo 12 V 7 Ah: ~4 h em volume moderado — e só aguenta descarregar até a metade': 84 Wh × 50% = 42 Wh; a ~12 W médios com 85% de eficiência dá ~3 h, não 4.",
+    "Ambiguidade de layout — 'Woofer... a ~10 cm da base..., tweeter ~8 cm acima': lido centro a centro, a face de um dome 25 mm (~9–10 cm) colide com o aro de um 6 pol. (~16,5 cm); o mínimo centro a centro é ~13 cm. Só cabe nos 30 cm internos se os 8 cm forem medidos da borda do woofer. Não é inseguro, mas pode induzir erro de furação."
+  ],
+  "claims": [
+    {"claim": "Duto de 12 cm em PVC 50 mm (interno 4,68 cm) para 11 L / 55 Hz", "type": "factual", "verified": true, "evidence": "Fórmula clássica com correção de extremidade 0,732·D → 12,08 cm"},
+    {"claim": "LR2 3 kHz 4 Ω: 0,42 mH e 6,8 µF", "type": "factual", "verified": true, "evidence": "L = 4/(π·3000) = 0,424 mH; C = 1/(4π·3000·4) = 6,63 µF (comercial 6,8)"},
+    {"claim": "~106 dB a 1 m / ~92 dB a 5 m com 30 W/canal e 88 dB/W", "type": "factual", "verified": true, "evidence": "88 + 10log(30) + 3 (dois lados) = 105,8 dB; −20log(5) = 91,8 dB"},
+    {"claim": "4,2 A de pico (4,7 A com pack no fim)", "type": "factual", "verified": true, "evidence": "66 W / 0,85 / 18,5 V = 4,20 A; / 16,5 V = 4,71 A"},
+    {"claim": "Totais R$ 530–890 / 1.090–1.820 / 1.860–2.980", "type": "factual", "verified": true, "evidence": "Soma das 10 linhas confere exatamente nas três colunas"},
+    {"claim": "Peso 11–13 kg", "type": "factual", "verified": true, "evidence": "Área da lista de corte 0,836 m² × 15 mm × ~600 kg/m³ ≈ 7,5 kg de madeira + falantes ~2,5 kg + pack ~0,5 kg + ferragens ~1 kg ≈ 11,5 kg"},
+    {"claim": "Salvei o rascunho do projeto em projetos/caixa-churrasco/projeto.md", "type": "process", "verified": true, "evidence": "Arquivo existe (6.481 bytes) com resumo, dimensionamento, orçamento, histórico de decisões e pendências coerentes com a resposta"},
+    {"claim": "Anotei no seu perfil (perfil.md): primeira caixa, sabe soldar, AliExpress, custo baixo e durabilidade", "type": "process", "verified": true, "evidence": "perfil.md existe (1.344 bytes) com nível, valores, onde compra, conceitos explicados e link do projeto"},
+    {"claim": "Dimensionamento feito com calc_som.py (projeto.md)", "type": "process", "verified": false, "evidence": "Não verificável: nenhum transcript, metrics.json ou timing.json foi fornecido; os números foram conferidos manualmente e batem, mas a origem via script não pode ser confirmada"}
+  ],
+  "user_notes_summary": {
+    "uncertainties": [],
+    "needs_review": [],
+    "workarounds": []
+  },
+  "eval_feedback": {
+    "suggestions": [
+      {
+        "assertion": "Trata o crossover/corte do tweeter",
+        "reason": "Passa com qualquer menção a crossover. Um crossover com valores errados para a impedância/frequência declaradas também passaria; considere exigir valores coerentes (ex.: L = R/(πf) e C = 1/(4πfR) ±15% para LR2) e a justificativa da frequência de corte."
+      },
+      {
+        "assertion": "Calcula ou estima autonomia da bateria",
+        "reason": "Passa com qualquer número. Considere exigir coerência entre Wh do pack declarado, potência média assumida e horas (±30%), para que uma estimativa inventada falhe."
+      },
+      {
+        "reason": "Nenhuma asserção verifica se a resposta detecta a incompatibilidade do pedido original (2 woofers + 1 tweeter numa placa estéreo BTL) e propõe alternativa (dois tweeters ou PBTL) — resultado importante que esta resposta acertou e que distingue uma resposta genérica de uma que entende a placa."
+      },
+      {
+        "reason": "Nenhuma asserção cobre o fluxo da skill (projeto.md com histórico de decisões e pendências; perfil.md atualizado). Ambos foram gerados aqui com conteúdo coerente, mas isso não é medido."
+      },
+      {
+        "reason": "Nenhuma asserção checa a escolha de impedância do falante frente aos limites da placa (4 Ω BTL, 2 Ω PBTL) nem o alerta de tensão máxima da TPA3116/capacitores de 25 V para 6S — a resposta trata os dois, mas uma resposta que sugerisse 6S sem esse alerta passaria em tudo."
+      }
+    ],
+    "overall": "Asserções bem discriminantes no conjunto (totais que batem, BTL, polaridade por ordem, formato dos blocos). Sem transcript, metrics.json ou timing.json disponíveis, execution_metrics e timing foram omitidos e os process claims só puderam ser verificados pelos arquivos de saída. Resposta tecnicamente sólida: todas as contas de carga refeitas conferem; os quatro pontos listados em technical_errors são imprecisões menores, nenhuma insegura."
+  }
+}
