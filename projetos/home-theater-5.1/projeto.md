@@ -160,6 +160,7 @@ Ponto de partida: é o cenário F/H de `simulacao-crossover.py` (o HP 80 do mód
 Anotar os ajustes de cada memória aqui quando o processador for configurado.
 
 ## Histórico de decisões
+- 2026-10-12 (6): **C7 (REM) preso no REM do SD800.4**; usuário abriu de novo e confirmou o parafuso no cobre, não na capa. Bornes de força do módulo completos (GND C3 · REM C7 · +12VDC C2); passo 4.3 concluído. Próximo: 4.4 (RCA, chaves em F, GAIN no mínimo), depois 4.5 (multímetro sem energia). Foto `c7-modulo-rem.jpeg`.
 - 2026-10-12 (5): **Divisória borne 3 × borne 4 conferida em close (2 fotos):** cobre do C3 fica todo do lado do borne 4, nada passa para o borne 3. Ponto encerrado. Segue: C7 (REM).
 - 2026-10-12 (4): **C3 (10 mm² preto) ligado:** borne 4 da fonte (cabo dividido em volta do parafuso) → GND do SD800.4. Régua da fonte: 1 C1, 2 C4-1, 3 livre (sem parafuso), 4 C3, 5 C5, 6 livre, 7–9 rede. Pontos apontados pelas fotos: cobre do C3 no lado do borne 3 (positivo) a conferir; recolocar o parafuso do borne 3; tirar da bancada a sobra de estanho e os fiapos de cobre antes de energizar. Falta o C7 (REM). Fotos `c3-*.jpeg`.
 - 2026-10-12 (3): **C1 e C2 conferidos pelo usuário:** desencape no limite certo (sem cobre aparente, parafuso no cobre) e teste de puxão ok nos dois. Pendências de 12/10 sobre o C1 encerradas. Próximo: C3 (borne 4 da fonte → GND do módulo), depois C7 (REM OUT → REM).
