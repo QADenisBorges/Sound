@@ -160,6 +160,7 @@ Ponto de partida: é o cenário F/H de `simulacao-crossover.py` (o HP 80 do mód
 Anotar os ajustes de cada memória aqui quando o processador for configurado.
 
 ## Histórico de decisões
+- 2026-10-12 (10): **Polaridade do conector do processador conferida com tensão** (fusível de 5 A colocado, conector fora do aparelho, medição nos parafusos do conector): +12VDC→GND 13,91 V; REM IN→GND 13,91 V (jumper ok); REM OUT→GND 0 V; saída do porta-fusível de 5 A→borne 5 13,91 V. Sem inversão. Próximo: encaixar o conector (fonte fora da tomada) e seguir o 4.7 (LED, app, senha, REM do módulo ON/OFF).
 - 2026-10-12 (9): **Passo 4.6 concluído:** usuário confirmou as leituras dos porta-fusíveis dentro do esperado (entrada 13,8 V, saída 0 V, nos dois). Próximo: 4.7 (processador com o fusível de 5 A; o de 40 A continua fora).
 - 2026-10-12 (8): **Passo 4.6, item 2: fonte ajustada em 13,8 V** nos bornes 1 e 4 (usuário tinha girado o trimpot antes de medir; reajustado medindo). Multímetro VC830L na posição 20 de V DC. Faltam as leituras dos porta-fusíveis (itens 4–7).
 - 2026-10-12 (7): **Passo 4.5 aprovado** (conferência com multímetro, sem energia, tabela de 12 linhas + pinos do conector do processador, que estava fora do aparelho). Conector de 4 vias a encaixar no processador conferindo as marcações. Usuário informou "tudo verificado" também após as instruções do 4.6 (fonte sozinha, fusíveis fora); tensão medida não informada, pedida antes do 4.7.
