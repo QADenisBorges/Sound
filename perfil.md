@@ -26,6 +26,7 @@ Lido pela skill `consultor-som` no início de cada conversa sobre som e atualiza
 
 ## Formato de resposta
 - (a preencher: tamanho, tabelas, nível de detalhe)
+- **Testes com multímetro (12/10/2026):** sempre em tabela, com uma linha por medição e as colunas **ponta vermelha · ponta preta · resultado esperado** (e o que fazer se der diferente). Ações sem medição (ligar, apertar ON no app) ficam fora da tabela, antes dela.
 - **Documentação de montagem (definido em 09/10/2026):** escrita para ele, mas com parâmetros que permitam outra pessoa adaptar ao próprio equipamento; **HTML** como formato principal e **PDF muito usado** (tem que imprimir bem); serve de **modelo para os próximos projetos**. Imagens de ligação só a partir de fotos reais ou de desenho feito em cima delas, nunca geradas por IA. Na parte de compras quer **item por item**: foto real do produto, por que importa, o que exigir e como não comprar errado. Não gosta de material denso ("muita informação em pouco espaço"): o essencial à vista, o detalhe recolhido, letra grande e o conteúdo separado pelo momento de uso (compras / montagem / referência). **Montagem organizada pelo que depende de quê (10/10/2026):** frentes independentes em paralelo (ex.: caixas × eletrônica), integração só onde for tecnicamente necessária, dependência real explícita no passo e nenhuma ordem imposta por tipo de tarefa.
 
 ## Conceitos já dominados (não precisa reexplicar)
