@@ -160,6 +160,7 @@ Ponto de partida: é o cenário F/H de `simulacao-crossover.py` (o HP 80 do mód
 Anotar os ajustes de cada memória aqui quando o processador for configurado.
 
 ## Histórico de decisões
+- 2026-10-12 (13): **Passo 4.8 medido:** +12VDC→GND do módulo 13,91 V; queda borne 1→+12VDC 0 V e GND→borne 4 0 V (sem perda nos cabos e emendas, sem carga); REM 12,38 V em ON com LED do módulo aceso, 0 V em OFF. Falta só o toque de 5 min (porta-fusível, emendas, cabos). Próximo: 4.9.
 - 2026-10-12 (12): **Passos 4.4 e 4.8 concluídos** (informado pelo usuário): RCA 1–4 → CH1–CH4, chaves em F, GAIN no mínimo, bornes de falante vazios; fusível de 40 A colocado. **4.8 incompleto:** módulo ainda não medido (tensão na régua, LED seguindo o app, temperatura após 5 min). Próximo: terminar o 4.8, depois 4.9.
 - 2026-10-12 (11): **Passo 4.7 concluído:** app conectado, processador ligado pelo app. REM do SD800.4 (vs GND do módulo): **12,38 V em ON, 0 V em OFF** (queda normal da saída REM OUT em relação aos 13,9 V da fonte; acima do limiar de acionamento). Próximo: 4.4 (RCA, chaves em F, GAIN no mínimo) e 4.8 (fusível de 40 A).
 - 2026-10-12 (10): **Polaridade do conector do processador conferida com tensão** (fusível de 5 A colocado, **conector já encaixado no processador**, medição nos parafusos do conector; processador energizado sem dano): +12VDC→GND 13,91 V; REM IN→GND 13,91 V (jumper ok); REM OUT→GND 0 V; saída do porta-fusível de 5 A→borne 5 13,91 V. Sem inversão. Próximo: encaixar o conector (fonte fora da tomada) e seguir o 4.7 (LED, app, senha, REM do módulo ON/OFF).
