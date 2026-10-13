@@ -5,6 +5,13 @@
 Sistema: notebook/celular → **Taramps PRO 2.4BT + AUDIO** → **SD800.4** (alimentado pela **BOB 60A**) → **JBL 4TRMS80 nas carcaças BS-369** (L/R) + **sub Protech 8"** em ponte.
 O par Selenium 6TR4A volta para o carro.
 
+## Andamento
+
+- **13/10/2026 — cabos das duas JBL prontos (2.9) e ligados nelas.** Cabo 2 × 2,5 mm² com faston fêmea soldado (estanho Foxlux 63/37), crimpagem coberta por termorretrátil e/ou fita isolante, nas duas caixas.
+  - Polaridade da JBL: **+ = terminal onde chega o fio vermelho do tweeter** (sem "+" impresso; confirmado com pilha).
+  - Ponta do módulo: condutor com **termorretrátil vermelho = +**, condutor sem marca = −. Conferido com pilha (+ no vermelho → cone avança).
+  - Pendências antes de fechar/ligar: limpar o fluxo das juntas com álcool isopropílico; conferir que nenhum cano de crimpagem ficou com metal exposto; medir ≈3,4 Ω na ponta do módulo de cada cabo (5.1).
+
 ---
 
 ## 1. Materiais
