@@ -10,7 +10,12 @@ O par Selenium 6TR4A volta para o carro.
 - **13/10/2026 — cabos das duas JBL prontos (2.9) e ligados nelas.** Cabo 2 × 2,5 mm² com faston fêmea soldado (estanho Foxlux 63/37), crimpagem coberta por termorretrátil e/ou fita isolante, nas duas caixas.
   - Polaridade da JBL: **+ = terminal onde chega o fio vermelho do tweeter** (sem "+" impresso; confirmado com pilha).
   - Ponta do módulo: condutor com **termorretrátil vermelho = +**, condutor sem marca = −. Conferido com pilha (+ no vermelho → cone avança).
-  - Pendências antes de fechar/ligar: decidir sobre o resíduo da pasta Cobix nas juntas dos faston (pasta genérica, provavelmente ácida; se for limpar: água morna e escova, secar, álcool isopropílico, recobrir) antes de fechar a caixa (2.11); conferir que nenhum cano de crimpagem ficou com metal exposto; medir ≈3,4 Ω na ponta do módulo de cada cabo (5.1).
+  - Pendências antes de fechar/ligar: decidir sobre o resíduo da pasta Cobix nas juntas dos faston (pasta genérica, provavelmente ácida; se for limpar: água morna e escova, secar, álcool isopropílico, recobrir) antes de fechar a caixa (2.11); conferir que nenhum cano de crimpagem ficou com metal exposto (no cabo com termorretrátil amarelo/preto o cano ficou descoberto: fita isolante ou tubo mais largo); medir ≈3,4 Ω na ponta do módulo de cada cabo (5.1).
+  - Fotos: `fotos/2026-10-13-solda-faston-jbl/` (legendas em `LEGENDA.md`).
+- **13/10/2026 — emenda do cabo do sub soldada (3.2), ainda sem termorretrátil.** Fio fino do plugue enrolado no 2 × 2,5 mm² e soldado com Foxlux. **Vermelho do plugue → condutor branco com letras impressas**, marcado com **tubo vermelho = +**; preto → condutor com **tubo azul = −**. Emenda do preto: solda bem escorrida. Emenda do vermelho: embolotada, com picos, e o isolamento do branco derreteu ~2–3 cm atrás (sem cobre aparente).
+  - Antes de encolher os tubos: puxão firme nas duas; multímetro na ponta do módulo com o sub no plugue (**3–3,6 Ω**, sem oscilar ao dobrar as emendas; oscilou → refazer a do vermelho); cortar os picos de solda, tirar a bolinha de solda grudada no isolamento e qualquer fiapo de cobre; tubo do + cobrindo também o trecho derretido (faltando comprimento, fita isolante no resto); tubo grande por cima das duas emendas.
+  - Depois: pilha pela ponta do módulo (+ no tubo vermelho → cone do sub avança) e esse condutor no **CH4 ⊕**.
+  - Fotos: `fotos/2026-10-13-emenda-sub/` (legendas em `LEGENDA.md`).
 
 ---
 
