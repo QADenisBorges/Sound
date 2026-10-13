@@ -2,6 +2,12 @@
 
 Mantido pelo `revisor-som`. Entradas mais novas no topo. Backups em `../consultor-som-workspace/historico/`.
 
+## 2026-10-13 20:05 — lacuna de conhecimento
+- O quê: `references/diy.md` §8 novo — solda, fluxo e terminais: liga 63/37 × 60/40, ferro para cabo grosso, pasta "para soldar" genérica costuma ser ácida (não usar em eletrônica; como limpar), faston (crimpagem segura, solda só no cano, cor = bitola, termorretrátil antes), borne de parafuso sem estanhar, sinais de solda fria e teste da pilha para polaridade.
+- Por quê: soldar faston em cabo de alto-falante é tarefa comum de DIY e a skill não tinha nada sobre solda; a resposta precisou ser improvisada, e a dúvida sobre limpar o fluxo dependia de saber que pastas genéricas são ácidas.
+- Evidência: FISPQ de "Pasta para soldar 110 g" (Vonder/OVD) classifica a mistura como corrosiva para metais; ficha da Hoffmann TextFlow 12 (cloreto de zinco e de amônio, GHS05); anúncios da pasta Cobix 110 g indicam tubos, refrigeração e terminais de bateria, sem composição. Demais itens: prática padrão de solda eletrônica (liga eutética, solda fria, cold flow sob parafuso).
+- Snapshot: historico/2026-10-13_200154
+
 ## 2026-10-09 12:20 — segurança + lacuna de conhecimento
 - O quê: `references/residencial-hifi.md` (módulo automotivo em casa) — fontes "BOB" com bornes de 127/220 V na mesma régua da saída de 12 V: não tocar com o plugue na tomada, trimpot com chave isolada, tomada com terra; ponteiro para o ganho com DSP. `references/automotivo.md` §2 — subsônico em caixa dutada: por que (sem carga abaixo da Fb), onde (~0,7–0,8 × Fb, 24 dB/oit) e como achar a Fb de caixa pronta (varredura: na Fb o cone quase para). `evals/evals.json` — eval 6 ganhou asserção de cuidado com a rede.
 - Por quê: num guia de montagem, o ajuste do trimpot com a fonte energizada foi orientado sem aviso de que a mesma régua tem a rede exposta; e o subsônico foi fixado sem saber se a caixa pronta do sub era dutada. Os dois casos são comuns em home theater montado com peças de carro.

@@ -8,6 +8,7 @@
 5. Amplificadores e placas prontas
 6. Fontes e baterias
 7. Ferramentas gratuitas
+8. Solda, fluxo e terminais
 
 ## 1. Parâmetros Thiele/Small (T/S)
 
@@ -67,3 +68,12 @@
 - **REW** — medição de resposta, sala e impedância (com microfone de medição).
 - **Speaker Box Lite / calculadoras online** — contas rápidas.
 - **Calculadora da skill**: `scripts/calc_som.py`.
+
+## 8. Solda, fluxo e terminais
+
+- **Liga:** 63/37 (eutética, 183 °C, endurece de uma vez, então tolera um leve movimento ao esfriar) ou 60/40, com alma de resina. Sem chumbo pede mais calor e molha pior. Para cabo de 2,5 mm² ou mais: ferro de 40–60 W, ponta chanfrada, fio e terminal aquecidos juntos.
+- **Fluxo:** a resina da alma do fio basta. Pasta "para soldar" genérica (anunciada para tubos, refrigeração, terminal de bateria) costuma ser ácida, à base de cloreto de zinco/amônio e classificada como corrosiva para metais nas FISPQ. O resíduo puxa umidade e esverdeia o cobre ao longo de meses, virando mau contato. Não use em eletrônica; se já usou, lave o resíduo com água morna e escova, seque e finalize com álcool isopropílico. Para eletrônica: fluxo de resina (RMA) ou *no-clean*.
+- **Faston e terminais:** quem segura o fio é a crimpagem; a solda é reforço, só no cano. Se subir pelo fio, ele fica rígido e quebra na vibração; se entrar na mola da fêmea, o encaixe fica frouxo. A cor indica a bitola: vermelho até 1,5 mm², azul 1,5–2,5, amarelo 4–6. Termorretrátil no fio **antes** de crimpar (depois não passa pelo terminal), cobrindo o cano até a base da fêmea.
+- **Borne de parafuso:** ponta torcida sem estanhar, ou ponteira tubular. Solda sob o parafuso escoa com a pressão e o aperto afrouxa.
+- **Junta boa** é lisa, brilhante e abraça o metal; fosca ou granulada é solda fria: mau contato intermitente (estalo, som que corta ao mexer no cabo). Teste: puxão firme e multímetro na ponta do cabo (≈ Re do falante, sem oscilar ao mexer).
+- **Polaridade sem marcação:** pilha de 1,5 V por um instante; + da pilha no + do falante → o cone avança. Seguro em coaxial/triaxial, porque o capacitor em série com o tweeter bloqueia a corrente contínua.
