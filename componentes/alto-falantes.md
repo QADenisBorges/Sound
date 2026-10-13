@@ -42,6 +42,7 @@ Unidades genuínas: etiqueta "4TRMS80 · 80 W RMS · 4 ohms · 06/11/25 · Ind. 
 | **Corte mínimo recomendado** | **100 Hz a 24 dB/oit** (ficha) |
 | Montagem | A 102 mm · B 118 mm (flange) · **furo E 93 mm** · **profundidade D 68 mm** · furação 3,2 e 5 × 6,3 mm · ímã F 92 mm |
 | Peso | 1,744 kg (par) |
+| Terminais / polaridade | 2 × faston macho 6,3 mm, sem "+" impresso na plaquinha. **+ = terminal onde chega o fio vermelho do tweeter**; − = fio preto. Confirmado com pilha em 13/10/2026 numa unidade (+ da pilha nesse terminal → cone avança); conferir a outra do par. |
 
 Na BS-369 (~3,5 L selada): Fc ~124 Hz, Qtc ~0,81–0,90 (a ficha traz Bl 4,1 e Qes 0,81, que não fecham entre si: pelo Bl, o Qes daria 0,92).
 Excursão **de pico** (Xmax é pico), refeita na revisão técnica de 09/10/2026 com `calc_som.py excursao`:
