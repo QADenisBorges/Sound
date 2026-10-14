@@ -2,6 +2,12 @@
 
 Mantido pelo `revisor-som`. Entradas mais novas no topo. Backups em `../consultor-som-workspace/historico/`.
 
+## 2026-10-14 05:36 — lacuna de conhecimento
+- O quê: `references/diy.md` §4 — driver de compressão + corneta em caixa doméstica: L-pad de ~10–12 dB, corte do fabricante é para PA (em casa dá para cortar mais baixo e casar dispersão), centro acústico recuado, corneta não plana, fenólico × titânio, passivo só com medição.
+- Por quê: avaliar uma caixa de midbass de porta + driver de compressão para uso doméstico exigiu esses pontos, que não estavam nas referências; é combinação comum no Brasil (peças de "trio"/PA reaproveitadas em casa).
+- Evidência: datasheet PRV DT175Ph-S (108 dB/2,83 V, 8 Ω; corte recomendado 3 kHz 12 dB/oit "para potência total"; resposta 1,1–18 kHz) × midbass 6,5" de 93,5 dB; L-pad conferido com `calc_som.py lpad`.
+- Snapshot: historico/2026-10-14_053606
+
 ## 2026-10-14 05:31 — lacuna de conhecimento
 - O quê: `references/residencial-hifi.md` (home theater com peças avulsas) — canal central: precisa de fonte multicanal e canal de amplificação próprios, L+R somado não é central; timbre igual ao de L/R pesa mais que potência; central horizontal com 2 woofers (MTM deitado) tem nulo fora do eixo em sen θ = λ/(2d) e as saídas (2,5 vias, vertical, woofer único).
 - Por quê: ao avaliar uma central DIY de 2 midbass + tweeter, esses três pontos decidiram a resposta e não estavam nas referências; são erros comuns em quem monta a central como "a caixa mais forte do sistema".
