@@ -79,7 +79,8 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 | Alimentação (voltímetro do app) | 13,8 V | **13,9 V** | 14/10 |
 | CH1 +/− em V~ 200, gerador do app (freq./nível ❓), saída −16,5 dB | ≈0 V sem sinal | 5,6 (usuário) · foto: 15,6 | 14/10 |
 | CH1 com gerador 60 Hz / 0 dB, nível 0 dB, GAIN mínimo | — | **26 V** (provável ceifamento do módulo sem carga) | 14/10 |
-| Ganho CH1 / CH2 | 11,0 V | **CH1 11,0 V** com nível do Canal 1 em **−11,0 dB**, GAIN CH1-CH2 no mínimo · CH2 ❓ | 14/10 |
+| Ganho CH1 / CH2 | 11,0 V | **CH1 11,0 V** com o Canal 1 em **−11,0 dB** · **CH2 11,0 V** com o Canal 2 em **−11,0 dB** · GAIN CH1-CH2 no mínimo | 14/10 |
+| Teste −6 dB no CH1 (Canal 1 em −17 dB) | ≈5,5 V | **5,3 V** ✅ (região linear; o gerador passa pelo nível) | 14/10 |
 | Ganho ponte CH4⊕/CH3⊖ | 40 V | | |
 | Resistência caixa L / R (na ponta do cabo) | ≈3,4 Ω | | |
 | Resistência do sub | 3–3,6 Ω | | |
@@ -92,7 +93,7 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - Fusível de 1–2 A (lâmina média) no lugar do 5 A provisório do processador.
 - Silicone das caixas (2.5), no fim.
 - Prints do app que faltam: tela **Salvar** (memórias), **corações** da Home, tela **Volt.**
-- Confirmar o que o **link azul** entre os canais 1–2 e 3–4 faz (mute de um canal silencia o par?).
+- Confirmar o que o **link azul** entre os canais 1–2 e 3–4 faz: **não espelha o nível** (Canal 1 a −17 dB, Canal 2 ficou em −11 dB, 14/10); falta ver mute, filtros e limitador.
 - `../home-theater-5.1/projeto.md` tem linhas desatualizadas sobre o 2.1 (6TR4A/APSOUND, ganho 15,5 V, chave HP, fusível 3 A). **O guia v2.6 e este arquivo é que valem.**
 
 ---
@@ -104,3 +105,4 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - **14/10/2026 (4):** Print do Gerador de Áudio: já em Gerador Fixo, 60 Hz, ganho 0,0 dB, desligado. Sem seleção de canal.
 - **14/10/2026 (5):** Multímetro em V~ 200 mostrando 00.0 (foto 23; linha de base sem sinal, se o gerador estava OFF). Decidido: **fazer o CH1 inteiro primeiro** (ganho 11 V, −6 dB, limitador, passa-alta BT12 120 Hz com prova a 60 Hz ≈ 2,7 V, salvar; depois ligar a caixa L e testar). CH2 e sub depois.
 - **14/10/2026 (6):** Parte 1 do CH1: 26 V com nível 0 dB (GAIN mínimo); **11,0 V com o Canal 1 em −11,0 dB**. Pela conta seriam −7,5 dB: a diferença indica que os 26 V já eram o teto (ceifamento) do módulo. Próximo: teste do −6 dB (1.5) para confirmar a região linear.
+- **14/10/2026 (7):** 1.5 ok: Canal 1 em −17 dB → CH1 5,3 V (esperado 5,5). Canal 2 **não** acompanhou o Canal 1 (link não espelha o nível). CH2 com o Canal 2 em −11 dB = 11,0 V: **CH1 e CH2 regulados**. Próximo: limitador (1.6) nos canais 1 e 2.
