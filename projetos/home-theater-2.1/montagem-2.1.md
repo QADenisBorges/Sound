@@ -1,6 +1,6 @@
-# Montagem do 2.1 — resumo em texto (guia v2.6, 11/10/2026)
+# Montagem do 2.1 — resumo em texto (guia v2.7, 14/10/2026)
 
-> Versão ilustrada: `guia/index.html` (entrada), com três partes: `compras.html`, `montagem.html` e `referencia.html`, cada uma com PDF (`guia/Home-Theater-2.1-<parte>-v2.6.pdf`; dados das versões anteriores em `guia/anteriores/`). Este arquivo continua como resumo em texto. **Andamento da bancada (11–14/10), valores medidos e configurações do app: `andamento.md`.** Conferência da compra de 10/10, foto a foto: `compras/2026-10-10-loja-fisica/conferencia.md`.
+> Versão ilustrada: `guia/index.html` (entrada), com três partes: `compras.html`, `montagem.html` e `referencia.html`, cada uma com PDF (`guia/Home-Theater-2.1-<parte>-v2.7.pdf`; dados das versões anteriores em `guia/anteriores/`). Este arquivo continua como resumo em texto. **Andamento da bancada (11–14/10), valores medidos e configurações do app: `andamento.md`.** Conferência da compra de 10/10, foto a foto: `compras/2026-10-10-loja-fisica/conferencia.md`.
 
 Sistema: notebook/celular → **Taramps PRO 2.4BT + AUDIO** → **SD800.4** (alimentado pela **BOB 60A**) → **JBL 4TRMS80 nas carcaças BS-369** (L/R) + **sub Protech 8"** em ponte.
 O par Selenium 6TR4A volta para o carro.
@@ -152,10 +152,10 @@ Régua da fonte: bornes 1–3 (+) e 4–6 (−) são ligados por dentro. **Os bo
    **Cabos (medidas definidas, fonte · módulo · processador lado a lado, módulo no meio):** 10 mm² vermelho C1 15 cm + C2 40 cm; 10 mm² preto C3 60 cm; 1,5 mm² C4 50 cm, C5 50 cm, C6 4 cm, C7 50 cm; paralelo 2 × 2,5 F1 3,0 m, F2 3,0 m, F3 1,0 m (sobram ≈3 m). força o mais curta possível (fusível a até 30 cm da fonte); falante com 10 % de folga; etiquetas nas duas pontas; condutor marcado = +. Ponta torcida, sem estanhar, todo o cobre dentro do borne.
    **Porta-fusíveis vazios.** O de 40 A é de lâmina média com fios: fio **≥ 4 mm²** (rabicho de 10 cm, fonte limitada a 40 A: ≈0,7 W a 40 A); com 2,5 mm², trocar por midi. Emenda dos fios ao cabo de 10 mm² por solda com termorretrátil. Fita isolante não serve, nem o conector de alavanca (vai só até 4 mm²).
 2. **Conector do processador fora do aparelho** (4.2), **força, terra e REM** (4.3) e **RCA, chaves e GAIN** (4.4: 4 RCA ligados; chaves CH1/CH2 e CH3/CH4 em **F**; GAIN no mínimo; bornes de falante vazios), tudo com a fonte fora da tomada.
-3. **Conferência sem energia** (4.5), multímetro no bip: cada cabo bipa de ponta a ponta no borne certo; entre +12VDC e GND do módulo e do processador a leitura pode começar baixa e subir (capacitores carregando). Parada perto de 0 Ω é curto: não ligue.
+3. **Conferência sem energia** (4.5), multímetro no bip: tabela de 12 pontos (ponta vermelha × preta) no guia; cada cabo bipa de ponta a ponta, o fusível fora isola, e entre + e − só um bip curto que para (capacitores carregando). Bip contínuo é curto: não ligue.
 7. **Energia por ramais:**
    - 4.6 Fonte sozinha, **fusíveis fora**: 13,8 V nos bornes 1/4 (trimpot com chave isolada); 13,8 V na entrada de cada porta-fusível, 0 V na saída.
-   - 4.7 Processador: fusível colocado com a fonte fora da tomada; LED, app, **senha trocada** (padrão 1234), ON/OFF pelo app e REM do módulo seguindo o app. Fusível de 5 A provisório: trocar por 1–2 A médio quando achar.
+   - 4.7 Processador: fusível colocado com a fonte fora da tomada; polaridade do conector conferida com tensão; LED, app, **senha trocada** (padrão 1234), ON/OFF pelo app e REM do módulo seguindo o app (≈12,4 V em ON). Fusível de 5 A provisório: trocar por 1–2 A médio quando achar.
    - 4.8 Módulo: fusível de 40 A colocado com a fonte fora da tomada; 13,8 V na régua; LED segue o app; porta-fusível e cabos frios depois de 5 min.
 5. **Configuração** (4.9), memória 1:
 
@@ -169,20 +169,19 @@ Por que BW2 e não LR4 de 24 dB nas JBL: a caixa selada já soma 12 dB/oit abaix
 
 **Ponte:** todo ajuste da saída 3 se repete na 4 (fase, atraso, filtros, nível, EQ, limitador). Fase invertida em só uma delas cancela a ponte.
 
-6. **Ganho** (4.10), sem falantes: níveis em 0 dB; filtros, EQ e limitador desligados; tom de **60 Hz a 0 dBFS** pelo Bluetooth com o celular a **100 %**; multímetro em **V AC**:
-   - **CH1 e CH2 (JBL): 11 V** (30 W em 4 Ω; quem limita é o curso do cone).
-   - **Ponte CH4 ⊕ / CH3 ⊖ (sub): 40 V** (400 W).
-   - Se com o GAIN no mínimo já passar do alvo, baixe o nível da saída no app (3 e 4 sempre juntas). LED de saída 3 ou 4 aceso = soma A+B ceifando: baixe as duas.
-7. **Limitador** (4.11), com o tom ainda tocando: limiar baixado até o LED acender e subido até apagar, em cada saída. Teste: subindo 2 dB a saída 1, o multímetro não passa de 11 V. Filtros de volta, memória 1 salva e exportada, fonte fora da tomada. **Daqui em diante, níveis e EQ só para baixo.** Notebook pelo P2, quando entrar: medir a 100 %; se passar, vira a referência.
+6. **Ganho** (4.10), sem falantes, feito em 13/10: filtros, EQ e limitador desligados; **gerador do processador** (GERADOR FIXO, 60 Hz, 0 dB); multímetro no **200 V~**; GAIN do módulo no mínimo e ajuste no nível da saída, só com + / −. O gerador em 0 dB fica 6 dB abaixo do máximo, então o alvo com o tom é a metade:
+   - **CH1 e CH2 (JBL): 5,5 V** com o tom (máximo real 11 V: 30 W em 4 Ω) → saídas 1 e 2 em **−16,5 dB**.
+   - **Ponte CH4 ⊕ / CH3 ⊖ (sub): 20 V** com o tom, ≈10 V em cada canal (máximo real 40 V) → saídas 3 e 4 em **−12,0 dB** (−12,5 dB se passar de 20,5 V). Sempre o mesmo número nas duas.
+7. **Limitador** (4.11): com o tom, saídas 6 dB acima (1 e 2 em −10,5; 3 e 4 em −6,0 → 11 V e 40 V); Threshold de cada canal baixado até a luz acender e subido até apagar (3 e 4 iguais). Teste: saída 1 +2 dB, o CH1 não passa de ≈11,5 V. Níveis de volta, filtros de volta, Memória 1 e celular, fonte fora da tomada. **Daqui em diante, níveis e EQ só para baixo.** Configurações de teste no celular: ganho, limitador, primeiro-som e teste-sub (`andamento.md`).
 
 ---
 
 ## 5. Integração (só o que precisa das frentes prontas)
 
 - **5.1 Ligar os falantes** (depois de 4.11; entra o que estiver pronto: caixas validadas 2.12 e/ou sub 3.1), fonte fora da tomada: condutor marcado (+) no borne vermelho da caixa; F1 no CH1, F2 no CH2; sub com o + no **CH4 ⊕**. Antes de apertar, meça na ponta do módulo: ≈3,4 Ω nas caixas, 3–3,6 Ω no sub. O sub pode entrar antes das caixas L/R.
-- **5.2 Primeiro som:** confira o passa-alta das saídas 1/2 no app; volume baixo; uma saída por vez (1 só na L, 2 só na R, 3 e 4 só no sub). Grave cheio numa JBL = RCA trocado ou passa-alta perdido.
-- **5.3 Tipo de caixa do sub** (só precisa do sub): varredura lenta de 25 a 60 Hz, volume baixo, lanterna no cone. Se o cone quase parar numa frequência, a caixa tem duto e essa é a Fb: subsônico em ~0,75–0,8 × Fb, 24 dB/oit. Selada: 25 Hz. Sem conclusão: 30 Hz, 24 dB/oit.
-- **5.4 Ajustes conjuntos:** atraso pela distância até o sofá (a caixa mais perto recebe a diferença, em cm); fase do sub com tom de 120 Hz e decibelímetro, alternando 0°/180° nas saídas 3 e 4 juntas; nível do sub −3 a −9 dB; grave embolado em ~150 Hz: −1 a −2 dB nas saídas 1/2. **Depois de 15 min de música alta, toque nos cabos de força e no porta-fusível:** morno é normal; quente demais = mau contato ou fio fino. Salve e exporte.
+- **5.2 Primeiro som:** configuração "primeiro-som" (Master −20 dB); confira o passa-alta das saídas 1/2 no app; volume baixo; uma saída por vez (1 só na L, 2 só na R, 3 e 4 só no sub). Grave cheio numa JBL = RCA trocado ou passa-alta perdido.
+- **5.3 Tipo de caixa do sub** (só precisa do sub): configuração "teste-sub" (sem subsônico durante o teste), gerador SWEEP lento de 25 a 60 Hz, volume baixo, lanterna no cone. Se o cone quase parar numa frequência, a caixa tem duto e essa é a Fb: subsônico em ~0,75–0,8 × Fb, 24 dB/oit. Selada: 25 Hz. Sem conclusão: 30 Hz, 24 dB/oit.
+- **5.4 Ajustes conjuntos:** atraso pela distância até o sofá (a caixa mais perto recebe a diferença, em cm); fase do sub com tom de 120 Hz e decibelímetro, alternando 0°/180° nas saídas 3 e 4 juntas; nível do sub 3 a 9 dB abaixo do regulado (−12,0 dB); grave embolado em ~150 Hz: −1 a −2 dB nas saídas 1/2. **Depois de 15 min de música alta, toque nos cabos de força e no porta-fusível:** morno é normal; quente demais = mau contato ou fio fino. Salve e exporte.
 
 ## 6. Uso no dia a dia
 - **Ligar:** fonte já na tomada, depois ON no app. **Desligar:** OFF no app e só então, se quiser, a tomada (o módulo desliga pelo REM antes de faltar energia, sem estalo).

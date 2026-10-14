@@ -7,8 +7,8 @@ window.GUIA = {
     tipo: 'Guia de montagem',
     titulo: 'Home Theater 2.1',
     resumo: 'Duas caixas JBL 4TRMS80 em carcaças Britânia BS-369 e um sub de 8", amplificados por um SD800.4 alimentado por fonte. Três frentes independentes (caixas, cabo do sub, eletrônica) e a integração no fim. Tudo em mãos; o painel abaixo diz o que pode ser feito agora.',
-    versao: '2.6',
-    data: '11/10/2026',
+    versao: '2.7',
+    data: '14/10/2026',
     autor: 'Denis',
     nivel: 'Intermediário',
     tempo: '8–10 h + 24–48 h de cura',
@@ -37,11 +37,15 @@ window.GUIA = {
     { id: 'imp_sub', rotulo: 'Impedância do sub (ponte)', valor: '4', un: 'Ω', como: 'Em ponte, nunca abaixo do mínimo do módulo (4 Ω no SD800.4).', fonte: 'Manual SD800.4 · medição' },
     { id: 'ganho_sat', rotulo: 'Ganho das caixas L/R', valor: '11', un: 'V AC', como: 'V = √(P × R): 30 W × 4 Ω → 11 V. Quem limita aqui é o curso do cone, não o calor: com o filtro em 120 Hz, a JBL chega ao Xmax (1,75 mm de pico) com ≈12 W perto de 122 Hz. Para outro falante, rode `calc_som.py excursao` com os dados dele e da caixa.', fonte: '`calc_som.py excursao` · revisão técnica de 09/10/2026' },
     { id: 'ganho_sub', rotulo: 'Ganho do sub em ponte', valor: '40', un: 'V AC', como: 'Tabela do fabricante (ponte 4 Ω / 400 W) ou V = √(P × R).', fonte: 'Manual SD800.4' },
+    { id: 'alvo_sat', rotulo: 'Alvo das caixas com o tom do gerador', valor: '5,5', un: 'V AC', como: 'Metade de 11 V: o gerador em 0 dB fica 6 dB abaixo do máximo, e −6 dB é metade da tensão. Com música a 0 dBFS a saída chega ao dobro, 11 V.', fonte: 'Medição de 13/10/2026' },
+    { id: 'alvo_sub', rotulo: 'Alvo da ponte com o tom do gerador', valor: '20', un: 'V AC', como: 'Metade de 40 V, ≈10 V em cada canal (CH3 e CH4). Com música a 0 dBFS a ponte chega a 40 V.', fonte: 'Medição de 13/10/2026' },
+    { id: 'nivel_sat', rotulo: 'Nível das saídas 1 e 2 (caixas)', valor: '−16,5', un: 'dB', como: 'Resultado da regulagem com o GAIN do módulo no mínimo: o nível da saída no app que dá 5,5 V no CH1 com o tom. Depende da sensibilidade do módulo: com outro módulo, refaça o 4.10.', fonte: 'Regulagem de 13/10/2026 (5,5 V no CH1 e no CH2)' },
+    { id: 'nivel_sub', rotulo: 'Nível das saídas 3 e 4 (sub)', valor: '−12,0', un: 'dB', como: 'O mesmo, com 20 V na ponte. Se der mais de 20,5 V, use −12,5 dB. Sempre o mesmo número nas saídas 3 e 4.', fonte: 'Regulagem de 13/10/2026 · releitura de 14/10 (21,3 V em −11,5 dB)' },
     { id: 'corte', rotulo: 'Frequência de corte', valor: '120', un: 'Hz', como: 'Perto da frequência de ressonância da caixa satélite (Fc ≈ 124 Hz). Confira por simulação.', fonte: 'Simulação de 09/10/2026' },
     { id: 'filtro_sat', rotulo: 'Filtro das caixas L/R', valor: 'Butterworth 12 dB/oit', un: '', como: 'Caixa selada + filtro de 12 dB = corte acústico de 24 dB/oit.', fonte: 'Simulação de 09/10/2026' },
     { id: 'filtro_sub', rotulo: 'Filtro do sub', valor: 'Linkwitz-Riley 24 dB/oit', un: '', como: 'Padrão para somar com as caixas no cruzamento.', fonte: 'Simulação de 09/10/2026' },
     { id: 'subsonico', rotulo: 'Subsônico do sub', valor: '30', un: 'Hz, 24 dB/oit', como: 'Depende da caixa (teste do passo 5.3). Selada: 25 Hz basta. Com duto: ≈0,75–0,8 × a frequência do duto (Fb), 24 dB/oit. Sem conclusão: 30 Hz, 24 dB/oit.', fonte: 'Revisão técnica de 09/10/2026 · tipo da caixa do sub a confirmar' },
-    { id: 'tom', rotulo: 'Tom de teste do ganho', valor: '60 Hz', un: 'a 0 dBFS', como: 'Frequência do manual do módulo, no nível mais alto que um arquivo digital pode ter (0 dBFS), igual nos dois canais.', fonte: 'Manual SD800.4 · revisão técnica de 09/10/2026' },
+    { id: 'tom', rotulo: 'Tom de teste do ganho', valor: '60 Hz', un: 'gerador do processador, 0 dB', como: 'Gerador de Áudio do app → GERADOR FIXO, 60 Hz, ganho 0 dB (frequência do manual do módulo). Chega igual aos quatro canais, sem depender do volume do celular. Em 0 dB ele sai ≈6 dB abaixo do máximo da saída: o LED Limiter/Out Clip só acende com o nível da saída 6 dB acima.', fonte: 'Manual SD800.4 · medição de 13/10/2026 (LED de clip acende com +6 dB)' },
     { id: 'volume_teste', rotulo: 'Volume da fonte na regulagem', valor: '100 %', un: '', como: 'O maior sinal que pode chegar: celular no máximo, sem equalizador nem efeitos. Assim não existe volume acima da regulagem. O notebook pelo P2 também é medido a 100 %.', fonte: 'Revisão técnica de 09/10/2026 · manual PRO 2.4BT + AUDIO (saída máxima de 2,1 V RMS; nível de saída até +15 dB)' },
     { id: 'limiar', rotulo: 'Limiar do limitador', valor: 'No ponto regulado', un: '', como: 'Com o tom de referência tocando, baixe o limiar de cada saída até o LED dela acender e suba até apagar. O limitador passa a cortar só o que passaria da regulagem.', fonte: 'Manual PRO 2.4BT + AUDIO, pág. 11 (limitador e LEDs de saída) · revisão técnica de 09/10/2026' },
     { id: 'fibra', rotulo: 'Enchimento por caixa', valor: '40–50', un: 'g', como: '~10–15 g de fibra por litro de caixa (a BS-369 tem ~3,5 L).', fonte: 'componentes/caixas.md' },
@@ -290,7 +294,45 @@ window.GUIA = {
         ['1 (JBL L)', 'A', 'Passa-alta {{p:filtro_sat}} em {{p:corte}}', 'Limitador no ponto regulado · fase 0°'],
         ['2 (JBL R)', 'B', 'Passa-alta {{p:filtro_sat}} em {{p:corte}}', 'Limitador no ponto regulado · fase 0°'],
         ['3 e 4 (sub, ponte)', 'A+B', 'Passa-baixa {{p:filtro_sub}} em {{p:corte}} + subsônico em {{p:subsonico}}', 'Fase 0° (testar 180°) · **tudo igual nas duas saídas**'],
-        ['Todas', '—', 'EQ só para cortar', 'Depois da regulagem, níveis só para baixo · senha trocada']
+        ['Todas', '—', 'EQ só para cortar', 'Níveis: 1 e 2 em {{p:nivel_sat}}, 3 e 4 em {{p:nivel_sub}} (4.10); depois, só para baixo · senha trocada']
+      ]
+    },
+    crossover: {
+      titulo: 'Tela Crossover do app (passo 4.9)',
+      cab: ['Aba', 'HPF: Filtro · Freq.', 'LPF: Filtro · Freq.'],
+      linhas: [
+        ['Canal 1', 'BT12 · 120 Hz', 'OFF · 22000 Hz'],
+        ['Canal 2', 'BT12 · 120 Hz', 'OFF · 22000 Hz'],
+        ['Canal 3', 'LR24 · 30 Hz (subsônico)', 'LR24 · 120 Hz'],
+        ['Canal 4', 'LR24 · 30 Hz (subsônico)', 'LR24 · 120 Hz']
+      ]
+    },
+    conferencia: {
+      titulo: 'Conferência sem energia (passo 4.5)',
+      cab: ['#', 'Ponta vermelha', 'Ponta preta', 'Resultado'],
+      linhas: [
+        ['1', 'Borne 1 da fonte', 'Entrada do porta-fusível de 40 A', '**Bipa**'],
+        ['2', 'Saída do porta-fusível de 40 A', '+12VDC do módulo', '**Bipa**'],
+        ['3', 'Borne 4 da fonte', 'GND do módulo', '**Bipa**'],
+        ['4', 'Borne 2 da fonte', 'Entrada do porta-fusível pequeno', '**Bipa**'],
+        ['5', 'Saída do porta-fusível pequeno', '+12VDC do processador', '**Bipa**'],
+        ['6', 'Borne 5 da fonte', 'GND do processador', '**Bipa**'],
+        ['7', 'REM OUT do processador', 'REM do módulo', '**Bipa**'],
+        ['8', 'Entrada do porta-fusível de 40 A', 'Saída do mesmo', '**Não bipa**'],
+        ['9', 'Borne 1 da fonte', '+12VDC do módulo', '**Não bipa**'],
+        ['10', 'Borne 1 da fonte', 'Borne 4 da fonte', '**Não bipa**'],
+        ['11', '+12VDC do módulo', 'GND do módulo', '**Não bipa**'],
+        ['12', '+12VDC do processador', 'GND do processador', '**Não bipa**']
+      ]
+    },
+    presets: {
+      titulo: 'Configurações de teste salvas no celular',
+      cab: ['Nome', 'Para quê', 'Níveis 1 e 2 · 3 e 4 · Master', 'Crossover'],
+      linhas: [
+        ['ganho', 'Conferir a regulagem (4.10). **Nunca com falantes**', '{{p:nivel_sat}} · {{p:nivel_sub}} · 0 dB', 'Tudo OFF'],
+        ['limitador', 'Travar o limitador (4.11). **Nunca com falantes**', '−10,5 · −6,0 · 0 dB', 'Tudo OFF'],
+        ['primeiro-som', 'Primeiro som (5.2)', '{{p:nivel_sat}} · {{p:nivel_sub}} · −20 dB', 'Tabela do 4.9'],
+        ['teste-sub', 'Sintonia da caixa do sub (5.3); saídas 1 e 2 mudas', '{{p:nivel_sat}} · {{p:nivel_sub}} · −20 dB', '3 e 4: HPF OFF, LPF LR24 120 Hz']
       ]
     }
   },
@@ -300,15 +342,17 @@ window.GUIA = {
     { id: 'jbl-r', medida: 'Resistência da JBL R', como: 'Multímetro em Ω, falante solto', esperado: '≈3,4 Ω' },
     { id: 'sub', medida: 'Resistência do sub', como: 'Multímetro em Ω, fio solto do módulo', esperado: '3–3,6 Ω' },
     { id: 'tensao', medida: 'Tensão na régua do módulo', como: 'V DC entre +12VDC e GND, fonte ligada', esperado: '{{p:tensao}}' },
-    { id: 'ganho-1', medida: 'Ganho CH1', como: 'V AC no CH1, tom de {{p:tom}}, sem falantes', esperado: '{{p:ganho_sat}}' },
-    { id: 'ganho-2', medida: 'Ganho CH2', como: 'V AC no CH2, tom de {{p:tom}}, sem falantes', esperado: '{{p:ganho_sat}}' },
-    { id: 'ganho-sub', medida: 'Ganho da ponte (sub)', como: 'V AC entre CH4 ⊕ e CH3 ⊖, sem falantes', esperado: '{{p:ganho_sub}}' },
-    { id: 'nivel-saidas', medida: 'Nível das saídas no app (1 / 2 / 3 e 4)', como: 'Depois da regulagem; 0 dB se o GAIN deu conta', esperado: '0 dB ou menos' },
+    { id: 'ganho-1', medida: 'Ganho CH1', como: '200 V~ no CH1, tom de {{p:tom}}, saída 1 em {{p:nivel_sat}}, sem falantes', esperado: '{{p:alvo_sat}} (13/10: 5,5 V)' },
+    { id: 'ganho-2', medida: 'Ganho CH2', como: '200 V~ no CH2, mesmo tom, saída 2 em {{p:nivel_sat}}', esperado: '{{p:alvo_sat}} (13/10: 5,5 V)' },
+    { id: 'ganho-sub', medida: 'Ganho da ponte (sub)', como: '200 V~ entre CH4 ⊕ e CH3 ⊖, mesmo tom, saídas 3 e 4 em {{p:nivel_sub}}', esperado: '{{p:alvo_sub}} (≈10 V em cada canal)' },
+    { id: 'nivel-saidas', medida: 'Nível das saídas no app (1 / 2 / 3 e 4)', como: 'Depois da regulagem (4.10), GAIN do módulo no mínimo', esperado: '{{p:nivel_sat}} (1 e 2) · {{p:nivel_sub}} (3 e 4)' },
+    { id: 'limiar', pendente: true, medida: 'Threshold do limitador (saídas 1 / 2 / 3 e 4)', como: 'Passo 4.11; digitar também nas configurações "primeiro-som" e "teste-sub"', esperado: 'Saídas 3 e 4 iguais' },
     { id: 'caixa-sub', pendente: true, medida: 'Caixa do sub: com duto (11/10). Falta a frequência do duto (Fb)', como: 'Diâmetro interno e comprimento do duto + medidas internas da caixa; ou passo 5.3, varredura de 25 a 60 Hz', esperado: 'Subsônico = 0,75–0,8 × Fb' },
     { id: 'dist', medida: 'Distâncias até o sofá (L / R / sub)', como: 'Trena', esperado: '—' },
     { id: 'fibra', medida: 'Fibra por caixa', como: 'Balança de cozinha', esperado: '{{p:fibra}}' },
     { id: 'frestas', pendente: true, medida: 'Frestas achadas no teste da lanterna (onde, em cada metade)', como: 'Passo 2.3', esperado: '—' },
-    { id: 'fio-pf', pendente: true, medida: 'Diâmetro do fio do porta-fusível de 40 A', como: 'Régua no fio, ou no cobre desencapado', esperado: '≈4,5 mm por fora (4 mm²); 2,6 mm de cobre' },
+    { id: 'fio-pf', pendente: false, medida: 'Diâmetro do fio do porta-fusível de 40 A', como: 'Medido em 11/10 (fotos do cobre na régua): ≈2,5–3 mm de cobre', esperado: '≈4 mm²: aceito' },
+    { id: 'emenda-40a', pendente: true, medida: 'Emendas do porta-fusível de 40 A soldadas', como: 'Hoje trançadas com termorretrátil (provisório de 11/10, teste de bancada). Soldar, ou trocar por midi, antes do uso definitivo', esperado: 'Soldadas e frias depois de 15 min de música alta' },
     { id: 'torre', pendente: false, medida: 'Altura da torre de parafuso da BS-369', como: 'Não se aplica (11/10): os furos da JBL não coincidem com as torres; a fixação foi furada na moldura (2.2). Conferir só o teste do parafuso do 2.2.', esperado: '—' },
     { id: 'terminais-jbl', pendente: false, medida: 'Largura dos terminais da JBL (+ / −)', como: 'Régua (fotos de 11/10/2026)', esperado: '6,3 mm nos dois: faston nos dois terminais' }
   ],
@@ -672,16 +716,21 @@ window.GUIA = {
             { tipo: 'atencao', texto: 'Os bornes 7–9 da régua da fonte são da rede (127/220 V) e ficam expostos ao lado dos de 12 V. Só mexa na régua com o plugue fora da tomada.' }],
           acoes: [
             'Confirme: fonte fora da tomada e porta-fusíveis vazios.',
-            'Na fonte: {{c:C1}} no borne 1 (+), {{c:C4}} no borne 2 (+), {{c:C3}} no borne 4 (−), {{c:C5}} no borne 5 (−).',
-            'No módulo: {{c:C2}} no +12VDC e {{c:C3}} no GND.',
+            'Na fonte: {{c:C1}} no borne 1 (+), {{c:C4}} no borne 2 (+), {{c:C3}} no borne 4 (−), {{c:C5}} no borne 5 (−). Borne 3 vazio, com o parafuso apertado.',
+            'O 10 mm² que não cabe de um lado vai dividido em duas metades, uma de cada lado do parafuso, com todos os fios sob a plaquinha. No borne 4, nenhum fio passa a divisória para o borne 3 (+).',
+            'No módulo: {{c:C2}} no +12VDC e {{c:C3}} no GND (parafuso Allen). Desencape do tamanho do furo: o parafuso aperta o cobre, não a capa.',
             'Encaixe no processador o conector do passo 4.2 e leve {{c:C7}} até o REM do módulo.',
             'Puxe cada cabo: nada pode soltar, nenhum cobre aparente.'
           ],
           figuras: [
             { tipo: 'mapa', equip: 'bob60a', legenda: 'Régua da fonte com os cabos do projeto. Os bornes 1–3 (+) e 4–6 (−) são ligados por dentro; 3 e 6 ficam livres.' },
-            { tipo: 'mapa', equip: 'sd800.4-saida', legenda: 'Régua de saída do módulo com os cabos do projeto. Atenção: com o módulo de cabeça para baixo, a ordem se inverte.' }
+            { tipo: 'mapa', equip: 'sd800.4-saida', legenda: 'Régua de saída do módulo com os cabos do projeto. Atenção: com o módulo de cabeça para baixo, a ordem se inverte.' },
+            { tipo: 'foto', itens: [
+              { src: 'img/bob60a-regua-ligada-12-10.jpg', alt: 'Régua da fonte ligada: C1 no borne 1, C4 no 2, borne 3 vazio, C3 dividido no 4, C5 no 5', credito: 'Foto do usuário, 12/10/2026' },
+              { src: 'img/sd8004-forca-ligada-12-10.jpg', alt: 'Módulo com C3 no GND, C7 no REM e C2 no +12VDC', credito: 'Foto do usuário, 12/10/2026' }
+            ], legenda: 'Como ficou em 12/10: na fonte, o preto de 10 mm² dividido em volta do parafuso do borne 4, sem fio na divisória; no módulo, GND · REM · +12VDC sem cobre aparente.' }
           ],
-          verificacao: ['Cada cabo no borne da tabela de conexões, firme.']
+          verificacao: ['Cada cabo no borne da tabela de conexões, firme ao puxão.', 'Nenhum fio de cobre fora da plaquinha nem passando a divisória.']
         },
         {
           id: '4.4', fase: 'Ligar (sem energia)', depende: ['4.1'], titulo: 'Ligar os RCA e preparar o módulo', tempo: '15 min', risco: 'medio', materiais: ['M12'],
@@ -689,7 +738,8 @@ window.GUIA = {
             'RCA: saídas 1–4 do processador nas entradas CH1–CH4 do módulo ({{c:S1}}–{{c:S4}}). O módulo precisa das 4 entradas ligadas.',
             'Chaves X-OVER do módulo: CH1/CH2 e CH3/CH4 em **F** (quem filtra é o processador).',
             'GAIN dos dois pares no mínimo.',
-            'Bornes de falante do módulo **vazios** até a etapa 5.'
+            'Bornes de falante do módulo **vazios** até a etapa 5.',
+            'Cada RCA entra até o fim nos dois lados. Se a capa não entra, abra-a de leve com a chave: RCA pela metade deixa o canal em 0 V (13/10).'
           ],
           figuras: [
             { tipo: 'mapa', equip: 'pro24bt-rca', legenda: 'Conexões RCA do processador. A entrada HIGH IN (alto nível) não é usada.' },
@@ -700,107 +750,105 @@ window.GUIA = {
         },
         {
           id: '4.5', fase: 'Conferir e energizar por ramais', depende: ['4.3', '4.4'], titulo: 'Conferir com o multímetro, sem energia', objetivo: 'Achar inversão e curto antes que a energia ache.',
-          tempo: '15 min', risco: 'alto', validar: true, ferramentas: ['Multímetro'],
+          tempo: '15 min', risco: 'alto', ferramentas: ['Multímetro'],
           acoes: [
-            'Fonte fora da tomada, porta-fusíveis vazios, multímetro em continuidade (bip) ou na escala de 200 Ω.',
-            'Borne 1 (+) da fonte → entrada do porta-fusível de 40 A: bipa. Saída dele → +12VDC do módulo: bipa.',
-            'Borne 4 (−) da fonte → GND do módulo: bipa.',
-            'Borne 2 (+) → entrada do porta-fusível do processador; saída dele → +12VDC do processador: bipa. Borne 5 (−) → GND do processador: bipa.',
-            'Entre +12VDC e GND do módulo e, depois, do processador: pode bipar rápido e subir aos poucos. Parado perto de 0 Ω é curto: não ligue.'
+            'Fonte fora da tomada, porta-fusíveis vazios, multímetro no bip. Siga a tabela (porta-fusível pequeno = o do processador).',
+            'Linhas 10 a 12: bip curto que para é o capacitor carregando. Bip contínuo é curto: não ligue.'
           ],
-          verificacao: ['Cada cabo bipa de ponta a ponta, no borne certo.', 'Nenhum + parado em 0 Ω com o GND.'],
-          erro: 'Conferir só olhando. Inverter + e − é o erro mais comum na primeira ligação, e é justamente o caso que um fusível maior que o do manual protege pior.',
-          basico: 'Na continuidade, o multímetro manda uma corrente minúscula. Os capacitores da entrada do módulo se carregam com ela: a leitura começa baixa e sobe. Curto de verdade não sobe. Com os fusíveis fora, cada ramal fica isolado e o defeito aparece sem risco.'
+          figuras: [{ tipo: 'tabela', ref: 'conferencia' }],
+          verificacao: ['Todas as linhas com o resultado da tabela.']
         },
         {
           id: '4.6', fase: 'Conferir e energizar por ramais', depende: ['4.5'], titulo: 'Ligar a fonte sozinha e ajustar a tensão', objetivo: 'Conferir a fonte antes de ela alimentar qualquer aparelho.',
-          tempo: '10 min', risco: 'alto', validar: true, ferramentas: ['Multímetro', 'Chave de fenda isolada'],
+          tempo: '10 min', risco: 'alto', ferramentas: ['Multímetro', 'Chave de fenda isolada'],
           requer: 'Conferência sem energia aprovada (passo 4.5).',
           alertas: [{ tipo: 'perigo', texto: 'Com o plugue na tomada, os bornes 7–9 da fonte ficam com 127/220 V, expostos na mesma régua do 12 V. Ajuste o trimpot com chave de fenda isolada e não encoste nos parafusos da régua.' }],
           acoes: [
             'Confirme: os dois porta-fusíveis vazios.',
+            'Multímetro no **20 do V com linha reta** (V DC). Ponta vermelha no furo VΩmA, preta no COM; nunca no furo de 10 A.',
             'Ligue a fonte na tomada aterrada.',
-            'Multímetro em V DC nos bornes 1 (+) e 4 (−) da fonte: ajuste para {{p:tensao}} no trimpot ADJ VOLTAGE.',
-            'Na entrada de cada porta-fusível: {{p:tensao}}. Na saída: 0 V.',
-            'Tire a fonte da tomada.'
+            'Bornes 1 (+) e 4 (−): {{p:tensao}} (13,5–14,0 V serve). Fora disso, gire o trimpot ADJ VOLTAGE aos poucos, medindo. Não leve ao fim de curso.',
+            'Na entrada de cada porta-fusível: {{p:tensao}}. Na saída: 0 V. Sinal de menos na tela = pontas trocadas.',
+            'Tire a fonte da tomada. O LED dela demora a apagar (capacitores descarregando): é normal. Mexa na régua só depois de apagar.'
           ],
           verificacao: ['{{p:tensao}} nos bornes da fonte, sem nenhum aparelho alimentado.'],
           basico: 'Ligando a fonte sozinha, você separa "fonte com problema" de "ligação com problema". Se algo falhar nos próximos passos, a fonte já está conferida.'
         },
         {
           id: '4.7', fase: 'Conferir e energizar por ramais', depende: ['4.6'], titulo: 'Ligar o processador', objetivo: 'Primeiro aparelho a receber energia: o que consome menos e tem o fusível menor.',
-          tempo: '15 min', risco: 'alto', validar: true,
+          tempo: '20 min', risco: 'alto',
           requer: 'Fonte em {{p:tensao}} (passo 4.6).',
           alertas: [{ tipo: 'atencao', texto: 'Fusível do processador: {{p:fus1}} pelo manual. O de 5 A serve **por enquanto** (decisão de 10/10): protege o fio, mas protege menos o processador num defeito interno. Troque pelo de 1–2 A (M23) quando o tiver.' }],
           acoes: [
             'Com a fonte fora da tomada, coloque o fusível do processador. O de 40 A continua fora.',
-            'Ligue a fonte na tomada: o LED do processador acende.',
-            'Abra o app, conecte e troque a senha (padrão 1234).',
-            'Teste o modo BOB: ON e OFF pelo app.',
-            'Multímetro em V DC no REM e no GND do módulo: ≈{{p:tensao}} com o app em ON e 0 V em OFF.',
+            'Ligue a fonte na tomada. Nos parafusos do conector (V DC 20, preta no GND): +12VDC e REM IN ≈{{p:tensao}}; REM OUT 0 V. Leitura negativa = + e − trocados: tire da tomada.',
+            'LED do processador aceso.',
+            'App **PRO 2.4BT + AUDIO** (Taramps), com Bluetooth e localização ligados, perto do aparelho: toque em **Conectar** (não no Modo Demo), aceite as permissões e entre com a senha 1234.',
+            'Troque a senha (menu Senha / Bloqueio) e anote a nova.',
+            'App em **ON** (botão verde): REM × GND do módulo ≈12,4 V. Em **OFF** (vermelho): 0 V.',
             'Fusível queimou ou o LED não acendeu: tire da tomada e volte ao passo 4.5.'
           ],
-          verificacao: ['LED aceso, app conectado e senha trocada.', 'O REM do módulo segue o ON e o OFF do app.']
+          verificacao: ['LED aceso, app conectado e senha trocada.', 'O REM do módulo segue o ON e o OFF do app (≈12,4 V: um pouco abaixo da fonte, normal).']
         },
         {
           id: '4.8', fase: 'Conferir e energizar por ramais', depende: ['4.7', '4.1'], titulo: 'Ligar o módulo', objetivo: 'Último ramal: o de maior corrente, ainda sem falantes.',
-          tempo: '15 min', risco: 'alto', validar: true,
+          tempo: '15 min', risco: 'alto',
           requer: 'Processador funcionando (passo 4.7) e porta-fusível de 40 A aprovado (passo 4.1).',
           alertas: [{ tipo: 'perigo', texto: 'Fusível se coloca sempre com a fonte fora da tomada: com o plugue ligado, os bornes 7–9 da fonte ficam com 127/220 V.' }],
           acoes: [
             'Com a fonte fora da tomada, coloque o fusível de {{p:fus40}}.',
             'Ligue a fonte na tomada.',
-            'Meça na régua do módulo (+12VDC e GND): {{p:tensao}}.',
+            'V DC 20: +12VDC × GND do módulo = {{p:tensao}}. Borne 1 da fonte × +12VDC e GND × borne 4 da fonte: 0–0,1 V (perda nos cabos e nas emendas).',
             'App em ON: o LED do módulo acende. Em OFF: apaga.',
             'Depois de 5 min ligado, toque no porta-fusível e nos cabos de força: frios (sem som, a corrente é pequena).'
           ],
-          verificacao: ['{{p:tensao}} na régua do módulo.', 'O LED do módulo segue o app.'],
+          verificacao: ['{{p:tensao}} na régua do módulo e no máximo 0,1 V de perda de cada lado.', 'O LED do módulo segue o app.'],
           erro: 'Se o fusível queimar na hora, há curto ou polaridade invertida. Tire da tomada e volte ao passo 4.5. Trocar o fusível sem achar a causa só queima o próximo.'
         },
         {
           id: '4.9', fase: 'Configurar e regular', depende: ['4.7'], titulo: 'Configurar o processador', tempo: '20 min', risco: 'medio',
           alertas: [{ tipo: 'atencao', texto: 'Na ponte, **todo ajuste da saída 3 se repete na 4**: fase, atraso, filtros, nível, EQ e limitador. Fase invertida em só uma delas cancela a ponte, e o sub fica mudo ou fraco.' }],
           acoes: [
-            'Entrada: Bluetooth do celular (ou RCA A = L e B = R, quando o cabo do notebook entrar).',
-            'Saídas 1 e 2 (caixas): origem A e B, passa-alta {{p:filtro_sat}} em {{p:corte}}, fase 0°.',
-            'Saídas 3 e 4 (sub, ponte): origem A+B, passa-baixa {{p:filtro_sub}} em {{p:corte}} e subsônico em {{p:subsonico}}, fase 0°.',
-            'Salve na memória 1.'
+            'Entrada Bluetooth: na tela inicial, **Áudio BT** ligado; no celular, fora do app, parear com TARAMPS AUDIO. (RCA A = L e B = R quando o notebook entrar.)',
+            '**Áudio → Roteamento:** Canal 1 em A, Canal 2 em B, Canais 3 e 4 em A+B.',
+            '**Áudio → Crossover:** escolha o canal na aba de cima e preencha como a tabela. Filtro em OFF ignora a frequência digitada: confira a curva (3 e 4 descem dos dois lados).',
+            '**Fase** 0 nos quatro; **Alinhamento** 0 cm (ajustado no 5.4); **EQ 15 bandas** em Flat; **EQ Param** de entrada e de saída com ganho 0,0.',
+            '**Salvar → + Novo/Salvar →** ícone do processador → Memória 1. Repita no ícone do celular (cópia de segurança).'
           ],
-          figuras: [{ tipo: 'tabela', ref: 'processador' }],
-          basico: 'A caixa selada já corta 12 dB/oitava abaixo de ≈124 Hz. Somado ao filtro Butterworth de 12 dB, o corte que chega ao ouvido é de 24 dB/oitava e soma plano com o sub (0 a +1,3 dB na simulação). Com 24 dB elétricos nas caixas, abriria um buraco de −3 a −10 dB no cruzamento. Com a chave do módulo em F, o passa-alta das JBL é só o do processador: depois de um reset, confira se ele continua lá (passo 5.5).'
+          figuras: [{ tipo: 'tabela', ref: 'crossover' }]
         },
         {
-          id: '4.10', fase: 'Configurar e regular', depende: ['4.8', '4.9'], titulo: 'Regular o ganho', objetivo: 'Com o maior sinal que pode chegar, levar cada saída do módulo ao alvo.',
-          tempo: '20 min', risco: 'alto', validar: true,
+          id: '4.10', fase: 'Configurar e regular', depende: ['4.8', '4.9'], titulo: 'Regular o ganho', objetivo: 'Com o tom do gerador do processador, levar cada saída do módulo ao alvo: GAIN no mínimo e ajuste fino no nível da saída.',
+          tempo: '30 min', risco: 'alto',
           requer: 'Módulo ligado (passo 4.8), processador configurado (4.9) e bornes de falante vazios.',
-          alertas: [{ tipo: 'perigo', texto: 'Nenhum falante ligado nesta etapa: tom de teste com falante ligado danifica o falante e a audição. Não encoste na régua da fonte (127/220 V nos bornes 7–9).' }],
+          alertas: [{ tipo: 'perigo', texto: 'Nenhum falante ligado: tom de teste com falante danifica o falante e a audição.' },
+            { tipo: 'atencao', texto: 'Multímetro no **200 V~** (V com til). Pontas firmes contra o parafuso, 2–3 s até parar.' }],
           acoes: [
-            'No processador: master e níveis das saídas em 0 dB; filtros, EQ e limitador desligados. No celular: equalizador e efeitos desligados.',
-            'Toque pelo Bluetooth o tom de {{p:tom}} com o celular a {{p:volume_teste}}. GAIN no mínimo, multímetro em V AC nos bornes de saída do módulo.',
-            'CH1 e CH2: suba o GAIN CH1-CH2 até {{p:ganho_sat}}. Se no mínimo já passar, deixe no mínimo e baixe juntas as saídas 1 e 2 no app até o alvo.',
-            'Ponte CH4 ⊕ / CH3 ⊖: o mesmo com o GAIN CH3-CH4 até {{p:ganho_sub}}, baixando juntas as saídas 3 e 4 se precisar.',
-            'LED da saída 3 ou 4 aceso = soma A+B ceifando no processador: baixe as duas até apagar e meça de novo.',
-            'Anote os valores e o nível de cada saída na tabela de medições. Não desligue: o passo 4.11 usa o mesmo tom.'
+            'App: Master e saídas em 0 dB; **Crossover** com HPF e LPF em OFF nos quatro canais; EQs zerados; Threshold OFF. Módulo: os dois GAIN no mínimo.',
+            '**Gerador de Áudio → GERADOR FIXO:** 60 Hz, ganho 0 dB, chave em ON.',
+            '**Nível das Saídas**, só com **+ / −** (valor digitado pode não ir): saídas 1 e 2 até o CH1 dar {{p:alvo_sat}} ({{p:nivel_sat}}). O CH2 fica a menos de 1 V do CH1.',
+            'Saídas 3 e 4 até a ponte CH4 ⊕ / CH3 ⊖ dar {{p:alvo_sub}} ({{p:nivel_sub}}), ≈10 V em cada canal, **com o mesmo número nas duas**.',
+            'Abaixo do alvo com a saída em 0 dB: suba o GAIN do módulo. LED de saída aceso: baixe até apagar.',
+            'Anote na tabela de medições e salve no celular como **"ganho"**. Deixe o tom ligado para o 4.11.'
           ],
-          verificacao: ['CH1 e CH2 em {{p:ganho_sat}} e ponte em {{p:ganho_sub}}, com o celular a {{p:volume_teste}}.', 'LEDs de saída apagados.'],
-          erro: 'Regular com o celular a 3/4: no 100 %, a JBL receberia até o dobro da tensão.',
-          basico: 'Regulando com o maior sinal possível, o módulo nunca entrega mais que o alvo. O alvo das JBL vem do curso do cone, não do calor. Com 2,1 V vindos do processador, um módulo de 2 V de sensibilidade passa do alvo já no GAIN mínimo: daí o ajuste no nível da saída.'
+          verificacao: ['CH1 e CH2 em {{p:alvo_sat}} e ponte em {{p:alvo_sub}}, com o tom do gerador.', 'Saídas 3 e 4 com o mesmo nível; LEDs de saída apagados.'],
+          erro: 'Canal em 0 V com o app certo: RCA mal encaixado. CH1 baixo: filtros ainda ligados. Leitura 0,00: multímetro em V DC.'
         },
         {
           id: '4.11', fase: 'Configurar e regular', depende: ['4.10'], titulo: 'Travar o teto e voltar os filtros', objetivo: 'Limitador no ponto regulado: nada passa da regulagem, mesmo com EQ ou nível subidos.',
-          tempo: '15 min', risco: 'alto', validar: true,
-          alertas: [{ tipo: 'atencao', texto: 'Daqui em diante, níveis e EQ do app **só para baixo**. O volume do dia a dia é o do celular.' }],
+          tempo: '25 min', risco: 'alto', validar: true,
+          alertas: [{ tipo: 'perigo', texto: 'Saídas 6 dB acima: a ponte chega a 40 V. Não encoste no metal dos bornes.' },
+            { tipo: 'atencao', texto: 'Daqui em diante, níveis e EQ do app **só para baixo**. O volume do dia a dia é o do celular.' }],
           acoes: [
-            'Com o tom do passo 4.10 tocando: em cada saída, baixe o limiar do limitador até o LED dela acender e suba até ele apagar. Saídas 3 e 4 com o mesmo limiar.',
-            'Teste o teto: suba 2 dB o nível da saída 1. O LED acende e o multímetro **não** passa de {{p:ganho_sat}}. Volte o nível.',
-            'Pare o tom e reative os filtros das saídas (passo 4.9).',
-            'Salve a memória 1 e exporte a configuração para o celular (Settings / Presets).',
+            'Com o tom do 4.10, suba 6 dB as quatro saídas: 1 e 2 em −10,5 dB, 3 e 4 em −6,0 dB (configuração **"limitador"**). CH1 ≈{{p:ganho_sat}}; ponte ≈{{p:ganho_sub}}.',
+            '**Áudio → Limiter**, aba de cada canal, Auto desligado: baixe o **Threshold** até a luz Limiter/Out Clip do canal acender e suba até ela apagar. Saídas 3 e 4 com o mesmo valor.',
+            'Teste o teto: saída 1 mais 2 dB. A luz acende e o CH1 não passa de ≈11,5 V (se passar, baixe o Threshold). Volte.',
+            'Volte os níveis: 1 e 2 em {{p:nivel_sat}}, 3 e 4 em {{p:nivel_sub}}. Desligue o gerador.',
+            'Religue os filtros (tabela do 4.9) e confira as curvas. Salve na Memória 1 e no celular. Anote os Thresholds e digite-os em "primeiro-som" e "teste-sub" (tabela de configurações na Referência).',
             'Desligue o som no app e tire a fonte da tomada: a eletrônica está pronta para os falantes.',
-            'Notebook pelo P2, quando entrar: toque o mesmo tom com ele a 100 % e meça. Se passar do alvo, ele vira a referência: refaça o 4.10 e este passo.'
+            'Notebook pelo P2, quando entrar: tom de 60 Hz com ele a 100 %. Se o CH1 passar de {{p:ganho_sat}}, refaça o 4.10 com ele.'
           ],
-          verificacao: ['Com o tom de referência, o LED de cada saída fica apagado.', 'Filtros ativos e configuração salva no processador e no celular.'],
-          erro: 'Se no teste o multímetro passar do alvo, o limitador age antes do nível de saída e não segura o nível. Anote e nunca suba os níveis.',
-          basico: 'O limitador corta o sinal que passaria do limiar. Com o limiar no ponto regulado, nenhuma saída leva ao módulo mais que o alvo, mesmo se alguém subir o EQ, o nível ou o volume de outra fonte. No app, o limiar aparece em volts, na saída do processador.'
+          verificacao: ['Com o tom nos níveis regulados, o LED de cada saída fica apagado.', 'Filtros ativos, Thresholds anotados e configuração salva no processador e no celular.']
         }
       ]
     },
@@ -828,7 +876,7 @@ window.GUIA = {
           id: '5.2', fase: 'Testar e ajustar', depende: ['5.1'], titulo: 'Primeiro som: uma saída por vez', tempo: '15 min', risco: 'medio', validar: true,
           alertas: [{ tipo: 'dica', texto: 'Audição: volume alto por horas (acima de ≈85 dB) cansa e causa perda permanente. Teste em volume baixo e suba aos poucos.' }],
           acoes: [
-            'Ligue a fonte na tomada. Antes de tocar, confira no app o passa-alta das saídas 1 e 2.',
+            'Ligue a fonte na tomada e carregue a configuração **"primeiro-som"** (Master em −20 dB, filtros ligados, Thresholds do 4.11). Antes de tocar, confira o passa-alta das saídas 1 e 2 na tela Crossover.',
             'Ligue o som pelo app. Celular em volume baixo, música com grave.',
             'Silencie todas as saídas menos uma: a 1 toca só na caixa L, a 2 só na R, a 3 e a 4 só no sub (cada uma sozinha toca mais baixo: é a ponte).',
             'Grave cheio numa JBL = RCA trocado ou passa-alta perdido: pare e confira.',
@@ -843,9 +891,9 @@ window.GUIA = {
           requer: 'Sub ligado (passo 5.1). As caixas L/R não precisam estar prontas.',
           alertas: [{ tipo: 'atencao', texto: 'Abaixo da frequência do duto, o cone fica quase solto: com duto, o subsônico precisa mudar antes de tocar alto.' }],
           acoes: [
-            'No gerador do app, varredura lenta de 25 a 60 Hz em volume baixo, só nas saídas 3 e 4, com lanterna no cone do sub.',
+            'Carregue **"teste-sub"** (saídas 1 e 2 mudas, sem subsônico, Master em −20 dB). **Gerador de Áudio → SWEEP:** de 25 a 60 Hz, **Lento**, ganho baixo (−30 dB para começar); lanterna no cone do sub.',
             'Se em alguma frequência o cone quase parar, a caixa tem duto e essa é a Fb.',
-            'Subsônico nas saídas 3 e 4: selada → 25 Hz; com duto → ≈0,75–0,8 × Fb, 24 dB/oit; sem conclusão → fica em {{p:subsonico}}.',
+            'Volte o subsônico (HPF LR24) nas saídas 3 e 4: selada → 25 Hz; com duto → ≈0,75–0,8 × Fb; sem conclusão → {{p:subsonico}}.',
             'Anote o resultado na tabela de medições e salve a memória 1.'
           ],
           verificacao: ['Subsônico igual nas saídas 3 e 4.']
@@ -856,7 +904,7 @@ window.GUIA = {
           acoes: [
             'Atraso: meça a distância de cada caixa e do sub até o sofá; a mais próxima recebe atraso igual à diferença (em cm, no app).',
             'Fase do sub: tom de 120 Hz e um app de decibelímetro no sofá (ou música de grave contínuo). Alterne 0° e 180° **nas saídas 3 e 4 juntas** e fique com o maior nível.',
-            'Nível do sub: até o grave sumir na sala sem chamar atenção para a caixa (−3 a −9 dB no app, igual nas saídas 3 e 4).',
+            'Nível do sub: até o grave sumir na sala sem chamar atenção para a caixa (3 a 9 dB abaixo de {{p:nivel_sub}} no app, igual nas saídas 3 e 4).',
             'Grave embolado perto de 150 Hz: EQ paramétrico de −1 a −2 dB nas saídas 1 e 2.',
             'Depois de 15 min de música alta, toque nos cabos de força e no porta-fusível: morno é normal; quente a ponto de incomodar = mau contato ou fio fino. Desligue e confira.',
             'Salve a memória 1, exporte para o celular e preencha a tabela de medições.'
@@ -892,7 +940,10 @@ window.GUIA = {
     { sintoma: 'Pouco grave no sofá', causa: 'Sub fora de fase ou uma caixa invertida', acao: 'Teste a fase em 180°; refaça o teste da pilha nas caixas.' },
     { sintoma: 'Um canal mudo', causa: 'RCA solto ou saída roteada errado no app', acao: 'Teste cada saída pelo app; troque o RCA de lugar para isolar o defeito.' },
     { sintoma: 'Cabo de força ou porta-fusível quente', causa: 'Mau contato no borne ou fio fino demais no porta-fusível', acao: 'Desligue e tire da tomada; reaperte os bornes; confira se o fio do porta-fusível tem {{p:fio_pf}}.' },
-    { sintoma: 'Módulo desliga sozinho', causa: 'Calor, curto no falante ou tensão baixa', acao: 'Libere a ventilação; meça a tensão em volume alto (não pode cair abaixo de ≈11 V); confira as impedâncias.' }
+    { sintoma: 'Módulo desliga sozinho', causa: 'Calor, curto no falante ou tensão baixa', acao: 'Libere a ventilação; meça a tensão em volume alto (não pode cair abaixo de ≈11 V); confira as impedâncias.' },
+    { sintoma: 'Canal em 0 V, com o app certo', causa: 'RCA não encaixado até o fim', acao: 'Encaixe os RCA até o fim; capa apertada demais: abra-a de leve.' },
+    { sintoma: 'Multímetro em 0,00 com o tom, ou pulando', causa: 'Escala V DC, ou ponta solta no furo', acao: 'Use o 200 V~; pontas firmes no parafuso, 2–3 s.' },
+    { sintoma: 'Nível mudado e a leitura não muda', causa: 'Valor digitado não enviado', acao: 'Ajuste com + / −; confira os dois canais do par.' }
   ],
 
   fontes: [
@@ -909,7 +960,8 @@ window.GUIA = {
     { dado: 'Ordem de energização por ramais, conferência sem energia, fusível provisório de 5 A, porta-fusível de lâmina e silicone acético', origem: 'Análise de 10/10/2026 (projetos/home-theater-5.1/projeto.md)' },
     { dado: 'Rede elétrica exposta nos bornes 7–9 da fonte', origem: 'Foto do usuário, 08/10/2026 (componentes existentes/Fonte taramps Bob 60A)' },
     { dado: 'Mapa de tratamento da BS-369 (fotos anotadas)', origem: 'Fotos do usuário de 23/09/2026; zonas de fita, gaxeta e torres pelas medidas de componentes/caixas.md; marcas tracejadas = suposições de 23/09 a confirmar no teste da lanterna (2.3)' },
-    { dado: 'Compra de 10/10 (bitolas, fusíveis, fita de espuma de 4 mm, faston amarelo, parafuso 3,5 × 19, solda no lugar da crimpagem)', origem: 'Fotos do usuário de 10/10/2026 e conferência em compras/2026-10-10-loja-fisica/conferencia.md; espessura da Adere E-105S pelo catálogo Adere (AECweb)' }
+    { dado: 'Compra de 10/10 (bitolas, fusíveis, fita de espuma de 4 mm, faston amarelo, parafuso 3,5 × 19, solda no lugar da crimpagem)', origem: 'Fotos do usuário de 10/10/2026 e conferência em compras/2026-10-10-loja-fisica/conferencia.md; espessura da Adere E-105S pelo catálogo Adere (AECweb)' },
+    { dado: 'Energização por ramais, regulagem com o gerador do processador (alvos de 5,5 e 20 V), níveis de −16,5 e −12,0 dB, telas do app e configurações de teste', origem: 'Medições e prints do usuário de 12 a 14/10/2026 (projetos/home-theater-2.1/andamento.md · projetos/home-theater-5.1/projeto.md)' }
   ],
 
   glossario: [
@@ -955,6 +1007,7 @@ window.GUIA = {
     { termo: 'Loop de terra', busca: ['loop de terra'], def: 'Zumbido constante que aparece quando o sinal passa por aparelhos aterrados em pontos diferentes.' },
     { termo: 'Manta asfáltica', busca: ['asfáltica'], def: 'Manta autoadesiva pesada que, colada nas paredes da caixa, tira a vibração do plástico.' },
     { termo: 'Modo BOB', busca: ['modo BOB', 'BOB)'], def: 'Processador com o REM IN ligado ao +12 V; o som liga e desliga pelo app, sem rádio.' },
+    { termo: 'Modo Demo', busca: ['Modo Demo'], def: 'Modo do app que funciona sem o processador. Serve para montar e salvar configurações no celular; elas só valem depois de carregadas no aparelho e conferidas tela a tela.' },
     { termo: 'NBR NM 247-3 e INMETRO', busca: ['NBR', 'INMETRO'], exato: true, def: 'Norma brasileira dos cabos flexíveis de até 750 V e o selo que certifica o cabo. Garantem cobre e bitola reais.' },
     { termo: 'OFC', exato: true, def: 'Cobre livre de oxigênio: um cobre mais puro, que conduz ≈1 % a mais que o comum. Em casa não faz diferença.' },
     { termo: 'P2', exato: true, def: 'Plugue de 3,5 mm, o de fone de ouvido. O estéreo tem 2 anéis isolantes e 3 contatos.' },
@@ -972,6 +1025,7 @@ window.GUIA = {
     { termo: 'Solda fria', busca: ['solda fria'], def: 'Emenda em que o estanho não escorreu para dentro dos fios: fica fosca, com bola por cima, e solta ou faz mau contato.' },
     { termo: 'Subsônico', busca: ['subsônico'], def: 'Passa-alta muito baixo no sub, para não gastar curso do cone com frequências que não se ouvem.' },
     { termo: 'Termorretrátil (tubo)', busca: ['termorretrát'], def: 'Tubo plástico que encolhe com calor e isola uma emenda. Entra no fio antes de soldar.' },
+    { termo: 'Threshold (limiar)', busca: ['Threshold'], def: 'Nível a partir do qual o limitador age. No app aparece em volts, na saída do processador; OFF desliga o limitador.' },
     { termo: 'Torres (da caixa)', busca: ['torre'], def: 'Pinos de plástico com rosca por dentro da caixa, onde entram os parafusos que a fecham.' },
     { termo: 'Triaxial', busca: ['triaxial'], def: 'Alto-falante com o cone do médio-grave e dois tweeters no mesmo conjunto.' },
     { termo: 'Trimpot', busca: ['trimpot'], def: 'Pequeno ajuste giratório de chave de fenda. Na fonte, regula a tensão de saída.' },
@@ -981,6 +1035,7 @@ window.GUIA = {
   ],
 
   versoes: [
+    { v: '2.7', data: '14/10/2026', nota: 'Andamento da bancada de 12 a 14/10 aplicado à etapa 4. **Regulagem pelo gerador do processador** (GERADOR FIXO, 60 Hz, 0 dB): como ele fica 6 dB abaixo do máximo, os alvos com o tom são **5,5 V** nas caixas e **20 V** na ponte (máximo real 11 e 40 V); níveis regulados de **−16,5 dB** (1 e 2) e **−12,0 dB** (3 e 4), com o GAIN do módulo no mínimo (parâmetros novos alvo_sat, alvo_sub, nivel_sat, nivel_sub). 4.11 refeito: saídas +6 dB para travar o Threshold em 11 e 40 V. Tabelas novas: conferência sem energia (12 pontos, ponta vermelha × preta), tela Crossover e configurações de teste do celular (ganho, limitador, primeiro-som, teste-sub). Caminhos do app nos passos 4.7, 4.9, 4.10, 4.11, 5.2 e 5.3. Fotos da régua da fonte e do módulo ligados (4.3); 10 mm² dividido em volta do parafuso; RCA encaixado até o fim; escala do multímetro. Diagnóstico com 4 casos novos da bancada. Passos 4.5 a 4.8 e 4.10 conferidos na prática. Pendências: emendas do 40 A soldadas e Thresholds.' },
     { v: '2.6', data: '11/10/2026', nota: 'Pedido do usuário ao começar os cabos: a fase "Preparar os cabos" virou **um passo só, 4.1** (posicionar, medir, cortar, etiquetar, desencapar, porta-fusíveis), com a tabela de conexões e a de corte dentro dele. Os passos seguintes da etapa 4 desceram três números (conector do processador 4.2 … travar o limitador 4.11). Fusíveis entram em 4.7 e 4.8. **Comprimentos de corte definidos** para todos os cabos (C1 15 cm, C2 40 cm, C3 60 cm, C4/C5/C7 50 cm, C6 4 cm, F1/F2 3,0 m, F3 1,0 m), com o leiaute assumido: fonte, módulo e processador lado a lado, módulo no meio.' },
     { v: '2.5', data: '11/10/2026', nota: 'Passo **2.4 Tampar os furos e aberturas** novo (fita asfáltica: placa dos bornes e furos extras da furação; foto da moldura de 11/10). Os passos seguintes da etapa 2 subiram um número (silicone 2.5, fita nas paredes 2.6, gaxeta 2.7, fibra 2.8, faston 2.9, JBL 2.10, fechar 2.11, validar 2.12). Um material por função: fita tampa (2.4) e amortece (2.6), silicone veda bordas e frestas (2.5), espuma é gaxeta (2.7), fibra é enchimento (2.8). O cabo pode ser passado já no 2.5 para o furo curar junto.' },
     { v: '2.4', data: '11/10/2026', nota: 'Medições de 11/10: terminais da JBL de 6,3 mm nos dois (faston nos dois); fio do porta-fusível de 40 A ≈4 mm² (aceito); caixa do sub tem duto (Fb a medir). **Traseira da BS-369 sem bornes:** o cabo de falante entra pelo furo pequeno com nó de alívio de tração e vai direto aos faston (I1/I2 redefinidos, 2.8 reescrito); rasgos e furo maior da placa fechados com fita (2.5) e silicone na borda (2.4, que passa a depender de 2.5). Torres não usadas na fixação da JBL (furos novos na moldura).' },

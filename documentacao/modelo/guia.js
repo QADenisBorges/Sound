@@ -404,7 +404,8 @@
   }
   function arvoreReferencia() {
     const ul = el('ul', { class: 'arv' });
-    [['#parametros', 'Parâmetros'], ['#conexoes', 'Conexões'], ['#corte', 'Corte e pontas dos cabos'], ['#mapas', 'Mapas de bornes'], ['#tab-processador', 'Configuração do processador'], ['#medicoes', 'Medições'], ['#diagnostico', 'Se algo der errado'], ['#glossario', 'Glossário'], ['#apendice', 'Fontes e versões']]
+    const tabs = Object.keys(G.tabelas || {}).map(k => ['#tab-' + k, G.tabelas[k].titulo || 'Configuração do processador']);
+    [['#parametros', 'Parâmetros'], ['#conexoes', 'Conexões'], ['#corte', 'Corte e pontas dos cabos'], ['#mapas', 'Mapas de bornes'], ...tabs, ['#medicoes', 'Medições'], ['#diagnostico', 'Se algo der errado'], ['#termos', 'Glossário'], ['#apendice', 'Fontes e versões']]
       .forEach(([h, t]) => ul.append(el('li', null, `<a class="arv-topo" href="${h}"><span>${esc(t)}</span></a>`)));
     return ul;
   }

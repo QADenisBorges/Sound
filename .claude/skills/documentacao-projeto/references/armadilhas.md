@@ -62,3 +62,10 @@ Cada item diz o problema, a causa e o que fazer. Acrescente um item quando algo 
   - Pegue o `og:image` do anúncio e feche a aba.
   - Marque a foto como "uso pessoal: trocar antes de compartilhar".
 - **Nunca** use imagem gerada por IA, nem para ilustrar uma ligação.
+
+## Sessão na nuvem (Linux)
+- **Chrome não gera o PDF** quando roda como root: precisa de `--no-sandbox` (o `pdf.py` já põe). O Chromium fica em `/opt/pw-browsers/`.
+- **PyMuPDF** pode não estar instalado: `pip install pymupdf`.
+- **Fontes do Linux** diferem das do Windows: compare com a versão anterior gerada na mesma máquina antes de culpar a mudança por um transbordo.
+- **Conferência no navegador** sem o navegador do app: Playwright (`pip install playwright`) com o Chromium de `/opt/pw-browsers/`. Para ver a montagem inteira, grave `guia:<meta.id>:vista = tudo` no localStorage antes de abrir.
+- **Chip de parâmetro não quebra linha**: `{{p:id}}` com unidade longa dentro de uma ação estoura a tela do celular. Escreva o valor por extenso na ação.

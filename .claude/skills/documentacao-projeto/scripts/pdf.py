@@ -35,6 +35,7 @@ NAVEGADORES = [
     r'C:\Program Files\Microsoft\Edge\Application\msedge.exe',
     '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
     'google-chrome', 'chromium', 'chrome', 'msedge',
+    '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
 ]
 
 
@@ -87,7 +88,8 @@ def gerar(nav, url, saida):
         os.remove(saida)
     perfil = tempfile.mkdtemp(prefix='guia-chrome-')
     try:
-        subprocess.run([nav, '--headless=new', '--disable-gpu', '--no-pdf-header-footer',
+        extra = ['--no-sandbox'] if hasattr(os, 'geteuid') and os.geteuid() == 0 else []  # Linux como root (sessão na nuvem)
+        subprocess.run([nav, *extra, '--headless=new', '--disable-gpu', '--no-pdf-header-footer',
                         '--run-all-compositor-stages-before-draw', '--virtual-time-budget=8000',
                         '--user-data-dir=' + perfil, '--print-to-pdf=' + saida, url],
                        stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=180)

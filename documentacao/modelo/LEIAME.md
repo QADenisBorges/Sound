@@ -1,4 +1,4 @@
-# Modelo de guia de montagem (v1.9, 10/10/2026)
+# Modelo de guia de montagem (v1.10, 14/10/2026)
 
 Gera um guia de montagem em **HTML interativo** e em **PDF A4** a partir de um arquivo de dados por projeto.
 Organização: **Materiais** e depois as etapas que o projeto pedir, divididas pelo que depende de quê (ex.: no 2.1, Caixas, Cabo do sub e Eletrônica em paralelo e uma Integração no fim). Dentro de cada etapa, os passos se agrupam em **fases** na ordem do trabalho (preparar → tratar → montar → validar), pelo campo `fase`. Não force uma ordem fixa: duas frentes independentes viram duas etapas, e a dependência real vai em `depende` (ids) e `requer` (texto) do passo.
@@ -8,6 +8,7 @@ O processo de criar, atualizar e conferir um guia está na skill `documentacao-p
 - **Menu lateral** (`aside.lateral`, montado pelo `guia.js` em todas as partes): partes do guia com progresso e a árvore da parte atual. Em telas de menos de 1000 px vira um painel aberto pelo botão **Menu** da barra. Não vai para o PDF.
 - **Vistas da montagem** pelo endereço: `montagem.html` sem âncora mostra o painel "Onde estou", o mapa e a visão; `#etapa-2` mostra a etapa inteira; `#passo-2-4` mostra só o passo, com trilha (Etapa › Fase), Anterior/Próximo e setas do teclado. O botão "Ver tudo numa página" (salvo no navegador) desliga as vistas e mostra o guia contínuo, que é o que o PDF imprime. Compras e Referência são contínuas, com o item ativo realçado no menu conforme a rolagem.
 - Links para um passo, de qualquer parte: `montagem.html#passo-<id com - no lugar de .>`.
+- Menu da Referência (v1.10): lista **todas** as tabelas de `tabelas` (pelo `titulo`), na ordem do `dados.js`, e o Glossário aponta para `#termos`.
 
 ## Partes do guia (v1.2)
 O guia é dividido pelo momento de uso. As quatro páginas usam o mesmo `dados.js`, e a variável `window.GUIA_MODO` diz qual delas montar:

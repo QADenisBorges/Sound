@@ -1,6 +1,6 @@
 # Andamento da montagem do 2.1 (sessões de 11 a 14/10/2026)
 
-> Registro do que foi feito na bancada, valores medidos e o que falta. O detalhe dia a dia está em `projetos/home-theater-5.1/projeto.md` (Histórico de decisões). O guia ilustrado (`guia/`, v2.6) ainda não inclui este avanço.
+> Registro do que foi feito na bancada, valores medidos e o que falta. O detalhe dia a dia está em `projetos/home-theater-5.1/projeto.md` (Histórico de decisões). O guia ilustrado (`guia/`) foi atualizado para a v2.7 com este avanço em 14/10.
 
 ## Situação por passo
 
@@ -69,4 +69,3 @@ Depois do 4.11: digitar os Thresholds em "primeiro-som" e "teste-sub" e salvar d
 - Conferir se as pontas RCA alargadas prendem firme (folga dá chiado).
 - Toque de 5 min no porta-fusível e cabos (4.8); reaperto dos bornes depois da primeira semana.
 - Cortar F1, F2 (caixas) e F3 (sub); caixas: silicone deixado para o fim (decisão de 11/10).
-- Atualizar o guia ilustrado (v2.6 → v2.7) com este andamento.
