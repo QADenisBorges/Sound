@@ -30,7 +30,7 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 | A4 | CH1 e CH2 → **11 V** (GAIN CH1-CH2 ou nível no app) | 4.10 | ✅ 14/10: Canais 1 e 2 em −11 dB, GAIN no mínimo |
 | A5 | Ponte CH4⊕/CH3⊖ → **40 V** | 4.10 | ⏳ |
 | A6 | Limitador no ponto regulado; teste +2 dB | 4.11 | ✅ Canais 1 e 2 (14/10); 3–4 depois |
-| A7 | Filtros de volta (BT12 120 Hz nos 1–2; LR24 120 Hz + BT24 30 Hz nos 3–4), salvar **memória 1 "Filme"** e exportar | 4.9 + 4.11 | 🔄 BT12 120 Hz nos Canais 1 e 2 ✅; **falta salvar** (aguardando print da tela Salvar); 3–4 depois |
+| A7 | Filtros de volta (BT12 120 Hz nos 1–2; LR24 120 Hz + BT24 30 Hz nos 3–4), salvar **memória 1 "Filme"** e exportar | 4.9 + 4.11 | ✅ Canais 1–2 e **memória 1 "filme" v1 salva** (14/10); canais 3–4 depois |
 | B1 | Conferir a caixa L pela ponta do cabo: ≈3,4 Ω e pilha | 5.1 | ⏳ |
 | B2–B3 | Prender no CH1 (marcado no +) e medir no borne | 5.1 | ⏳ |
 | C1–C4 | Primeiro som só no CH1: gerador ≤ −20 dB (1 kHz, 5 kHz, 60 Hz = prova do passa-alta, varredura, vazamento), música, desligar | 5.2 | ⏳ |
@@ -116,3 +116,4 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - **14/10/2026 (11):** **1.7 Canal 1 ok:** HPF BT12 em 120 Hz, LPF OFF (print 30); CH1 a 60 Hz caiu de 11 para 2,3 V. Falta Canal 2 (BT12 120 Hz e limiar −11,0) e salvar (1.8, aguardando print da tela Salvar).
 - **14/10/2026 (12):** Limiter do Canal 2 não acompanhou o Canal 1 (continua sem −11). Próximo: limiar −11,0 no Canal 2 (com o HPF do Canal 2 em OFF durante a conferência a 60 Hz), depois BT12 120 Hz no Canal 2 e salvar.
 - **14/10/2026 (13):** **Canais 1 e 2 prontos** (ganho 11 V, limitador −11,0 dB, BT12 120 Hz). Canal 2: 11,1 V sem filtro, 10,8 V com limiar −11, teto 11,2 V, 2,2 V com BT12 a 60 Hz. Próximo: gerador OFF, salvar (print da tela Salvar), depois Parte 2 (ligar caixa L no CH1).
+- **14/10/2026 (14):** Memória 1 salva como **"filme"** (v1, só canais 1–2 configurados). Valores completos em `memorias-processador.md`. Próximo: **Parte 2** (desligar, conferir a caixa L: Ω 200 → ≈3,4 Ω e pilha; prender no CH1).

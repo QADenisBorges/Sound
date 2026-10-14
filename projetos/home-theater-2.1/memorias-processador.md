@@ -2,12 +2,12 @@
 
 Registro do que está gravado no processador e no celular, para restaurar depois de um reset e para não depender da memória de ninguém. Como cada tela do app funciona: `componentes/processadores.md` (seção "App Taramps PRO").
 
-**Regra:** toda vez que uma memória for salva ou alterada no app, a tabela dela aqui é atualizada no mesmo dia, com prints em `fotos/<data>-app-processador/`.
+**Regra (pedido do usuário, 14/10/2026):** **toda configuração salva no app é registrada aqui no mesmo momento**: uma seção "Salva" com todos os valores de cada canal, data, versão e o que mudou em relação à anterior, mais prints em `fotos/<data>-app-processador/`. A seção do alvo continua separada.
 
 ## Plano das memórias (definido em 28/09/2026)
 | Espaço | Onde | Nome | Uso | Situação |
 |---|---|---|---|---|
-| 1 | Processador | **Filme** | Base do 2.1: filtros, ganho, limitador, atraso | ⏳ A salvar no passo A7 (4.11 do guia) |
+| 1 | Processador | **Filme** | Base do 2.1: filtros, ganho, limitador, atraso | ✅ **Salva em 14/10/2026** (versão 1: canais 1–2 prontos, sub sem filtros). Ressalvar quando o sub entrar |
 | 2 | Processador | Música | Variação da base | ⏳ Futuro |
 | 3 | Processador | Noite | Sub e limitador mais baixos | ⏳ Futuro |
 | — | Celular | Medido | Depois do microfone | ⏳ Futuro |
@@ -40,6 +40,28 @@ Entrada: EQ 15 bandas todo em 0,0 (preset "Custom"); EQ paramétrico de entrada 
 
 ---
 
+## Memória 1 — "filme" · SALVA v1 em 14/10/2026
+Gravada no primeiro espaço do processador com o nome **filme**. Exportada para o celular: ❓ (a confirmar). Prints: `fotos/2026-10-14-app-processador/` (24–31).
+
+| Ajuste | Canal 1 (JBL L) | Canal 2 (JBL R) | Canal 3 (sub) | Canal 4 (sub) |
+|---|---|---|---|---|
+| Roteamento | A | B | A+B | A+B |
+| HPF | **BT12, 120 Hz** | **BT12, 120 Hz** | 30 Hz, **filtro OFF** | 30 Hz, **filtro OFF** |
+| LPF | OFF (22000 Hz) | OFF (22000 Hz) | 120 Hz, **filtro OFF** | 120 Hz, **filtro OFF** |
+| Nível da saída | **−11,0 dB** | **−11,0 dB** | −12,0 dB (não regulado) | −12,0 dB (não regulado) |
+| Limiter | **Threshold −11,0 dB (564 mV)**, Auto off, Attack 50,0, Release 500 | **−11,0 dB**, Auto off, 50,0 / 500 | OFF | OFF |
+| Fase | 0 | 0 | 0 | 0 |
+| Alinhamento | 0,0 cm | 0,0 cm | 0,0 cm | 0,0 cm |
+| EQ paramétrico de saída | 0,0 dB | 0,0 dB | 0,0 dB | 0,0 dB |
+
+Entrada: EQ 15 bandas plano (Custom), EQ paramétrico 0,0 dB. Master 0,0 dB. Módulo: X-OVER CH1-CH2 e CH3-CH4 em **F**; **GAIN CH1-CH2 no mínimo**; GAIN CH3-CH4 no mínimo (não regulado).
+
+**Medições que validam esta versão** (gerador 60 Hz / 0 dB, multímetro 200 V~): CH1 11,0 V e CH2 11,1 V sem filtro; teto 10,8 V (CH1) e 11,2 V (CH2) com o canal em −9 dB; com BT12, 2,3 V (CH1) e 2,2 V (CH2).
+
+⚠️ **Canais 3 e 4 sem nenhum filtro nem limitador nesta versão.** Não ligar o sub com a memória v1: antes, regular a ponte (40 V), limitar e pôr LR24 120 Hz + subsônico, e salvar a v2.
+
+---
+
 ## Memória 1 — Filme (alvo; preencher com os valores reais ao salvar no A7)
 | Ajuste | Canal 1 (JBL L) | Canal 2 (JBL R) | Canal 3 (sub, ponte) | Canal 4 (sub, ponte) |
 |---|---|---|---|---|
@@ -60,3 +82,4 @@ Data em que foi salva: ____ · Exportada para o celular: ☐ · Prints: ____
 ## Histórico
 - 2026-10-14: Primeira leitura das telas do app (prints 01–19). Nenhuma memória salva ainda; níveis das saídas encontrados em −16,5 / −16,5 / −12 / −12 dB; filtros com frequências digitadas e tipo OFF; limitador OFF.
 - 2026-10-14 (2): Tela Home (print 00): som ON, **Áudio BT desligado**, Volt. **13,9 V**, canais ligados em pares (link 1–2 e 3–4). Foto 20: LED do módulo aceso. Foto 21: multímetro (VC830L) mostrando **15,6** em V~ 200 — **ponto medido a confirmar** (saída do módulo com tom × régua de 13,9 V DC na escala AC); não registrado como ganho.
+- 2026-10-14 (3): **Memória 1 salva como "filme" (v1)**: canais 1–2 com nível −11 dB, limitador −11 dB, BT12 120 Hz; canais 3–4 sem filtros (sub ainda não ligado).
