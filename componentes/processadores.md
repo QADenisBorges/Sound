@@ -51,3 +51,24 @@ Comparado com o PRO 2.4BT (sem "+ AUDIO"). Fonte: os manuais oficiais em inglês
 - O EQ paramétrico tem só 1 banda por saída. Com o microfone, a correção mais fina do sub pode precisar do Peace quando a fonte for o notebook.
 - Para medir com o REW, use os sinais do próprio REW pelo notebook (o gerador do processador não tem ruído rosa).
 - O manual cita iOS 17 no texto e iOS 16 na ficha técnica. Confira o celular.
+
+### App Taramps PRO — como as telas funcionam (conferido por prints em 14/10/2026)
+Prints em `projetos/home-theater-2.1/fotos/2026-10-14-app-processador/`. Estado salvo de cada memória do projeto: `projetos/home-theater-2.1/memorias-processador.md`.
+
+**Topo de toda tela:** voltar · nome da tela · **valor em dBm** · engrenagem. O dBm (−34 a −40 nos prints) é a **força do sinal Bluetooth** entre o celular e o processador, **não é nível de áudio**. Quando a ligação cai, aparece **"Desconectado"** em vermelho no lugar: os valores na tela passam a ser a cópia do app, não o que está no aparelho. Reconecte antes de conferir ou mudar algo.
+
+**Abas Canal 1–4:** cada canal tem uma cor, e o canal ativo fica preenchido: 1 vermelho, 2 azul, 3 verde, 4 laranja.
+
+| Tela | O que tem | Observações |
+|---|---|---|
+| **Roteam. Ent/Saída** | Por canal: botões **A · B · A+B** (o escolhido fica vermelho) | Origem de cada saída |
+| **EQ 15 Bandas** (entrada) | 25 Hz a 16 kHz; seleciona a banda com ‹ ›, ganho com − + ou barra; **Presets** (lista; "Custom" = ajuste manual) | Plano = todas em 0.0 |
+| **EQ Param Entr** | 1 banda: Ganho (dB), Freq. (Hz), Fator Q | Ganho 0.0 = sem efeito, seja qual for a freq. e o Q |
+| **EQ Param Saída** | 1 banda por canal (abas): Ganho, Freq., Fator Q | Idem: ganho 0.0 = neutro |
+| **Crossover** | Gráfico com os dois pontos de corte; **HPF Freq.**, **LPF Freq.**, **HPF Filtro** e **LPF Filtro** (OFF, LR12…LR48, BT6…BT48); LEDs **Limiter / Out Clip 1–4**; botão de alto-falante verde; caixas "Canal 1–4" abaixo do gráfico | **A frequência só vale com o tipo de filtro escolhido**: com "Filtro = OFF" o canal passa tudo, mesmo com 120 Hz digitado. A função das caixas "Canal 1–4" (mostrar a curva × editar junto) **a confirmar** |
+| **Fase** | Por canal: **0 · 180** | A mesma fase aparece na tela Alinhamento |
+| **Alinhamento** | Por canal: fase 0/180, atraso em **cm / ms** com − +, botão de alto-falante verde | Atraso máximo de 272 cm (8 ms) |
+| **Limiter** | Por canal: gráfico entrada × saída (valor em **V** no canto, 2,10 V = máximo); **Auto** (chave); **Threshold** (OFF ou valor); **Attack** (ms); **Release** (ms); LEDs 1–4 | Padrão visto: Threshold OFF, Attack 50,0, Release 500. Com OFF o limitador não age |
+| **Nível das Saídas** | **Master Level** e nível por canal em dB (barra, − +); LED **Limiter / Out Clip** por canal; botão de alto-falante por canal | Botão verde = canal tocando (leitura dos prints; confirmar que muda ao silenciar) |
+
+**Ainda não visto em print:** a tela de **memórias** (provavelmente na engrenagem), o **gerador de sinal**, a chave **Audio BT**, o **voltímetro** e a troca de senha. Completar quando houver prints.

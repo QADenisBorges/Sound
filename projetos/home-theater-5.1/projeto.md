@@ -157,9 +157,10 @@ Ponto de partida: é o cenário F/H de `simulacao-crossover.py` (o HP 80 do mód
 | 4 | Celular | Medido (depois do microfone iMM-6); pode ir para o aparelho no lugar da 1 |
 | 5 | Celular | Filme – diálogo; vira "Carro" quando o processador for para o carro |
 
-Anotar os ajustes de cada memória aqui quando o processador for configurado.
+Ajustes e estado de cada memória: `projetos/home-theater-2.1/memorias-processador.md` (atualizar no mesmo dia em que salvar no app).
 
 ## Histórico de decisões
+- 2026-10-14: **App do processador documentado por prints** (19 telas em `projetos/home-theater-2.1/fotos/2026-10-14-app-processador/`): funcionamento das telas em `componentes/processadores.md`; estado atual e alvo da memória 1 (Filme) em `projetos/home-theater-2.1/memorias-processador.md`. Nenhuma memória salva ainda; níveis das saídas em −16,5/−16,5/−12/−12 dB (ir a 0 dB para regular o ganho); filtros com frequência digitada e tipo OFF; limitador OFF.
 - 2026-10-11 (13): **Linha de 40 A montada provisória**: C1+PF40-1 e C2+PF40-2 trançados (rabicho enterrado no feixe), termorretrátil + fita isolante por cima, sem solda; fusível de 40 A retirado do porta-fusível. **Plano do usuário: instalação provisória para funcionar; em ~1 mês (nov/2026) trocar por porta-fusível midi** (cabo 10 mm² direto nos bornes, sem emenda) e, se quiser, Wago 221 para emendas finas. Fotos em `fotos/2026-10-11-modulo-porta-fusivel-40a/`.
 - 2026-10-11 (12): **Decisão consciente: emendas do porta-fusível de 40 A (C1+PF40-1, C2+PF40-2) feitas só com trança e termorretrátil, sem solda, para o teste de bancada.** Técnica: rabicho enterrado no feixe do 10 mm² e torcido junto (foto conferida). Condições: volume baixo no teste, toque na emenda a 1 e 5 min, **soldar antes da montagem definitiva** (pendência aberta). Rabicho medido na foto ≈4–6 mm².
 - 2026-10-11 (11): **Linha do processador conferida com multímetro (continuidade), fonte fora da tomada:** borne 2 ↔ PF1 ok (1–2 Ω), PF2 ↔ +12VDC ok, borne 2 ↔ +12VDC silêncio (porta-fusível vazio), borne 5 ↔ GND ok, +12VDC ↔ REM IN ok (C6), borne 2 ↔ borne 5 silêncio, +12VDC ↔ GND silêncio. C4-1 no borne 2 e C5 no borne 5 da BOB. Módulo ainda não ligado (C1, C2, C3, C7 pendentes).
