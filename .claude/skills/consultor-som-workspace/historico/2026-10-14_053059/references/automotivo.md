@@ -1,0 +1,71 @@
+# Som automotivo
+
+## Índice
+1. Elétrica (o elo que mais dá problema)
+2. Amplificadores / módulos
+3. Subwoofers e caixas no carro
+4. Médios, tweeters e som "de qualidade" (SQ)
+5. Regulagem de ganho
+6. Armadilhas comuns
+
+## 1. Elétrica
+
+- Tensão: ~12,6 V motor desligado, ~13,8–14,4 V com motor ligado. Queda abaixo de ~12 V em pico = sistema subdimensionado (luz piscando, módulo entrando em proteção).
+- **Corrente do amplificador** ≈ P_RMS / (tensão × eficiência). Classe D ≈ 0,75–0,85; classe AB ≈ 0,5–0,6. Ex.: 1500 W RMS classe D em 12,6 V → ~150 A em potência máxima contínua. Música tem fator de crista, então a média real é bem menor (tipicamente 1/3 a 1/8 disso), mas cabos e fusíveis se dimensionam pelo pico.
+- **Alternador original** de carro popular: ~70–120 A, dos quais o carro já consome 30–50 A. Regra prática: até ~800–1000 W RMS o sistema original costuma aguentar com bons cabos; acima disso, pensar em bateria auxiliar/estacionária com isolador, alternador de maior amperagem e "Big 3".
+- **Big 3**: reforçar os 3 cabos principais (alternador→bateria positivo, bateria negativo→chassi, motor→chassi). Barato e melhora muito a estabilidade de tensão.
+- **Bateria**: bateria de partida não gosta de descarga profunda. Para som tocando com motor desligado, bateria estacionária/AGM auxiliar com isolador ou relé.
+- **Fusível** no positivo a no máximo ~30–45 cm da bateria, dimensionado para proteger o **cabo** (não o amplificador): o fusível nunca pode ser maior do que o cabo aguenta. Orientação típica para cobre OFC em som automotivo (confira a tabela do fabricante do cabo; CCA → um degrau abaixo): 10 mm² ≤ 60 A; 16 mm² ≤ 80 A; 21 mm² (4 AWG) ≤ 125 A; 35 mm² ≤ 175 A; 53 mm² (0 AWG) ≤ 300 A. Se a corrente do sistema pede fusível maior, o cabo é que precisa subir. Porta-fusível e fusível precisam ser do **mesmo formato**: midi (aparafusado ou "mini faca"), maxi (lâmina grande, encaixe) e ANL não se misturam — anúncios de "fusível max 40 A" são maxi e não servem em porta-fusível midi; comprar em kit evita o erro.
+- **Cabo**: cobre OFC de verdade (o "CCA" — alumínio cobreado — tem ~60% da condutividade; se usar, subir uma bitola). Dimensionar por queda de tensão (≤ 0,5 V) com `calc_som.py cabo`. Negativo com a mesma bitola do positivo, curto, no chassi lixado.
+- Tabela prática (cobre OFC, ~5 m de positivo): até 40 A → 10 mm²; até 80 A → 21 mm² (4 AWG); até 150 A → 35 mm²; até 250 A → 50–53 mm² (0 AWG). Confira com a calculadora para o caso real.
+
+## 2. Módulos (amplificadores)
+
+- **Classe D** domina hoje: eficiente, compacto. Monocanal para sub, 2/4 canais para médios e tweeters (full range classe D de boa qualidade já é bom para voz).
+- **RMS declarado**: veja em **qual tensão e qual impedância** o fabricante mede. Muitas marcas nacionais anunciam a 14,4 V; em 12,6 V a potência cai (P ∝ V² aprox. → ~75%). Outras já medem a 12,6 V com 1% de distorção (norma CTA-2006), e esses números valem como estão: leia a nota da tabela de especificações do manual. Desconfie de "PMPO", "potência máxima" ou números sem condição.
+- **Impedância mínima**: módulo "1 Ω" / "2 Ω" / "4 Ω" indica a menor carga estável. Mais baixa = mais potência, mais corrente, mais calor, fator de amortecimento pior. Para grave limpo, 2 Ω ou 4 Ω costuma ser melhor escolha que 1 Ω no limite.
+- **Casamento**: módulo com RMS de ~1× a 1,5× o RMS do falante é saudável *se o ganho for regulado corretamente*. O que queima falante é **clipping** (sinal quadrado distorcido) e excursão excessiva (grave abaixo da sintonia em caixa dutada), não "potência sobrando". Módulo bem acima disso (2–3×) também não queima por si — o que chega ao falante é o que ganho e impedância deixam passar; o risco é operacional (ganho travado alto, bass boost, alguém mexer). Nesse caso, ligue na impedância mais alta disponível para baixar o teto do módulo e regule o ganho pela tensão alvo do *falante*, não do módulo.
+- Recursos úteis: filtro passa-baixa/alta, **subsônico** (essencial em caixa dutada: abaixo da sintonia o cone fica sem carga e a excursão dispara; ponha o corte um pouco abaixo da Fb, ~0,7–0,8 × Fb, com 24 dB/oit; em caixa pronta de tipo desconhecido, ache a Fb com uma varredura lenta em volume baixo: na Fb o cone quase para e o duto trabalha), bass boost (evitar ou usar pouco), entrada de alto nível (para rádio original), remote. Em módulo de 4 canais, confira no manual se há chave de entrada 2CH/4CH: sem ela, muitos exigem sinal nas 4 entradas RCA (use Y ou divisor), inclusive em ponte. Crossover de módulo nacional costuma ser fixo (ex.: 80 Hz); se o projeto pede outro corte, planeje um DSP ou um filtro passivo.
+- Marcas nacionais comuns: Taramps, SounDigital, Banda, Stetsom, Hinor/Hurricane (varia por linha). Em geral bom custo-benefício e assistência no Brasil.
+
+## 3. Subwoofers e caixas no carro
+
+- **Ganho de cabine (cabin gain)**: o carro é um ambiente pequeno e reforça grave abaixo de ~50–70 Hz (quanto menor o carro, mais alto o ponto). Por isso uma caixa selada rende bem num carro pequeno.
+- **Selada**: grave mais seco e controlado, menor, mais tolerante a erro, menos eficiente. Boa para SQ/ouvir música.
+- **Dutada**: +3 a +6 dB perto da sintonia (Fb), maior, precisa de subsônico, erro de projeto soa "embolado". Boa para mais pressão/eficiência com pouca potência.
+- **Bandpass**: muito alto numa faixa estreita, pouco versátil; típico de som de "paredão"/SPL.
+- Siga o volume recomendado pelo fabricante como ponto de partida, e simule com os parâmetros T/S (ver `diy.md`). Descontar o volume ocupado pelo falante e pelo duto.
+- Tamanho: 10" costuma ser mais rápido e fácil de acomodar; 12" é o padrão de custo-benefício; 15" pede mais volume e potência.
+- **Bobina dupla (DVC)**: permite escolher impedância final. Ex.: sub 2+2 Ω → série = 4 Ω, paralelo = 1 Ω. Dois subs 4+4 → podem virar 2 Ω ou 8 Ω etc. Sempre confira com `calc_som.py impedancia`.
+- Marcas de falantes: JBL Selenium, Bravox, Pioneer, Hinor, Eros, Oversound, Triton, Spyder (variação grande entre linhas — olhe spec).
+
+## 4. Médios e tweeters (qualidade de som)
+
+- Trocar os falantes de porta originais por kit 2 vias (woofer + tweeter + crossover) é um dos upgrades de melhor custo-benefício.
+- **Isolamento/vedação da porta** (manta acústica nos pontos certos, vedar furos) melhora muito o médio-grave por pouco dinheiro.
+- **DSP** (processador) permite corrigir tempo (alinhamento temporal), EQ e crossovers ativos. Em carro é o upgrade que mais transforma o palco sonoro depois dos falantes.
+- Rádio original: usar entrada de alto nível do módulo ou conversor RCA (line output converter). Alguns carros têm EQ de fábrica que corta grave — um DSP resolve.
+- Médio "de porta" profissional (6", 8" de alta sensibilidade) + corneta/driver = estilo "trio"/"porta-malas"; muito alto, pouco refinado para SQ.
+
+## 5. Regulagem de ganho
+
+Ganho não é volume: é casamento de nível de entrada.
+
+Método com multímetro (seguro e acessível):
+1. Desligue bass boost, loudness e EQ; filtros no lugar. O tom de teste precisa cair **dentro da faixa que o filtro deixa passar**. Um tom de 60 Hz num canal com passa-alta de 80 Hz (12 dB/oitava) sai ~6 dB mais baixo: você sobe o ganho até a tensão alvo e, na música, o canal entrega o dobro da tensão (4× a potência). Para regular em frequência baixa, ponha a chave em Full; senão, use um tom bem dentro da banda (ex.: 400 Hz–1 kHz, conferindo se o multímetro mede AC nessa frequência; muitos baratos só são precisos até ~400 Hz).
+2. Toque um tom senoidal de teste (ex.: 40 Hz a 0 dB para sub; 1 kHz para full range) no **maior volume que a fonte vai usar sem distorção**. Esse ponto vira o teto: tudo o que o volume subir acima dele depois passa direto para o falante. Rádio que distorce no fim do curso: ~75–85% do volume. Fonte que não distorce no máximo (celular por Bluetooth/USB entrando num DSP, notebook): regule com ela a 100% e tom a 0 dBFS, com EQ e efeitos do celular desligados; regular a 3/4 deixa vários dB de folga acima do alvo.
+3. Desligue os falantes, meça tensão AC na saída do módulo.
+4. Tensão alvo V = √(P × R) → `calc_som.py ganho --rms 500 --impedancia 2` = 31,6 V.
+5. Suba o ganho até a tensão alvo. Melhor ainda com osciloscópio ou "DD-1" para ver o clipping.
+6. Se a tensão parar de subir enquanto você gira o ganho, o módulo chegou ao teto e já está clipando — recue até ela voltar a responder e fique um pouco abaixo. Com o motor desligado (12,6 V) o teto é ~25% menor que o anunciado a 14,4 V: regule com o motor ligado ou aceite o alvo menor.
+7. **Com DSP no caminho**: master e níveis de saída em 0 dB, EQ e limitador neutros (filtro conforme o passo 1). Se com o GAIN do módulo no mínimo a tensão ainda passa do alvo (comum: DSP com saída de ~2 V num módulo de sensibilidade mínima ~2 V), baixe o nível de saída daquele canal no DSP até o alvo. Depois, níveis do DSP só para baixo: muitos aceitam +6 a +15 dB na saída, e subir acima do valor da regulagem reabre o clipping. Canal somado (L+R para o sub) pode ceifar dentro do DSP; olhe o LED de clip da saída durante o tom. Ponte alimentada por duas saídas do DSP: as duas com ajustes idênticos (fase, atraso, filtro, nível, EQ) — fase invertida numa só cancela o sub.
+
+## 6. Armadilhas comuns
+
+- Módulo grande sem mexer na elétrica → tensão cai, som "morre" no grave, módulo protege.
+- Cabo CCA fino de kit barato.
+- Fusível só no módulo (sem fusível na bateria).
+- Caixa dutada sem filtro subsônico → excursão excessiva, falante queima.
+- Bass boost no máximo + ganho no máximo = clipping.
+- Aterramento em ponto pintado ou de solda ruim → ruído (alternator whine).
+- Cabos RCA passando junto do cabo de força → ruído; passe em lados opostos do carro.

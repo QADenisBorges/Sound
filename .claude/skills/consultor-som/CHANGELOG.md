@@ -2,6 +2,12 @@
 
 Mantido pelo `revisor-som`. Entradas mais novas no topo. Backups em `../consultor-som-workspace/historico/`.
 
+## 2026-10-14 05:31 — lacuna de conhecimento
+- O quê: `references/residencial-hifi.md` (home theater com peças avulsas) — canal central: precisa de fonte multicanal e canal de amplificação próprios, L+R somado não é central; timbre igual ao de L/R pesa mais que potência; central horizontal com 2 woofers (MTM deitado) tem nulo fora do eixo em sen θ = λ/(2d) e as saídas (2,5 vias, vertical, woofer único).
+- Por quê: ao avaliar uma central DIY de 2 midbass + tweeter, esses três pontos decidiram a resposta e não estavam nas referências; são erros comuns em quem monta a central como "a caixa mais forte do sistema".
+- Evidência: geometria da interferência de duas fontes (d = 0,20 m, f = 2,5 kHz → λ/2 = 6,9 cm → θ ≈ 20°); SPL conferido com `calc_som.py spl`.
+- Snapshot: historico/2026-10-14_053059
+
 ## 2026-10-09 12:20 — segurança + lacuna de conhecimento
 - O quê: `references/residencial-hifi.md` (módulo automotivo em casa) — fontes "BOB" com bornes de 127/220 V na mesma régua da saída de 12 V: não tocar com o plugue na tomada, trimpot com chave isolada, tomada com terra; ponteiro para o ganho com DSP. `references/automotivo.md` §2 — subsônico em caixa dutada: por que (sem carga abaixo da Fb), onde (~0,7–0,8 × Fb, 24 dB/oit) e como achar a Fb de caixa pronta (varredura: na Fb o cone quase para). `evals/evals.json` — eval 6 ganhou asserção de cuidado com a rede.
 - Por quê: num guia de montagem, o ajuste do trimpot com a fonte energizada foi orientado sem aviso de que a mesma régua tem a rede exposta; e o subsônico foi fixado sem saber se a caixa pronta do sub era dutada. Os dois casos são comuns em home theater montado com peças de carro.
