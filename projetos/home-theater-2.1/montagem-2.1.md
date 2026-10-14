@@ -163,7 +163,7 @@ Régua da fonte: bornes 1–3 (+) e 4–6 (−) são ligados por dentro. **Os bo
 |---|---|---|---|
 | 1 (JBL L) | A | **Passa-alta Butterworth 12 dB/oit em 120 Hz** | Limitador no ponto regulado; fase 0° |
 | 2 (JBL R) | B | Idem | Idem |
-| 3 e 4 (sub, ponte) | A+B | **Passa-baixa Linkwitz-Riley 24 dB/oit em 120 Hz** + subsônico **42 Hz, 24 dB/oit** (caixa com duto, Fb calculada ≈53 Hz; confirmado no 5.3) | Fase **0°** (testar 180°); **tudo igual nas duas** |
+| 3 e 4 (sub, ponte) | A+B | **Passa-baixa Linkwitz-Riley 24 dB/oit em 120 Hz** + subsônico **42 Hz, 24 dB/oit** (caixa com duto, Fb calculada ≈52 Hz; confirmado no 5.3) | Fase **0°** (testar 180°); **tudo igual nas duas** |
 
 Por que BW2 e não LR4 de 24 dB nas JBL: a caixa selada já soma 12 dB/oit abaixo de ~124 Hz, então o corte acústico resultante já é de 24 dB/oit. Na simulação (09/10/2026), BW2 120 + caixa + sub LR4 120 em fase 0° soma entre **0 e +1,3 dB**; com LR4 elétrico nas JBL abre um buraco de −3 a −10 dB. O Xmax (pico) da JBL chega com ~12 W perto de 122 Hz.
 
@@ -181,7 +181,7 @@ Por que BW2 e não LR4 de 24 dB nas JBL: a caixa selada já soma 12 dB/oit abaix
 
 - **5.1 Ligar os falantes** (depois de 4.11; entra o que estiver pronto: caixas validadas 2.12 e/ou sub 3.1), fonte fora da tomada: condutor marcado (+) no borne vermelho da caixa; F1 no CH1, F2 no CH2; sub com o + no **CH4 ⊕**. Antes de apertar, meça na ponta do módulo: ≈3,4 Ω nas caixas, 3–3,6 Ω no sub. O sub pode entrar antes das caixas L/R.
 - **5.2 Primeiro som:** confira o passa-alta das saídas 1/2 no app; volume baixo; uma saída por vez (1 só na L, 2 só na R, 3 e 4 só no sub). Grave cheio numa JBL = RCA trocado ou passa-alta perdido.
-- **5.3 Tipo de caixa do sub** (só precisa do sub): varredura lenta de 25 a 60 Hz, volume baixo, lanterna no cone. Se o cone quase parar numa frequência, a caixa tem duto e essa é a Fb: subsônico em ~0,75–0,8 × Fb, 24 dB/oit. Selada: 25 Hz. Sem conclusão: 42 Hz, 24 dB/oit (Fb calculada ≈51–58 Hz em 14/10).
+- **5.3 Tipo de caixa do sub** (só precisa do sub): varredura lenta de 25 a 60 Hz, volume baixo, lanterna no cone. Se o cone quase parar numa frequência, a caixa tem duto e essa é a Fb: subsônico em ~0,75–0,8 × Fb, 24 dB/oit. Selada: 25 Hz. Sem conclusão: 42 Hz, 24 dB/oit (Fb calculada ≈52 Hz em 14/10).
 - **5.4 Ajustes conjuntos:** atraso pela distância até o sofá (a caixa mais perto recebe a diferença, em cm); fase do sub com tom de 120 Hz e decibelímetro, alternando 0°/180° nas saídas 3 e 4 juntas; nível do sub −3 a −9 dB; grave embolado em ~150 Hz: −1 a −2 dB nas saídas 1/2. **Depois de 15 min de música alta, toque nos cabos de força e no porta-fusível:** morno é normal; quente demais = mau contato ou fio fino. Salve e exporte.
 
 ## 6. Uso no dia a dia
