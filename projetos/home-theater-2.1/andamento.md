@@ -90,7 +90,7 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - **Soldar as emendas da linha de 40 A** antes da montagem definitiva; trocar por **porta-fusível midi** (plano: nov/2026).
 - Fusível de 1–2 A (lâmina média) no lugar do 5 A provisório do processador.
 - Silicone das caixas (2.5), no fim.
-- Prints do app que faltam: tela **Salvar** (memórias), **corações** da Home, **gerador de sinal**, tela **Volt.**
+- Prints do app que faltam: tela **Salvar** (memórias), **corações** da Home, tela **Volt.**
 - Confirmar o que o **link azul** entre os canais 1–2 e 3–4 faz (mute de um canal silencia o par?).
 - `../home-theater-5.1/projeto.md` tem linhas desatualizadas sobre o 2.1 (6TR4A/APSOUND, ganho 15,5 V, chave HP, fusível 3 A). **O guia v2.6 e este arquivo é que valem.**
 
@@ -100,3 +100,4 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - **14/10/2026:** Sequência de testes por canal definida (A1–A7, B, C). A1 concluído. Prints do app (20 telas) documentados; processador sem memória salva, níveis das saídas em −16,5/−16,5/−12/−12 dB, filtros com tipo OFF, limitador OFF. Módulo energizado (LED aceso, 13,9 V). Leitura de 15,6 V no multímetro com o ponto a confirmar.
 - **14/10/2026 (2):** Bornes de falante vazios confirmados. CH1 mediu 5,6 V~ com sinal desconhecido: próximo é a linha de base sem sinal, depois níveis 0 dB, Áudio BT e tom de 60 Hz (A3/A4).
 - **14/10/2026 (3):** Os 5,6 V do CH1 eram com o gerador do app. Decidido usar o gerador interno em 60 Hz / 0 dB como sinal de referência (conferido uma vez contra o tom pelo Bluetooth a 100 %), depois de verificar que o nível da saída age sobre ele.
+- **14/10/2026 (4):** Print do Gerador de Áudio: já em Gerador Fixo, 60 Hz, ganho 0,0 dB, desligado. Sem seleção de canal.

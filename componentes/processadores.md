@@ -73,6 +73,6 @@ Prints em `projetos/home-theater-2.1/fotos/2026-10-14-app-processador/`. Estado 
 | **Limiter** | Por canal: gráfico entrada × saída (valor em **V** no canto, 2,10 V = máximo); **Auto** (chave); **Threshold** (OFF ou valor); **Attack** (ms); **Release** (ms); LEDs 1–4 | Padrão visto: Threshold OFF, Attack 50,0, Release 500. Com OFF o limitador não age |
 | **Nível das Saídas** | **Master Level** e nível por canal em dB (barra, − +); LED **Limiter / Out Clip** por canal; botão de alto-falante por canal | Botão verde = canal tocando (leitura dos prints; confirmar que muda ao silenciar) |
 
-**Gerador de sinal:** usado pelo usuário em 14/10 (a saída do CH1 respondeu); localização no app e se passa pelo nível/limitador da saída **a confirmar** (teste: −6 dB no nível da saída deve baixar a leitura à metade).
+**Gerador de Áudio** (print 22): abas **GERADOR FIXO** (senoide) e **SWEEP** (varredura); chave **OFF / ON** (OFF em vermelho = desligado); **Ganho (dB)** (0.0 = máximo, até −60) e **Freq. (Hz)** com − +; gráfico mostra a frequência escolhida. **Não há escolha de canal na tela**: o sinal vai para as saídas conforme roteamento, níveis e mute. Se passa pelo nível/limitador da saída: **a confirmar** (teste: −6 dB no nível da saída deve baixar a leitura à metade).
 
-**Ainda não visto em print:** a tela **Salvar** (memórias), a tela do **gerador de sinal**, a tela **Volt.** e a troca de senha (provavelmente na engrenagem). Completar quando houver prints.
+**Ainda não visto em print:** a tela **Salvar** (memórias), a tela **Volt.** e a troca de senha (provavelmente na engrenagem). Completar quando houver prints.
