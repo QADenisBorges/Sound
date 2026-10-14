@@ -304,7 +304,7 @@ window.GUIA = {
     { id: 'ganho-2', medida: 'Ganho CH2', como: 'V AC no CH2, tom de {{p:tom}}, sem falantes', esperado: '{{p:ganho_sat}}' },
     { id: 'ganho-sub', medida: 'Ganho da ponte (sub)', como: 'V AC entre CH4 ⊕ e CH3 ⊖, sem falantes', esperado: '{{p:ganho_sub}}' },
     { id: 'nivel-saidas', medida: 'Nível das saídas no app (1 / 2 / 3 e 4)', como: 'Depois da regulagem; 0 dB se o GAIN deu conta', esperado: '0 dB ou menos' },
-    { id: 'caixa-sub', pendente: true, medida: 'Caixa do sub: com duto (11/10). Falta a frequência do duto (Fb)', como: 'Diâmetro interno e comprimento do duto + medidas internas da caixa; ou passo 5.3, varredura de 25 a 60 Hz', esperado: 'Subsônico = 0,75–0,8 × Fb' },
+    { id: 'caixa-sub', pendente: true, medida: 'Caixa do sub: com duto (11/10). Duto ≈7 cm de diâmetro interno × ≈10 cm de comprimento (fotos de 14/10). Falta a frequência do duto (Fb)', como: 'Medidas externas da caixa (A × L × P) e espessura da madeira; ou passo 5.3, varredura de 25 a 60 Hz', esperado: 'Subsônico = 0,75–0,8 × Fb' },
     { id: 'dist', medida: 'Distâncias até o sofá (L / R / sub)', como: 'Trena', esperado: '—' },
     { id: 'fibra', medida: 'Fibra por caixa', como: 'Balança de cozinha', esperado: '{{p:fibra}}' },
     { id: 'frestas', pendente: true, medida: 'Frestas achadas no teste da lanterna (onde, em cada metade)', como: 'Passo 2.3', esperado: '—' },
