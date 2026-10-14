@@ -25,12 +25,12 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 | Bloco | O que é | Passo do guia | Situação |
 |---|---|---|---|
 | A1 | Preparar: bornes de falante vazios, X-OVER em F, GAIN no mínimo, multímetro em V~ 200 | 4.10 | ✅ 14/10 (usuário: "pronto") |
-| A2 | Processador "cru": níveis 0 dB, filtros/EQ/limitador OFF, roteamento, Áudio BT | 4.10 | 🔄 Tudo certo pelos prints, **faltam níveis 0 dB e Áudio BT** |
-| A3 | Tom de 60 Hz a 0 dBFS pelo Bluetooth, celular a 100 % | 4.10 | ⏳ |
-| A4 | CH1 e CH2 → **11 V** (GAIN CH1-CH2 ou nível no app) | 4.10 | ⏳ |
+| A2 | Processador "cru": níveis 0 dB, filtros/EQ/limitador OFF, roteamento | 4.10 | ✅ 14/10 (gerador interno no lugar do Bluetooth) |
+| A3 | Tom de referência: **gerador do app, 60 Hz, 0 dB** | 4.10 | ✅ 14/10 |
+| A4 | CH1 e CH2 → **11 V** (GAIN CH1-CH2 ou nível no app) | 4.10 | ✅ 14/10: Canais 1 e 2 em −11 dB, GAIN no mínimo |
 | A5 | Ponte CH4⊕/CH3⊖ → **40 V** | 4.10 | ⏳ |
-| A6 | Limitador no ponto regulado; teste +2 dB | 4.11 | ⏳ |
-| A7 | Filtros de volta (BT12 120 Hz nos 1–2; LR24 120 Hz + BT24 30 Hz nos 3–4), salvar **memória 1 "Filme"** e exportar | 4.9 + 4.11 | ⏳ |
+| A6 | Limitador no ponto regulado; teste +2 dB | 4.11 | ✅ Canais 1 e 2 (14/10); 3–4 depois |
+| A7 | Filtros de volta (BT12 120 Hz nos 1–2; LR24 120 Hz + BT24 30 Hz nos 3–4), salvar **memória 1 "Filme"** e exportar | 4.9 + 4.11 | 🔄 BT12 120 Hz nos Canais 1 e 2 ✅; **falta salvar** (aguardando print da tela Salvar); 3–4 depois |
 | B1 | Conferir a caixa L pela ponta do cabo: ≈3,4 Ω e pilha | 5.1 | ⏳ |
 | B2–B3 | Prender no CH1 (marcado no +) e medir no borne | 5.1 | ⏳ |
 | C1–C4 | Primeiro som só no CH1: gerador ≤ −20 dB (1 kHz, 5 kHz, 60 Hz = prova do passa-alta, varredura, vazamento), música, desligar | 5.2 | ⏳ |
@@ -84,6 +84,7 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 | Limitador Canal 1: CH1 com limiar em −12,2 dB | ≈9,6 V | **9,7 V** ✅ | 14/10 |
 | Limitador Canal 1 final: **−11,0 dB (564 mV)**; teste do teto (Canal 1 em −9 dB) | ≤ 11,2 V | **10,8 V** ✅ | 14/10 |
 | Passa-alta Canal 1 (BT12 120 Hz): CH1 com tom de 60 Hz / 0 dB | ≈2,7 V (2,3–3,1) | **2,3 V** ✅ (≈ −13,6 dB) | 14/10 |
+| Canal 2: CH2 sem filtro · limiar −11,0 · teto (−9 dB) · com BT12 a 60 Hz | 11,0 · 10,8–11,0 · ≤ 11,2 · ≈2,3 V | **11,1 · 10,8 · 11,2 · 2,2 V** ✅ | 14/10 |
 | Ganho ponte CH4⊕/CH3⊖ | 40 V | | |
 | Resistência caixa L / R (na ponta do cabo) | ≈3,4 Ω | | |
 | Resistência do sub | 3–3,6 Ω | | |
@@ -114,3 +115,4 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - **14/10/2026 (10):** **1.6 concluído no Canal 1:** Threshold −11,0 dB (564 mV), 9,7 V com −12,2 dB, teto 10,8 V com o canal em −9 dB. Falta conferir o Canal 2 em −11,0. Próximo: 1.7 passa-alta BT12 120 Hz (prova: CH1 ≈2,7 V a 60 Hz).
 - **14/10/2026 (11):** **1.7 Canal 1 ok:** HPF BT12 em 120 Hz, LPF OFF (print 30); CH1 a 60 Hz caiu de 11 para 2,3 V. Falta Canal 2 (BT12 120 Hz e limiar −11,0) e salvar (1.8, aguardando print da tela Salvar).
 - **14/10/2026 (12):** Limiter do Canal 2 não acompanhou o Canal 1 (continua sem −11). Próximo: limiar −11,0 no Canal 2 (com o HPF do Canal 2 em OFF durante a conferência a 60 Hz), depois BT12 120 Hz no Canal 2 e salvar.
+- **14/10/2026 (13):** **Canais 1 e 2 prontos** (ganho 11 V, limitador −11,0 dB, BT12 120 Hz). Canal 2: 11,1 V sem filtro, 10,8 V com limiar −11, teto 11,2 V, 2,2 V com BT12 a 60 Hz. Próximo: gerador OFF, salvar (print da tela Salvar), depois Parte 2 (ligar caixa L no CH1).

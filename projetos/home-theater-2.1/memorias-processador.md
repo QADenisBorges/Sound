@@ -44,12 +44,12 @@ Entrada: EQ 15 bandas todo em 0,0 (preset "Custom"); EQ paramétrico de entrada 
 | Ajuste | Canal 1 (JBL L) | Canal 2 (JBL R) | Canal 3 (sub, ponte) | Canal 4 (sub, ponte) |
 |---|---|---|---|---|
 | Roteamento | A | B | A+B | A+B |
-| HPF | **BT12** em 120 Hz ✅ (14/10: 60 Hz → 2,3 V) | **BT12** em 120 Hz | **BT24** em 30 Hz (subsônico; muda no 5.3 com a Fb do duto) | igual ao canal 3 |
+| HPF | **BT12** em 120 Hz ✅ (14/10: 60 Hz → 2,3 V) | **BT12** em 120 Hz ✅ (14/10: 60 Hz → 2,2 V) | **BT24** em 30 Hz (subsônico; muda no 5.3 com a Fb do duto) | igual ao canal 3 |
 | LPF | OFF | OFF | **LR24** em 120 Hz | igual ao canal 3 |
 | Fase | 0 | 0 | 0 (testar 180 no 5.4, **nos dois juntos**) | igual ao canal 3 |
 | Alinhamento | (5.4) | (5.4) | (5.4) | igual ao canal 3 |
 | Nível da saída | **−11,0 dB** (11,0 V, 14/10) | **−11,0 dB** (11,0 V, 14/10) | (A5) | igual ao canal 3 |
-| Limiter: Threshold | **−11,0 dB = 564 mV** (Auto off, 50 ms / 500 ms; teto 10,8 V, 14/10) | −11,0 dB (a confirmar) | (A6) | igual ao canal 3 |
+| Limiter: Threshold | **−11,0 dB = 564 mV** (Auto off, 50 ms / 500 ms; teto 10,8 V, 14/10) | **−11,0 dB** (teto 11,2 V, 14/10) | (A6) | igual ao canal 3 |
 | EQ Param Saída | 0,0 dB (−1 a −2 dB em ~150 Hz se embolar, 5.4) | idem | 0,0 dB | igual ao canal 3 |
 | GAIN no módulo | CH1-CH2: **mínimo** (14/10) | — | CH3-CH4: (A5) | — |
 
