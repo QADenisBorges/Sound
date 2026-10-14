@@ -86,7 +86,7 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 | Passa-alta Canal 1 (BT12 120 Hz): CH1 com tom de 60 Hz / 0 dB | ≈2,7 V (2,3–3,1) | **2,3 V** ✅ (≈ −13,6 dB) | 14/10 |
 | Canal 2: CH2 sem filtro · limiar −11,0 · teto (−9 dB) · com BT12 a 60 Hz | 11,0 · 10,8–11,0 · ≤ 11,2 · ≈2,3 V | **11,1 · 10,8 · 11,2 · 2,2 V** ✅ | 14/10 |
 | Ganho ponte CH4⊕/CH3⊖ | 40 V | | |
-| Resistência caixa L / R (na ponta do cabo) | ≈3,4 Ω | | |
+| Resistência caixa L / R (na ponta do cabo) | ≈3,4 Ω (+ pontas ≈0,3) | **L: 4,8 Ω** (leitura bruta; pontas ❓) — em investigação | 14/10 |
 | Resistência do sub | 3–3,6 Ω | | |
 | Fb do duto do sub | — | | |
 
@@ -117,3 +117,4 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - **14/10/2026 (12):** Limiter do Canal 2 não acompanhou o Canal 1 (continua sem −11). Próximo: limiar −11,0 no Canal 2 (com o HPF do Canal 2 em OFF durante a conferência a 60 Hz), depois BT12 120 Hz no Canal 2 e salvar.
 - **14/10/2026 (13):** **Canais 1 e 2 prontos** (ganho 11 V, limitador −11,0 dB, BT12 120 Hz). Canal 2: 11,1 V sem filtro, 10,8 V com limiar −11, teto 11,2 V, 2,2 V com BT12 a 60 Hz. Próximo: gerador OFF, salvar (print da tela Salvar), depois Parte 2 (ligar caixa L no CH1).
 - **14/10/2026 (14):** Memória 1 salva como **"filme"** (v1, só canais 1–2 configurados). Valores completos em `memorias-processador.md`. Próximo: **Parte 2** (desligar, conferir a caixa L: Ω 200 → ≈3,4 Ω e pilha; prender no CH1).
+- **14/10/2026 (15):** Caixa L mediu **4,8 Ω** na ponta do cabo (Ω 200), acima do esperado (≈3,7 bruto). Investigar: descontar pontas, contato firme, mexer no cabo durante a medição, comparar com a caixa R.
