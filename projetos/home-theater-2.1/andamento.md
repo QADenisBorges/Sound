@@ -81,6 +81,8 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 | CH1 com gerador 60 Hz / 0 dB, nível 0 dB, GAIN mínimo | — | **26 V** (provável ceifamento do módulo sem carga) | 14/10 |
 | Ganho CH1 / CH2 | 11,0 V | **CH1 11,0 V** com o Canal 1 em **−11,0 dB** · **CH2 11,0 V** com o Canal 2 em **−11,0 dB** · GAIN CH1-CH2 no mínimo | 14/10 |
 | Teste −6 dB no CH1 (Canal 1 em −17 dB) | ≈5,5 V | **5,3 V** ✅ (região linear; o gerador passa pelo nível) | 14/10 |
+| Limitador Canal 1: CH1 com limiar em −12,2 dB | ≈9,6 V | **9,7 V** ✅ | 14/10 |
+| Limitador Canal 1 final: **−11,0 dB (564 mV)**; teste do teto (Canal 1 em −9 dB) | ≤ 11,2 V | **10,8 V** ✅ | 14/10 |
 | Ganho ponte CH4⊕/CH3⊖ | 40 V | | |
 | Resistência caixa L / R (na ponta do cabo) | ≈3,4 Ω | | |
 | Resistência do sub | 3–3,6 Ω | | |
@@ -108,3 +110,4 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - **14/10/2026 (7):** 1.5 ok: Canal 1 em −17 dB → CH1 5,3 V (esperado 5,5). Canal 2 **não** acompanhou o Canal 1 (link não espelha o nível). CH2 com o Canal 2 em −11 dB = 11,0 V: **CH1 e CH2 regulados**. Próximo: limitador (1.6) nos canais 1 e 2.
 - **14/10/2026 (8):** Limitador do Canal 1: LED apagou em **Threshold −10,4 dB = 604 mV** (o app mostra o limiar em dB e em mV; 0 dB ≈ 2,0 V). Com o sinal em −11 dB, isso deixa o teto em ≈11,8 V; recomendado **−11,0 dB** para o teto coincidir com os 11,0 V. Próximo: teste do teto e Canal 2.
 - **14/10/2026 (9):** Descendo o Threshold do Canal 1, o LED 1 só acendeu em **−12,2 dB (491 mV)**, embora o sinal esteja em −11 dB: o LED não marca o início exato da limitação. Ajuste passa a ser feito **pelo multímetro**: Threshold em −11,0 e CH1 ≈ 11,0 V.
+- **14/10/2026 (10):** **1.6 concluído no Canal 1:** Threshold −11,0 dB (564 mV), 9,7 V com −12,2 dB, teto 10,8 V com o canal em −9 dB. Falta conferir o Canal 2 em −11,0. Próximo: 1.7 passa-alta BT12 120 Hz (prova: CH1 ≈2,7 V a 60 Hz).
