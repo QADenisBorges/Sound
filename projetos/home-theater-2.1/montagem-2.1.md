@@ -1,6 +1,6 @@
 # Montagem do 2.1 — resumo em texto (guia v2.6, 11/10/2026)
 
-> Versão ilustrada: `guia/index.html` (entrada), com três partes: `compras.html`, `montagem.html` e `referencia.html`, cada uma com PDF (`guia/Home-Theater-2.1-<parte>-v2.6.pdf`; dados das versões anteriores em `guia/anteriores/`). Este arquivo continua como resumo em texto. Conferência da compra de 10/10, foto a foto: `compras/2026-10-10-loja-fisica/conferencia.md`.
+> Versão ilustrada: `guia/index.html` (entrada), com três partes: `compras.html`, `montagem.html` e `referencia.html`, cada uma com PDF (`guia/Home-Theater-2.1-<parte>-v2.6.pdf`; dados das versões anteriores em `guia/anteriores/`). Este arquivo continua como resumo em texto. **Andamento da bancada (11–14/10), valores medidos e configurações do app: `andamento.md`.** Conferência da compra de 10/10, foto a foto: `compras/2026-10-10-loja-fisica/conferencia.md`.
 
 Sistema: notebook/celular → **Taramps PRO 2.4BT + AUDIO** → **SD800.4** (alimentado pela **BOB 60A**) → **JBL 4TRMS80 nas carcaças BS-369** (L/R) + **sub Protech 8"** em ponte.
 O par Selenium 6TR4A volta para o carro.
