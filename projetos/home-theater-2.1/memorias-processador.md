@@ -59,3 +59,4 @@ Data em que foi salva: ____ · Exportada para o celular: ☐ · Prints: ____
 
 ## Histórico
 - 2026-10-14: Primeira leitura das telas do app (prints 01–19). Nenhuma memória salva ainda; níveis das saídas encontrados em −16,5 / −16,5 / −12 / −12 dB; filtros com frequências digitadas e tipo OFF; limitador OFF.
+- 2026-10-14 (2): Tela Home (print 00): som ON, **Áudio BT desligado**, Volt. **13,9 V**, canais ligados em pares (link 1–2 e 3–4). Foto 20: LED do módulo aceso. Foto 21: multímetro (VC830L) mostrando **15,6** em V~ 200 — **ponto medido a confirmar** (saída do módulo com tom × régua de 13,9 V DC na escala AC); não registrado como ganho.

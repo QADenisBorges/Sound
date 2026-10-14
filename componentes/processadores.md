@@ -61,6 +61,8 @@ Prints em `projetos/home-theater-2.1/fotos/2026-10-14-app-processador/`. Estado 
 
 | Tela | O que tem | Observações |
 |---|---|---|
+| **Home** (tela inicial) | **ON/OFF** (liga o som e o módulo pelo REM); chave **Áudio BT** (vermelha = desligada; abaixo, "Áudio Conectado/Desconectado"); **Master Level**; botão de alto-falante por canal com **ícone de corrente (link) azul entre Canal 1–2 e entre Canal 3–4**; **In Clip** (LED de entrada); **Volt.** (tensão de alimentação, ex.: 13,9 V); **Bluetooth** (LED azul = app conectado); LEDs **Limiter / Out Clip 1–4**; **5 botões de coração** (atalhos, provavelmente memórias favoritas: a confirmar); **Deslize para Bloquear** | O link azul deve espelhar os ajustes do par (bom para a ponte 3–4): **confirmar** se um mute/ajuste no Canal 1 também vai para o Canal 2 |
+| **Barra inferior** | **Home · Áudio · Player · Salvar · Volt.** | "Salvar" deve ser a tela das memórias (a confirmar por print) |
 | **Roteam. Ent/Saída** | Por canal: botões **A · B · A+B** (o escolhido fica vermelho) | Origem de cada saída |
 | **EQ 15 Bandas** (entrada) | 25 Hz a 16 kHz; seleciona a banda com ‹ ›, ganho com − + ou barra; **Presets** (lista; "Custom" = ajuste manual) | Plano = todas em 0.0 |
 | **EQ Param Entr** | 1 banda: Ganho (dB), Freq. (Hz), Fator Q | Ganho 0.0 = sem efeito, seja qual for a freq. e o Q |
@@ -71,4 +73,4 @@ Prints em `projetos/home-theater-2.1/fotos/2026-10-14-app-processador/`. Estado 
 | **Limiter** | Por canal: gráfico entrada × saída (valor em **V** no canto, 2,10 V = máximo); **Auto** (chave); **Threshold** (OFF ou valor); **Attack** (ms); **Release** (ms); LEDs 1–4 | Padrão visto: Threshold OFF, Attack 50,0, Release 500. Com OFF o limitador não age |
 | **Nível das Saídas** | **Master Level** e nível por canal em dB (barra, − +); LED **Limiter / Out Clip** por canal; botão de alto-falante por canal | Botão verde = canal tocando (leitura dos prints; confirmar que muda ao silenciar) |
 
-**Ainda não visto em print:** a tela de **memórias** (provavelmente na engrenagem), o **gerador de sinal**, a chave **Audio BT**, o **voltímetro** e a troca de senha. Completar quando houver prints.
+**Ainda não visto em print:** a tela **Salvar** (memórias), o **gerador de sinal**, a tela **Volt.** e a troca de senha (provavelmente na engrenagem). Completar quando houver prints.
