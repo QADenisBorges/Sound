@@ -2,6 +2,12 @@
 
 Mantido pelo `revisor-som`. Entradas mais novas no topo. Backups em `../consultor-som-workspace/historico/`.
 
+## 2026-10-14 — lacuna de conhecimento
+- O quê: `references/automotivo.md` §4 — médio-grave profissional (ogiva, alta sensibilidade, Fs alto) reaproveitado como midbass num 3 vias SQ com DSP: corte ~100 Hz e o que isso pede do sub; marca Snake citada como exemplo de linha pro.
+- Por quê: precisou ser improvisado ao analisar um falante pro já instalado na porta; o nome da marca chegou a ser confundido com "speaker".
+- Evidência: anúncios do Snake ESV200 6" (sensibilidade 92–95 dB, Fs 94–133 Hz, resposta ~80 Hz–3/6 kHz, dados de lojas divergentes); comportamento de Fs/Qts em baffle infinito.
+- Snapshot: historico/2026-10-14_060101
+
 ## 2026-10-09 12:20 — segurança + lacuna de conhecimento
 - O quê: `references/residencial-hifi.md` (módulo automotivo em casa) — fontes "BOB" com bornes de 127/220 V na mesma régua da saída de 12 V: não tocar com o plugue na tomada, trimpot com chave isolada, tomada com terra; ponteiro para o ganho com DSP. `references/automotivo.md` §2 — subsônico em caixa dutada: por que (sem carga abaixo da Fb), onde (~0,7–0,8 × Fb, 24 dB/oit) e como achar a Fb de caixa pronta (varredura: na Fb o cone quase para). `evals/evals.json` — eval 6 ganhou asserção de cuidado com a rede.
 - Por quê: num guia de montagem, o ajuste do trimpot com a fonte energizada foi orientado sem aviso de que a mesma régua tem a rede exposta; e o subsônico foi fixado sem saber se a caixa pronta do sub era dutada. Os dois casos são comuns em home theater montado com peças de carro.

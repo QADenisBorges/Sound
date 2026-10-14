@@ -51,7 +51,8 @@ Caminhos: kit 2 vias de qualidade (usa só woofer e tweeter; o crossover passivo
 - Ganho alto no módulo do tweeter → chiado; ganho baixo no módulo, volume pelo DSP.
 
 ## Pendências
-- Identificar o falante atual da porta (etiqueta do ímã ou foto). Pela descrição ("200–220 W", peça central pontuda e brilhante), é um coaxial/triaxial de 6" do mercado de reposição, não o original Fiat: candidatos Pioneer TS-1760BR (200 W máx., 50 W RMS, 86 dB, profundidade 46 mm, corte 144 mm), Pioneer TS-1790BR (220 W PMPO, 60 W RMS), Bravox B3X60X (200 W o par), Hurricane Aurum A6T (60 W RMS). Os 200–220 W são potência máxima/PMPO, não RMS.
+- Falante atual da porta: **Snake ESV (6", provável ESV200)**, médio-grave profissional com ogiva cromada. Dados de lojas (divergentes, sem ficha oficial): 200 W RMS, 4 Ω, sensibilidade 92–95 dB, Fs 94–133 Hz, resposta ~80 Hz–3/6 kHz. Confirmar modelo na etiqueta (ESV200/220/260/280). Já cabe na porta → a profundidade dele é referência para o futuro midbass.
+- Decidir: manter o Snake como midbass (passa-alta ~100 Hz, sub cruzando em ~100 Hz) e investir os R$ 2.000 em médio + tweeter, ou trocar por midbass de Fs ≤ 70 Hz (corte 63–80 Hz).
 - Medir a porta (furo e profundidade) e o espaço na coluna A.
 - Definir o sub e o DSP/módulos (orçamento à parte).
 - Cotação dos falantes com `pesquisa-precos`.
@@ -59,3 +60,4 @@ Caminhos: kit 2 vias de qualidade (usa só woofer e tweeter; o crossover passivo
 ## Histórico de decisões
 - 2026-10-14: Projeto iniciado. Frente 3 vias ativo com DSP de 8 canais (6 frente + 2 sub em ponte). R$ 2.000 só para os 6 falantes. SD800.4 fica no home theater (premissa). Requisitos por via definidos.
 - 2026-10-14: Falante atual da porta descrito como "200–220 W" com peça central pontuda e brilhante → provável triaxial de reposição (~50–60 W RMS), não midbass. Serve só como provisório no canal de midbass, com ganho limitado.
+- 2026-10-14: Falante da porta identificado pelo usuário como **Snake ESV** (não Pioneer/Hurricane). É médio-grave pro, alta sensibilidade e Fs alto: serve de midbass a partir de ~100 Hz com DSP; abaixo disso fica com o sub.

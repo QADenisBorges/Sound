@@ -46,6 +46,7 @@
 - **DSP** (processador) permite corrigir tempo (alinhamento temporal), EQ e crossovers ativos. Em carro é o upgrade que mais transforma o palco sonoro depois dos falantes.
 - Rádio original: usar entrada de alto nível do módulo ou conversor RCA (line output converter). Alguns carros têm EQ de fábrica que corta grave — um DSP resolve.
 - Médio "de porta" profissional (6", 8" de alta sensibilidade) + corneta/driver = estilo "trio"/"porta-malas"; muito alto, pouco refinado para SQ.
+- Médio-grave profissional de 6" já instalado na porta (linhas pro de marcas como Snake, Eros, Selenium Pro, Oversound; costumam trazer ogiva cromada no centro) num projeto SQ com DSP: sensibilidade alta (~92–96 dB) e Fs alto (~90–130 Hz, Qts baixo, feito para caixa) → na porta rende pouco abaixo de ~100 Hz. Dá para usá-lo como midbass com passa-alta em ~100 Hz se o sub cruzar ali (acima disso o grave do porta-malas começa a ser localizado atrás); para cruzar em 60–80 Hz, o midbass precisa de Fs ≤ ~70 Hz. Diferença de sensibilidade com médio/tweeter se acerta no nível do DSP.
 
 ## 5. Regulagem de ganho
 
