@@ -15,8 +15,8 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 
 ## ▶ Próximo passo
 **Regulagem de ganho do CH1/CH2 (A3–A4 = passo 4.10 do guia), sem falante ligado.** Antes:
-1. ❓ Confirmar **onde foram medidos os 15,6 V** (foto 21): saída CH1 com tom (então está 4,6 V acima do alvo de 11 V) ou a alimentação com o multímetro em V~ (leitura inválida: DC em escala AC).
-2. ❓ Confirmar que os **bornes de falante do módulo (CH4+ até CH1−) estão vazios**.
+1. ❓ Usuário informou **5,6 V~ no CH1 (+/−)**, escala V~ 200 (a foto 21 parecia 15,6). Sem sinal tocando (Áudio BT estava desligado) o esperado é ≈0 V: fazer a **medida sem sinal (linha de base)** antes de regular. ≈0 → seguir; ainda ≈5,6 sem sinal → parar e investigar.
+2. ✅ Bornes de falante do módulo vazios (confirmado 14/10).
 3. ⏳ No app: **níveis das saídas 1–4 em 0,0 dB** (estavam −16,5 / −16,5 / −12 / −12) e **Áudio BT ligado** (estava desligado).
 
 ---
@@ -77,7 +77,7 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 | Medida | Esperado | Medido | Data |
 |---|---|---|---|
 | Alimentação (voltímetro do app) | 13,8 V | **13,9 V** | 14/10 |
-| Multímetro em V~ 200 (ponto ❓) | — | 15,6 | 14/10 |
+| CH1 +/− em V~ 200, condição do sinal ❓ | ≈0 V sem sinal | 5,6 (usuário) · foto: 15,6 | 14/10 |
 | Ganho CH1 / CH2 | 11,0 V | | |
 | Ganho ponte CH4⊕/CH3⊖ | 40 V | | |
 | Resistência caixa L / R (na ponta do cabo) | ≈3,4 Ω | | |
@@ -98,3 +98,4 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 
 ## Registro das sessões
 - **14/10/2026:** Sequência de testes por canal definida (A1–A7, B, C). A1 concluído. Prints do app (20 telas) documentados; processador sem memória salva, níveis das saídas em −16,5/−16,5/−12/−12 dB, filtros com tipo OFF, limitador OFF. Módulo energizado (LED aceso, 13,9 V). Leitura de 15,6 V no multímetro com o ponto a confirmar.
+- **14/10/2026 (2):** Bornes de falante vazios confirmados. CH1 mediu 5,6 V~ com sinal desconhecido: próximo é a linha de base sem sinal, depois níveis 0 dB, Áudio BT e tom de 60 Hz (A3/A4).
