@@ -28,8 +28,8 @@ Cortes iniciais (LR 24 dB/oit; ajustar medindo):
 |---|---|---|
 | Sub | subsônico conforme a caixa | ~100 Hz (opção A, Snake) |
 | Midbass (Snake ESV) | ~100 Hz | 400–500 Hz |
-| Médio 3" | 400–500 Hz | 3,5–5 kHz |
-| Tweeter | 3,5–5 kHz (≥ ~2,5 × Fs) | — |
+| Médio 3" (Hertz MP 70.3) | 400–500 Hz | 3,5–4 kHz |
+| Tweeter (Audison AP 1) | 3,5–4 kHz | — |
 
 Potência por via: midbass 75–100 W, médio 30–50 W, tweeter 20–40 W.
 Elétrica (calc_som): 2 módulos 4 canais ≈ 800 W → máx. 72,5 A, média com música 9–24 A; 60 A em 5 m com queda ≤ 0,5 V → 16 mm² OFC, fusível 80 A.
@@ -59,7 +59,8 @@ Caminhos: kit 2 vias de qualidade (usa só woofer e tweeter; o crossover passivo
   - Tweeter ideal para o MP 70.3: **Hertz MP 25.3** (91 dB, 1,4–22,5 kHz) — sem preço no Brasil encontrado; lá fora ~US$ 250 o par.
   - Tweeter alternativo: **Audison Prima AP 1** — 26 mm, 93 dB, 2–20 kHz, 4 Ω, vem com crossover passivo (não usado). ML loja oficial ~R$ 739 (frete grátis); Som Curitiba R$ 764 à vista.
   - Combinações (14/10/2026, preços de anúncio): MP 70.3 + DT 24.3 ≈ R$ 1.791 (cabe; corte ~5–5,5 kHz) · **MP 70.3 + AP 1 ≈ R$ 2.221 (passa R$ 221; corte 3,5–4 kHz) — recomendada** · MP 70.3 + MP 25.3 (sem preço BR). Médios mais baratos de qualidade não apareceram no Brasil (Audison AP 3 sem anúncio; Audison AV 3.0 a R$ 1.778 o par estoura).
-  - Falta cotação formal (pesquisa-precos): confirmar se o MP 70.3 de R$ 1.482 é o par.
+  - **DEFINIDO (14/10/2026): Hertz MP 70.3 (par) + Audison Prima AP 1 (par) ≈ R$ 2.221.** MP 70.3: ML "Kit 2un" R$ 1.482 (par) · Amazon par R$ 1.654,90 no Pix. AP 1: ML loja oficial R$ 739 (frete grátis) · Som Curitiba R$ 764 à vista. Preços de anúncio, frete para o CEP a confirmar na compra.
+  - Cortes com esse par: médio 400–500 Hz → 3,5–4 kHz; tweeter a partir de 3,5–4 kHz (LR24). Níveis: MP 70.3 88 dB, AP 1 93 dB, Snake ~93 dB → o médio fica como referência e os outros dois descem no DSP.
 - Medir a porta (furo e profundidade) e o espaço na coluna A.
 - Definir o sub e o DSP/módulos (orçamento à parte).
 - Cotação dos falantes com `pesquisa-precos`.
@@ -70,3 +71,4 @@ Caminhos: kit 2 vias de qualidade (usa só woofer e tweeter; o crossover passivo
 - 2026-10-14: Falante da porta identificado pelo usuário como **Snake ESV** (não Pioneer/Hurricane). É médio-grave pro, alta sensibilidade e Fs alto: serve de midbass a partir de ~100 Hz com DSP; abaixo disso fica com o sub.
 - 2026-10-14: **Opção A escolhida**: mantém o Snake ESV como midbass e os R$ 2.000 vão para médio + tweeter. Cortes ajustados (sub e midbass em ~100 Hz). Candidatos levantados: Hertz MP 70.3 (médio), DT 24.3 ou MP 25.3 (tweeter).
 - 2026-10-14: Reanálise com R$ 2.000 para médio + tweeter: recomendado MP 70.3 + Audison AP 1 (~R$ 2.221); dentro do teto, MP 70.3 + DT 24.3 (~R$ 1.791).
+- 2026-10-14: **Médio e tweeter definidos:** Hertz MP 70.3 + Audison Prima AP 1 (~R$ 2.221). O usuário aceitou passar R$ 221 do teto de R$ 2.000 em troca do cruzamento confortável em 3,5–4 kHz.
