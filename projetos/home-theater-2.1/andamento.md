@@ -96,7 +96,7 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - Fusível de 1–2 A (lâmina média) no lugar do 5 A provisório do processador.
 - Silicone das caixas (2.5), no fim.
 - Prints do app que faltam: tela **Salvar** (memórias), **corações** da Home, tela **Volt.**
-- Confirmar o que o **link azul** entre os canais 1–2 e 3–4 faz: **não espelha o nível** (Canal 1 a −17 dB, Canal 2 ficou em −11 dB, 14/10); falta ver mute, filtros e limitador.
+- Confirmar o que o **link azul** entre os canais 1–2 e 3–4 faz: **não espelha o nível nem o limitador** (14/10); falta ver mute e filtros.
 - `../home-theater-5.1/projeto.md` tem linhas desatualizadas sobre o 2.1 (6TR4A/APSOUND, ganho 15,5 V, chave HP, fusível 3 A). **O guia v2.6 e este arquivo é que valem.**
 
 ---
@@ -113,3 +113,4 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - **14/10/2026 (9):** Descendo o Threshold do Canal 1, o LED 1 só acendeu em **−12,2 dB (491 mV)**, embora o sinal esteja em −11 dB: o LED não marca o início exato da limitação. Ajuste passa a ser feito **pelo multímetro**: Threshold em −11,0 e CH1 ≈ 11,0 V.
 - **14/10/2026 (10):** **1.6 concluído no Canal 1:** Threshold −11,0 dB (564 mV), 9,7 V com −12,2 dB, teto 10,8 V com o canal em −9 dB. Falta conferir o Canal 2 em −11,0. Próximo: 1.7 passa-alta BT12 120 Hz (prova: CH1 ≈2,7 V a 60 Hz).
 - **14/10/2026 (11):** **1.7 Canal 1 ok:** HPF BT12 em 120 Hz, LPF OFF (print 30); CH1 a 60 Hz caiu de 11 para 2,3 V. Falta Canal 2 (BT12 120 Hz e limiar −11,0) e salvar (1.8, aguardando print da tela Salvar).
+- **14/10/2026 (12):** Limiter do Canal 2 não acompanhou o Canal 1 (continua sem −11). Próximo: limiar −11,0 no Canal 2 (com o HPF do Canal 2 em OFF durante a conferência a 60 Hz), depois BT12 120 Hz no Canal 2 e salvar.
