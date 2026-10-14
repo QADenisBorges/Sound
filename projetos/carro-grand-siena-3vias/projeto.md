@@ -57,7 +57,9 @@ Caminhos: kit 2 vias de qualidade (usa só woofer e tweeter; o crossover passivo
   - Médio: **Hertz Mille Pro MP 70.3** — Fs 110 Hz, Qts 0,82, Vas 1 L, Xmax 1,5 mm, 88 dB (Hertz), 180 Hz–18 kHz, 50 W RMS, profundidade 44 mm. ML ~R$ 1.480–1.560 (confirmar se é o par). Xmax pequeno → passa-alta ≥ 400 Hz LR24.
   - Tweeter que cabe no orçamento: **Hertz Dieci DT 24.3** — 94 dB, Fs 2,8 kHz (corte ≥ ~5–5,5 kHz), Amazon ~R$ 309. Concessão: Fs acima do requisito (≤ 1,5 kHz).
   - Tweeter ideal para o MP 70.3: **Hertz MP 25.3** (91 dB, 1,4–22,5 kHz) — sem preço no Brasil encontrado; lá fora ~US$ 250 o par.
-  - Falta cotação formal (pesquisa-precos) e buscar médios 3" mais baratos para liberar verba para o tweeter.
+  - Tweeter alternativo: **Audison Prima AP 1** — 26 mm, 93 dB, 2–20 kHz, 4 Ω, vem com crossover passivo (não usado). ML loja oficial ~R$ 739 (frete grátis); Som Curitiba R$ 764 à vista.
+  - Combinações (14/10/2026, preços de anúncio): MP 70.3 + DT 24.3 ≈ R$ 1.791 (cabe; corte ~5–5,5 kHz) · **MP 70.3 + AP 1 ≈ R$ 2.221 (passa R$ 221; corte 3,5–4 kHz) — recomendada** · MP 70.3 + MP 25.3 (sem preço BR). Médios mais baratos de qualidade não apareceram no Brasil (Audison AP 3 sem anúncio; Audison AV 3.0 a R$ 1.778 o par estoura).
+  - Falta cotação formal (pesquisa-precos): confirmar se o MP 70.3 de R$ 1.482 é o par.
 - Medir a porta (furo e profundidade) e o espaço na coluna A.
 - Definir o sub e o DSP/módulos (orçamento à parte).
 - Cotação dos falantes com `pesquisa-precos`.
@@ -67,3 +69,4 @@ Caminhos: kit 2 vias de qualidade (usa só woofer e tweeter; o crossover passivo
 - 2026-10-14: Falante atual da porta descrito como "200–220 W" com peça central pontuda e brilhante → provável triaxial de reposição (~50–60 W RMS), não midbass. Serve só como provisório no canal de midbass, com ganho limitado.
 - 2026-10-14: Falante da porta identificado pelo usuário como **Snake ESV** (não Pioneer/Hurricane). É médio-grave pro, alta sensibilidade e Fs alto: serve de midbass a partir de ~100 Hz com DSP; abaixo disso fica com o sub.
 - 2026-10-14: **Opção A escolhida**: mantém o Snake ESV como midbass e os R$ 2.000 vão para médio + tweeter. Cortes ajustados (sub e midbass em ~100 Hz). Candidatos levantados: Hertz MP 70.3 (médio), DT 24.3 ou MP 25.3 (tweeter).
+- 2026-10-14: Reanálise com R$ 2.000 para médio + tweeter: recomendado MP 70.3 + Audison AP 1 (~R$ 2.221); dentro do teto, MP 70.3 + DT 24.3 (~R$ 1.791).
