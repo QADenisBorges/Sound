@@ -44,7 +44,7 @@ Entrada: EQ 15 bandas todo em 0,0 (preset "Custom"); EQ paramétrico de entrada 
 | Ajuste | Canal 1 (JBL L) | Canal 2 (JBL R) | Canal 3 (sub, ponte) | Canal 4 (sub, ponte) |
 |---|---|---|---|---|
 | Roteamento | A | B | A+B | A+B |
-| HPF | **BT12** em 120 Hz | **BT12** em 120 Hz | **BT24** em 30 Hz (subsônico; muda no 5.3 com a Fb do duto) | igual ao canal 3 |
+| HPF | **BT12** em 120 Hz ✅ (14/10: 60 Hz → 2,3 V) | **BT12** em 120 Hz | **BT24** em 30 Hz (subsônico; muda no 5.3 com a Fb do duto) | igual ao canal 3 |
 | LPF | OFF | OFF | **LR24** em 120 Hz | igual ao canal 3 |
 | Fase | 0 | 0 | 0 (testar 180 no 5.4, **nos dois juntos**) | igual ao canal 3 |
 | Alinhamento | (5.4) | (5.4) | (5.4) | igual ao canal 3 |

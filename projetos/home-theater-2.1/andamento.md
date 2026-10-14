@@ -83,6 +83,7 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 | Teste −6 dB no CH1 (Canal 1 em −17 dB) | ≈5,5 V | **5,3 V** ✅ (região linear; o gerador passa pelo nível) | 14/10 |
 | Limitador Canal 1: CH1 com limiar em −12,2 dB | ≈9,6 V | **9,7 V** ✅ | 14/10 |
 | Limitador Canal 1 final: **−11,0 dB (564 mV)**; teste do teto (Canal 1 em −9 dB) | ≤ 11,2 V | **10,8 V** ✅ | 14/10 |
+| Passa-alta Canal 1 (BT12 120 Hz): CH1 com tom de 60 Hz / 0 dB | ≈2,7 V (2,3–3,1) | **2,3 V** ✅ (≈ −13,6 dB) | 14/10 |
 | Ganho ponte CH4⊕/CH3⊖ | 40 V | | |
 | Resistência caixa L / R (na ponta do cabo) | ≈3,4 Ω | | |
 | Resistência do sub | 3–3,6 Ω | | |
@@ -111,3 +112,4 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - **14/10/2026 (8):** Limitador do Canal 1: LED apagou em **Threshold −10,4 dB = 604 mV** (o app mostra o limiar em dB e em mV; 0 dB ≈ 2,0 V). Com o sinal em −11 dB, isso deixa o teto em ≈11,8 V; recomendado **−11,0 dB** para o teto coincidir com os 11,0 V. Próximo: teste do teto e Canal 2.
 - **14/10/2026 (9):** Descendo o Threshold do Canal 1, o LED 1 só acendeu em **−12,2 dB (491 mV)**, embora o sinal esteja em −11 dB: o LED não marca o início exato da limitação. Ajuste passa a ser feito **pelo multímetro**: Threshold em −11,0 e CH1 ≈ 11,0 V.
 - **14/10/2026 (10):** **1.6 concluído no Canal 1:** Threshold −11,0 dB (564 mV), 9,7 V com −12,2 dB, teto 10,8 V com o canal em −9 dB. Falta conferir o Canal 2 em −11,0. Próximo: 1.7 passa-alta BT12 120 Hz (prova: CH1 ≈2,7 V a 60 Hz).
+- **14/10/2026 (11):** **1.7 Canal 1 ok:** HPF BT12 em 120 Hz, LPF OFF (print 30); CH1 a 60 Hz caiu de 11 para 2,3 V. Falta Canal 2 (BT12 120 Hz e limiar −11,0) e salvar (1.8, aguardando print da tela Salvar).
