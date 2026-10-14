@@ -48,10 +48,10 @@ Entrada: EQ 15 bandas todo em 0,0 (preset "Custom"); EQ paramétrico de entrada 
 | LPF | OFF | OFF | **LR24** em 120 Hz | igual ao canal 3 |
 | Fase | 0 | 0 | 0 (testar 180 no 5.4, **nos dois juntos**) | igual ao canal 3 |
 | Alinhamento | (5.4) | (5.4) | (5.4) | igual ao canal 3 |
-| Nível da saída | (A4) | (A4) | (A5) | igual ao canal 3 |
+| Nível da saída | **−11,0 dB** (11,0 V, 14/10) | (A4) | (A5) | igual ao canal 3 |
 | Limiter: Threshold | (A6) | (A6) | (A6) | igual ao canal 3 |
 | EQ Param Saída | 0,0 dB (−1 a −2 dB em ~150 Hz se embolar, 5.4) | idem | 0,0 dB | igual ao canal 3 |
-| GAIN no módulo | CH1-CH2: (A4) | — | CH3-CH4: (A5) | — |
+| GAIN no módulo | CH1-CH2: **mínimo** (14/10) | — | CH3-CH4: (A5) | — |
 
 Data em que foi salva: ____ · Exportada para o celular: ☐ · Prints: ____
 

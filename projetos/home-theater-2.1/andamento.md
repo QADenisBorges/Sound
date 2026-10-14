@@ -78,7 +78,8 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 |---|---|---|---|
 | Alimentação (voltímetro do app) | 13,8 V | **13,9 V** | 14/10 |
 | CH1 +/− em V~ 200, gerador do app (freq./nível ❓), saída −16,5 dB | ≈0 V sem sinal | 5,6 (usuário) · foto: 15,6 | 14/10 |
-| Ganho CH1 / CH2 | 11,0 V | | |
+| CH1 com gerador 60 Hz / 0 dB, nível 0 dB, GAIN mínimo | — | **26 V** (provável ceifamento do módulo sem carga) | 14/10 |
+| Ganho CH1 / CH2 | 11,0 V | **CH1 11,0 V** com nível do Canal 1 em **−11,0 dB**, GAIN CH1-CH2 no mínimo · CH2 ❓ | 14/10 |
 | Ganho ponte CH4⊕/CH3⊖ | 40 V | | |
 | Resistência caixa L / R (na ponta do cabo) | ≈3,4 Ω | | |
 | Resistência do sub | 3–3,6 Ω | | |
@@ -102,3 +103,4 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - **14/10/2026 (3):** Os 5,6 V do CH1 eram com o gerador do app. Decidido usar o gerador interno em 60 Hz / 0 dB como sinal de referência (conferido uma vez contra o tom pelo Bluetooth a 100 %), depois de verificar que o nível da saída age sobre ele.
 - **14/10/2026 (4):** Print do Gerador de Áudio: já em Gerador Fixo, 60 Hz, ganho 0,0 dB, desligado. Sem seleção de canal.
 - **14/10/2026 (5):** Multímetro em V~ 200 mostrando 00.0 (foto 23; linha de base sem sinal, se o gerador estava OFF). Decidido: **fazer o CH1 inteiro primeiro** (ganho 11 V, −6 dB, limitador, passa-alta BT12 120 Hz com prova a 60 Hz ≈ 2,7 V, salvar; depois ligar a caixa L e testar). CH2 e sub depois.
+- **14/10/2026 (6):** Parte 1 do CH1: 26 V com nível 0 dB (GAIN mínimo); **11,0 V com o Canal 1 em −11,0 dB**. Pela conta seriam −7,5 dB: a diferença indica que os 26 V já eram o teto (ceifamento) do módulo. Próximo: teste do −6 dB (1.5) para confirmar a região linear.
