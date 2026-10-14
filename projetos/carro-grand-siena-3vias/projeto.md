@@ -51,9 +51,11 @@ Caminhos: kit 2 vias de qualidade (usa só woofer e tweeter; o crossover passivo
 - Ganho alto no módulo do tweeter → chiado; ganho baixo no módulo, volume pelo DSP.
 
 ## Pendências
+- Identificar o falante atual da porta (etiqueta do ímã ou foto). Pela descrição ("200–220 W", peça central pontuda e brilhante), é um coaxial/triaxial de 6" do mercado de reposição, não o original Fiat: candidatos Pioneer TS-1760BR (200 W máx., 50 W RMS, 86 dB, profundidade 46 mm, corte 144 mm), Pioneer TS-1790BR (220 W PMPO, 60 W RMS), Bravox B3X60X (200 W o par), Hurricane Aurum A6T (60 W RMS). Os 200–220 W são potência máxima/PMPO, não RMS.
 - Medir a porta (furo e profundidade) e o espaço na coluna A.
 - Definir o sub e o DSP/módulos (orçamento à parte).
 - Cotação dos falantes com `pesquisa-precos`.
 
 ## Histórico de decisões
 - 2026-10-14: Projeto iniciado. Frente 3 vias ativo com DSP de 8 canais (6 frente + 2 sub em ponte). R$ 2.000 só para os 6 falantes. SD800.4 fica no home theater (premissa). Requisitos por via definidos.
+- 2026-10-14: Falante atual da porta descrito como "200–220 W" com peça central pontuda e brilhante → provável triaxial de reposição (~50–60 W RMS), não midbass. Serve só como provisório no canal de midbass, com ganho limitado.
