@@ -96,6 +96,20 @@ EQ 15 bandas plano (não usar preset "Rock" com reforços). Sub perto de parede 
 
 ---
 
+## Memória "Eletrônica" (espaço 3) — planejada, ainda NÃO salva
+Base: filme v2. Duto do sub sintonizado em ~35 Hz (ar máximo no teste de 15/10) → bom para sub-grave, mas é onde o **duto vibra**: corrigir o duto antes de usar alto.
+| Ajuste | Canais 1 e 2 (caixas) | Canais 3 e 4 (sub, sempre iguais) |
+|---|---|---|
+| Nível das Saídas | −11,0 (igual) | **−8,0** (≈39 V limitado ≈ 380–400 W; cálculo validado pela ponte de 25 V) |
+| Crossover HPF | BT12 · 120 (igual) | **BT24 · 28 Hz** (0,8 × Fb ≈ 35) |
+| Crossover LPF | OFF | LR24 · 120 (igual) |
+| EQ Param Saída | **150 Hz · −2,0 · Q 1,0** | **50 Hz · +3,0 · Q 0,8** |
+| Limiter | −11,0 (igual) | −6,0 (igual — **nunca subir**) |
+| Fase / alinhamento | iguais à filme | iguais à filme |
+EQ 15 bandas plano. Ajuste fino de ouvido: nível do sub −8 a −10; EQ 50 Hz +2 a +4.
+
+---
+
 ## Medições
 | Medida | Esperado | Medido | Data |
 |---|---|---|---|
@@ -155,3 +169,4 @@ EQ 15 bandas plano (não usar preset "Rock" com reforços). Sub perto de parede 
 - **15/10/2026 (6):** Emenda do sub finalizada: termorretrátil em cada fio e tubo externo cobrindo emendas e a ponta derretida da capa (fotos 03–06). Próximo: medir Ω (esperado cair de 5 para ~4), religar (vermelho → CH4⊕, preto → CH3⊖) e testar o zumbido com a mesma música.
 - **15/10/2026 (7):** Pontas do multímetro encostadas em Ω 200 = **1,2 Ω** (foto 07). Caixa L real 3,6 Ω e sub real 3,8 Ω: **normais**. A emenda de fita não era a causa do ~1 Ω extra; a causa do zumbido segue em aberto (testar depois de religar o sub com a emenda soldada). Para medir resistência com este multímetro: **sempre descontar 1,2 Ω**.
 - **15/10/2026 (8):** Sub com a emenda soldada: **5,2 Ω na tela → 4,0 Ω real** ✅. Próximo: religar (vermelho → CH4⊕, outro → CH3⊖) e testar o zumbido.
+- **15/10/2026 (9):** Zumbido residual localizado: **duto do sub vibra em ~35 Hz** (sai ar; tocar na boca do duto muda/para o ruído) → correção mecânica do duto pendente (teste com fita na aba; depois cola quente/silicone). Duto sintonizado em ~35 Hz (subsônico de 30 Hz ok). Planejada a memória **Eletrônica** (espaço 3).
