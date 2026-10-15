@@ -65,7 +65,7 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 |---|---|
 | Ligação em ponte | ✅ CH4⊕ (fio com termorretrátil vermelho) / CH3⊖ (branco); CH4⊖ e CH3⊕ vazios |
 | Resistência | 5 Ω bruto (sub de 4 Ω; seguro para ponte) |
-| Emenda do cabo do sub | 🔄 15/10: emenda de fita trocada por **solda** (fotos em `fotos/2026-10-15-sub-cabo/`): **azul (+ do sub) → vermelho do plugue**, branco → preto. Solda com aspecto granulado: refundir; termorretrátil a encolher; medir Ω de novo |
+| Emenda do cabo do sub | 🔄 15/10: emenda de fita trocada por **solda** (fotos em `fotos/2026-10-15-sub-cabo/`): **azul (+ do sub) → vermelho do plugue**, branco → preto. Termorretrátil individual + **tubo externo** sobre as duas emendas e a capa (fotos 03–06) ✅. Falta: medir Ω de novo e testar o zumbido |
 | Fb do duto | ⏳ |
 | Zumbido no grave | ❓ Em diagnóstico |
 
@@ -152,3 +152,4 @@ EQ 15 bandas plano (não usar preset "Rock" com reforços). Sub perto de parede 
 - **15/10/2026 (3):** Ponte mediu **25 V** com o gerador (esperado 39 V se A+B somasse +6 dB). A conta fecha se o gerador entra como um canal só (−12 + 2,9 − 0,5 dB → 0,66 V → ×39 ≈ 25,7 V). Com música, o máximo fica entre 25 V e ~39 V (limitador em 1,0 V): **seguro nos dois casos**. Para saber se A+B soma ou faz média: tom de 60 Hz pelo Bluetooth a 100 % (pendente, opcional).
 - **15/10/2026 (4):** Medições mínimas para tocar: ponte **25 V** (seguro), sub **5 Ω** bruto (seguro). Sub ligado em CH4⊕/CH3⊖ e **caixa R ligada no CH2** (foto da régua conferida). Música tocando nas 3 vias com a filme v2: **agudo aprovado**, **zumbido estranho no grave** (diagnóstico pendente). Planejada a memória **Rock** (sub −9 dB e HPF 35 Hz, −2 dB em 150 Hz nas caixas, fase e alinhamento) — **não salva**; prints de 15/10 mostraram que ainda estava igual à filme e com Canais 1–2 em mute (orientado a tirar o mute antes de salvar). Dúvida do usuário sobre 400 W em ponte: o módulo entrega; a configuração limita (~156 W hoje); liberar com nível −8 dB **depois** de resolver o zumbido e o cabo.
 - **15/10/2026 (5):** Sub: usuário informou **azul = + do sub**; soldou **azul → vermelho** e **branco → preto** do plugue (logo, **vermelho do plugue = +**). Solda granulada (estanho não escorreu bem): orientado a refundir antes de encolher o termorretrátil. Medir a resistência de novo: se cair de ~5 para ~4 Ω, o ~1 Ω extra era a emenda de fita (e pode ter relação com o zumbido).
+- **15/10/2026 (6):** Emenda do sub finalizada: termorretrátil em cada fio e tubo externo cobrindo emendas e a ponta derretida da capa (fotos 03–06). Próximo: medir Ω (esperado cair de 5 para ~4), religar (vermelho → CH4⊕, preto → CH3⊖) e testar o zumbido com a mesma música.
