@@ -85,7 +85,7 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 | Limitador Canal 1 final: **−11,0 dB (564 mV)**; teste do teto (Canal 1 em −9 dB) | ≤ 11,2 V | **10,8 V** ✅ | 14/10 |
 | Passa-alta Canal 1 (BT12 120 Hz): CH1 com tom de 60 Hz / 0 dB | ≈2,7 V (2,3–3,1) | **2,3 V** ✅ (≈ −13,6 dB) | 14/10 |
 | Canal 2: CH2 sem filtro · limiar −11,0 · teto (−9 dB) · com BT12 a 60 Hz | 11,0 · 10,8–11,0 · ≤ 11,2 · ≈2,3 V | **11,1 · 10,8 · 11,2 · 2,2 V** ✅ | 14/10 |
-| Ganho ponte CH4⊕/CH3⊖ | 40 V | | |
+| Ganho ponte CH4⊕/CH3⊖ (gerador 60 Hz / 0 dB, sem o sub; níveis 3–4 em −12, limiar −6, EQ +3 em 55 Hz) | 36–41 V (cálculo) | **25 V** (≈156 W) — bate com o gerador entrando como **um canal só** no A+B; seguro | 15/10 |
 | Resistência caixa L / R (na ponta do cabo) | ≈3,4 Ω (+ pontas ≈0,3) | **L: 4,8 Ω** (leitura bruta; pontas ❓) — em investigação | 14/10 |
 | Resistência do sub | 3–3,6 Ω | | |
 | Fb do duto do sub | — | | |
@@ -120,3 +120,4 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
 - **14/10/2026 (15):** Caixa L mediu **4,8 Ω** na ponta do cabo (Ω 200), acima do esperado (≈3,7 bruto). Investigar: descontar pontas, contato firme, mexer no cabo durante a medição, comparar com a caixa R.
 - **15/10/2026:** Sub configurado no app (sem medir): canais 3–4 com HPF 30 Hz, LPF LR24 120 Hz, limiar −6,0 dB (1,00 V), nível −12 dB, EQ +3 dB em 55 Hz (Q 1,0), fase 0 (prints em `fotos/2026-10-15-app-sub/`). **Erros achados nos prints:** Canal 4 com HPF **LR12** (Canal 3 BT24) e Canal 2 com nível **−9,9 dB** (regulado em −11,0). Corrigir e então salvar filme v2. Ganho da ponte é cálculo: medir 40 V sem o sub antes de ligá-lo.
 - **15/10/2026 (2):** Correções feitas e **filme v2 salva**. Próximo: medições mínimas para tocar CH1 + sub (ponte 40 V sem o sub, resistência do sub ≥ 3 Ω), ligar o sub (polaridade acertada pela fase do app).
+- **15/10/2026 (3):** Ponte mediu **25 V** com o gerador (esperado 39 V se A+B somasse +6 dB). A conta fecha se o gerador entra como um canal só (−12 + 2,9 − 0,5 dB → 0,66 V → ×39 ≈ 25,7 V). Com música, o máximo fica entre 25 V e ~39 V (limitador em 1,0 V): **seguro nos dois casos**. Para saber se A+B soma ou faz média: tom de 60 Hz pelo Bluetooth a 100 % (pendente, opcional).
