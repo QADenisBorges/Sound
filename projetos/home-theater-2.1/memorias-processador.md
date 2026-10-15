@@ -8,7 +8,7 @@ Registro do que está gravado no processador e no celular, para restaurar depois
 | Espaço | Onde | Nome | Uso | Situação |
 |---|---|---|---|---|
 | 1 | Processador | **Filme** | Base do 2.1: filtros, ganho, limitador, atraso | ✅ **v2 salva em 15/10/2026** (canais 1–2 regulados; sub configurado por cálculo, ganho da ponte a medir) |
-| 2 | Processador | Música | Variação da base | ⏳ Futuro |
+| 2 | Processador | **Rock** (no lugar de "Música", 15/10) | Grave mais presente para rock | ⏳ **Planejada, não salva** — configuração em `andamento.md` (seção "Memória Rock") |
 | 3 | Processador | Noite | Sub e limitador mais baixos | ⏳ Futuro |
 | — | Celular | Medido | Depois do microfone | ⏳ Futuro |
 | — | Celular | Filme – diálogo | Voz reforçada | ⏳ Futuro |
@@ -104,3 +104,4 @@ Data em que foi salva: ____ · Exportada para o celular: ☐ · Prints: ____
 - 2026-10-14 (2): Tela Home (print 00): som ON, **Áudio BT desligado**, Volt. **13,9 V**, canais ligados em pares (link 1–2 e 3–4). Foto 20: LED do módulo aceso. Foto 21: multímetro (VC830L) mostrando **15,6** em V~ 200 — **ponto medido a confirmar** (saída do módulo com tom × régua de 13,9 V DC na escala AC); não registrado como ganho.
 - 2026-10-14 (3): **Memória 1 salva como "filme" (v1)**: canais 1–2 com nível −11 dB, limitador −11 dB, BT12 120 Hz; canais 3–4 sem filtros (sub ainda não ligado).
 - 2026-10-15: **Memória 1 "filme" v2 salva**: sub configurado (BT24 30 Hz, LR24 120 Hz, limiar −6 dB, nível −12 dB, EQ +3 dB em 55 Hz), Canal 4 corrigido de LR12 para BT24, Canal 2 de −9,9 para −11,0 dB. Ganho da ponte por cálculo, a medir.
+- 2026-10-15 (2): Plano: espaço 2 passa a ser **Rock** (sub −9 dB e HPF 35 Hz; caixas −2 dB em 150 Hz; fase e alinhamento a definir). Ainda não salva. Ponte medida: 25 V com nível −12 (gerador).
