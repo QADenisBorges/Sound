@@ -7,7 +7,7 @@ Registro do que está gravado no processador e no celular, para restaurar depois
 ## Plano das memórias (definido em 28/09/2026)
 | Espaço | Onde | Nome | Uso | Situação |
 |---|---|---|---|---|
-| 1 | Processador | **Filme** | Base do 2.1: filtros, ganho, limitador, atraso | ✅ **Salva em 14/10/2026** (versão 1: canais 1–2 prontos, sub sem filtros). Ressalvar quando o sub entrar |
+| 1 | Processador | **Filme** | Base do 2.1: filtros, ganho, limitador, atraso | ✅ **v2 salva em 15/10/2026** (canais 1–2 regulados; sub configurado por cálculo, ganho da ponte a medir) |
 | 2 | Processador | Música | Variação da base | ⏳ Futuro |
 | 3 | Processador | Noite | Sub e limitador mais baixos | ⏳ Futuro |
 | — | Celular | Medido | Depois do microfone | ⏳ Futuro |
@@ -37,6 +37,26 @@ Entrada: EQ 15 bandas todo em 0,0 (preset "Custom"); EQ paramétrico de entrada 
 **Leitura:**
 - Para a regulagem de ganho (A2 a A6), só falta levar os **níveis das saídas 1 a 4 a 0,0 dB**. O resto já está "cru": filtros com tipo OFF, limitador OFF e EQ neutro.
 - As frequências de corte já estão digitadas (120 / 30 / 120). No A7 basta escolher o **tipo** do filtro.
+
+---
+
+## Memória 1 — "filme" · SALVA v2 em 15/10/2026
+Salva por cima da v1 (usuário: "Feito", depois das correções). Prints: `fotos/2026-10-15-app-sub/`. Exportada para o celular: ❓.
+**Mudou em relação à v1:** canais 3–4 configurados (filtros, limitador, EQ); Canal 2 de volta a −11,0 dB.
+
+| Ajuste | Canal 1 (JBL L) | Canal 2 (JBL R) | Canal 3 (sub) | Canal 4 (sub) |
+|---|---|---|---|---|
+| Roteamento | A | B | A+B | A+B |
+| HPF | BT12, 120 Hz | BT12, 120 Hz | **BT24, 30 Hz** | **BT24, 30 Hz** (corrigido de LR12) |
+| LPF | OFF | OFF | **LR24, 120 Hz** | **LR24, 120 Hz** |
+| Nível da saída | −11,0 dB | **−11,0 dB** (corrigido de −9,9) | −12,0 dB | −12,0 dB |
+| Limiter | −11,0 dB (564 mV), Auto off, 50 / 500 | −11,0 dB, Auto off, 50 / 500 | **−6,0 dB (1,00 V)**, Auto off, 50 / 500 | **−6,0 dB (1,00 V)**, Auto off, 50 / 500 |
+| Fase | 0 | 0 | 0 | 0 |
+| Alinhamento | 0,0 cm | 0,0 cm | 0,0 cm | 0,0 cm |
+| EQ Param Saída | 0,0 dB | 0,0 dB | **+3,0 dB, 55 Hz, Q 1,0** | **+3,0 dB, 55 Hz, Q 1,0** |
+
+Módulo: X-OVER em F; GAIN CH1-CH2 e CH3-CH4 no mínimo.
+**Sub por cálculo** (ganho do módulo ≈19,5×, dobrado em ponte; 40 V ≈ 1,0 V por canal; nível −12 compensa a soma A+B): **medir a ponte (CH4⊕/CH3⊖, gerador 60 Hz / 0 dB, sem o sub) antes de tocar alto — alvo 36–41 V.**
 
 ---
 
@@ -83,3 +103,4 @@ Data em que foi salva: ____ · Exportada para o celular: ☐ · Prints: ____
 - 2026-10-14: Primeira leitura das telas do app (prints 01–19). Nenhuma memória salva ainda; níveis das saídas encontrados em −16,5 / −16,5 / −12 / −12 dB; filtros com frequências digitadas e tipo OFF; limitador OFF.
 - 2026-10-14 (2): Tela Home (print 00): som ON, **Áudio BT desligado**, Volt. **13,9 V**, canais ligados em pares (link 1–2 e 3–4). Foto 20: LED do módulo aceso. Foto 21: multímetro (VC830L) mostrando **15,6** em V~ 200 — **ponto medido a confirmar** (saída do módulo com tom × régua de 13,9 V DC na escala AC); não registrado como ganho.
 - 2026-10-14 (3): **Memória 1 salva como "filme" (v1)**: canais 1–2 com nível −11 dB, limitador −11 dB, BT12 120 Hz; canais 3–4 sem filtros (sub ainda não ligado).
+- 2026-10-15: **Memória 1 "filme" v2 salva**: sub configurado (BT24 30 Hz, LR24 120 Hz, limiar −6 dB, nível −12 dB, EQ +3 dB em 55 Hz), Canal 4 corrigido de LR12 para BT24, Canal 2 de −9,9 para −11,0 dB. Ganho da ponte por cálculo, a medir.
