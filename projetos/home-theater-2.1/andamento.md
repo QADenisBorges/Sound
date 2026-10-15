@@ -22,7 +22,7 @@ Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usu�
    b. **Mute Canais 1–2** → zumbe? = sub. **Mute Canais 3–4** → zumbe? = caixas. Tirar todos os mutes no fim.
    c. Sub: gerador FIXO −30 dB em 35 / 45 / 55 / 70 / 90 Hz; encostar a mão na caixa e no painel; mexer na emenda de fita do cabo; testar EQ 55 Hz em 0. Caixas: SWEEP −30 dB, dedo na tela / emenda / parafusos (começar pela caixa R, que não passou pelos testes).
    d. Correções conforme a causa: subsônico 35–40 Hz (canais 3 **e** 4), cabo novo do sub, fixar o que vibra, EQ do sub +1/+2.
-2. **Pontas do multímetro encostadas (Ω 200)**: anotar o valor. Explica (ou não) o ~1 Ω a mais da caixa L (4,8 Ω) e do sub (5 Ω).
+2. ✅ Pontas encostadas = **1,2 Ω** (15/10): caixa L 3,6 Ω e sub 3,8 Ω reais, ambos normais. O ~1 Ω extra era do multímetro.
 3. **Cabo novo do sub** (etapa 3 do guia: 2 × 2,5 mm², emenda soldada no plugue). Obrigatório antes de volume alto.
 4. **Testes da caixa R** (CH2): tweeter a 5 kHz, prova do passa-alta a 60 Hz (−25 dB, quase mudo), varredura e vazamento.
 5. **Memória "Rock" (espaço 2)** — configuração planejada abaixo; aplicar e salvar depois do zumbido resolvido. Fase do sub (0/180) e alinhamento por distância entram nela e na filme.
@@ -109,7 +109,7 @@ EQ 15 bandas plano (não usar preset "Rock" com reforços). Sub perto de parede 
 | Ponte CH4⊕/CH3⊖ (gerador 60 Hz / 0 dB, sem o sub; nível −12, limiar −6, EQ +3) | 36–41 V (cálculo com A+B somando) | **25 V** (≈156 W): o gerador entra como **um canal só** no A+B; conta prevê 25,7 V ✅ | 15/10 |
 | Caixa L (Ω 200, ponta do cabo, bruto) | ≈3,7 Ω | **4,8 Ω** (pontas ❓) | 14/10 |
 | Sub (Ω 200, bruto) | 3,3–4,2 Ω | **5 Ω** (pontas ❓; seguro em ponte) | 15/10 |
-| Pontas encostadas (Ω 200) | 0,2–1,2 Ω | ⏳ | |
+| Pontas encostadas (Ω 200) | 0,2–1,2 Ω | **1,2 Ω** → explica o "~1 Ω a mais": **caixa L = 4,8 − 1,2 = 3,6 Ω ✅**, **sub = 5 − 1,2 = 3,8 Ω ✅** | 15/10 |
 | Caixa R (Ω) | ≈3,7 Ω | ⏳ | |
 | Fb do duto do sub | — | ⏳ | |
 
@@ -153,3 +153,4 @@ EQ 15 bandas plano (não usar preset "Rock" com reforços). Sub perto de parede 
 - **15/10/2026 (4):** Medições mínimas para tocar: ponte **25 V** (seguro), sub **5 Ω** bruto (seguro). Sub ligado em CH4⊕/CH3⊖ e **caixa R ligada no CH2** (foto da régua conferida). Música tocando nas 3 vias com a filme v2: **agudo aprovado**, **zumbido estranho no grave** (diagnóstico pendente). Planejada a memória **Rock** (sub −9 dB e HPF 35 Hz, −2 dB em 150 Hz nas caixas, fase e alinhamento) — **não salva**; prints de 15/10 mostraram que ainda estava igual à filme e com Canais 1–2 em mute (orientado a tirar o mute antes de salvar). Dúvida do usuário sobre 400 W em ponte: o módulo entrega; a configuração limita (~156 W hoje); liberar com nível −8 dB **depois** de resolver o zumbido e o cabo.
 - **15/10/2026 (5):** Sub: usuário informou **azul = + do sub**; soldou **azul → vermelho** e **branco → preto** do plugue (logo, **vermelho do plugue = +**). Solda granulada (estanho não escorreu bem): orientado a refundir antes de encolher o termorretrátil. Medir a resistência de novo: se cair de ~5 para ~4 Ω, o ~1 Ω extra era a emenda de fita (e pode ter relação com o zumbido).
 - **15/10/2026 (6):** Emenda do sub finalizada: termorretrátil em cada fio e tubo externo cobrindo emendas e a ponta derretida da capa (fotos 03–06). Próximo: medir Ω (esperado cair de 5 para ~4), religar (vermelho → CH4⊕, preto → CH3⊖) e testar o zumbido com a mesma música.
+- **15/10/2026 (7):** Pontas do multímetro encostadas em Ω 200 = **1,2 Ω** (foto 07). Caixa L real 3,6 Ω e sub real 3,8 Ω: **normais**. A emenda de fita não era a causa do ~1 Ω extra; a causa do zumbido segue em aberto (testar depois de religar o sub com a emenda soldada). Para medir resistência com este multímetro: **sempre descontar 1,2 Ω**.
