@@ -111,10 +111,31 @@ EQ 15 bandas plano (não usar preset "Rock" com reforços). Sub perto de parede 
 EQ 15 bandas plano. Ajuste fino de ouvido: nível do sub −8 a −10 (com uma caixa só, o sub tende a sobrar); se a bolinha Limiter 1 ficar acesa direto, Canal 1 em −13 (o A+B pode estar somando).
 Status (16/10/2026): **aplicada e conferida por prints** (`fotos/2026-10-16-app-eletronica/`): roteamento, níveis (Canal 2 em mute), EQ dos canais 1, 3 e 4, Crossover dos canais 1 e 3 ✅. **Erro: Canal 4 com HPF Filtro BT12** (precisa ser **BT24**, igual ao Canal 3) → corrigir antes de salvar (ou salvar de novo). Limiter conferido 16/10 (prints 09–11): Canal 1 −11,0 (564 mV), Canais 3 e 4 −6,0 (1,00 V), Auto off, 50/500 ✅. Faltam: print do Canal 4 corrigido para BT24, Fase escolhida no teste de 120 Hz e confirmação de que foi salva no espaço 3.
 
+### 🎚️ Ajustes de melhoria da caixa L (propostos 16/10/2026 — a aplicar e avaliar de ouvido)
+Motivo: com o sub aprovado, a JBL (CH1) ficou baixa em relação a ele (teto ≈34 W na caixa × ≈380 W no sub; HPF do Canal 1 subiu para 140).
+
+| # | Ajuste | De → para | Ganho estimado |
+|---|---|---|---|
+| 1 | Apontar a JBL para o ouvido (altura da cabeça, virada para o lugar de escuta) | — | 0 a +3 dB (agudos/clareza) |
+| 2 | Nível das Saídas · Canal 1 | −11 → **−9** (parar se a bolinha Limiter 1 ficar acesa direto; **Limiter continua −11,0**) | +1 a +2 dB |
+| 3 | EQ Param Saída · Canal 1 | 150 Hz −2,0 Q 1,0 → **3000 Hz +2,0 Q 1,0** (presença no lugar do corte; com HPF 140 o "embolado" já sumiu) | +1 a +2 dB |
+| 4 | (opcional) Nível · Canais 3 e 4 | −8 → −9 (os dois iguais) | +1 dB relativo |
+| — | HPF Canal 1 (opcional) | 140 (aprovado) · máx. 150, com LPF dos Canais 3/4 em 140 e refazer a fase | — |
+
+**Estimativas de melhoria de altura da caixa** (regra: +10 dB ≈ 2× na sensação; sensação = 2^(dB/10); pressão = 10^(dB/20)):
+
+| Situação | Ganho | Sensação de altura | Pressão (medidor) |
+|---|---|---|---|
+| Só os ajustes (1 caixa) | +3 a +6 dB (provável +4) | **≈ +30 %** (+25 a +50 %) | +58 % |
+| Só o CH2, sem ajustes | +3 (estéreo aberto) a +6 dB (conteúdo igual nos dois lados); eletrônica ≈ +4 | **≈ +30 %** (+25 a +50 %) | +58 % |
+| **Ajustes + duas caixas** | +6 a +12 dB (provável **+8**) | **≈ +75 %** (+50 a +130 %) | +150 % |
+
+Os +8 dB equivaleriam a ~6× a potência numa caixa só (34 → ~215 W, acima dos 80 W da JBL); com ajustes + CH2 cada JBL continua no teto de 34 W. **Estimativas**, a confirmar com microfone (memória "Medido").
+
 ### ✅ Checklist para quando o CH2 (caixa R) entrar
 1. Testes da caixa R antes: Ω (descontar 1,2 Ω do multímetro → ≈3,6 Ω), pilha, tweeter a 5 kHz, prova do passa-alta a 60 Hz (−25 dB, quase mudo).
 2. Ligar no CH2 (marcado → CH2 ⊕) com a fonte fora da tomada.
-3. No app: **Canal 1 de volta para "A"**; **Canal 2 = "B"**; **tirar o mute do Canal 2**; Canal 2: EQ 150 Hz −2,0 Q 1,0 (igual ao Canal 1).
+3. No app: **Canal 1 de volta para "A"**; **Canal 2 = "B"**; **tirar o mute do Canal 2**; Canal 2 **igual ao Canal 1 em tudo** (nível, EQ — hoje proposto 3000 Hz +2,0 Q 1,0 —, HPF, limiter −11,0). Com duas caixas, conferir se o Canal 1/2 em −9 não deixa as bolinhas Limiter acesas direto.
 4. Reavaliar o nível do sub (com duas caixas, −8 tende a ficar equilibrado).
 5. Salvar por cima da "Eletronica" e registrar em `memorias-processador.md` (versão "L + R + sub").
 
@@ -190,3 +211,4 @@ Status (16/10/2026): **aplicada e conferida por prints** (`fotos/2026-10-16-app-
 - **16/10/2026 (3):** Pergunta: a caixa L está no limite? Térmico não (teto 11 V ≈ 34 W de 80 W); o curso do cone (Xmax 1,75 mm a ~12 W perto de 120 Hz) é o limite real. Sugerido subir o HPF do Canal 1; usuário subiu (entendido como **HPF 140 Hz**) e gostou. Orientado o máximo de **150 Hz**, com EQ 150 Hz do Canal 1 em 0,0, LPF dos Canais 3 e 4 em 140 (LR24) e refazer o teste de fase. Acima de 150: sub fica localizável e voz fina. **Ainda não salvo** — atualizar a tabela "Configuração em uso agora" quando o usuário confirmar os valores finais.
 - **16/10/2026 (4):** Dúvida: JBL presa só pelo faston fêmea — soldar? Resposta: ligação elétrica por faston no terminal macho de 6,3 mm da JBL é o correto (padrão de fábrica; solda no terminal arrisca o fio flexível interno e impede tirar a JBL no passo do silicone). Conferir: faston entra apertado, fio soldado dentro do faston, nó de alívio de tração. Se a JBL estiver **pendurada** sem os 4 parafusos: parafusar antes de tocar (sem caixa selada o cone passa do Xmax com muito menos potência e o peso força os terminais).
 - **16/10/2026 (5):** Sub aprovado pelo usuário. Queixa: **caixa JBL (CH1) baixa** em relação ao sub (≈34 W limitados × ≈380 W no sub; HPF subiu para 140). Orientado: Canal 1 de −11 para −10/−9 (limitador −11 segura o teto de 11 V), usar a banda do EQ do Canal 1 como presença (+2 dB em 3 kHz, Q 1,0) no lugar do −2 em 150 Hz, apontar a JBL para a altura do ouvido; alternativa: baixar o sub. Com o CH2, a parte das caixas ganha +3 a +6 dB.
+- **16/10/2026 (6):** Salvos em "Ajustes de melhoria da caixa L" os ajustes propostos (JBL apontada, Canal 1 −9, EQ 3 kHz +2 no lugar de 150 Hz −2, sub −9 opcional) e as estimativas de altura: ajustes ≈ +30 %, CH2 ≈ +30 %, ajustes + duas caixas ≈ +75 % (+50 a +130 %). Checklist do CH2 atualizado (Canal 2 igual ao Canal 1 em tudo).
