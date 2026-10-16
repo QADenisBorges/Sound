@@ -9,7 +9,7 @@ Registro do que está gravado no processador e no celular, para restaurar depois
 |---|---|---|---|---|
 | 1 | Processador | **Filme** | Base do 2.1: filtros, ganho, limitador, atraso | ✅ **v2 salva em 15/10/2026** (canais 1–2 regulados; sub configurado por cálculo, ganho da ponte a medir) |
 | 2 | Processador | **Rock** (no lugar de "Música", 15/10) | Grave mais presente para rock | ⏳ **Planejada, não salva** — configuração em `andamento.md` (seção "Memória Rock") |
-| 3 | Processador | **Eletronica** (no lugar de "Noite", 15/10; Noite vai para o celular) | Versão **"L + sub"** (CH2 fora de uso): Canal 1 A+B, Canal 2 mute, sub −8 dB | ⏳ **Aplicar e salvar** — valores e checklist da entrada do CH2 em `andamento.md` ("Configuração em uso agora") |
+| 3 | Processador | **Eletronica** (no lugar de "Noite", 15/10; Noite vai para o celular) | Versão **"L + sub"** (CH2 fora de uso): Canal 1 A+B, Canal 2 mute, sub −8 dB | ⚠️ **Aplicada 16/10, conferida por prints** — falta corrigir **Canal 4 HPF BT12 → BT24** e salvar/ressalvar; valores e checklist do CH2 em `andamento.md` ("Configuração em uso agora") |
 | — | Celular | Medido | Depois do microfone | ⏳ Futuro |
 | — | Celular | Filme – diálogo | Voz reforçada | ⏳ Futuro |
 
@@ -107,3 +107,4 @@ Data em que foi salva: ____ · Exportada para o celular: ☐ · Prints: ____
 - 2026-10-15 (2): Plano: espaço 2 passa a ser **Rock** (sub −9 dB e HPF 35 Hz; caixas −2 dB em 150 Hz; fase e alinhamento a definir). Ainda não salva. Ponte medida: 25 V com nível −12 (gerador).
 - 2026-10-15 (3): Plano: espaço 3 passa a ser **Eletrônica** (sub −8 dB ≈ 400 W limitado, HPF 28 Hz, EQ +3 dB em 50 Hz; caixas −2 dB em 150 Hz). Ainda não salva.
 - 2026-10-15 (4): Eletronica redefinida para **só CH1 + sub** (Canal 1 A+B mono, Canal 2 mute). Quando o CH2 entrar: Canal 1 → A, Canal 2 → B sem mute, EQ 150 Hz −2 no Canal 2, ressalvar.
+- 2026-10-16: Eletronica "L + sub" aplicada; prints em `fotos/2026-10-16-app-eletronica/`. Conferido: Canal 1 A+B, −11, BT12 120, EQ 150 Hz −2 Q1; Canal 2 B, −11, mute; Canais 3/4 A+B, −8, LPF LR24 120, HPF 28 Hz, EQ 50 Hz +3 Q0,8. **Erro: Canal 4 HPF BT12 (Canal 3 BT24)** — corrigir. Limiter e fase não vistos nos prints. Registrar como SALVA quando confirmada.

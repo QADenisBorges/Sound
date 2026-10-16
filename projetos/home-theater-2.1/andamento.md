@@ -9,7 +9,7 @@
 
 Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usuário
 
-**Última atualização:** 15/10/2026 — **ver "Configuração em uso agora" (só CH1 + sub)**
+**Última atualização:** 16/10/2026 — **ver "Configuração em uso agora" (só CH1 + sub)**
 
 ---
 
@@ -109,7 +109,7 @@ EQ 15 bandas plano (não usar preset "Rock" com reforços). Sub perto de parede 
 | Limiter | −11,0 (564 mV), Auto off, 50/500 | −11,0 | −6,0 (1,00 V), Auto off, 50/500 — **nunca subir** |
 | Fase / alinhamento | 0 / pela distância (opcional) | — | 0 ou 180 (teste com tom de 120 Hz) / pela distância |
 EQ 15 bandas plano. Ajuste fino de ouvido: nível do sub −8 a −10 (com uma caixa só, o sub tende a sobrar); se a bolinha Limiter 1 ficar acesa direto, Canal 1 em −13 (o A+B pode estar somando).
-Status: ⏳ aguardando o usuário aplicar e salvar (prints de Nível das Saídas e Crossover · Canal 3).
+Status (16/10/2026): **aplicada e conferida por prints** (`fotos/2026-10-16-app-eletronica/`): roteamento, níveis (Canal 2 em mute), EQ dos canais 1, 3 e 4, Crossover dos canais 1 e 3 ✅. **Erro: Canal 4 com HPF Filtro BT12** (precisa ser **BT24**, igual ao Canal 3) → corrigir antes de salvar (ou salvar de novo). Faltam ver: Limiter (−11 / −6 / −6), Fase escolhida no teste de 120 Hz e confirmação de que foi salva no espaço 3.
 
 ### ✅ Checklist para quando o CH2 (caixa R) entrar
 1. Testes da caixa R antes: Ω (descontar 1,2 Ω do multímetro → ≈3,6 Ω), pilha, tweeter a 5 kHz, prova do passa-alta a 60 Hz (−25 dB, quase mudo).
@@ -185,3 +185,4 @@ Status: ⏳ aguardando o usuário aplicar e salvar (prints de Nível das Saídas
 - **15/10/2026 (8):** Sub com a emenda soldada: **5,2 Ω na tela → 4,0 Ω real** ✅. Próximo: religar (vermelho → CH4⊕, outro → CH3⊖) e testar o zumbido.
 - **15/10/2026 (9):** Zumbido residual localizado: **duto do sub vibra em ~35 Hz** (sai ar; tocar na boca do duto muda/para o ruído) → correção mecânica do duto pendente (teste com fita na aba; depois cola quente/silicone). Duto sintonizado em ~35 Hz (subsônico de 30 Hz ok). Planejada a memória **Eletrônica** (espaço 3).
 - **15/10/2026 (10):** Usuário decidiu usar **só a caixa L (CH1) + sub**; CH2 entra depois. Memória "Eletronica" (espaço 3) em versão "L + sub": Canal 1 em A+B (mono), Canal 2 em mute, sub −8 dB / HPF 28 / EQ +3 dB em 50 Hz. Checklist para a entrada do CH2 registrado.
+- **16/10/2026:** Eletronica "L + sub" aplicada no app; 8 prints conferidos (`fotos/2026-10-16-app-eletronica/`). Tudo certo, **exceto Canal 4 com HPF BT12** (Canal 3 BT24) — mesmo tipo de erro da filme v2 (Canal 4 em LR12). Na ponte, filtros diferentes nos canais 3 e 4 desequilibram as duas metades abaixo de ~40 Hz e enfraquecem o subsônico. Corrigir para BT24 e salvar/ressalvar no espaço 3. **Lição: depois de mexer nos canais 3/4, sempre conferir o print do Canal 4.**
