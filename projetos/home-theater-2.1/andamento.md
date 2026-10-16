@@ -9,7 +9,7 @@
 
 Legenda: ✅ feito · 🔄 em curso · ⏳ a fazer · ❓ a confirmar com o usuário
 
-**Última atualização:** 15/10/2026
+**Última atualização:** 15/10/2026 — **ver "Configuração em uso agora" (só CH1 + sub)**
 
 ---
 
@@ -96,17 +96,31 @@ EQ 15 bandas plano (não usar preset "Rock" com reforços). Sub perto de parede 
 
 ---
 
-## Memória "Eletrônica" (espaço 3) — planejada, ainda NÃO salva
-Base: filme v2. Duto do sub sintonizado em ~35 Hz (ar máximo no teste de 15/10) → bom para sub-grave, mas é onde o **duto vibra**: corrigir o duto antes de usar alto.
-| Ajuste | Canais 1 e 2 (caixas) | Canais 3 e 4 (sub, sempre iguais) |
-|---|---|---|
-| Nível das Saídas | −11,0 (igual) | **−8,0** (≈39 V limitado ≈ 380–400 W; cálculo validado pela ponte de 25 V) |
-| Crossover HPF | BT12 · 120 (igual) | **BT24 · 28 Hz** (0,8 × Fb ≈ 35) |
-| Crossover LPF | OFF | LR24 · 120 (igual) |
-| EQ Param Saída | **150 Hz · −2,0 · Q 1,0** | **50 Hz · +3,0 · Q 0,8** |
-| Limiter | −11,0 (igual) | −6,0 (igual — **nunca subir**) |
-| Fase / alinhamento | iguais à filme | iguais à filme |
-EQ 15 bandas plano. Ajuste fino de ouvido: nível do sub −8 a −10; EQ 50 Hz +2 a +4.
+## ⚙️ CONFIGURAÇÃO EM USO AGORA (15/10/2026): só caixa L (CH1) + sub — o CH2 entra depois
+**Leia isto antes de mexer no app numa sessão nova.** A caixa R (CH2) está **fora de uso**; a memória ativa é a **"Eletronica" (espaço 3), versão "L + sub"**.
+
+| Ajuste | Canal 1 (caixa L) | Canal 2 (caixa R) | Canais 3 **e** 4 (sub, sempre iguais) |
+|---|---|---|---|
+| Roteamento | **A+B** (mono: a caixa L toca a música inteira) | B | A+B |
+| Nível das Saídas | −11,0 | −11,0 · **MUTE** | **−8,0** (≈39 V limitado ≈ 380–400 W) |
+| Crossover HPF | BT12 · 120 | BT12 · 120 | **BT24 · 28 Hz** (0,8 × Fb ≈ 35 Hz) |
+| Crossover LPF | OFF | OFF | LR24 · 120 |
+| EQ Param Saída | **150 Hz · −2,0 · Q 1,0** | 0,0 | **50 Hz · +3,0 · Q 0,8** |
+| Limiter | −11,0 (564 mV), Auto off, 50/500 | −11,0 | −6,0 (1,00 V), Auto off, 50/500 — **nunca subir** |
+| Fase / alinhamento | 0 / pela distância (opcional) | — | 0 ou 180 (teste com tom de 120 Hz) / pela distância |
+EQ 15 bandas plano. Ajuste fino de ouvido: nível do sub −8 a −10 (com uma caixa só, o sub tende a sobrar); se a bolinha Limiter 1 ficar acesa direto, Canal 1 em −13 (o A+B pode estar somando).
+Status: ⏳ aguardando o usuário aplicar e salvar (prints de Nível das Saídas e Crossover · Canal 3).
+
+### ✅ Checklist para quando o CH2 (caixa R) entrar
+1. Testes da caixa R antes: Ω (descontar 1,2 Ω do multímetro → ≈3,6 Ω), pilha, tweeter a 5 kHz, prova do passa-alta a 60 Hz (−25 dB, quase mudo).
+2. Ligar no CH2 (marcado → CH2 ⊕) com a fonte fora da tomada.
+3. No app: **Canal 1 de volta para "A"**; **Canal 2 = "B"**; **tirar o mute do Canal 2**; Canal 2: EQ 150 Hz −2,0 Q 1,0 (igual ao Canal 1).
+4. Reavaliar o nível do sub (com duas caixas, −8 tende a ficar equilibrado).
+5. Salvar por cima da "Eletronica" e registrar em `memorias-processador.md` (versão "L + R + sub").
+
+### Pendência ligada a esta configuração
+- **Duto do sub vibra em ~35 Hz** — a eletrônica excita exatamente essa faixa. Corrigir (fita na aba → cola quente/silicone) antes de volume alto.
+- Linha de 40 A com emendas sem solda: grave contínuo é o pior caso → teste de toque após 15 min.
 
 ---
 
@@ -170,3 +184,4 @@ EQ 15 bandas plano. Ajuste fino de ouvido: nível do sub −8 a −10; EQ 50 Hz 
 - **15/10/2026 (7):** Pontas do multímetro encostadas em Ω 200 = **1,2 Ω** (foto 07). Caixa L real 3,6 Ω e sub real 3,8 Ω: **normais**. A emenda de fita não era a causa do ~1 Ω extra; a causa do zumbido segue em aberto (testar depois de religar o sub com a emenda soldada). Para medir resistência com este multímetro: **sempre descontar 1,2 Ω**.
 - **15/10/2026 (8):** Sub com a emenda soldada: **5,2 Ω na tela → 4,0 Ω real** ✅. Próximo: religar (vermelho → CH4⊕, outro → CH3⊖) e testar o zumbido.
 - **15/10/2026 (9):** Zumbido residual localizado: **duto do sub vibra em ~35 Hz** (sai ar; tocar na boca do duto muda/para o ruído) → correção mecânica do duto pendente (teste com fita na aba; depois cola quente/silicone). Duto sintonizado em ~35 Hz (subsônico de 30 Hz ok). Planejada a memória **Eletrônica** (espaço 3).
+- **15/10/2026 (10):** Usuário decidiu usar **só a caixa L (CH1) + sub**; CH2 entra depois. Memória "Eletronica" (espaço 3) em versão "L + sub": Canal 1 em A+B (mono), Canal 2 em mute, sub −8 dB / HPF 28 / EQ +3 dB em 50 Hz. Checklist para a entrada do CH2 registrado.

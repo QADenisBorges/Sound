@@ -9,7 +9,7 @@ Registro do que está gravado no processador e no celular, para restaurar depois
 |---|---|---|---|---|
 | 1 | Processador | **Filme** | Base do 2.1: filtros, ganho, limitador, atraso | ✅ **v2 salva em 15/10/2026** (canais 1–2 regulados; sub configurado por cálculo, ganho da ponte a medir) |
 | 2 | Processador | **Rock** (no lugar de "Música", 15/10) | Grave mais presente para rock | ⏳ **Planejada, não salva** — configuração em `andamento.md` (seção "Memória Rock") |
-| 3 | Processador | **Eletrônica** (no lugar de "Noite", 15/10; Noite vai para o celular) | Sub com ~400 W, sub-grave profundo | ⏳ **Planejada, não salva** — configuração em `andamento.md` (seção "Memória Eletrônica") |
+| 3 | Processador | **Eletronica** (no lugar de "Noite", 15/10; Noite vai para o celular) | Versão **"L + sub"** (CH2 fora de uso): Canal 1 A+B, Canal 2 mute, sub −8 dB | ⏳ **Aplicar e salvar** — valores e checklist da entrada do CH2 em `andamento.md` ("Configuração em uso agora") |
 | — | Celular | Medido | Depois do microfone | ⏳ Futuro |
 | — | Celular | Filme – diálogo | Voz reforçada | ⏳ Futuro |
 
@@ -106,3 +106,4 @@ Data em que foi salva: ____ · Exportada para o celular: ☐ · Prints: ____
 - 2026-10-15: **Memória 1 "filme" v2 salva**: sub configurado (BT24 30 Hz, LR24 120 Hz, limiar −6 dB, nível −12 dB, EQ +3 dB em 55 Hz), Canal 4 corrigido de LR12 para BT24, Canal 2 de −9,9 para −11,0 dB. Ganho da ponte por cálculo, a medir.
 - 2026-10-15 (2): Plano: espaço 2 passa a ser **Rock** (sub −9 dB e HPF 35 Hz; caixas −2 dB em 150 Hz; fase e alinhamento a definir). Ainda não salva. Ponte medida: 25 V com nível −12 (gerador).
 - 2026-10-15 (3): Plano: espaço 3 passa a ser **Eletrônica** (sub −8 dB ≈ 400 W limitado, HPF 28 Hz, EQ +3 dB em 50 Hz; caixas −2 dB em 150 Hz). Ainda não salva.
+- 2026-10-15 (4): Eletronica redefinida para **só CH1 + sub** (Canal 1 A+B mono, Canal 2 mute). Quando o CH2 entrar: Canal 1 → A, Canal 2 → B sem mute, EQ 150 Hz −2 no Canal 2, ressalvar.
