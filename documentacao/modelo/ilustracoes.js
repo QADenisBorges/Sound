@@ -178,10 +178,10 @@
     return s;
   }
   L['fibra-pesar'] = {
-    titulo: 'Pesar 40–50 g num saquinho vazio', w: 300, h: 170,
+    titulo: 'Pesar uma porção num saquinho vazio', w: 300, h: 170,
     desenhar: () => {
       let s = `<rect x="150" y="128" width="130" height="22" rx="6" class="il-plast-esc"/><rect x="236" y="134" width="38" height="12" rx="2" class="il-furo"/>` +
-        txt(255, 143, '45 g', { cls: 'il-txt-inv', fs: 9, peso: 600 }) + `<rect x="160" y="120" width="70" height="8" rx="2" class="il-plast"/>`;
+        txt(255, 143, '30 g', { cls: 'il-txt-inv', fs: 9, peso: 600 }) + `<rect x="160" y="120" width="70" height="8" rx="2" class="il-plast"/>`;
       s += `<path d="M168 120 q -6 -70 27 -78 q 33 8 27 78 z" class="il-isol-cristal"/>` + nuvem(176, 66, 38, 36, 4) + txt(195, 32, 'saquinho vazio', { cls: 'il-mut', fs: 10 });
       s += `<path d="M22 150 q -10 -90 44 -96 q 54 6 44 96 z" class="il-isol-cristal"/>` + nuvem(28, 72, 76, 60, 5) + tufo(50, 112, 14) + tufo(80, 100, 12) + tufo(66, 128, 11);
       s += txt(66, 44, 'saco da loja', { cls: 'il-mut', fs: 10 }) + seta(112, 86, 160, 70) + txt(136, 64, 'puxe tufos', { cls: 'il-mut', fs: 10 });
@@ -264,7 +264,7 @@
       // rótulos com linha-guia
       const rot = (x, y, t, px, py) => `<line x1="${x}" y1="${y + (y < cy ? 5 : -14)}" x2="${px}" y2="${py}" class="il-guia"/>` + txt(x, y, t, { fs: 13, peso: 600 });
       s += rot(43, 50, 'Tela', 43, cy - 78) + rot(128, 26, 'Moldura frontal (prata)', 136, 70) + rot(210, 50, 'Fita de vedação', 207, cy - 77) +
-        rot(326, 26, 'JBL 4TRMS80 (flange 118 mm)', 300, cy - 60) + rot(446, 50, 'Fibra 40–50 g', 446, cy - 48) + rot(615, 26, 'Carcaça traseira (preta)', 615, 70);
+        rot(326, 26, 'JBL 4TRMS80 (flange 118 mm)', 300, cy - 60) + rot(446, 50, 'Fibra solta', 446, cy - 48) + rot(615, 26, 'Carcaça traseira (preta)', 615, 70);
       s += rot(150, 398, 'Assento', 151, cy + 68) + rot(262, 418, '4 parafusos 3,5 × 12–16 mm', 256, cy + 96) +
         rot(512, 398, 'Fita na emenda', 520, 334) + rot(612, 418, 'Torres dos cantos: não mexer', 612, 318) + rot(690, 398, 'Manta asfáltica', 694, 300);
       s += txt(736, cy - 4, 'Bornes de mola', { a: 'start', fs: 12, peso: 600 }) + txt(736, cy + 13, 'vermelho = +', { a: 'start', fs: 11, cls: 'il-mut' });

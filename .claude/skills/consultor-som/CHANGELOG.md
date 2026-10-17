@@ -2,6 +2,12 @@
 
 Mantido pelo `revisor-som`. Entradas mais novas no topo. Backups em `../consultor-som-workspace/historico/`.
 
+## 2026-10-17 17:35 — correção do usuário (lacuna)
+- O quê: `references/diy.md` §2 — enchimento de caixa selada dosado pelo volume (solto, sem socar, longe do cone e da vedação); as regras em g/L supõem fibra acústica densa, e a fibra siliconada de almofada é bem mais fofa; a balança serve só para repetir a dose na outra caixa.
+- Por quê: uma dose fixa em gramas (≈12 g/L) foi passada para fibra de almofada, e o usuário viu na prática que 50 g ocupavam várias vezes o volume da caixa e só caberiam socados.
+- Evidência: observação direta do usuário com a fibra na mão; a densidade de fibra solta varia várias vezes com o tipo (física básica: a mesma massa ocupa volumes diferentes conforme o "loft"). As regras de ~0,5–1 lb/ft³ (8–16 g/L) da literatura de caixas são para polyfill acústico.
+- Snapshot: historico/2026-10-17_173531
+
 ## 2026-10-09 12:20 — segurança + lacuna de conhecimento
 - O quê: `references/residencial-hifi.md` (módulo automotivo em casa) — fontes "BOB" com bornes de 127/220 V na mesma régua da saída de 12 V: não tocar com o plugue na tomada, trimpot com chave isolada, tomada com terra; ponteiro para o ganho com DSP. `references/automotivo.md` §2 — subsônico em caixa dutada: por que (sem carga abaixo da Fb), onde (~0,7–0,8 × Fb, 24 dB/oit) e como achar a Fb de caixa pronta (varredura: na Fb o cone quase para). `evals/evals.json` — eval 6 ganhou asserção de cuidado com a rede.
 - Por quê: num guia de montagem, o ajuste do trimpot com a fonte energizada foi orientado sem aviso de que a mesma régua tem a rede exposta; e o subsônico foi fixado sem saber se a caixa pronta do sub era dutada. Os dois casos são comuns em home theater montado com peças de carro.

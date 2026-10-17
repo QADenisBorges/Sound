@@ -23,7 +23,7 @@ O par Selenium 6TR4A volta para o carro.
 | 8 faston fêmea **amarelos** 6,3 mm (4–6 mm²) | 10/10 | Fio fino da BS-369 vai **soldado** no terminal |
 | Parafuso Ciser AA 3,5 × **19** panela Phillips (c/ 30) + arruelas | 10/10 | Torre precisa de ≥ 20 mm (medir); senão, cortar a ponta |
 | Fita de espuma Adere E-105S, **4 mm** × 19 mm × 5 m | 10/10 | Cortar ao meio no comprimento (19 → 2 × 9 mm) |
-| Fibra de poliéster (saco grande) | 10/10 | 40–50 g por caixa, pesados |
+| Fibra de poliéster (saco grande) | 10/10 | Pelo volume: forrar a traseira solta (≈10–20 g, estimado); 2ª caixa com o mesmo peso da 1ª |
 | Silicone **acético** Tekbond 50 g | 10/10 | Só em plástico, longe de metal, cura 24–48 h aberto |
 | Vedacit Fita Multiuso aluminizada **1 mm**, 10 cm × 10 m | 10/10 | Duas camadas nas paredes maiores |
 | Reserva já possuída: paralelo 2 × 1,0 (vermelho/preto) e 2 × 1,5 (cristal) | antes | REM e alimentação do processador; não para falante |
@@ -57,7 +57,7 @@ B Tratar (vedação e amortecimento)
   2.5 Silicone (bordas e frestas; cura 24–48 h)                     4.2 Conector do processador
   2.6 Fita asfáltica nas paredes (2 camadas)                        4.3 Força, terra e REM
   2.7 Gaxeta (fita cortada ao meio) ← 2.2                           4.4 RCA + chaves em F + GAIN no mínimo
-  2.8 Fibra pesada (40–50 g)
+  2.8 Fibra separada e aberta (≈30 g)
 C Montar                                                          C Conferir e energizar por ramais
   2.9 Cabo + faston SOLDADOS (durante a cura)                       4.5 Multímetro, sem energia
   2.10 JBL + polaridade  ← 2.9 e 2.5 + cura                         4.6 Fonte sozinha → 13,8 V (fusíveis fora)
@@ -106,7 +106,7 @@ Dependências reais (o resto pode ser feito em qualquer ordem dentro da etapa):
 
 **2.7 Gaxeta** (depois de 2.2): fita Adere cortada ao meio no comprimento (19 → 2 × 9 mm). Assento da JBL: tira em todo o contorno pela borda externa, sem cobrir os furos, emendas de topo. Emenda traseira/moldura: tira em todo o contorno de uma das metades. Os 4 mm viram ~2 mm apertados.
 
-**2.8 Preparar a fibra** (só pesar e abrir): duas porções iguais de 40–50 g na balança de cozinha, tufos abertos com os dedos (sem rasgar nem esticar). **Não entra na caixa agora.**
+**2.8 Preparar a fibra** (separar, pesar e abrir): uma porção de ≈30 g (com sobra) pesada e anotada, tufos abertos com os dedos (sem rasgar nem esticar). **Não entra na caixa agora.** Fibra de almofada é muito fofa: a quantidade é a que forra a traseira solta, não um peso fixo (correção de 17/10: 40–50 g dela ocupam várias vezes a caixa).
 
 **C — Montar**
 
@@ -114,7 +114,7 @@ Dependências reais (o resto pode ser feito em qualquer ordem dentro da etapa):
 
 **2.10 JBL e polaridade** (depois de 2.9 e da cura do 2.5): condutor marcado → + da JBL. Pilha na ponta do cabo (+ no marcado): o cone **avança**. Se recuar, inverta os faston.
 
-**2.11 Fechar** (depois de 2.10, 2.7 e 2.8): JBL parafusada sobre a gaxeta, em cruz, até a flange assentar. Fibra acomodada **solta** na traseira (fundo e paredes, sem socar), com um vão de 2–3 cm atrás do ímã da JBL. Juntar as metades devagar; torres em cruz, sem forçar.
+**2.11 Fechar** (depois de 2.10, 2.7 e 2.8): JBL parafusada sobre a gaxeta, em cruz, até a flange assentar. Fibra acomodada **solta** na traseira (fundo e subindo pelas paredes até perto da borda, camada de ≈3–4 cm, sem socar, nada na borda de encaixe), com um vão de 2–3 cm atrás do ímã da JBL. Pesar a sobra: o que entrou vai igual na 2ª caixa. Juntar as metades devagar; torres em cruz, sem forçar.
 
 **D — Validar**
 

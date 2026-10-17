@@ -7,8 +7,8 @@ window.GUIA = {
     tipo: 'Guia de montagem',
     titulo: 'Home Theater 2.1',
     resumo: 'Duas caixas JBL 4TRMS80 em carcaças Britânia BS-369 e um sub de 8", amplificados por um SD800.4 alimentado por fonte. Três frentes independentes (caixas, cabo do sub, eletrônica) e a integração no fim. Tudo em mãos; o painel abaixo diz o que pode ser feito agora.',
-    versao: '2.6',
-    data: '11/10/2026',
+    versao: '2.7',
+    data: '17/10/2026',
     autor: 'Denis',
     nivel: 'Intermediário',
     tempo: '8–10 h + 24–48 h de cura',
@@ -44,7 +44,7 @@ window.GUIA = {
     { id: 'tom', rotulo: 'Tom de teste do ganho', valor: '60 Hz', un: 'a 0 dBFS', como: 'Frequência do manual do módulo, no nível mais alto que um arquivo digital pode ter (0 dBFS), igual nos dois canais.', fonte: 'Manual SD800.4 · revisão técnica de 09/10/2026' },
     { id: 'volume_teste', rotulo: 'Volume da fonte na regulagem', valor: '100 %', un: '', como: 'O maior sinal que pode chegar: celular no máximo, sem equalizador nem efeitos. Assim não existe volume acima da regulagem. O notebook pelo P2 também é medido a 100 %.', fonte: 'Revisão técnica de 09/10/2026 · manual PRO 2.4BT + AUDIO (saída máxima de 2,1 V RMS; nível de saída até +15 dB)' },
     { id: 'limiar', rotulo: 'Limiar do limitador', valor: 'No ponto regulado', un: '', como: 'Com o tom de referência tocando, baixe o limiar de cada saída até o LED dela acender e suba até apagar. O limitador passa a cortar só o que passaria da regulagem.', fonte: 'Manual PRO 2.4BT + AUDIO, pág. 11 (limitador e LEDs de saída) · revisão técnica de 09/10/2026' },
-    { id: 'fibra', rotulo: 'Enchimento por caixa', valor: '40–50', un: 'g', como: '~10–15 g de fibra por litro de caixa (a BS-369 tem ~3,5 L).', fonte: 'componentes/caixas.md' },
+    { id: 'fibra', rotulo: 'Enchimento por caixa', valor: '≈10–20', un: 'g (estimado)', como: 'Vale o volume, não o peso: a fibra forra fundo e paredes da traseira solta, sem comprimir. Pese o que coube na 1ª caixa e ponha o mesmo na 2ª. Regras de 8–16 g por litro valem para fibra acústica densa; fibra siliconada de almofada é bem mais fofa, e o mesmo peso ocupa 2–3× o volume (a BS-369 tem ~3,5 L).', fonte: 'Correção do usuário, 17/10/2026: 50 g desta fibra ocupam muito mais que a caixa' },
     { id: 'cura', rotulo: 'Cura do silicone acético antes de fechar', valor: '24–48', un: 'h', como: 'Caixa aberta até sumir o cheiro de vinagre. Neutro: o tempo da embalagem.', fonte: 'Decisão de 10/10/2026' },
     { id: 'broca', rotulo: 'Broca piloto', valor: '2,5', un: 'mm', como: '~70 % do diâmetro do parafuso (3,5 mm) para plástico.', fonte: 'Prática' },
     { id: 'fio_pf', rotulo: 'Fio do porta-fusível de 40 A', valor: '≥ 4', un: 'mm²', como: 'Rabicho de ≈10 cm, com a fonte limitando a 40 A: a 40 A, 10 cm de 4 mm² dissipam ≈0,7 W (I² × R), nada. Com 2,5 mm² o fio vira o elo mais fraco: trocar por midi ou por lâmina com fio ≥ 6 mm². Meça o diâmetro externo: ≈4,5 mm = 4 mm²; ≈4 mm = 2,5 mm².', fonte: 'Análise de 10/10/2026 (compras/2026-10-10-loja-fisica/conferencia.md) · medição em 11/10' },
@@ -151,11 +151,11 @@ window.GUIA = {
       conferir: ['Código **E-105S** = espuma branca de **4,0 mm** (catálogo Adere). A lista pedia 2–3 mm: 4 mm serve, comprimindo no aperto normal.', 'Sopre através de um pedaço: não pode passar ar (célula fechada).'],
       armadilha: 'Deixar os 19 mm inteiros sob a flange: a sobra invade a abertura do cone e pode encostar na suspensão. Apertar demais para "vencer" a espuma: racha a torre.' },
     { id: 'M16', item: 'Fibra siliconada', spec: 'Fibra de poliéster (enchimento de almofada)', qtd: 'saco grande (sobra)', sit: 'tem',
-      alerta: 'Pesar {{p:fibra}} por caixa na balança de cozinha', onde: 'Armarinho / tecidos', preco: 'R$ 10–20',
+      alerta: 'Medir pelo volume (forrar solta), não pelo peso; pesar só para as duas caixas ficarem iguais', onde: 'Armarinho / tecidos', preco: 'R$ 10–20',
       foto: { src: 'img/m16-fibra.jpg', alt: 'Saco de fibra de poliéster siliconada', credito: 'Foto do usuário, 10/10/2026' },
       uso: { finalidade: 'Enchimento acústico, não vedação. Fica solta dentro da caixa e absorve o som que o cone manda para trás (senão ele volta pelo cone com atraso, o "som de caixa", timbre oco). Também faz a caixa se comportar como ≈10–15 % maior.',
         local: 'Solta dentro da metade traseira: fundo e paredes, enchendo o espaço frouxamente. Um vão de 2–3 cm atrás do ímã da JBL, sem fibra encostando no falante. Foto marcada no passo 2.11.',
-        modo: ['Pesar duas porções iguais de {{p:fibra}} na balança de cozinha (um punhado grande cada; o saco tem muito mais).', 'Abrir os tufos com os dedos até ficar solta e fofa.', 'Na hora de fechar a caixa, forrar o fundo e as paredes da traseira sem apertar, com um vão para o ímã, e fechar.'],
+        modo: ['Separar uma porção generosa (sobra volta para o saco) e pesar com a balança de cozinha.', 'Abrir os tufos com os dedos até ficar solta e fofa.', 'Na hora de fechar a caixa, forrar o fundo e as paredes da traseira sem apertar, com um vão para o ímã. Pesar a sobra: a diferença é o que entrou, e a 2ª caixa recebe o mesmo.'],
         momento: 'Pesar e guardar no passo 2.8 (qualquer hora). Entra na caixa só no passo 2.11, ao fechar, depois da cura do silicone e com a JBL já parafusada.',
         cuidados: ['Não socar: comprimida, deixa de absorver.', 'Não encostar no cone nem no ímã: abafa e pode raspar.', 'Não usar espuma, algodão nem lã de vidro.', 'Não molhar.'] },
       papel: 'Enchimento das caixas: tira o "som de caixa" (reflexo do som por dentro) e faz a caixa se comportar como ≈10–15 % maior.',
@@ -306,7 +306,7 @@ window.GUIA = {
     { id: 'nivel-saidas', medida: 'Nível das saídas no app (1 / 2 / 3 e 4)', como: 'Depois da regulagem; 0 dB se o GAIN deu conta', esperado: '0 dB ou menos' },
     { id: 'caixa-sub', pendente: true, medida: 'Caixa do sub: com duto (11/10). Falta a frequência do duto (Fb)', como: 'Diâmetro interno e comprimento do duto + medidas internas da caixa; ou passo 5.3, varredura de 25 a 60 Hz', esperado: 'Subsônico = 0,75–0,8 × Fb' },
     { id: 'dist', medida: 'Distâncias até o sofá (L / R / sub)', como: 'Trena', esperado: '—' },
-    { id: 'fibra', medida: 'Fibra por caixa', como: 'Balança de cozinha', esperado: '{{p:fibra}}' },
+    { id: 'fibra', medida: 'Fibra por caixa (o que coube solto na 1ª)', como: 'Balança de cozinha: porção anotada no 2.8 menos a sobra', esperado: '{{p:fibra}}; a 2ª igual à 1ª' },
     { id: 'frestas', pendente: true, medida: 'Frestas achadas no teste da lanterna (onde, em cada metade)', como: 'Passo 2.3', esperado: '—' },
     { id: 'fio-pf', pendente: true, medida: 'Diâmetro do fio do porta-fusível de 40 A', como: 'Régua no fio, ou no cobre desencapado', esperado: '≈4,5 mm por fora (4 mm²); 2,6 mm de cobre' },
     { id: 'torre', pendente: false, medida: 'Altura da torre de parafuso da BS-369', como: 'Não se aplica (11/10): os furos da JBL não coincidem com as torres; a fixação foi furada na moldura (2.2). Conferir só o teste do parafuso do 2.2.', esperado: '—' },
@@ -486,22 +486,22 @@ window.GUIA = {
           basico: 'A gaxeta de célula fechada se comprime no aperto e fecha as irregularidades entre o metal da flange e o plástico. 4 mm de espuma viram ≈2 mm apertados.'
         },
         {
-          id: '2.8', fase: 'Tratar (vedação e amortecimento)', titulo: 'Preparar a fibra (pesar e abrir)', objetivo: 'Só preparação: duas porções iguais, de {{p:fibra}} cada, já abertas. A fibra entra na caixa no passo 2.11, na hora de fechar.',
+          id: '2.8', fase: 'Tratar (vedação e amortecimento)', titulo: 'Preparar a fibra (separar, pesar e abrir)', objetivo: 'Só preparação: uma porção generosa, pesada e já aberta. A quantidade certa se descobre no passo 2.11, pelo volume: o que forra a traseira solta (≈10–20 g, estimado). A 2ª caixa recebe o mesmo peso.',
           tempo: '10 min', risco: 'baixo', validar: true, ferramentas: ['Balança de cozinha', 'Um saquinho ou vasilha (opcional)'], materiais: ['M16'],
-          alertas: [{ tipo: 'dica', texto: 'O saco que você comprou tem muito mais do que o necessário: cada caixa usa só {{p:fibra}}, mais ou menos um punhado grande. O resto fica guardado.' }],
+          alertas: [{ tipo: 'atencao', texto: 'Fibra de almofada é muito fofa: 40–50 g dela dariam várias vezes o volume da caixa e teriam de ser socados. Quem manda é o volume (forrar solta), não um peso fixo.' }],
           acoes: [
-            'Ponha um saquinho vazio (de pão, de mercado) na balança de cozinha e zere. Puxe tufos do saco grande para dentro dele até marcar {{p:fibra}}.',
+            'Ponha um saquinho vazio (de pão, de mercado) na balança de cozinha e zere. Puxe tufos do saco grande para dentro dele até uns 30 g (sobra de propósito). Anote o peso.',
             'Afofe a fibra com as mãos, abrindo os tufos, até ficar solta e fofa (como enchimento de travesseiro novo).',
-            'Repita para a segunda porção. As duas são iguais: não precisa marcar qual vai em qual caixa.',
-            'Guarde as duas porções (no saquinho, numa vasilha, numa caixa de sapato) até o passo 2.11. Não entra nada na caixa agora. Se preferir, pese só na hora de fechar.'
+            'Não precisa separar a porção da 2ª caixa agora: ela sai do mesmo saco depois, com o peso que a 1ª usou.',
+            'Guarde a porção (no saquinho, numa vasilha, numa caixa de sapato) até o passo 2.11. Não entra nada na caixa agora. Se preferir, faça tudo isso só na hora de fechar.'
           ],
-          figuras: [{ tipo: 'sequencia', legenda: 'Preparar a fibra: pesar duas porções iguais (num saquinho ou vasilha qualquer) e abrir os tufos com os dedos. Nada entra na caixa neste passo.', passos: [
-            { id: 'fibra-pesar', texto: 'Saquinho (ou vasilha) vazio na balança, zerada. Puxe tufos do saco grande até marcar 40–50 g. Duas vezes, uma porção por caixa.' },
+          figuras: [{ tipo: 'sequencia', legenda: 'Preparar a fibra: pesar uma porção com sobra (num saquinho ou vasilha qualquer) e abrir os tufos com os dedos. Nada entra na caixa neste passo.', passos: [
+            { id: 'fibra-pesar', texto: 'Saquinho (ou vasilha) vazio na balança, zerada. Puxe tufos do saco grande até uns 30 g e anote. A quantidade da caixa se acerta no 2.11.' },
             { id: 'fibra-afofar', texto: 'Cada tufo: segure com as duas mãos e puxe para os lados até abrir, como desfiar algodão. Não rasgue em pedacinhos, não estique como elástico.' }
           ] }],
-          verificacao: ['Duas porções com o mesmo peso, 40–50 g cada, soltas e fofas.'],
-          erro: 'Encher a caixa "a olho": uma fica com o dobro da outra e o grave das duas sai diferente. Pesar é o único jeito de ficarem iguais.',
-          basico: 'A fibra não veda nem cola nada: ela fica solta dentro da caixa para absorver o som que o cone manda para trás, que senão volta pelo cone com atraso (o "som de caixa", timbre oco). De quebra, o ar que passa pela fibra esquenta e esfria com ela, e a caixa se comporta como se tivesse ≈10–15 % mais volume. 40–50 g em 3,5 L (≈12 g por litro) é a quantidade certa; mais que isso, abafa.'
+          verificacao: ['Uma porção pesada e anotada (≈30 g), solta e fofa.'],
+          erro: 'Fixar um peso e socar até caber: fibra comprimida para de absorver e pode encostar no cone. E encher a 2ª caixa "a olho": pesar a sobra é o jeito de as duas ficarem iguais.',
+          basico: 'A fibra não veda nem cola nada: ela fica solta dentro da caixa para absorver o som que o cone manda para trás, que senão volta pelo cone com atraso (o "som de caixa", timbre oco). De quebra, o ar que passa pela fibra esquenta e esfria com ela, e a caixa se comporta como se tivesse ≈10–15 % mais volume. A conta em gramas por litro depende de quão fofa é a fibra; por isso o critério é o volume: forrar fundo e paredes soltas, sem comprimir. Nesta caixa, com corte em 120 Hz, a função principal da fibra é tirar o reflexo dos médios, e uma camada solta já faz isso.'
         },
         {
           id: '2.9', fase: 'Montar', titulo: 'Passar o cabo e soldar os terminais faston', objetivo: 'O cabo de falante entra pelo furo pequeno da traseira e termina em dois faston soldados para a JBL. Dá para fazer durante a cura do silicone (2.5).',
@@ -545,9 +545,9 @@ window.GUIA = {
           requer: 'JBL ligada e com polaridade conferida (2.10), gaxeta colada (2.7) e fibra pesada e aberta (2.8).',
           acoes: [
             'Na moldura: parafuse a JBL sobre a gaxeta, em cruz, até a flange assentar. Nem uma volta a mais.',
-            'Na traseira: pegue uma das porções de fibra (2.8). Tufo por tufo, já abertos, vá encostando no fundo e nas paredes, forrando por dentro como um ninho: sem apertar, sem esticar. Pode cobrir a placa dos bornes.',
+            'Na traseira: tufos abertos da porção (2.8) no fundo e **subindo pelas paredes até perto da borda**, como um ninho de ≈3–4 cm: sem apertar. Nada na borda de encaixe.',
             'Deixe livre a região onde o ímã da JBL vai ficar: um vão de 2–3 cm atrás dele, sem fibra encostando no falante.',
-            'Junte as duas metades devagar. Se a fibra espremer contra a JBL ou sair pela emenda, tire um pouco.',
+            'Junte as metades devagar; se a fibra espremer contra a JBL ou sair pela emenda, tire um pouco. Pese a sobra: o que entrou vai igual na 2ª caixa.',
             'Aperte as torres em cruz, sem forçar.'
           ],
           figuras: [{ tipo: 'comparar', legenda: 'Traseira em corte, vista de cima, com a moldura e a JBL chegando pela esquerda. Certo: fibra aberta forrando fundo e paredes, com um vão para o ímã. Errado: socada até a boca, encostando no ímã.', itens: [
@@ -981,6 +981,7 @@ window.GUIA = {
   ],
 
   versoes: [
+    { v: '2.7', data: '17/10/2026', nota: 'Correção do usuário: 40–50 g de fibra siliconada de almofada ocupam muito mais que a caixa. **Fibra passa a ser medida pelo volume** (forrar fundo e paredes da traseira soltas, camada de ≈3–4 cm, vão de 2–3 cm atrás do ímã, nada na borda de encaixe); a quantidade estimada cai para ≈10–20 g, e a balança serve para a 2ª caixa receber o mesmo que coube na 1ª. Mexeu no parâmetro `fibra`, na ficha M16, nos passos 2.8 e 2.11 e na medição da fibra.' },
     { v: '2.6', data: '11/10/2026', nota: 'Pedido do usuário ao começar os cabos: a fase "Preparar os cabos" virou **um passo só, 4.1** (posicionar, medir, cortar, etiquetar, desencapar, porta-fusíveis), com a tabela de conexões e a de corte dentro dele. Os passos seguintes da etapa 4 desceram três números (conector do processador 4.2 … travar o limitador 4.11). Fusíveis entram em 4.7 e 4.8. **Comprimentos de corte definidos** para todos os cabos (C1 15 cm, C2 40 cm, C3 60 cm, C4/C5/C7 50 cm, C6 4 cm, F1/F2 3,0 m, F3 1,0 m), com o leiaute assumido: fonte, módulo e processador lado a lado, módulo no meio.' },
     { v: '2.5', data: '11/10/2026', nota: 'Passo **2.4 Tampar os furos e aberturas** novo (fita asfáltica: placa dos bornes e furos extras da furação; foto da moldura de 11/10). Os passos seguintes da etapa 2 subiram um número (silicone 2.5, fita nas paredes 2.6, gaxeta 2.7, fibra 2.8, faston 2.9, JBL 2.10, fechar 2.11, validar 2.12). Um material por função: fita tampa (2.4) e amortece (2.6), silicone veda bordas e frestas (2.5), espuma é gaxeta (2.7), fibra é enchimento (2.8). O cabo pode ser passado já no 2.5 para o furo curar junto.' },
     { v: '2.4', data: '11/10/2026', nota: 'Medições de 11/10: terminais da JBL de 6,3 mm nos dois (faston nos dois); fio do porta-fusível de 40 A ≈4 mm² (aceito); caixa do sub tem duto (Fb a medir). **Traseira da BS-369 sem bornes:** o cabo de falante entra pelo furo pequeno com nó de alívio de tração e vai direto aos faston (I1/I2 redefinidos, 2.8 reescrito); rasgos e furo maior da placa fechados com fita (2.5) e silicone na borda (2.4, que passa a depender de 2.5). Torres não usadas na fixação da JBL (furos novos na moldura).' },
