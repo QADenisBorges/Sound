@@ -25,7 +25,7 @@ Lido pela skill `consultor-som` no início de cada conversa sobre som e atualiza
 - Marcas preferidas / a evitar: (a preencher)
 
 ## Formato de resposta
-- (a preencher: tamanho, tabelas, nível de detalhe)
+- **Respostas diretas e curtas (27/10/2026):** só o que foi perguntado, sem contexto extra nem explicação não pedida.
 - **Documentação de montagem (definido em 09/10/2026):** escrita para ele, mas com parâmetros que permitam outra pessoa adaptar ao próprio equipamento; **HTML** como formato principal e **PDF muito usado** (tem que imprimir bem); serve de **modelo para os próximos projetos**. Imagens de ligação só a partir de fotos reais ou de desenho feito em cima delas, nunca geradas por IA. Na parte de compras quer **item por item**: foto real do produto, por que importa, o que exigir e como não comprar errado. Não gosta de material denso ("muita informação em pouco espaço"): o essencial à vista, o detalhe recolhido, letra grande e o conteúdo separado pelo momento de uso (compras / montagem / referência). **Montagem organizada pelo que depende de quê (10/10/2026):** frentes independentes em paralelo (ex.: caixas × eletrônica), integração só onde for tecnicamente necessária, dependência real explícita no passo e nenhuma ordem imposta por tipo de tarefa.
 
 ## Conceitos já dominados (não precisa reexplicar)
