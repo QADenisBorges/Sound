@@ -8,6 +8,7 @@ Lido pela skill `consultor-som` no início de cada conversa sobre som e atualiza
 
 ## Objetivos e prioridades
 - Soluções sólidas, coerentes e com custo acessível; aprender construindo.
+- **Segurança elétrica no máximo possível** (01/11/2026): prefere a solução mais segura mesmo custando mais; gosta de sistemas organizados e modulares, com engate rápido.
 - Valoriza qualidade e coerência acima de "número grande" (potência, tamanho). Se um pedido contradisser isso, quer ser confrontado antes de seguir — e só seguir se confirmar que está ciente da escolha.
 
 ## Áreas de interesse
