@@ -50,18 +50,22 @@ com LR4 em 100 Hz, Xmax com ~13–14 W. A conta anterior (24 W e 27 W) comparou 
 potência segura. Decisão: alvo de ganho de **11 V (~30 W)**; o pior caso (tom contínuo no máximo perto de 122 Hz) fica em ~2,8 mm.
 O curso máximo mecânico (Xmech) não é publicado.
 
-## Bravox CS50BK — kit 2 vias 5" (linha Black), par (já possui, estava no carro)
-Comprado em 2023 por ~R$ 350. Identificado em 01/11/2026 pelas peças (fotos com régua) e pelo anúncio do kit, cujas fotos mostram
-o mesmo tweeter (tela perfurada, selo de chevrons amarelos, copo de embutir) e o mesmo divisor em tubo.
-Não há ficha oficial da Bravox: os dados abaixo vêm de lojas (Som Curitiba, Connection Imports) e das medidas.
+## Bravox — tweeter do kit CS50BK + divisor HP5, par (possui **só os tweeters e os divisores**)
+Vieram de um kit Bravox CS50BK (linha Black, 5") comprado em 2023 por ~R$ 350; os woofers do kit **não estão com o usuário**.
+Identificado em 01/11/2026 pelas peças (fotos com régua) e pelas fotos do anúncio do kit (mesmo tweeter e mesmo divisor em tubo).
+Sem ficha oficial da Bravox: dados de lojas, com a origem indicada, e medidas pelas fotos.
 
-| Peça | Dado |
-|---|---|
-| Kit | 5" mid-bass + tweeter domo 1" + divisor só do tweeter; "65 W RMS" (lojas) / "130 W" no anúncio, valores sem norma declarada |
-| Tweeter | 4 Ω · 89 dB @ 2,83 V/1 m · **Fs 2.500 Hz** · domo Mylar, ímã neodímio · etiqueta traseira "3029-1 0521" (código interno + 05/2021) |
-| Tweeter (medidas) | frente Ø ~29–30 mm; anel de embutir Ø externo ~43–44 mm, furo ~31–32 mm |
-| Divisor | tubo preto IN/OUT, etiqueta **"HP5 10/2021"** = passa-alta **5 kHz**, Bessel 12 dB/oitava, Polyswitch em série; chave **0 dB / 3 dB** |
-| Woofer | sem divisor: toca a faixa toda |
+| Item | Valor | Origem |
+|---|---|---|
+| Tipo | domo de 1" (25 mm), copo traseiro + anel de embutir | fotos |
+| Impedância | 4 Ω nominal (Re esperado ~3–3,5 Ω, a medir) | loja (CS50BK) |
+| Sensibilidade | 89 dB @ 2,83 V/1 m | loja (CS50BK) |
+| Fs (ressonância) | **2.500 Hz** | loja (CS50BK) |
+| Diafragma / ímã | Mylar / neodímio | loja (CS60B, mesma linha; não confirmado no CS50BK) |
+| Potência / resposta | 30 W RMS / 5–22 kHz | loja (CS60BK, mesma linha; não confirmado no CS50BK) |
+| Medidas | frente Ø ~29–30 mm; anel de embutir Ø ext. ~43–44 mm, furo ~31–32 mm; altura não medida | fotos (± 1–2 mm) |
+| Etiqueta traseira | "3029-1 0521" (código interno + 05/2021, provável) | peça |
+| Divisor (tubo IN/OUT) | "HP5 10/2021": passa-alta **5 kHz**, Bessel 12 dB/oitava, Polyswitch em série, chave **0 dB / 3 dB** | loja (CS50BK) + peça |
 
-Não é o TD50U (Ø 41,6 mm) nem o Neo Point avulso (vem sem divisor). Uso: tweeter sempre pelo tubo HP5. Num DSP/crossover
-ativo, manter o corte em ≥ 4–5 kHz (Fs 2,5 kHz). Se os agudos ficarem estridentes, usar a posição 3 dB.
+Não é o TD50U (Ø 41,6 mm) nem o Neo Point avulso (vem sem divisor). Com DSP: corte ≥ 4–5 kHz (Fs 2,5 kHz), manter o tubo HP5
+em série como proteção e limitar a saída do amplificador (30 W em 4 Ω ≈ 11 V RMS).
