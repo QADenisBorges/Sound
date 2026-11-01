@@ -54,6 +54,7 @@ O curso máximo mecânico (Xmech) não é publicado.
 Vieram de um kit Bravox CS50BK (linha Black, 5") comprado em 2023 por ~R$ 350; os woofers do kit **não estão com o usuário**.
 Identificado em 01/11/2026 pelas peças (fotos com régua) e pelas fotos do anúncio do kit (mesmo tweeter e mesmo divisor em tubo).
 Sem ficha oficial da Bravox: dados de lojas, com a origem indicada, e medidas pelas fotos.
+Fotos (peças, medidas com régua, divisor e anúncio do kit usado como referência) → `componentes existentes/Tweeter Bravox CS50BK/`.
 
 | Item | Valor | Origem |
 |---|---|---|
@@ -69,3 +70,14 @@ Sem ficha oficial da Bravox: dados de lojas, com a origem indicada, e medidas pe
 
 Não é o TD50U (Ø 41,6 mm) nem o Neo Point avulso (vem sem divisor). Com DSP: corte ≥ 4–5 kHz (Fs 2,5 kHz), manter o tubo HP5
 em série como proteção e limitar a saída do amplificador (30 W em 4 Ω ≈ 11 V RMS).
+
+**Uso previsto (01/11/2026):** entrar no home theater com o processador de 2 entradas × 8 saídas (já decidido) e um módulo
+de 2 canais próprio (4 Ω, 50–100 W RMS reais, ruído baixo, fusível de 5–10 A na BOB 60A). O SD800.4 continua com JBL + sub.
+Mapa: saídas 1/2 JBL · 3/4 tweeters (HP5 em série) · 5+6 sub em ponte · 7/8 livres. Duas memórias para comparar:
+- **Ativo** (preferida): JBL com BW2 120 Hz + passa-baixa LR24 5 kHz (cala também os tweeters internos da triaxial); tweeter LR24 5 kHz, nível inicial −3 dB.
+- **Reforço**: JBL sem passa-baixa; tweeter LR24 8 kHz, nível inicial −9 dB.
+Fase do tweeter pelo tom de 5 kHz (0°/180°, fica a que soma mais), atraso pela distância, limitador em 11 V no fio do tweeter.
+
+**Resultado esperado:** integração melhora de leve (alinhamento de tempo/nível e posição perto da tela/altura do ouvido
+deixam o palco mais firme e o agudo mais definido); clareza de diálogo não muda, porque o corte ≥ 5 kHz deixa a voz na JBL;
+imersão praticamente não muda (vem de som lateral/traseiro, saídas 7/8). Em ganho para filme: sub + EQ da sala > laterais/traseiras > tweeter.
