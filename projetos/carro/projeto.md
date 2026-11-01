@@ -50,3 +50,4 @@ fusível de **60 A** a ≤ 30–45 cm da bateria, distribuidor com 40 A (SD800.4
 - 2026-11-01: Usuário esclarece que tudo está no carro, sem uso; JBL 1TWMS80 fora do escopo. Pede configuração com SD800.4 + TS 400x4 + PRO 2.4BT + AUDIO.
   Proposta: dianteiros e sub no SD800.4 (sub em ponte por uma saída só, com Y, que garante sinal idêntico nos dois canais), traseiros mono no TS 400x4 pela saída 4,
   para ter passa-alta, nível e atraso próprios. Alternativa: traseiro estéreo em Y das saídas 1/2, sem ajuste próprio (ver conversa).
+- 2026-11-01: Usuário informa que sempre usou só os Snake, as JBL e o sub (tweeters Bravox nunca usados, pelo que se entende; a confirmar, junto com o que amplificava o quê antes). Pediu o que muda na experiência com a nova configuração.
