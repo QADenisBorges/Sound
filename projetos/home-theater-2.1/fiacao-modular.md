@@ -105,7 +105,7 @@ Preços estimados (01/11/2026): confira antes de comprar.
 | # | Item | Especificação que importa | Qtd | Onde | Estimativa |
 |---|---|---|---|---|---|
 | 1 | **Anderson SB50** vermelho + contatos | Carcaça SB50 + contato de cobre **prateado** para **6 AWG** (aceita 10 e 16 mm²). Genuíno: "Anderson Power Products" gravado | 3 carcaças + 6 contatos (pod, casa, carro) | Loja de baterias/empilhadeira, Mouser, ML (vendedor que mostra o contato) | R$ 120–200 |
-| 2 | **Speakon NL4MP** (painel) + **NL4FX** (cabo) | 4 polos, trava; Neutrik ou marca equivalente (Amphenol, Seetronic) | 3 + 3 | Loja de áudio profissional (Santa Ifigênia, ML loja oficial) | R$ 270–480 |
+| 2 | **Speakon NL4MP/NL4MPXX** (painel) + **NL4FXX-W-S** (cabo; o NL4FX saiu de linha) | 4 polos, trava; NL4FXX-W-S aceita cabo de Ø 6–12 mm; Neutrik ou marca equivalente (Amphenol, Seetronic) | 3 + 3 | Loja de áudio profissional (Santa Ifigênia, ML loja oficial) | R$ 270–480 |
 | 3 | Conector selado de 2 vias com chicote | Trava, vedação, fio ≥ 0,5 mm² | 2 pares | Autopeças / ML | R$ 10–25 |
 | 4 | Barramento (bus bar) com tampa | 4 parafusos M5/M6, ≥ 100 A | 2 (+ e −) | ML / AliExpress | R$ 60–120 |
 | 5 | Fusíveis de lâmina média (ATO) | 2 A (×3) + 40 A de reserva | 4 | Autopeças | R$ 8–15 |
@@ -119,11 +119,32 @@ Preços estimados (01/11/2026): confira antes de comprar.
 | 13 | Fixação removível | Inserto roscado M6 para madeira (×8) + manípulo M6 (×4) | — | Ferragens | R$ 25–50 |
 | 14 | Organização | Abraçadeira com base parafusável, malha expansível 10 mm (3 m), etiquetas | — | ML / material elétrico | R$ 30–60 |
 | 15 | **Alicate crimpador de ilhós** | Autoajustável 0,25–6 mm² (tipo HSC8 6-4A) | 1 | ML / AliExpress | R$ 60–110 |
-| 16 | **Alicate crimpador hexagonal** | Matrizes de 6 a 16 mm²: contato do SB50, olhal e ilhós de 10 mm² | 1 | ML / AliExpress | R$ 100–180 |
+| 16 | **Alicate crimpador hexagonal** | Tipo **HX-50B** (matrizes 6–50 mm²): contato do SB50 (posição 10 mm²) e olhal de 10 mm². O HSC8 16-6 só crimpa ilhós | 1 | ML / AliExpress | R$ 100–180 |
 | | **Total** | | | | **R$ 968–1.785** |
 
 **Para economizar sem perder segurança (≈ R$ 130–230 a menos):** barramento genérico (item 4), plugue RCA metálico genérico com mola (item 8) e crimpador hexagonal mais simples (item 16).
 **Não economize em:** contatos do SB50 (item 1), Speakon (item 2) e alicates. Crimpagem malfeita é a causa nº 1 de conector esquentando.
+
+### Referência exata para compra (01/11/2026)
+Os códigos de fábrica foram levantados por busca na web. As páginas não puderam ser abertas daqui (a rede do ambiente bloqueia), então as fotos ainda não foram conferidas. Ao comprar genérico, compare com a foto da página oficial.
+
+| # | Produto exato (part number) | Observação |
+|---|---|---|
+| 1 | Anderson **6331G1**: SB50 vermelho, kit com 1 carcaça **992G1** + 2 contatos **5900** (6 AWG, prateados). Para 3 carcaças: 3 kits | **Não** o 6331G2 (é para 10–12 AWG) |
+| 2 | Neutrik **NL4MP** (ou o sucessor **NL4MPXX**) + **NL4FXX-W-S** (cabo de Ø 6–12 mm) | NL4FX saiu de linha; W-L é para cabo de 10–16 mm |
+| 3 | Kit genérico selado de 2 vias com chicote (padrão TE Superseal 1.5: 282104-1 + 282080-1) | O original TE pede terminais, vedações e alicate próprios; o kit com fios já crimpados é mais simples |
+| 4 | Blue Sea **2307** (150 A, 4 pinos de 1/4", tampa transparente), 2 unidades, ou par Daier BB100-T5M6C (vermelho e preto, 5 × M6) | No Blue Sea, identifique + e − com etiqueta; o 2301 não serve |
+| 5 | Littelfuse **0287002.U** (ATO 2 A, cinza) · reserva 40 A laranja | — |
+| 6 | Olhal tubular de **cobre estanhado** 10 mm² M6 (tipo Lemu KR10-6) · pré-isolado vermelho 1,5 mm² M6 (tipo HellermannTyton HOT01506) | Evite o olhal galvanizado |
+| 7 | Kit de ilhós 0,5–10 mm² com cores DIN 46228-4 | — |
+| 8 | Rean **NYS373-0** (preto) e **NYS373-2** (vermelho) | Cabo de até 6,0 mm |
+| 9 | Santo Angelo **G20N** (mono, por metro, ~6 mm) | Confira o diâmetro; o G50 tem 6,5 mm e não entra no NYS373 |
+| 14 | HellermannTyton **MB4** só para parafuso (151-28802) · malha **HEGP10** PET (170-11000) | O MB4A10C2 é adesivo: evite |
+| 15 | **HSC8 6-6A** (crimpagem hexagonal, entra melhor em borne de parafuso) ou HSC8 6-4A (quadrada) | — |
+| 16 | **HX-50B** | Ver item 16 da tabela |
+| 13 | Inserto roscado M6 para madeira (furo-piloto ~8 mm) · manípulo estrela DIN 6336 M6 com rosca macho | — |
+| 12 | Pé de borracha parafusável (tipo Penn-Elcom F1615) | — |
+| Carro | Porta-fusível MIDI Littelfuse **04980900ZXT** + fusível MIDI 40 A **0498040.M** | Mesmo padrão nos dois |
 
 ### Kit carro (depois, quando o pod for para o carro)
 | Item | Qtd | Estimativa |
@@ -142,7 +163,7 @@ Preços estimados (01/11/2026): confira antes de comprar.
 1. **Mesa-ponte:** medir o sub (largura, profundidade, altura, diâmetro do duto) → cortar → montar → BOB parafusada numa ponta.
 2. **Chicote da casa:** reaproveitar C1, C2 e C3. O C2 e o C3 agora terminam no **SB50 "CASA"**, e não no módulo. Os cabos do processador que saíam da BOB (C4–C7) deixam de existir, porque o processador passa a ser alimentado dentro do pod.
 3. **Pod:** fixar módulo, processador, barramentos e cantoneira → força com **olhal** no barramento e **ilhós** no módulo → ramal do processador com o porta-fusível que já existe (trocar o 5 A provisório por **2 A**) → REM → 4 RCA de 25 cm → Speakon (L/R nos pinos 1±, SUB nos pinos 2±) → etiquetas.
-4. **Cabos das caixas:** a ponta que hoje vai no módulo recebe um NL4FX. O paralelo 2 × 2,5 mm² é chato e a garra do NL4FX espera cabo redondo (6–15 mm): faça uma luva de 2–3 camadas de termorretrátil na entrada até ficar redonda e firme. Ilhós nos condutores. Marcado = **1+** (caixas) ou **2+** (sub).
+4. **Cabos das caixas:** a ponta que hoje vai no módulo recebe um NL4FXX-W-S. O paralelo 2 × 2,5 mm² é chato e a garra do conector espera cabo redondo (6–12 mm): faça uma luva de 2–3 camadas de termorretrátil na entrada até ficar redonda e firme. Ilhós nos condutores. Marcado = **1+** (caixas) ou **2+** (sub).
 5. **RCA:** malha no terminal de massa, condutor no pino central, alívio de tração apertado na capa do cabo. Teste: continuidade ponta a ponta, **sem continuidade** entre pino e massa, e um puxão.
 6. **Conferência sem energia** (como no 4.5): bip ponta a ponta; **polaridade do SB50**: com a BOB ligada e o pod fora, + no contato do fio vermelho do SB50 "CASA", medindo pelo lado de trás da carcaça. O SB50 não tem macho e fêmea: se os dois lados foram montados com o vermelho na mesma posição, o encaixe não inverte.
 7. Energizar por ramais (como 4.6–4.8) e conferir os ajustes salvos. **Ganho e limitador não mudam:** o GAIN do módulo e a memória continuam os mesmos.
@@ -177,3 +198,4 @@ Regras: SB50 e REM só se encaixam **sem energia** (a carga dos capacitores do m
 ## Histórico de decisões
 - **01/11/2026:** fiação modular definida. Pod removível (PRO 2.4BT + AUDIO + SD800.4) com SB50 (força), conector selado de 2 vias (REM, jumper em casa / rádio no carro) e Speakon NL4 (L/R pinos 1±, SUB pinos 2± como codificação). Fonte fica em casa. Conector MIDI descartado (contatos de 2–5 A contra 40 A da força e 10 A / 40 V da ponte). Rack sobre o sub em mesa-ponte desacoplada, porque o duto do sub fica no topo e a vibração solta os bornes. Prioridade do usuário: segurança máxima.
 - **01/11/2026:** Wago avaliado. **221** (alavanca, 0,2–4 mm², 32 A; versão de 6 mm², 41 A) é **emenda fixa**, não engate: não aceita 10 mm² e não tem trava contra puxão. Uso só em emendas finas dentro do pod ou como plano B de emenda. **WINSTA MIDI** (linha 770, plugável com trava, até 4 mm², 25 A) seria a alternativa ao Speakon nas caixas se o "MIDI" do pedido era esse. Fica o Speakon (feito para áudio e fácil de achar), e o SB50 na força continua sem alternativa Wago.
+- **01/11/2026:** part numbers levantados (SB50 6331G1 = 992G1 + 2× 5900; NL4FXX-W-S no lugar do NL4FX descontinuado; HX-50B no lugar do "crimpador 6–16 mm²", porque o HSC8 16-6 só crimpa ilhós). Fotos pendentes: a rede do ambiente bloqueou os sites.
