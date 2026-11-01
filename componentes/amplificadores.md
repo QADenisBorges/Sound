@@ -57,3 +57,18 @@ Para outras cargas: V = √(P × R) (`calc_som.py ganho`). JBL 4TRMS80 em uso do
 - Entradas: as 4 RCA ligadas às saídas 1–4 do processador.
 - Ganho (revisão de 09/10/2026): referência = celular a 100 % com tom de 60 Hz a 0 dBFS; alvos de **11 V** (JBL) e **40 V** (ponte). Se a versão for a EVO6 (0,2–2 V), o GAIN no mínimo já passa do alvo com os 2,1 V do processador: o ajuste fino fica no nível da saída no app.
 - Fonte 12–14,4 V: consumo com música ~40 A no máximo do módulo; em casa, bem menos.
+
+## Taramps TS 400x4 — módulo automotivo de 4 canais, classe D (possui, 01/11/2026)
+Dados do manual (MN_040230 R00, V6) e de anúncios, pesquisa de 01/11/2026. O PDF do site da Taramps não pôde ser aberto desta sessão: **conferir na sua unidade** a versão (V5/V6) e em qual tensão a potência é medida (se for 14,4 V, a 12,6 V cai para ~75%).
+
+| Item | Valor |
+|---|---|
+| 4 canais @ 2 Ω | 4 × 100 W RMS |
+| 4 canais @ 4 Ω | 4 × 63 W RMS |
+| Ponte @ 4 Ω | 2 × 200 W RMS (mínimo 4 Ω em ponte) |
+| Crossover | HP e LP **fixos em 90 Hz, 12 dB/oit** (conferir se há posição Full/Off) |
+| Resposta / entrada | 18 Hz–30 kHz (−3 dB) / 22 kΩ |
+| Fusível | 20 A (manual MN_012196 R01; confirmar na sua versão) |
+| Proteções | Térmica, curto-circuito, LED |
+
+Uso planejado no carro (01/11/2026): CH1/CH2 → traseiros JBL 4TRMS80 (4 Ω, ~63 W disponíveis; alvo de ~11 V). CH3/CH4 livres.
