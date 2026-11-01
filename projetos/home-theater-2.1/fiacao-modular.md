@@ -1,5 +1,6 @@
 # Fiação modular do 2.1: engate rápido, pod removível casa ↔ carro
-Versão 1.0 · 01/11/2026 · complementa `montagem-2.1.md` (sistema já montado e funcionando).
+Versão 1.1 · 01/11/2026 · complementa `montagem-2.1.md` (sistema já montado e funcionando).
+Versão ilustrada (desenhos em escala sobre fotos reais): `rack-modular.html`.
 Prioridade definida pelo usuário: **o máximo de segurança possível**, tudo organizado lado a lado em cima do subwoofer.
 
 ---
@@ -72,11 +73,11 @@ Falantes do carro ── NL4FX nos pinos 1± (L / R)
 ### Mesa-ponte (casa)
 - MDF ou compensado de **18 mm**: tampo + 2 laterais em U, com feltro ou borracha nos pés.
 - Vão interno = largura do sub + **2 cm** (não encosta em nada). Altura livre acima do topo do sub = **≥ 1 diâmetro do duto** (meça; provavelmente 8–10 cm).
-- Tampo de **~55 × 30 cm**: BOB numa ponta (parafusada), ≥ 10 cm de folga, o pod ao lado.
+- Tampo do tamanho do sub + folgas. Pela foto, o sub tem ~60 × 26 × 30 cm, o que dá um tampo de **≈ 66 × 32 cm** (confirmar medindo). BOB numa ponta (parafusada), ≥ 10 cm de folga, o pod ao lado.
 - 4 insertos roscados M6 no tampo. O pod prende com **2–4 manípulos M6** (parafuso de rosca com cabeça de girar na mão). No carro, uma tábua com os mesmos furos.
 
 ### Placa do pod
-- Compensado de 15 mm, ~32 × 22 cm. Ele segura parafuso melhor que MDF, e no carro isso conta.
+- Compensado de 15 mm, ~34 × 23 cm. Ele segura parafuso melhor que MDF, e no carro isso conta.
 - **Cantoneira de alumínio** 2" × 1/8" na borda de trás, como painel: 3 furos D (24 mm + 2 parafusos M3) para os NL4MP. Etiqueta L / R / SUB e uma cor em cada.
 - SB50 e conector REM saem em **rabicho de ~20 cm**, com abraçadeira de base parafusada a 3–5 cm do conector (quem segura o puxão é a placa, não o borne).
 - Layout: barramentos + e − | SD800.4 | PRO 2.4, com ≥ 3 cm entre eles e as aletas do módulo livres.
@@ -113,7 +114,7 @@ Preços estimados (01/11/2026): confira antes de comprar.
 | 8 | Plugue RCA metálico de solda | Corpo de metal, mola/alívio de tração, aceita cabo de 6 mm (Rean NYS373, Amphenol ACPR) | 8 | Loja de áudio | R$ 100–170 |
 | 9 | Cabo blindado de instrumento | 1 condutor + malha ≥ 90 %, OFC, Ø ≤ 6 mm | 2 m | Loja de áudio / instrumentos | R$ 15–35 |
 | 10 | Cabo 10 mm² OFC (interno do pod) | Cobre, não CCA | 1 m vermelho + 1 m preto (se as sobras não bastarem) | Som automotivo | R$ 30–60 |
-| 11 | Placa do pod + painel | Compensado 15 mm (~32 × 22) + cantoneira de alumínio 2" × 1/8" (30 cm) | 1 | Madeireira / serralheria | R$ 30–60 |
+| 11 | Placa do pod + painel | Compensado 15 mm (~34 × 23) + cantoneira de alumínio 2" × 1/8" (30 cm) | 1 | Madeireira / serralheria | R$ 30–60 |
 | 12 | Mesa-ponte | MDF ou compensado 18 mm cortado na medida + pés de borracha | 1 | Marcenaria (corte) | R$ 70–140 |
 | 13 | Fixação removível | Inserto roscado M6 para madeira (×8) + manípulo M6 (×4) | — | Ferragens | R$ 25–50 |
 | 14 | Organização | Abraçadeira com base parafusável, malha expansível 10 mm (3 m), etiquetas | — | ML / material elétrico | R$ 30–60 |
