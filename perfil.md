@@ -15,7 +15,7 @@ Lido pela skill `consultor-som` no início de cada conversa sobre som e atualiza
 
 ## Contexto e equipamentos
 - Possui: módulo SounDigital SD800.4 EVO (1ª EVO), sub Protech Light 8" 4 Ω em caixa pronta, notebook (saída P2), projetor Wanbo T6 Max, carcaças do micro system Britânia BS-369, Edifier X100B (2.1 de PC, fora do home theater). Detalhes em `componentes/`.
-- Carro: multimídia Pioneer, provavelmente DMH-G228BT (a confirmar) com saídas RCA dianteira, traseira e sub.
+- Carro: multimídia Pioneer, provavelmente DMH-G228BT (a confirmar) com saídas RCA dianteira, traseira e sub (4 V); processador Taramps PRO 2.4BT (2 entradas × 4 saídas).
 - Já usa **Equalizer APO + Peace** no PC (sabe aplicar EQ por software).
 - Monta em casa (sala com projetor); faz o trabalho de solda/DIY ele mesmo (iniciante em solda).
 
