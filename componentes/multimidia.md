@@ -18,3 +18,11 @@
 - Faixa do crossover interno: HPF para frente/traseira e LPF da saída SW (frequência e inclinação), fase do sub.
 - Se a saída traseira pode ser reconfigurada como sub no menu.
 - Amplificador interno: potência "máxima" de catálogo (50 W × 4) é pico; RMS real fica na faixa de ~14–22 W por canal.
+
+### Ajustes de áudio (pesquisa de 05/11/2026; manual do A208BT não baixado, sites bloqueados na sessão)
+Pelos manuais dos irmãos AVH-A200BT/A205BT/A215BT (mesma plataforma), a confirmar no manual PT do A208BT (Koerich/Casas Bahia):
+- Crossover: HPF/LPF com corte e inclinação por grupo de alto-falante (frente, traseira).
+- Subwoofer: liga/desliga, fase, LPF (corte e inclinação), nível.
+- Nível por saída (Speaker Level) e **Posição de audição** (preset de atraso por assento; não é alinhamento de tempo livre em cm por canal).
+- Sem indício de **Network Mode** (3 vias ativo): a frente sai como um par só, sem separar tweeter de médio.
+Consequência: tweeter independente (corte, ganho e atraso próprios) exige processador externo; ver conversa de 05/11/2026.
