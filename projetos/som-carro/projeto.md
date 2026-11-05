@@ -50,3 +50,42 @@ REM: multimídia → REM IN do PRO 2.4 → REM OUT → REM dos dois módulos (li
   - Aguardando: o usuário decidir a compra; cotar com `pesquisa-precos` (referência de 28/09/2026: R$ 190–235).
 - 2026-11-05: Submenus da multimídia analisados (ver `componentes/multimidia.md`). A multimídia tem **alinhamento de tempo por saída (FL, FR, RL, RR, Sub, passo 2,5 cm)** → a traseira pode ser atrasada nela mesma, sem 2º processador, se a distância máxima permitir ~8–10 ms (≥ ~300 cm de diferença). **Não tem subsônico.** Decisão sobre o 2º PRO 2.4 fica para depois do teste: mover o RCA do sub para SWL/SWR, mudar a saída traseira para "Traseiro", conferir os campos RL/RR e a distância máxima.
   - Configuração atual com buraco 63–200 Hz (sub LPF 63, frente HPF 200) e EQ Sertanejo (+6 a +9 dB) — corrigir.
+
+## Plano de ligações (05/11/2026) — configuração antiga da multimídia desconsiderada
+Base: 1 PRO 2.4 (frente ativa) + multimídia (traseira com atraso pelo alinhamento de tempo, sub com LPF/fase). 2º PRO 2.4 só se o teste de distância máxima da traseira falhar (< ~300 cm de diferença) ou se quiser subsônico.
+
+### Onde fica cada coisa
+- Portas dianteiras: Snake ESV 200 (furação original; conferir aro/adaptador e profundidade).
+- Coluna A ou cantos do painel: tweeters Bravox, apontados para o centro do carro, com capacitor 33 µF em série.
+- Traseira (porta ou tampão, onde houver furação original): Selenium/JBL 6TR4A.
+- Porta-malas, numa placa fixa e ventilada: caixa do sub, SD800.4, TS400x4, PRO 2.4, bloco distribuidor.
+
+### Sinal (RCA)
+| De | Para | Cabo |
+|---|---|---|
+| Multimídia FL / FR | PRO 2.4 entrada A / B | RCA ~5 m |
+| Multimídia RL / RR | TS400x4 entrada CH3 / CH4 | RCA ~5 m |
+| Multimídia SWL / SWR | SD800.4 entrada CH3 / CH4 | RCA ~5 m |
+| PRO 2.4 saída 1 / 2 | SD800.4 entrada CH1 / CH2 | RCA curto |
+| PRO 2.4 saída 3 / 4 | TS400x4 entrada CH1 / CH2 | RCA curto |
+SD800.4 fica com as 4 entradas ligadas (exigência do manual). Chaves X-OVER do SD800.4 em **F**; crossover do TS400x4 (se tiver) em full/off.
+
+### Falantes
+| Módulo / canal | Falante | Cabo |
+|---|---|---|
+| SD800.4 CH1 / CH2 | ESV 200 esq. / dir. | 2,5 mm² |
+| SD800.4 ponte CH4 ⊕ / CH3 ⊖ | Sub (se medir ~3,2–3,6 Ω nos terminais) | 2,5 mm² |
+| TS400x4 CH1 / CH2 | Tweeter esq. / dir. (capacitor 33 µF no + ) | 1,5 mm² |
+| TS400x4 CH3 / CH4 | 6TR4A esq. / dir. | 1,5 mm² |
+
+### Alimentação
+Bateria + → fusível principal 80 A (até 30 cm da bateria) → cabo 16 mm² → bloco no porta-malas → SD800.4 (fusível 40 A, 10 mm²), TS400x4 (fusível do manual, 10 mm²), PRO 2.4 (1,5 mm², fusível pequeno). Terra: um ponto só na lataria, raspado, < 50 cm, mesma bitola de cada positivo. REM: fio remoto da multimídia → REM IN do PRO 2.4 → REM OUT → REM dos dois módulos.
+
+### Multimídia
+EQ Uniforme · Loudness Off (depois Baixo, se quiser) · Bass Boost no mínimo · Saída traseira = Traseiro · Subwoofer On · HPF frente **Off** · HPF traseira 120 Hz −24 · Sub LPF 80 Hz −24, fase testada · Alinhamento: frente no máximo, traseira ~300 cm menor, sub igual à frente (ajuste fino pela fase) · Nível fonte USB 0 · Balanço 0.
+
+### PRO 2.4
+Entrada A = esquerda, B = direita. Saídas 1/2 (médio E/D): HPF 80 Hz LR24, LPF 3,5–4 kHz LR24. Saídas 3/4 (tweeter E/D): HPF 3,5–4 kHz LR24, nível abaixo do médio. Atraso pela distância medida até a cabeça do motorista (o mais longe = 0). Memórias: "Motorista" (com atraso) e "Todos" (sem atraso).
+
+### Ganhos (tom senoidal, falantes desligados)
+SD800.4 CH1/CH2: 23 V · SD800.4 ponte: 40 V · TS400x4 CH1/CH2: ≤ 6,3 V · TS400x4 CH3/CH4: 15,5 V.
