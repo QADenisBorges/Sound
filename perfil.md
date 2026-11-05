@@ -14,7 +14,7 @@ Lido pela skill `consultor-som` no início de cada conversa sobre som e atualiza
 - Som automotivo, residencial/Hi-Fi, sonorização profissional e DIY/eletrônica.
 
 ## Contexto e equipamentos
-- Possui: módulo SounDigital SD800.4 EVO (1ª EVO), sub Protech Light 8" 4 Ω em caixa pronta, notebook (saída P2), projetor Wanbo T6 Max, carcaças do micro system Britânia BS-369, Edifier X100B (2.1 de PC, fora do home theater). Detalhes em `componentes/`.
+- Possui: módulo SounDigital SD800.4 EVO (1ª EVO), sub Protech Light 8" 4 Ω em caixa pronta, notebook (saída P2), projetor Wanbo T6 Max, carcaças do micro system Britânia BS-369, Edifier X100B (2.1 de PC, fora do home theater). **Carro: Fiat Grand Siena (elétrica original)** com multimídia Pioneer AVH-A208BT; para o carro também: módulo Taramps TS 400x4, par Snake ESV 200 6", par de tweeters Bravox, par Selenium 6TR4A. Em 05/11/2026 o PRO 2.4 e o SD800.4 passaram do home theater para o carro. Detalhes em `componentes/`.
 - Já usa **Equalizer APO + Peace** no PC (sabe aplicar EQ por software).
 - Monta em casa (sala com projetor); faz o trabalho de solda/DIY ele mesmo (iniciante em solda).
 

@@ -9,10 +9,10 @@ Iniciado em 05/11/2026. Objetivo do usuário: qualidade, **palco sonoro excelent
 | Taramps PRO 2.4BT + AUDIO | 1 | 2 entradas / 4 saídas, LR até 48 dB/oit, PEQ por saída, atraso 8 ms/saída, REM IN → REM OUT | — (`componentes/processadores.md`) |
 | SounDigital SD800.4 EVO | 1 | 4 × 132 W @ 4 Ω; ponte 2 × 400 W @ 4 Ω; fusível 40 A; 10 mm² | versão EVO6 × EVO4.0 |
 | Taramps TS 400x4 | 1 | 4 × 63 W @ 4 Ω; 4 × 100 W @ 2 Ω; ponte 2 × 200 W @ 4 Ω (site Taramps) | versão (V5/V6), fusível do manual |
-| Snake ESV 200 (médio-grave) | 2 | 200 W RMS, 4 Ω (anúncios) | **tamanho (6" ou mais?)**, sensibilidade, Fs/Qts/Xmax |
+| Snake ESV 200 (médio-grave) | 2 | **6"** (confirmado), 200 W RMS, 4 Ω | sensibilidade, Fs/Qts/Xmax |
 | Selenium/JBL 6TR4A triaxial 6" | 2 | 60 W AES, 87 dB, Fs 69 Hz, Qts 1,05 (`alto-falantes.md`) | estado (borda, Re) |
-| Tweeter Bravox | 2 | — | **modelo**, RMS, sensibilidade, Fs, se tem capacitor/crossover |
-| Sub Protech Light 8" em caixa pronta | 1 | 450 W RMS, 84 dB, Fs 46 Hz, Xmax 8 mm | **4 Ω simples?** caixa selada ou dutada |
+| Tweeter Bravox | 2 | ~30 W RMS cada (usuário, "provavelmente") | modelo, sensibilidade, Fs |
+| Sub Protech Light 8" em caixa pronta | 1 | 450 W RMS, 84 dB, Fs 46 Hz, Xmax 8 mm; **bobina dupla, caixa dutada**; ~2 Ω nos terminais da caixa | Re de cada bobina separada; Fb do duto |
 
 ## Arquitetura proposta
 ```
@@ -33,3 +33,7 @@ REM: multimídia → REM IN do PRO 2.4 → REM OUT → REM dos dois módulos (li
 
 ## Histórico de decisões
 - 2026-11-05: Arquitetura proposta com o equipamento existente; nenhum processador novo necessário. Pendências: modelo/tamanho dos ESV 200 e dos tweeters Bravox, caixa do sub (selada/dutada), carro e alternador. O PRO 2.4 e o SD800.4 saem do home theater 2.1 se o projeto seguir — confirmar com o usuário.
+- 2026-11-05: Usuário confirmou: ESV 200 = 6"; tweeter ~30 W; sub **bobina dupla, caixa dutada, ~2 Ω** no multímetro (lido como as duas bobinas em paralelo); carro **Fiat Grand Siena, elétrica original**; PRO 2.4 e SD800.4 **saem do home theater** para o carro.
+  - Consequência: **sub não pode ir em ponte com 2 Ω** (mínimo 4 Ω em ponte). Se cada bobina for 4 Ω: uma bobina por canal (SD800.4 CH3 e CH4, 4 Ω cada, 2 × 132 W = 264 W, mesmo sinal por Y da saída SW). Se cada bobina for 2 Ω: bobinas em série = 4 Ω → ponte 400 W. Medir cada bobina separada.
+  - Caixa dutada sem subsônico (a multimídia não tem, o PRO 2.4 está com as 4 saídas ocupadas): reforço de grave desligado, achar a Fb pela varredura e conferir a excursão abaixo dela antes de subir volume.
+  - Elétrica: ~780 W RMS nominais → ~72 A máx. senoidal, ~9–24 A com música; cabe na elétrica original em volume normal; em volume alto com farol/ar ligados, monitorar tensão (voltímetro) — abaixo de ~12 V, baixar.

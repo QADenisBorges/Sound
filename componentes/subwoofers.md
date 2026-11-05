@@ -21,3 +21,5 @@ Specs do Protech Light 8" (lojas; ficha completa do fabricante não encontrada):
 
 Caixa: pronta, cinza, com um painel escuro ao lado (tipo, dutada ou selada, ainda desconhecido). O painel ocupa metade da frente, lugar típico de duto em caixa pronta de carro.
 **Como descobrir** (guia do 2.1, passo 3.13): varredura lenta de 25 a 60 Hz em volume baixo, lanterna no cone. Se o cone quase parar numa frequência, há duto e ela é a Fb. Subsônico: selada → 25 Hz; com duto → ~0,75–0,8 × Fb, 24 dB/oit; sem conclusão → 30 Hz, 24 dB/oit.
+
+**05/11/2026 (usuário):** bobina **dupla**, caixa **dutada**, ~2 Ω nos terminais (provável 4+4 em paralelo). Medir cada bobina separada para confirmar 4+4 × 2+2.

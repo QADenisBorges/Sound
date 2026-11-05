@@ -51,7 +51,7 @@ potência segura. Decisão: alvo de ganho de **11 V (~30 W)**; o pior caso (tom 
 O curso máximo mecânico (Xmech) não é publicado.
 
 ## Snake ESV 200 — médio-grave, par (usuário possui, 05/11/2026)
-Anúncios: 200 W RMS, 4 Ω. Tamanho divergente entre lojas (6" × 10"); ficha oficial e parâmetros T/S não encontrados. **Confirmar tamanho e etiqueta.**
+Anúncios: 200 W RMS, 4 Ω. **6"** (confirmado pelo usuário em 05/11/2026). Ficha oficial e parâmetros T/S não encontrados.
 
 ## Bravox — tweeter, par (usuário possui, 05/11/2026)
-Modelo não informado. Confirmar modelo, RMS, sensibilidade e se acompanha capacitor/divisor.
+Modelo não informado; ~30 W RMS cada (usuário, provável). Confirmar modelo, sensibilidade e Fs.
