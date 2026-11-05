@@ -57,3 +57,12 @@ Para outras cargas: V = √(P × R) (`calc_som.py ganho`). JBL 4TRMS80 em uso do
 - Entradas: as 4 RCA ligadas às saídas 1–4 do processador.
 - Ganho (revisão de 09/10/2026): referência = celular a 100 % com tom de 60 Hz a 0 dBFS; alvos de **11 V** (JBL) e **40 V** (ponte). Se a versão for a EVO6 (0,2–2 V), o GAIN no mínimo já passa do alvo com os 2,1 V do processador: o ajuste fino fica no nível da saída no app.
 - Fonte 12–14,4 V: consumo com música ~40 A no máximo do módulo; em casa, bem menos.
+
+## Taramps TS 400x4 — módulo 4 canais classe D (usuário possui, 05/11/2026)
+Fonte: site/manual Taramps (taramps.com.br, MN TS 400X4 V5/V6). Versão do usuário a confirmar.
+| Configuração | Potência |
+|---|---|
+| 4 canais @ 2 Ω | 4 × 100 W RMS |
+| 4 canais @ 4 Ω | 4 × 63 W RMS |
+| Ponte @ 4 Ω | 2 × 200 W RMS |
+Mínimo: 2 Ω por canal, 4 Ω em ponte. Resposta 18 Hz–30 kHz (−3 dB), SNR > 90 dB, 13,8 × 4,9 × 12,1 cm, 0,6 kg. Sensibilidade de entrada: 200 mV (manual) / 160 mV (loja).

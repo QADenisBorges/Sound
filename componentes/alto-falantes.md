@@ -49,3 +49,9 @@ sem filtro, 0,84 mm a 1 W (Xmax com ~4,4 W); **com BW2 em 120 Hz**, 0,50 mm a 1 
 com LR4 em 100 Hz, Xmax com ~13–14 W. A conta anterior (24 W e 27 W) comparou excursão em valor eficaz com o Xmax e dobrou a
 potência segura. Decisão: alvo de ganho de **11 V (~30 W)**; o pior caso (tom contínuo no máximo perto de 122 Hz) fica em ~2,8 mm.
 O curso máximo mecânico (Xmech) não é publicado.
+
+## Snake ESV 200 — médio-grave, par (usuário possui, 05/11/2026)
+Anúncios: 200 W RMS, 4 Ω. Tamanho divergente entre lojas (6" × 10"); ficha oficial e parâmetros T/S não encontrados. **Confirmar tamanho e etiqueta.**
+
+## Bravox — tweeter, par (usuário possui, 05/11/2026)
+Modelo não informado. Confirmar modelo, RMS, sensibilidade e se acompanha capacitor/divisor.
