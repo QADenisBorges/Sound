@@ -26,3 +26,9 @@ Pelos manuais dos irmãos AVH-A200BT/A205BT/A215BT (mesma plataforma), a confirm
 - Nível por saída (Speaker Level) e **Posição de audição** (preset de atraso por assento; não é alinhamento de tempo livre em cm por canal).
 - Sem indício de **Network Mode** (3 vias ativo): a frente sai como um par só, sem separar tweeter de médio.
 Consequência: tweeter independente (corte, ganho e atraso próprios) exige processador externo; ver conversa de 05/11/2026.
+
+### Menu Áudio real (fotos do usuário, 05/11/2026 — `componentes existentes/Pioneer AVH-A208BT/menu/`)
+Itens: Equalizador Gráfico (Sertanejo) · Balanço (E/D 0) · Ajuste Nível Fonte (0) · Subwoofer (On) · Nível Alto-falante · Crossover · Configuração do subwoofer · Posição de escuta (Todos) · **Alinhamento de Tempo** (submenu) · BASS Boost (+1) · **Saída alto-falante tras. (Subwoofer)** · Loudness (Alto).
+- **Tem alinhamento de tempo** — corrige o que foi dito antes com base nos irmãos. Faixa e se inclui a traseira: a confirmar no submenu.
+- "Saída alto-falante tras." = Subwoofer: as saídas RL/RR (e os fios traseiros) levam sinal de sub. Explica o RCA plugado em RL/RR: é o sub hoje. Não há "Fader" na lista, coerente com a traseira virando sub.
+- Para usar falantes traseiros: mover o RCA do sub para SWL/SWR **antes** de mudar a opção para "Traseiro".
