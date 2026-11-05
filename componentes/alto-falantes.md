@@ -54,4 +54,4 @@ O curso máximo mecânico (Xmech) não é publicado.
 Anúncios: 200 W RMS, 4 Ω. **6"** (confirmado pelo usuário em 05/11/2026). Ficha oficial e parâmetros T/S não encontrados.
 
 ## Bravox — tweeter, par (usuário possui, 05/11/2026)
-Modelo não informado; ~30 W RMS cada (usuário, provável). Confirmar modelo, sensibilidade e Fs.
+Modelo não informado; ~30 W RMS cada (usuário, provável); **~2 Ω no multímetro** (05/11/2026). Confirmar modelo, sensibilidade e Fs.
