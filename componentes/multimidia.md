@@ -32,3 +32,22 @@ Itens: Equalizador Gráfico (Sertanejo) · Balanço (E/D 0) · Ajuste Nível Fon
 - **Tem alinhamento de tempo** — corrige o que foi dito antes com base nos irmãos. Faixa e se inclui a traseira: a confirmar no submenu.
 - "Saída alto-falante tras." = Subwoofer: as saídas RL/RR (e os fios traseiros) levam sinal de sub. Explica o RCA plugado em RL/RR: é o sub hoje. Não há "Fader" na lista, coerente com a traseira virando sub.
 - Para usar falantes traseiros: mover o RCA do sub para SWL/SWR **antes** de mudar a opção para "Traseiro".
+
+### Submenus (fotos de 05/11/2026, mesma pasta)
+| Item | Opções vistas | Valor atual |
+|---|---|---|
+| Alinhamento de Tempo | Posição (Listening Position) + distância em cm por saída: Front Left, Front Right, Rear Left, Rear Right, Subwoofer; passo de 2,5 cm | FL 135,0 · FR 135,0 · **RL/RR vazios** (traseira está como sub) · Sub 137,5 |
+| Posição de escuta | Front. · Frontal-E · Frontal-D · Todos · Off | Todos |
+| Crossover — Front. | HPF On/Off, frequência, slope (−24 visto) | **HPF 200 Hz, −24 dB/oit** |
+| Crossover — Subwoofer | LPF On/Off, frequência, slope, **Phase** (normal/invertida). **Sem subsônico** | LPF 63 Hz, −24 dB/oit |
+| BASS Boost | +1 … +5 (lista rola; 0 provável acima) | +1 |
+| Loudness | Off · Baixo · Médio · Alto | Alto |
+| Ajuste Nível Fonte | −4 … +4 por fonte, relativo ao FM | USB −3 |
+| Balanço | E/D | 0 |
+| Equalizador Gráfico | 13 bandas (50 Hz–12,5 kHz, ±12 dB); presets Pop Rock, Eletrônica, Samba, Sertanejo, PRO, Person., Uniforme | Sertanejo (≈ +3 a +9 dB em todas as bandas) |
+
+Leitura:
+- **Buraco entre 63 e 200 Hz** na configuração atual (sub corta em 63, frente só começa em 200, ambos −24 dB/oit): falta justamente o grave do bumbo/baixo (80–150 Hz).
+- **EQ Sertanejo sobe quase tudo +6 a +9 dB**: tira margem da saída RCA e faz a multimídia distorcer antes do volume máximo. Para regulagem e uso com o PRO 2.4: "Uniforme".
+- **Sem subsônico** na multimídia: a proteção da caixa dutada continua dependendo de Bass Boost no mínimo e do ganho, ou de um processador com HPF no sub.
+- **Atraso da traseira** possível: com a saída traseira em "Traseiro", os campos RL/RR devem aceitar distância; frente com distância grande e traseira pequena = traseira atrasada ((dist. frente − dist. traseira) / 34,3 cm por ms). Distância máxima: a testar.

@@ -48,3 +48,5 @@ REM: multimídia → REM IN do PRO 2.4 → REM OUT → REM dos dois módulos (li
   - Mesmo modelo nos dois processadores = mesma latência, alinhamento previsível entre frente, traseira e sub.
   - Alternativa gratuita avaliada e descartada: tweeter no mesmo sinal do médio (Y) para liberar 2 saídas — perde LPF do médio e ajuste do tweeter; tweeter de 2 Ω em paralelo com médio no mesmo canal ficaria abaixo de 2 Ω.
   - Aguardando: o usuário decidir a compra; cotar com `pesquisa-precos` (referência de 28/09/2026: R$ 190–235).
+- 2026-11-05: Submenus da multimídia analisados (ver `componentes/multimidia.md`). A multimídia tem **alinhamento de tempo por saída (FL, FR, RL, RR, Sub, passo 2,5 cm)** → a traseira pode ser atrasada nela mesma, sem 2º processador, se a distância máxima permitir ~8–10 ms (≥ ~300 cm de diferença). **Não tem subsônico.** Decisão sobre o 2º PRO 2.4 fica para depois do teste: mover o RCA do sub para SWL/SWR, mudar a saída traseira para "Traseiro", conferir os campos RL/RR e a distância máxima.
+  - Configuração atual com buraco 63–200 Hz (sub LPF 63, frente HPF 200) e EQ Sertanejo (+6 a +9 dB) — corrigir.
