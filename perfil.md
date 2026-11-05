@@ -15,7 +15,7 @@ Lido pela skill `consultor-som` no início de cada conversa sobre som e atualiza
 
 ## Contexto e equipamentos
 - Possui: módulo SounDigital SD800.4 EVO (1ª EVO), módulo Taramps TS 400x4, processador Taramps PRO 2.4BT + AUDIO, fonte Taramps BOB 60A, sub Protech Light 8" 4 Ω em caixa pronta, par JBL 4TRMS80 (triaxial 4"), par Selenium 6TR4A (triaxial 6"), notebook (saída P2), projetor Wanbo T6 Max, carcaças do micro system Britânia BS-369, Edifier X100B (2.1 de PC, fora do home theater). Detalhes em `componentes/`.
-- **Carro** (informado em 01/11/2026; modelo do carro e rádio ainda não informados): sub Protech Light 8"; dianteiros Snake (modelo a identificar) + tweeters Bravox do kit CS50BK; traseiros JBL 4TRMS80. Tudo instalado, sem uso. Plano: SD800.4 + TS 400x4 + PRO 2.4BT + AUDIO. Tweeters JBL 1TWMS80 ficam para depois. Detalhes e pendências em `projetos/carro/projeto.md`.
+- **Carro** (informado em 01/11/2026, corrigido em 05/11/2026; modelo do carro ainda não confirmado aqui): multimídia Pioneer, provavelmente DMH-G228BT (a confirmar) com saídas RCA dianteira, traseira e sub (4 V); processador Taramps PRO 2.4BT; sub Protech Light 8"; **dianteiros: par Snake ERV 200** (modelo como informado; conferir na etiqueta) + tweeters Bravox do kit CS50BK; **traseiros: par JBL (Selenium) 6TR4A**. Tudo instalado, sem uso. Plano: SD800.4 + TS 400x4 + PRO 2.4BT + AUDIO. Tweeters JBL 1TWMS80 ficam para depois. Detalhes e pendências em `projetos/carro/projeto.md`.
 - Já usa **Equalizer APO + Peace** no PC (sabe aplicar EQ por software).
 - Monta em casa (sala com projetor); faz o trabalho de solda/DIY ele mesmo (iniciante em solda).
 

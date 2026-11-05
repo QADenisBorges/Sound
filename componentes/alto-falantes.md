@@ -1,6 +1,6 @@
 # Alto-falantes (médios / full-range / coaxiais)
 
-## Selenium (JBL) 6TR4A — triaxial 6", par (já possui, estava no carro)
+## Selenium (JBL) 6TR4A — triaxial 6", par (traseiros do carro, confirmado em 05/11/2026)
 Ficha oficial Selenium "Multi System", rev. 00 de 03/2006 (1ª geração) → `componentes/manuais/Selenium_6TR4A_datasheet.pdf`
 (origem: lautsprechershop.de/pdf/selenium/selenium_6tr4a.pdf, baixado em 2026-10-05).
 
@@ -50,7 +50,8 @@ com LR4 em 100 Hz, Xmax com ~13–14 W. A conta anterior (24 W e 27 W) comparou 
 potência segura. Decisão: alvo de ganho de **11 V (~30 W)**; o pior caso (tom contínuo no máximo perto de 122 Hz) fica em ~2,8 mm.
 O curso máximo mecânico (Xmech) não é publicado.
 
-## Snake — woofer/médio dianteiro do carro, par (modelo não informado)
-Informado em 01/11/2026 como o par dianteiro do carro, junto com os tweeters do kit Bravox CS50BK. **Falta identificar**: modelo,
-tamanho (5" ou 6"), impedância e RMS. Estão na etiqueta do ímã. Também falta saber se ele toca com o divisor passivo do kit
-Bravox ou ligado direto no canal.
+## Snake ERV 200 — médio-grave dianteiro do carro, par
+Informado em 05/11/2026 como o par dianteiro do carro, junto com os tweeters do kit Bravox CS50BK. **Conferir na etiqueta do ímã**:
+grafia exata do modelo (ERV 200 ou ESV 200; outra conversa supôs ESV 200 pela ogiva cromada), impedância e RMS. Para o ESV 200,
+lojas citam 200 W RMS, 4 Ω, 92–95 dB e Fs 94–133 Hz (dados divergentes, sem ficha oficial). Falta saber se toca com o divisor
+passivo do kit Bravox ou ligado direto no canal.
