@@ -75,17 +75,17 @@ SD800.4 fica com as 4 entradas ligadas (exigência do manual). Chaves X-OVER do 
 |---|---|---|
 | SD800.4 CH1 / CH2 | ESV 200 esq. / dir. | 2,5 mm² |
 | SD800.4 ponte CH4 ⊕ / CH3 ⊖ | Sub (se medir ~3,2–3,6 Ω nos terminais) | 2,5 mm² |
-| TS400x4 CH1 / CH2 | Tweeter esq. / dir. (capacitor 33 µF no + — **rever: usar o divisor HP5 do kit**) | 1,5 mm² |
+| TS400x4 CH1 / CH2 | Tweeter esq. / dir. com **divisor HP5 do kit em série** (proteção) | 1,5 mm² |
 | TS400x4 CH3 / CH4 | 6TR4A esq. / dir. | 1,5 mm² |
 
 ### Alimentação
 Bateria + → fusível principal 80 A (até 30 cm da bateria) → cabo 16 mm² → bloco no porta-malas → SD800.4 (fusível 40 A, 10 mm²), TS400x4 (fusível do manual, 10 mm²), PRO 2.4 (1,5 mm², fusível pequeno). Terra: um ponto só na lataria, raspado, < 50 cm, mesma bitola de cada positivo. REM: fio remoto da multimídia → REM IN do PRO 2.4 → REM OUT → REM dos dois módulos.
 
 ### Multimídia
-EQ Uniforme · Loudness Off (depois Baixo, se quiser) · Bass Boost no mínimo · Saída traseira = Traseiro · Subwoofer On · HPF frente **Off** · HPF traseira 120 Hz −24 · Sub LPF 80 Hz −24, fase testada · Alinhamento: frente no máximo, traseira ~300 cm menor, sub igual à frente (ajuste fino pela fase) · Nível fonte USB 0 · Balanço 0.
+EQ Uniforme · Loudness Off (depois Baixo, se quiser) · Bass Boost no mínimo · Saída traseira = Traseiro · Subwoofer On · HPF frente **Off** · HPF traseira 120 Hz −24 · Sub LPF **100 Hz** −24, fase testada · Alinhamento: frente no máximo, traseira ~300 cm menor, sub igual à frente (ajuste fino pela fase) · Nível fonte USB 0 · Balanço 0.
 
 ### PRO 2.4
-Entrada A = esquerda, B = direita. **Roteamento: saídas 1 e 3 = A; saídas 2 e 4 = B — nunca A+B na frente** (somaria esquerda e direita e mataria o estéreo/palco). Saídas 1/2 (médio E/D): HPF 80 Hz LR24, LPF 3,5–4 kHz LR24. Saídas 3/4 (tweeter E/D): HPF 3,5–4 kHz LR24, nível abaixo do médio. Atraso pela distância medida até a cabeça do motorista (o mais longe = 0). Memórias: "Motorista" (com atraso) e "Todos" (sem atraso).
+Entrada A = esquerda, B = direita. **Roteamento: saídas 1 e 3 = A; saídas 2 e 4 = B — nunca A+B na frente** (somaria esquerda e direita e mataria o estéreo/palco). Saídas 1/2 (médio E/D): HPF **100 Hz** LR24, LPF **4,5 kHz** LR24. Saídas 3/4 (tweeter E/D): HPF **4,5 kHz** LR24 (+ HP5 em série), nível abaixo do médio. Atraso pela distância medida até a cabeça do motorista (o mais longe = 0). Memórias: "Motorista" (com atraso) e "Todos" (sem atraso).
 
 ### Ganhos (tom senoidal, falantes desligados)
 SD800.4 CH1/CH2: 23 V · SD800.4 ponte: 40 V · TS400x4 CH1/CH2: ≤ 6,3 V · TS400x4 CH3/CH4: 15,5 V.
@@ -93,13 +93,13 @@ SD800.4 CH1/CH2: 23 V · SD800.4 ponte: 40 V · TS400x4 CH1/CH2: ≤ 6,3 V · TS
 ### Caminho de cada falante (multimídia → falante)
 | Falante | Saída da multimídia | Processamento na multimídia | PRO 2.4 (entrada → saída) | Processamento no PRO 2.4 | Módulo (entrada → saída) | Até o falante |
 |---|---|---|---|---|---|---|
-| ESV 200 esq. | FL | HPF Off · atraso frente | A → 1 | HPF 80 Hz + LPF 3,5–4 kHz LR24 · atraso · EQ | SD800.4 IN CH1 → CH1 + / − | 2,5 mm² |
+| ESV 200 esq. | FL | HPF Off · atraso frente | A → 1 | HPF 100 Hz + LPF 4,5 kHz LR24 · atraso · EQ | SD800.4 IN CH1 → CH1 + / − | 2,5 mm² |
 | ESV 200 dir. | FR | HPF Off · atraso frente | B → 2 | idem | SD800.4 IN CH2 → CH2 + / − | 2,5 mm² |
-| Tweeter esq. | FL | idem | A → 3 | HPF 3,5–4 kHz LR24 · atraso · nível | TS400x4 IN CH1 → CH1 + / − | 1,5 mm², capacitor 33 µF no + |
+| Tweeter esq. | FL | idem | A → 3 | HPF 4,5 kHz LR24 · atraso · nível | TS400x4 IN CH1 → CH1 + / − | 1,5 mm², divisor HP5 em série |
 | Tweeter dir. | FR | idem | B → 4 | idem | TS400x4 IN CH2 → CH2 + / − | idem |
 | 6TR4A esq. | RL | HPF 120 Hz · atraso traseira (~9 ms) · fader | — | — | TS400x4 IN CH3 → CH3 + / − | 1,5 mm² |
 | 6TR4A dir. | RR | idem | — | — | TS400x4 IN CH4 → CH4 + / − | 1,5 mm² |
-| Sub | SWL + SWR | LPF 80 Hz · fase · nível do sub | — | — | SD800.4 IN CH3 + CH4 → ponte CH4 ⊕ / CH3 ⊖ | 2,5 mm² |
+| Sub | SWL + SWR | LPF 100 Hz · fase · nível do sub | — | — | SD800.4 IN CH3 + CH4 → ponte CH4 ⊕ / CH3 ⊖ | 2,5 mm² |
 
 ## Informações de outras conversas (branches, levantadas em 06/11/2026)
 - **Tweeter = Bravox do kit CS50BK** (domo 1", 4 Ω nominal, 89 dB, **Fs 2,5 kHz**, 30 W) + **divisor HP5** (tubo, passa-alta 5 kHz Bessel 12 dB/oit, Polyswitch, chave 0/3 dB). Consequência: corte do tweeter **≥ 4,5–5 kHz** (não 3,5 kHz); usar o **HP5 em série como proteção** no lugar do capacitor de 33 µF, com o DSP em ~4,5 kHz LR24 (as duas curvas somam: conferir de ouvido/medição). Re medido 1,9 Ω não bate com 4 Ω nominal → remedir.
@@ -110,3 +110,4 @@ SD800.4 CH1/CH2: 23 V · SD800.4 ponte: 40 V · TS400x4 CH1/CH2: ≤ 6,3 V · TS
   1. Projeto `carro-grand-siena-3vias` (14/10/2026): 3 vias ativo com DSP de 8 canais; definido comprar Hertz MP 70.3 (médio 3") + Audison AP 1 (tweeter), ~R$ 2.221. Foi comprado / ainda vale?
   2. Branch de 01/11/2026: tweeters Bravox iriam para o **home theater** com um processador de 8 saídas "já decidido".
   3. Branch de 01/11/2026: futuros tweeters JBL 1TWMS80 citados; Bravox "nunca usados".
+- 2026-11-06: **Decisão do usuário: por enquanto o carro fica em 2 vias** (Snake + tweeter Bravox CS50BK na frente; projeto 3 vias com Hertz MP 70.3 + Audison AP 1 adiado). Bravox ficam no carro. Plano ajustado: médio 100 Hz–4,5 kHz, tweeter ≥ 4,5 kHz com o divisor HP5 em série (no lugar do capacitor de 33 µF), sub LPF 100 Hz. Ganho do tweeter mantido em ≤ 6,3 V até remedir o Re (1,9 Ω medido × 4 Ω nominal). Diagrama atualizado.
