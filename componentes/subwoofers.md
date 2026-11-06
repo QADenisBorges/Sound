@@ -23,3 +23,5 @@ Caixa: pronta, cinza, com um painel escuro ao lado (tipo, dutada ou selada, aind
 **Como descobrir** (guia do 2.1, passo 3.13): varredura lenta de 25 a 60 Hz em volume baixo, lanterna no cone. Se o cone quase parar numa frequência, há duto e ela é a Fb. Subsônico: selada → 25 Hz; com duto → ~0,75–0,8 × Fb, 24 dB/oit; sem conclusão → 30 Hz, 24 dB/oit.
 
 **05/11/2026 (usuário):** bobina **dupla**, caixa **dutada**, impedância nos terminais ainda não medida (os 2 Ω relatados eram do tweeter).
+
+**Caixa medida (14/10/2026, outra conversa; fotos em `projetos/home-theater-2.1/fotos/2026-10-14-medicoes/` e `2026-10-27-duto-sub/`):** externa 26 × 26,5 × 58 cm, MDF 15 mm, ≈28 L líquidos; duto redondo de ≈7 cm × ≈10 cm no topo → **Fb calculada ≈52 Hz** (confirmar na varredura). Subsônico recomendado: **42 Hz, 24 dB/oit**.

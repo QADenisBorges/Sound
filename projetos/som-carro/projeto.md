@@ -75,7 +75,7 @@ SD800.4 fica com as 4 entradas ligadas (exigência do manual). Chaves X-OVER do 
 |---|---|---|
 | SD800.4 CH1 / CH2 | ESV 200 esq. / dir. | 2,5 mm² |
 | SD800.4 ponte CH4 ⊕ / CH3 ⊖ | Sub (se medir ~3,2–3,6 Ω nos terminais) | 2,5 mm² |
-| TS400x4 CH1 / CH2 | Tweeter esq. / dir. (capacitor 33 µF no + ) | 1,5 mm² |
+| TS400x4 CH1 / CH2 | Tweeter esq. / dir. (capacitor 33 µF no + — **rever: usar o divisor HP5 do kit**) | 1,5 mm² |
 | TS400x4 CH3 / CH4 | 6TR4A esq. / dir. | 1,5 mm² |
 
 ### Alimentação
@@ -100,3 +100,13 @@ SD800.4 CH1/CH2: 23 V · SD800.4 ponte: 40 V · TS400x4 CH1/CH2: ≤ 6,3 V · TS
 | 6TR4A esq. | RL | HPF 120 Hz · atraso traseira (~9 ms) · fader | — | — | TS400x4 IN CH3 → CH3 + / − | 1,5 mm² |
 | 6TR4A dir. | RR | idem | — | — | TS400x4 IN CH4 → CH4 + / − | 1,5 mm² |
 | Sub | SWL + SWR | LPF 80 Hz · fase · nível do sub | — | — | SD800.4 IN CH3 + CH4 → ponte CH4 ⊕ / CH3 ⊖ | 2,5 mm² |
+
+## Informações de outras conversas (branches, levantadas em 06/11/2026)
+- **Tweeter = Bravox do kit CS50BK** (domo 1", 4 Ω nominal, 89 dB, **Fs 2,5 kHz**, 30 W) + **divisor HP5** (tubo, passa-alta 5 kHz Bessel 12 dB/oit, Polyswitch, chave 0/3 dB). Consequência: corte do tweeter **≥ 4,5–5 kHz** (não 3,5 kHz); usar o **HP5 em série como proteção** no lugar do capacitor de 33 µF, com o DSP em ~4,5 kHz LR24 (as duas curvas somam: conferir de ouvido/medição). Re medido 1,9 Ω não bate com 4 Ω nominal → remedir.
+- **Snake**: Fs ~94–133 Hz (lojas) → passa-alta do médio em **~100 Hz**, sub cruzando em ~100 Hz. Grafia "ERV 200" × "ESV 200" a conferir.
+- **Sub**: caixa ≈28 L, duto 7 × 10 cm, **Fb ≈52 Hz** → subsônico ideal 42 Hz/24 dB, que a multimídia não tem.
+- **TS400x4**: crossover fixo 90 Hz/12 dB (ver se há Full/Off); fusível 20 A.
+- **Conflitos a resolver com o usuário:**
+  1. Projeto `carro-grand-siena-3vias` (14/10/2026): 3 vias ativo com DSP de 8 canais; definido comprar Hertz MP 70.3 (médio 3") + Audison AP 1 (tweeter), ~R$ 2.221. Foi comprado / ainda vale?
+  2. Branch de 01/11/2026: tweeters Bravox iriam para o **home theater** com um processador de 8 saídas "já decidido".
+  3. Branch de 01/11/2026: futuros tweeters JBL 1TWMS80 citados; Bravox "nunca usados".

@@ -66,3 +66,4 @@ Fonte: site/manual Taramps (taramps.com.br, MN TS 400X4 V5/V6). Versão do usuá
 | 4 canais @ 4 Ω | 4 × 63 W RMS |
 | Ponte @ 4 Ω | 2 × 200 W RMS |
 Mínimo: 2 Ω por canal, 4 Ω em ponte. Resposta 18 Hz–30 kHz (−3 dB), SNR > 90 dB, 13,8 × 4,9 × 12,1 cm, 0,6 kg. Sensibilidade de entrada: 200 mV (manual) / 160 mV (loja).
+Outra conversa (01/11/2026, manual MN_040230 R00 V6 e MN_012196 R01): **crossover HP e LP fixos em 90 Hz, 12 dB/oit** (conferir se há posição Full/Off); entrada 22 kΩ; **fusível 20 A**; proteções térmica e curto.
