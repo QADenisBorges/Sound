@@ -85,7 +85,7 @@ Bateria + → fusível principal 80 A (até 30 cm da bateria) → cabo 16 mm² �
 EQ Uniforme · Loudness Off (depois Baixo, se quiser) · Bass Boost no mínimo · Saída traseira = Traseiro · Subwoofer On · HPF frente **Off** · HPF traseira 120 Hz −24 · Sub LPF 80 Hz −24, fase testada · Alinhamento: frente no máximo, traseira ~300 cm menor, sub igual à frente (ajuste fino pela fase) · Nível fonte USB 0 · Balanço 0.
 
 ### PRO 2.4
-Entrada A = esquerda, B = direita. Saídas 1/2 (médio E/D): HPF 80 Hz LR24, LPF 3,5–4 kHz LR24. Saídas 3/4 (tweeter E/D): HPF 3,5–4 kHz LR24, nível abaixo do médio. Atraso pela distância medida até a cabeça do motorista (o mais longe = 0). Memórias: "Motorista" (com atraso) e "Todos" (sem atraso).
+Entrada A = esquerda, B = direita. **Roteamento: saídas 1 e 3 = A; saídas 2 e 4 = B — nunca A+B na frente** (somaria esquerda e direita e mataria o estéreo/palco). Saídas 1/2 (médio E/D): HPF 80 Hz LR24, LPF 3,5–4 kHz LR24. Saídas 3/4 (tweeter E/D): HPF 3,5–4 kHz LR24, nível abaixo do médio. Atraso pela distância medida até a cabeça do motorista (o mais longe = 0). Memórias: "Motorista" (com atraso) e "Todos" (sem atraso).
 
 ### Ganhos (tom senoidal, falantes desligados)
 SD800.4 CH1/CH2: 23 V · SD800.4 ponte: 40 V · TS400x4 CH1/CH2: ≤ 6,3 V · TS400x4 CH3/CH4: 15,5 V.
