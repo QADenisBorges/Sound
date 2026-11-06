@@ -42,7 +42,7 @@ svg text{fill:var(--ink);font-family:inherit}
 .full{stroke:var(--full)} .mid{stroke:var(--mid)} .tw{stroke:var(--tw)} .rear{stroke:var(--rear)} .sub{stroke:var(--sub)}
 .c-mid{fill:var(--mid)} .c-tw{fill:var(--tw)} .c-rear{fill:var(--rear)} .c-sub{fill:var(--sub)} .c-full{fill:var(--full)}
 .legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin:12px 4px 0;color:var(--muted);font-size:14px}
-.legend span::before{content:"";display:inline-block;width:22px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle;background:var(--c)}
+.legend span:not(.nobar)::before{content:"";display:inline-block;width:22px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle;background:var(--c)}
 table{width:100%;border-collapse:collapse;font-size:14.5px}
 th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
 th{color:var(--muted);font-weight:600}
@@ -76,16 +76,27 @@ th{color:var(--muted);font-weight:600}
   <text class="t-l c-full" x="270" y="110" text-anchor="middle">HPF Off</text>
   <text class="t-l c-full" x="270" y="230" text-anchor="middle">HPF Off</text>
 
-  <!-- multimídia -->
+  <!-- multimídia: 3 pares de saída, cada um com L (branco) e R (vermelho) -->
   <rect class="box" x="20" y="60" width="180" height="480" rx="10"/>
-  <text class="t-b" x="40" y="90">Pioneer</text>
-  <text class="t-s" x="40" y="107">AVH-A208BT</text>
-  <text class="t-b" x="188" y="125" text-anchor="end">FL</text>
-  <text class="t-b" x="188" y="245" text-anchor="end">FR</text>
-  <text class="t-b" x="188" y="355" text-anchor="end">RL</text>
-  <text class="t-b" x="188" y="415" text-anchor="end">RR</text>
-  <text class="t-b" x="188" y="495" text-anchor="end">SWL</text>
-  <text class="t-b" x="188" y="517" text-anchor="end">SWR</text>
+  <text class="t-b" x="34" y="86">Pioneer</text>
+  <text class="t-s" x="34" y="102">AVH-A208BT</text>
+  <g class="t-s">
+    <text x="34" y="150">Par FRENTE</text><text x="34" y="166">(FL / FR)</text>
+    <text x="34" y="372">Par TRASEIRA</text><text x="34" y="388">(RL / RR)</text>
+    <text x="34" y="496">Par SUB</text><text x="34" y="512">(SWL / SWR)</text>
+  </g>
+  <path d="M120 112 V248 M120 342 V418 M120 482 V520" stroke="var(--line)" stroke-width="2" fill="none"/>
+  <text class="t-b" x="168" y="125" text-anchor="end">FL</text>
+  <text class="t-b" x="168" y="245" text-anchor="end">FR</text>
+  <text class="t-b" x="168" y="355" text-anchor="end">RL</text>
+  <text class="t-b" x="168" y="415" text-anchor="end">RR</text>
+  <text class="t-b" x="168" y="495" text-anchor="end">SWL</text>
+  <text class="t-b" x="168" y="517" text-anchor="end">SWR</text>
+  <g stroke="var(--ink)" stroke-width="1.5">
+    <circle cx="186" cy="120" r="8" fill="#ffffff"/><circle cx="186" cy="240" r="8" fill="#e11d48"/>
+    <circle cx="186" cy="350" r="8" fill="#ffffff"/><circle cx="186" cy="410" r="8" fill="#e11d48"/>
+    <circle cx="186" cy="490" r="8" fill="#ffffff"/><circle cx="186" cy="512" r="8" fill="#e11d48"/>
+  </g>
 
   <!-- PRO 2.4 -->
   <rect class="box" x="340" y="60" width="190" height="240" rx="10"/>
@@ -97,7 +108,7 @@ th{color:var(--muted);font-weight:600}
   <circle cx="366" cy="240" r="13" fill="var(--card)" stroke="var(--full)" stroke-width="2"/>
   <text class="t-b" x="366" y="125" text-anchor="middle">A</text>
   <text class="t-b" x="366" y="245" text-anchor="middle">B</text>
-  <text class="t-s" x="435" y="183" text-anchor="middle">entradas → saídas</text>
+  <text class="t-s" x="352" y="148">entrada A = L</text><text class="t-s" x="352" y="276">entrada B = R</text>
   <text class="t-b c-mid" x="520" y="84" text-anchor="end">1</text>
   <text class="t-b c-tw" x="520" y="144" text-anchor="end">3</text>
   <text class="t-b c-mid" x="520" y="204" text-anchor="end">2</text>
@@ -123,11 +134,11 @@ th{color:var(--muted);font-weight:600}
   <rect class="ts" x="660" y="248" width="190" height="44" rx="8"/>
   <text class="t-b" x="672" y="268">TS400x4 · CH2</text><text class="t-s" x="672" y="284">ganho ≤ 6,3 V</text>
   <rect class="ts" x="660" y="328" width="190" height="44" rx="8"/>
-  <text class="t-b" x="672" y="348">TS400x4 · CH3</text><text class="t-s" x="672" y="364">ganho 15,5 V</text>
+  <text class="t-b" x="672" y="348">TS400x4 · CH3</text><text class="t-s" x="672" y="364">IN CH3 ← RL · 15,5 V</text>
   <rect class="ts" x="660" y="388" width="190" height="44" rx="8"/>
-  <text class="t-b" x="672" y="408">TS400x4 · CH4</text><text class="t-s" x="672" y="424">ganho 15,5 V</text>
-  <rect class="sd" x="660" y="468" width="190" height="66" rx="8"/>
-  <text class="t-b" x="672" y="490">SD800.4 · CH3+CH4</text><text class="t-s" x="672" y="507">ponte CH4 ⊕ / CH3 ⊖</text><text class="t-s" x="672" y="523">ganho 40 V</text>
+  <text class="t-b" x="672" y="408">TS400x4 · CH4</text><text class="t-s" x="672" y="424">IN CH4 ← RR · 15,5 V</text>
+  <rect class="sd" x="660" y="466" width="190" height="64" rx="8"/>
+  <text class="t-b" x="672" y="488">SD800.4 · CH3+CH4</text><text class="t-s" x="672" y="504">IN 3 ← SWL · IN 4 ← SWR</text><text class="t-s" x="672" y="520">ponte CH4 ⊕ / CH3 ⊖ · 40 V</text>
 
   <!-- módulos -> falantes -->
   <path class="w mid" d="M850 90 H990"/>
@@ -170,6 +181,7 @@ th{color:var(--muted);font-weight:600}
   <span style="--c:var(--tw)">tweeter</span>
   <span style="--c:var(--rear)">traseira (6TR4A)</span>
   <span style="--c:var(--sub)">subwoofer</span>
+  <span class="nobar">⚪ RCA branco = L (esquerdo) · 🔴 vermelho = R (direito)</span>
 </div>
 </div>
 
