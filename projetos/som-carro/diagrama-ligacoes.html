@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ligações do Som</title>
+<style>
+:root{
+  --bg:#f8fafc; --card:#ffffff; --ink:#0f172a; --muted:#475569; --line:#cbd5e1;
+  --full:#64748b; --mid:#2563eb; --tw:#d97706; --rear:#059669; --sub:#dc2626;
+  --sd:#ede9fe; --ts:#e0f2fe; --box:#f1f5f9;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b1120; --card:#111827; --ink:#e5e7eb; --muted:#94a3b8; --line:#334155;
+    --full:#94a3b8; --mid:#60a5fa; --tw:#fbbf24; --rear:#34d399; --sub:#f87171;
+    --sd:#2e1065; --ts:#082f49; --box:#1e293b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b1120; --card:#111827; --ink:#e5e7eb; --muted:#94a3b8; --line:#334155;
+  --full:#94a3b8; --mid:#60a5fa; --tw:#fbbf24; --rear:#34d399; --sub:#f87171;
+  --sd:#2e1065; --ts:#082f49; --box:#1e293b;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:1240px;margin:0 auto;padding:24px 16px 48px}
+h1{font-size:1.6rem;margin:0 0 4px}
+h2{font-size:1.2rem;margin:32px 0 8px}
+p.sub{color:var(--muted);margin:0 0 20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px;overflow-x:auto}
+svg{width:100%;min-width:760px;height:auto;display:block}
+svg text{fill:var(--ink);font-family:inherit}
+.t-h{font-size:15px;font-weight:700;fill:var(--muted)}
+.t-b{font-size:15px;font-weight:700}
+.t-s{font-size:12px;fill:var(--muted)}
+.t-l{font-size:11.5px;font-weight:600}
+.box{fill:var(--box);stroke:var(--line);stroke-width:1.5}
+.sd{fill:var(--sd);stroke:var(--line)}
+.ts{fill:var(--ts);stroke:var(--line)}
+.w{fill:none;stroke-width:3.5;stroke-linecap:round}
+.full{stroke:var(--full)} .mid{stroke:var(--mid)} .tw{stroke:var(--tw)} .rear{stroke:var(--rear)} .sub{stroke:var(--sub)}
+.c-mid{fill:var(--mid)} .c-tw{fill:var(--tw)} .c-rear{fill:var(--rear)} .c-sub{fill:var(--sub)} .c-full{fill:var(--full)}
+.legend{display:flex;flex-wrap:wrap;gap:8px 20px;margin:12px 4px 0;color:var(--muted);font-size:14px}
+.legend span::before{content:"";display:inline-block;width:22px;height:4px;border-radius:2px;margin-right:6px;vertical-align:middle;background:var(--c)}
+table{width:100%;border-collapse:collapse;font-size:14.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{color:var(--muted);font-weight:600}
+.tbl{overflow-x:auto}
+.note{background:var(--card);border-left:4px solid var(--tw);padding:10px 14px;border-radius:6px;margin-top:12px}
+</style>
+</head>
+<body>
+<main>
+<h1>Ligações do som — Grand Siena</h1>
+<p class="sub">Caminho do sinal da multimídia Pioneer AVH-A208BT até cada falante. Esquerda e direita nunca se misturam na frente.</p>
+
+<div class="card">
+<svg viewBox="0 0 1210 580" role="img" aria-label="Diagrama de ligações: multimídia, processador, módulos e falantes">
+  <!-- cabeçalhos -->
+  <text class="t-h" x="110" y="30" text-anchor="middle">MULTIMÍDIA</text>
+  <text class="t-h" x="435" y="30" text-anchor="middle">PRO 2.4</text>
+  <text class="t-h" x="755" y="30" text-anchor="middle">MÓDULOS</text>
+  <text class="t-h" x="1090" y="30" text-anchor="middle">FALANTES</text>
+
+  <!-- fios multimídia -> PRO -->
+  <path class="w full" d="M200 120 H340"/>
+  <path class="w full" d="M200 240 H340"/>
+  <!-- traseira e sub direto -->
+  <path class="w rear" d="M200 350 H660"/>
+  <path class="w rear" d="M200 410 H660"/>
+  <path class="w sub" d="M200 490 H660"/>
+  <path class="w sub" d="M200 512 H660"/>
+  <text class="t-l c-rear" x="430" y="340" text-anchor="middle">HPF 120 Hz · atraso ~9 ms · fader</text>
+  <text class="t-l c-sub" x="430" y="480" text-anchor="middle">LPF 80 Hz · fase · nível do sub</text>
+  <text class="t-l c-full" x="270" y="110" text-anchor="middle">HPF Off</text>
+  <text class="t-l c-full" x="270" y="230" text-anchor="middle">HPF Off</text>
+
+  <!-- multimídia -->
+  <rect class="box" x="20" y="60" width="180" height="480" rx="10"/>
+  <text class="t-b" x="40" y="90">Pioneer</text>
+  <text class="t-s" x="40" y="107">AVH-A208BT</text>
+  <text class="t-b" x="188" y="125" text-anchor="end">FL</text>
+  <text class="t-b" x="188" y="245" text-anchor="end">FR</text>
+  <text class="t-b" x="188" y="355" text-anchor="end">RL</text>
+  <text class="t-b" x="188" y="415" text-anchor="end">RR</text>
+  <text class="t-b" x="188" y="495" text-anchor="end">SWL</text>
+  <text class="t-b" x="188" y="517" text-anchor="end">SWR</text>
+
+  <!-- PRO 2.4 -->
+  <rect class="box" x="340" y="60" width="190" height="240" rx="10"/>
+  <path class="w mid" d="M372 120 C430 120 440 90 530 90"/>
+  <path class="w tw"  d="M372 120 C430 120 440 150 530 150"/>
+  <path class="w mid" d="M372 240 C430 240 440 210 530 210"/>
+  <path class="w tw"  d="M372 240 C430 240 440 270 530 270"/>
+  <circle cx="366" cy="120" r="13" fill="var(--card)" stroke="var(--full)" stroke-width="2"/>
+  <circle cx="366" cy="240" r="13" fill="var(--card)" stroke="var(--full)" stroke-width="2"/>
+  <text class="t-b" x="366" y="125" text-anchor="middle">A</text>
+  <text class="t-b" x="366" y="245" text-anchor="middle">B</text>
+  <text class="t-s" x="435" y="183" text-anchor="middle">entradas → saídas</text>
+  <text class="t-b c-mid" x="520" y="84" text-anchor="end">1</text>
+  <text class="t-b c-tw" x="520" y="144" text-anchor="end">3</text>
+  <text class="t-b c-mid" x="520" y="204" text-anchor="end">2</text>
+  <text class="t-b c-tw" x="520" y="264" text-anchor="end">4</text>
+
+  <!-- PRO -> módulos -->
+  <path class="w mid" d="M530 90 H660"/>
+  <path class="w tw"  d="M530 150 H660"/>
+  <path class="w mid" d="M530 210 H660"/>
+  <path class="w tw"  d="M530 270 H660"/>
+  <text class="t-l c-mid" x="595" y="82" text-anchor="middle">80 Hz–3,5 kHz</text>
+  <text class="t-l c-tw" x="595" y="142" text-anchor="middle">≥ 3,5 kHz</text>
+  <text class="t-l c-mid" x="595" y="202" text-anchor="middle">80 Hz–3,5 kHz</text>
+  <text class="t-l c-tw" x="595" y="262" text-anchor="middle">≥ 3,5 kHz</text>
+
+  <!-- módulos -->
+  <rect class="sd" x="660" y="68" width="190" height="44" rx="8"/>
+  <text class="t-b" x="672" y="88">SD800.4 · CH1</text><text class="t-s" x="672" y="104">ganho 23 V</text>
+  <rect class="ts" x="660" y="128" width="190" height="44" rx="8"/>
+  <text class="t-b" x="672" y="148">TS400x4 · CH1</text><text class="t-s" x="672" y="164">ganho ≤ 6,3 V</text>
+  <rect class="sd" x="660" y="188" width="190" height="44" rx="8"/>
+  <text class="t-b" x="672" y="208">SD800.4 · CH2</text><text class="t-s" x="672" y="224">ganho 23 V</text>
+  <rect class="ts" x="660" y="248" width="190" height="44" rx="8"/>
+  <text class="t-b" x="672" y="268">TS400x4 · CH2</text><text class="t-s" x="672" y="284">ganho ≤ 6,3 V</text>
+  <rect class="ts" x="660" y="328" width="190" height="44" rx="8"/>
+  <text class="t-b" x="672" y="348">TS400x4 · CH3</text><text class="t-s" x="672" y="364">ganho 15,5 V</text>
+  <rect class="ts" x="660" y="388" width="190" height="44" rx="8"/>
+  <text class="t-b" x="672" y="408">TS400x4 · CH4</text><text class="t-s" x="672" y="424">ganho 15,5 V</text>
+  <rect class="sd" x="660" y="468" width="190" height="66" rx="8"/>
+  <text class="t-b" x="672" y="490">SD800.4 · CH3+CH4</text><text class="t-s" x="672" y="507">ponte CH4 ⊕ / CH3 ⊖</text><text class="t-s" x="672" y="523">ganho 40 V</text>
+
+  <!-- módulos -> falantes -->
+  <path class="w mid" d="M850 90 H990"/>
+  <path class="w tw"  d="M850 150 H910 M926 150 H990"/>
+  <path class="w mid" d="M850 210 H990"/>
+  <path class="w tw"  d="M850 270 H910 M926 270 H990"/>
+  <path class="w rear" d="M850 350 H990"/>
+  <path class="w rear" d="M850 410 H990"/>
+  <path class="w sub" d="M850 500 H990"/>
+  <!-- capacitores -->
+  <g stroke="var(--tw)" stroke-width="3">
+    <line x1="910" y1="138" x2="910" y2="162"/><line x1="926" y1="138" x2="926" y2="162"/>
+    <line x1="910" y1="258" x2="910" y2="282"/><line x1="926" y1="258" x2="926" y2="282"/>
+  </g>
+  <text class="t-l c-tw" x="918" y="131" text-anchor="middle">33 µF</text>
+  <text class="t-l c-tw" x="918" y="251" text-anchor="middle">33 µF</text>
+  <text class="t-s" x="920" y="82" text-anchor="middle">2,5 mm²</text>
+  <text class="t-s" x="920" y="342" text-anchor="middle">1,5 mm²</text>
+  <text class="t-s" x="920" y="492" text-anchor="middle">2,5 mm²</text>
+
+  <!-- falantes -->
+  <rect class="box" x="990" y="68" width="200" height="44" rx="8"/>
+  <text class="t-b" x="1002" y="88">ESV 200 esquerdo</text><text class="t-s" x="1002" y="104">porta dianteira</text>
+  <rect class="box" x="990" y="128" width="200" height="44" rx="8"/>
+  <text class="t-b" x="1002" y="148">Tweeter esquerdo</text><text class="t-s" x="1002" y="164">coluna A / painel</text>
+  <rect class="box" x="990" y="188" width="200" height="44" rx="8"/>
+  <text class="t-b" x="1002" y="208">ESV 200 direito</text><text class="t-s" x="1002" y="224">porta dianteira</text>
+  <rect class="box" x="990" y="248" width="200" height="44" rx="8"/>
+  <text class="t-b" x="1002" y="268">Tweeter direito</text><text class="t-s" x="1002" y="284">coluna A / painel</text>
+  <rect class="box" x="990" y="328" width="200" height="44" rx="8"/>
+  <text class="t-b" x="1002" y="348">6TR4A esquerdo</text><text class="t-s" x="1002" y="364">traseira</text>
+  <rect class="box" x="990" y="388" width="200" height="44" rx="8"/>
+  <text class="t-b" x="1002" y="408">6TR4A direito</text><text class="t-s" x="1002" y="424">traseira</text>
+  <rect class="box" x="990" y="478" width="200" height="44" rx="8"/>
+  <text class="t-b" x="1002" y="498">Sub Protech 8"</text><text class="t-s" x="1002" y="514">porta-malas</text>
+</svg>
+<div class="legend">
+  <span style="--c:var(--full)">sinal completo (esq. ou dir.)</span>
+  <span style="--c:var(--mid)">médio (Snake ESV 200)</span>
+  <span style="--c:var(--tw)">tweeter</span>
+  <span style="--c:var(--rear)">traseira (6TR4A)</span>
+  <span style="--c:var(--sub)">subwoofer</span>
+</div>
+</div>
+
+<h2>Quem faz o quê</h2>
+<div class="card tbl">
+<table>
+<tr><th>Aparelho</th><th>Função</th></tr>
+<tr><td><b>Multimídia</b></td><td>Volume geral · fader (frente × traseira) · nível, corte e fase do sub · atraso da traseira (alinhamento de tempo: frente longe, traseira ~300 cm mais perto) · EQ em <b>Uniforme</b>, Loudness Off, Bass Boost no mínimo</td></tr>
+<tr><td><b>PRO 2.4</b></td><td>Só a frente: divisão médio × tweeter, atraso de cada lado (palco), EQ. Roteamento <b>1 e 3 = A</b>, <b>2 e 4 = B</b> — nunca A+B. Memórias "Motorista" e "Todos"</td></tr>
+<tr><td><b>Módulos</b></td><td>Só amplificam. Ganho regulado uma vez no multímetro. Filtros internos desligados (SD800.4 na chave <b>F</b>)</td></tr>
+</table>
+</div>
+
+<h2>Alimentação</h2>
+<div class="card tbl">
+<table>
+<tr><th>Trecho</th><th>Ligação</th></tr>
+<tr><td>Positivo</td><td>Bateria + → fusível 80 A (até 30 cm da bateria) → cabo 16 mm² → bloco distribuidor no porta-malas</td></tr>
+<tr><td>Ramais</td><td>SD800.4: 10 mm², fusível 40 A · TS400x4: 10 mm², fusível do manual · PRO 2.4: 1,5 mm², fusível pequeno</td></tr>
+<tr><td>Terra</td><td>Um ponto só na lataria, tinta raspada, &lt; 50 cm, mesma bitola do positivo</td></tr>
+<tr><td>Remoto</td><td>Fio remoto da multimídia → REM IN do PRO 2.4 → REM OUT → REM dos dois módulos (liga sem estalo)</td></tr>
+</table>
+</div>
+
+<div class="note"><b>Pendente:</b> medir o sub nos fios da caixa (~3,2–3,6 Ω = ponte; ~6,5–7 Ω = uma bobina no CH3 e outra no CH4) e testar a distância máxima do alinhamento de tempo (precisa ≥ ~300 cm de diferença para a traseira).</div>
+</main>
+</body>
+</html>
