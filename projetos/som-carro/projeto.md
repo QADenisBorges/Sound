@@ -89,3 +89,14 @@ Entrada A = esquerda, B = direita. **Roteamento: saídas 1 e 3 = A; saídas 2 e 
 
 ### Ganhos (tom senoidal, falantes desligados)
 SD800.4 CH1/CH2: 23 V · SD800.4 ponte: 40 V · TS400x4 CH1/CH2: ≤ 6,3 V · TS400x4 CH3/CH4: 15,5 V.
+
+### Caminho de cada falante (multimídia → falante)
+| Falante | Saída da multimídia | Processamento na multimídia | PRO 2.4 (entrada → saída) | Processamento no PRO 2.4 | Módulo (entrada → saída) | Até o falante |
+|---|---|---|---|---|---|---|
+| ESV 200 esq. | FL | HPF Off · atraso frente | A → 1 | HPF 80 Hz + LPF 3,5–4 kHz LR24 · atraso · EQ | SD800.4 IN CH1 → CH1 + / − | 2,5 mm² |
+| ESV 200 dir. | FR | HPF Off · atraso frente | B → 2 | idem | SD800.4 IN CH2 → CH2 + / − | 2,5 mm² |
+| Tweeter esq. | FL | idem | A → 3 | HPF 3,5–4 kHz LR24 · atraso · nível | TS400x4 IN CH1 → CH1 + / − | 1,5 mm², capacitor 33 µF no + |
+| Tweeter dir. | FR | idem | B → 4 | idem | TS400x4 IN CH2 → CH2 + / − | idem |
+| 6TR4A esq. | RL | HPF 120 Hz · atraso traseira (~9 ms) · fader | — | — | TS400x4 IN CH3 → CH3 + / − | 1,5 mm² |
+| 6TR4A dir. | RR | idem | — | — | TS400x4 IN CH4 → CH4 + / − | 1,5 mm² |
+| Sub | SWL + SWR | LPF 80 Hz · fase · nível do sub | — | — | SD800.4 IN CH3 + CH4 → ponte CH4 ⊕ / CH3 ⊖ | 2,5 mm² |
