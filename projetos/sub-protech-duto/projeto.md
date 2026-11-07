@@ -85,6 +85,16 @@ Simulação eletroacústica completa (excursão, ar no duto e SPL máximo limita
 
 O PVC de ~30 cm é o maior duto reto que cabe sem chegar perto do ímã; é praticamente o teto prático desta caixa. O teto absoluto exige o dobro do volume.
 
+## Comparação com a caixa 100% ideal (07/11/2026, 264 W em série 8 Ω)
+Caixa ideal = volume e sintonia livres, resposta plana (pico ≤ 1 dB), duto grande o bastante para ar ≤ 17 m/s (cenário mais provável: ~60 L, Fb 31 Hz, duto 12,5 × 53 cm). Métrica: volume máximo percebido (cone ≤ Xmax 8 mm, ar no duto ≤ 25 m/s nas opções da caixa atual), em % do ideal.
+| | 30 Hz | 35 Hz | 40 Hz | 45 Hz | 50–60 Hz | **Média 30–60 Hz** |
+|---|---|---|---|---|---|---|
+| Caixa ideal | 100% | 100% | 100% | 100% | 100% | **100%** |
+| **Caixa atual + PVC 36 Hz** | 49–78% | 79–83% | 98–100% | 100% | 100% | **88–92%** |
+| Caixa atual + Fiamon 40 Hz | 34–55% | 73–77% | 93–100% | 100% | 100% | 84–87% |
+| Caixa atual como está | 12–19% | 24–28% | 49% | 81–87% | 100% (com pico) | 62–63% |
+Melhoria do PVC: de ~62% para ~90% do ideal (+28 pontos, ~+45% de desempenho). O que falta está abaixo de 35 Hz.
+
 ## O que se ganha (filmes e música)
 - Grave em 30–35 Hz: ~+14 dB; corte −3 dB de 43 para 31 Hz; pico de 54 Hz vira leve reforço em ~37 Hz.
 - Filmes: explosões, trovões e trilha (25–50 Hz) com corpo e pressão; diálogo mais limpo. Abaixo de ~30 Hz o subsônico corta (limite de um 8").
