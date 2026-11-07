@@ -11,9 +11,9 @@ A caixa pronta do sub (≈28 L) já tem a litragem certa; o problema é o duto c
 
 ## Arquitetura
 ```
-Casa:  notebook → PRO 2.4 (LPF + subsônico 30 Hz/24 dB) → SD800.4 CH3/CH4 ponte → sub em série 8 Ω
-Carro: AVH-A208BT saída SW (LPF, sem subsônico) → SD800.4 CH3/CH4 ponte → sub em série 8 Ω
-Bobinas 4+4 Ω religadas em SÉRIE = 8 Ω → ponte CH3/CH4 (~264 W). GAIN: um ponto para cada lugar (marcar no knob; alvo 46 V em cada um)
+Casa:  notebook → PRO 2.4 (LPF + subsônico 30 Hz/24 dB) → SD800.4 CH3/CH4 ponte 4 Ω → sub
+Carro: AVH-A208BT saída SW (LPF, sem subsônico) → SD800.4 CH3/CH4 ponte 4 Ω → sub
+Sub 4 Ω (bobina simples, medido 3,7 Ω) → ponte CH3/CH4 (400 W). GAIN: um ponto para cada lugar (marcar no knob; alvo 40 V em cada um)
 ```
 
 ## Dimensionamento
@@ -52,7 +52,7 @@ Não servem: aero-dutos de 3" comuns (só 10–12 cm), tubo de chaminé (aço fi
 ## Ajustes depois da troca
 - **Casa:** subsônico no PRO 2.4 em **30 Hz, 24 dB/oit** (revisão: com 28 Hz o cone passa do Xmax a 400 W em ~30 Hz).
 - **Carro:** sem subsônico disponível → Bass Boost da multimídia em **0**; a Fb baixa já protege mais que a atual.
-- GAIN do SD800.4 regulado com tom + multímetro (**alvo 46 V** em ponte com o sub em série, 8 Ω) em cada lugar.
+- GAIN do SD800.4 regulado com tom + multímetro (**alvo 40 V** em ponte, sub 4 Ω) em cada lugar.
 
 ## Riscos e cuidados
 - T/S do falante estimados: a varredura é quem confirma a Fb. Cortar sempre para mais curto, nunca colar antes de testar.
@@ -110,9 +110,11 @@ Filmes: 44 → 78 (+77%) → 82 (+5%). Música: 49 → 73 (+49%) → 84 (+15%). 
 ## Plano de execução (decidido em 07/11/2026)
 **Este mês — duto (e religação das bobinas):**
 1. Comprar: tubo PVC esgoto 75 mm (Tigre), silicone neutro, cola de contato/universal, lixa.
-2. Abrir a caixa (tirar o falante) e **religar as bobinas em série (8 Ω)** — obrigatório para a ponte; conferir ~6,5–7,2 Ω.
+2. Caixa aberta (07/11): etiqueta marca **4 Ω** e o multímetro deu **3,7 Ω** → nada a religar.
 3. Duto: cortar 32 cm, teste a seco, varredura (~36 Hz), colar e vedar; calço no fundo; bordas arredondadas.
-4. Ganho 46 V em ponte; subsônico 30 Hz em casa.
+4. Ganho 40 V em ponte; subsônico 30 Hz em casa.
+5. Antes de cortar: medir D (ponta interna do duto atual → borda do ímã, pelo eixo). Extensão = D − 7 cm (máx. 20,5); corte total = extensão + 11,5 cm. D < 21 cm → curva 45°/90° na ponta. Usar a ponta lisa (bolsa descartada).
+6. Fechar a tampa só com parafusos (~10 cm) + fita de vedação de espuma/borracha na borda (abre de novo para a manta); colar/silicone só depois da manta.
 
 **Próximo mês — tratamento:**
 1. **4 placas de manta butílica automotiva 3 mm** (20 × 30 cm, ex.: Technoise GTA503): 1 no centro do tampo, 1 no fundo, 1 na traseira, a 4ª cortada ao meio ampliando tampo e fundo. Uma camada; área do duto e ≥ 7 cm em volta da boca interna livres.
@@ -128,6 +130,7 @@ Descartados: fita butílica de telhado (fina, ~1,2 mm), espuma de célula fechad
 - **Volume baixo:** o ouvido escuta pouco abaixo de ~50 Hz com som baixo, então o ganho de 30–40 Hz aparece em volume médio/alto; em volume baixo melhora a definição. Para presença à noite: **memória "noite" no PRO 2.4** — sub +3 a +5 dB e, se quiser, shelf grave +3 dB abaixo de ~60 Hz; subsônico 30 Hz e limitador mantidos.
 
 ## Histórico de decisões
+- 2026-11-07: Caixa aberta. Etiqueta do falante marca **4 Ω** (não 4+4) e o multímetro deu **3,7 Ω** → sub de 4 Ω: ponte liberada, 400 W, alvo **40 V**. Anula a religação em série/46 V. Duto atual: tubo preto nervurado na lateral, à altura do ímã → medir a folga até o ímã antes do corte.
 - 2026-11-07: Execução em duas etapas: este mês o duto PVC (+ bobinas em série); próximo mês 4 placas de manta butílica 3 mm. Fita de telhado e espuma 10 mm descartadas.
 - 2026-11-07: Usuário informou que as bobinas (4+4 Ω) estão **em paralelo = 2 Ω** → ponte do SD800.4 (mínimo 4 Ω) **proibida**. Decisão recomendada: religar em **série = 8 Ω** e manter a ponte: ~264 W, alvo 46 V; aproveitar a abertura da caixa para a troca do duto. Com 264 W: cone ≤ ~6,6 mm a 30 Hz (subsônico 30 Hz) e ar no duto ~35–37 m/s. Conferir com multímetro: ~1,6–1,8 Ω hoje; ~6,5–7,2 Ω depois.
 - 2026-11-07 (revisão): ar no duto corrigido (~45 m/s a 400 W, não 10); subsônico de casa 28 → 30 Hz; alerta de excursão no carro sem subsônico; impedância nos terminais continua pendente (define 400 W × 200 W × ponte proibida).
