@@ -34,7 +34,7 @@ Itens: Equalizador Gráfico (Sertanejo) · Balanço (E/D 0) · Ajuste Nível Fon
 - Para usar falantes traseiros: mover o RCA do sub para SWL/SWR **antes** de mudar a opção para "Traseiro".
 
 ### Submenus (fotos de 05/11/2026, mesma pasta)
-| Item | Opções vistas | Valor atual |
+| Item | Opções vistas | Valor visto no aparelho (padrão/estado da mídia — **não é regulagem do usuário**, 07/11/2026) |
 |---|---|---|
 | Alinhamento de Tempo | Posição (Listening Position) + distância em cm por saída: Front Left, Front Right, Rear Left, Rear Right, Subwoofer; passo de 2,5 cm | FL 135,0 · FR 135,0 · **RL/RR vazios** (traseira está como sub) · Sub 137,5 |
 | Posição de escuta | Front. · Frontal-E · Frontal-D · Todos · Off | Todos |
