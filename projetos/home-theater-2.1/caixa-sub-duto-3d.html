@@ -1,0 +1,253 @@
+<title>Caixa do Sub Protech 8"</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@500;700&family=Source+Sans+3:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: bancada de marcenaria — modelo 3D grande à esquerda, ficha de cotas ao lado; empilha no celular */
+:root{
+  --bg:#eef0f2; --panel:#ffffff; --fg:#1d2329; --muted:#5d6872; --line:#d3d8dd;
+  --accent:#d9480f; --pvc:#e9ecef; --ok:#2b8a3e; --old:#c92a2a;
+  --scene:#e3e7eb;
+  --display:"Archivo Narrow","Arial Narrow",Arial,sans-serif;
+  --body:"Source Sans 3","Segoe UI",Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#14181c; --panel:#1c2227; --fg:#e6eaee; --muted:#9aa6b1; --line:#2d353c;
+  --accent:#ff7a3d; --pvc:#dfe3e6; --ok:#51cf66; --old:#ff6b6b; --scene:#1a1f24; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#14181c; --panel:#1c2227; --fg:#e6eaee; --muted:#9aa6b1; --line:#2d353c;
+  --accent:#ff7a3d; --pvc:#dfe3e6; --ok:#51cf66; --old:#ff6b6b; --scene:#1a1f24; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1240px;margin:0 auto;padding-block:20px 40px;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  display:grid;gap:18px}
+header h1{font-family:var(--display);font-weight:700;font-size:clamp(26px,4vw,38px);line-height:1.1;margin:0;text-wrap:balance;letter-spacing:.2px}
+header p{margin:6px 0 0;color:var(--muted);max-width:68ch}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:18px;align-items:start}
+@media (max-width:900px){.grid{grid-template-columns:minmax(0,1fr)}}
+.stage{position:relative;background:var(--scene);border:1px solid var(--line);border-radius:10px;overflow:hidden;aspect-ratio:4/3;max-width:100%}
+#c{display:block;width:100%;height:100%;touch-action:none}
+.hint{position:absolute;left:12px;bottom:10px;font:12px var(--mono);color:var(--muted);pointer-events:none}
+.bar{display:flex;flex-wrap:wrap;gap:8px}
+.bar button{font:600 14px var(--body);padding:8px 12px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--fg);cursor:pointer}
+.bar button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent)}
+.bar button:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+aside{display:grid;gap:14px;min-width:0}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px}
+.card h2{font-family:var(--display);font-size:19px;margin:0 0 10px;letter-spacing:.3px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+td{padding:6px 0;border-bottom:1px solid var(--line);vertical-align:top}
+td:last-child{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap;padding-left:10px}
+tr:last-child td{border-bottom:0}
+.big td:last-child{color:var(--accent);font-weight:600}
+.key{display:flex;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--muted)}
+.key span{display:inline-flex;align-items:center;gap:6px}
+.sw{width:12px;height:12px;border-radius:2px;display:inline-block}
+ol{margin:0;padding-left:20px;display:grid;gap:6px;font-size:15px}
+.note{font-size:13px;color:var(--muted);margin:0}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>Caixa do sub Protech 8" — duto novo de 36 Hz</h1>
+    <p>Modelo em escala da sua caixa (58 × 26,5 × 26 cm, MDF 15 mm, ~27 L líquidos) com o duto de PVC 75 mm e joelho de 90°. Gire com o dedo ou o mouse; compare com o duto atual de 10 cm.</p>
+  </header>
+
+  <div class="grid">
+    <div style="display:grid;gap:10px;min-width:0">
+      <div class="stage"><canvas id="c" aria-label="Modelo 3D da caixa do subwoofer com o duto"></canvas>
+        <div class="hint">arraste: girar · pinça/roda: zoom</div></div>
+      <div class="bar" role="toolbar" aria-label="Opções de visualização">
+        <button id="bNovo" aria-pressed="true">Duto novo (36 Hz)</button>
+        <button id="bVelho" aria-pressed="false">Duto atual (52 Hz)</button>
+        <button id="bParede" aria-pressed="true">Paredes transparentes</button>
+        <button id="v3d">Vista 3D</button>
+        <button id="vFrente">Frente</button>
+        <button id="vLado">Corte do duto</button>
+      </div>
+      <div class="key">
+        <span><i class="sw" style="background:#f1f3f5;border:1px solid #adb5bd"></i>PVC novo</span>
+        <span><i class="sw" style="background:var(--old)"></i>duto atual 7 × 10 cm</span>
+        <span><i class="sw" style="background:var(--accent)"></i>cotas / caminho do ar</span>
+        <span><i class="sw" style="background:#8a8f94"></i>falante e ímã</span>
+      </div>
+    </div>
+
+    <aside>
+      <div class="card">
+        <h2>Duto novo</h2>
+        <table>
+          <tr><td>Tubo</td><td>PVC esgoto 75 mm</td></tr>
+          <tr><td>Diâmetro interno</td><td>~7,2 cm</td></tr>
+          <tr><td>Trecho vertical (tampo por fora → eixo do trecho deitado)</td><td>~20,5 cm</td></tr>
+          <tr><td>Trecho deitado (centro do joelho → boca)</td><td>~7,5 cm</td></tr>
+          <tr class="big"><td>Comprimento total na linha de centro</td><td>~28 cm</td></tr>
+          <tr><td>Centro do tubo deitado ao fundo interno</td><td>~4,5 cm</td></tr>
+          <tr><td>Folga livre na boca interna</td><td>≥ 7 cm</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h2>Antes × depois</h2>
+        <table>
+          <tr><td>Sintonia (Fb)</td><td>52 → 36 Hz</td></tr>
+          <tr><td>Pico de resposta</td><td>+7 dB → +2 dB</td></tr>
+          <tr><td>Corte −3 dB</td><td>~45 → ~31 Hz</td></tr>
+          <tr><td>Volume líquido</td><td>28 → 27 L</td></tr>
+          <tr><td>Velocidade do ar</td><td>~10 m/s</td></tr>
+          <tr><td>Subsônico (casa)</td><td>42 → 28 Hz</td></tr>
+        </table>
+      </div>
+      <div class="card">
+        <h2>Montagem</h2>
+        <ol>
+          <li>Tire o falante e meça o espaço real por dentro.</li>
+          <li>Corte o tubo com ~30 cm no total (sobra para ajuste).</li>
+          <li>Trecho deitado apontado para o meio da caixa, longe do ímã.</li>
+          <li>Prenda o tubo no fundo; silicone na junção do tampo.</li>
+          <li>Varredura 25–60 Hz com lanterna: cone quase parado em ~36 Hz. Abaixo disso, encurte 1 cm por vez.</li>
+        </ol>
+      </div>
+      <p class="note">Ilustração em escala a partir das fotos e medidas de 14/10 e 27/10. Posição exata do duto no tampo e raio do joelho variam: confira com o tubo na mão antes de colar.</p>
+    </aside>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+<script>
+(function(){
+const canvas=document.getElementById('c');
+const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:true});
+renderer.setPixelRatio(Math.min(window.devicePixelRatio,2));
+const scene=new THREE.Scene();
+const cam=new THREE.PerspectiveCamera(35,4/3,1,1000);
+const controls=new THREE.OrbitControls(cam,canvas);
+controls.enableDamping=true;controls.target.set(0,0,0);
+
+scene.add(new THREE.HemisphereLight(0xffffff,0x667788,0.75));
+const sun=new THREE.DirectionalLight(0xffffff,0.8);sun.position.set(40,70,60);scene.add(sun);
+const fill=new THREE.DirectionalLight(0xffffff,0.3);fill.position.set(-60,20,-40);scene.add(fill);
+
+// medidas (cm) — origem no centro da caixa; x = largura, y = altura, z = profundidade (frente = +z)
+const W=58,H=26.5,D=26,T=1.5;
+const accent=()=>getComputedStyle(document.documentElement).getPropertyValue('--accent').trim()||'#d9480f';
+
+// ---- paredes
+const carpet=new THREE.MeshStandardMaterial({color:0x2b2f33,roughness:1,transparent:true,opacity:0.22,depthWrite:false,side:THREE.DoubleSide});
+const walls=new THREE.Group();scene.add(walls);
+function panel(w,h,d,x,y,z,mat){const m=new THREE.Mesh(new THREE.BoxGeometry(w,h,d),mat);m.position.set(x,y,z);walls.add(m);
+  const e=new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),new THREE.LineBasicMaterial({color:0x6c757d,transparent:true,opacity:.7}));e.position.copy(m.position);walls.add(e);return m;}
+panel(W,T,D,0,H/2-T/2,0,carpet);            // tampo
+panel(W,T,D,0,-H/2+T/2,0,carpet);           // fundo
+panel(T,H-2*T,D,-W/2+T/2,0,0,carpet);       // lateral esq
+panel(T,H-2*T,D,W/2-T/2,0,0,carpet);        // lateral dir
+panel(W-2*T,H-2*T,T,0,0,-D/2+T/2,carpet);   // traseira
+// frente: metade esquerda bege (falante), metade direita painel escuro
+const bege=new THREE.MeshStandardMaterial({color:0xc9c3b4,roughness:.9,transparent:true,opacity:.35,depthWrite:false,side:THREE.DoubleSide});
+const escuro=new THREE.MeshStandardMaterial({color:0x3a3f44,roughness:.9,transparent:true,opacity:.35,depthWrite:false,side:THREE.DoubleSide});
+panel(W/2,H,T,-W/4,0,D/2-T/2,bege);
+panel(W/2,H,T,W/4,0,D/2-T/2,escuro);
+
+// ---- falante 8" (metade esquerda da frente)
+const spk=new THREE.Group();spk.position.set(-W/4,0,D/2-T);scene.add(spk);
+const grey=new THREE.MeshStandardMaterial({color:0x8a8f94,metalness:.4,roughness:.5});
+const black=new THREE.MeshStandardMaterial({color:0x1b1d1f,roughness:.8});
+const surround=new THREE.Mesh(new THREE.TorusGeometry(9.2,1.1,16,48),black);surround.position.z=T+0.6;spk.add(surround);
+const cone=new THREE.Mesh(new THREE.ConeGeometry(8.3,4,48,1,true),black);cone.rotation.x=-Math.PI/2;cone.position.z=T-1.4;spk.add(cone);
+const dust=new THREE.Mesh(new THREE.CircleGeometry(8.2,48),new THREE.MeshStandardMaterial({color:0x222426,roughness:.7}));dust.position.z=T+0.55;spk.add(dust);
+const basket=new THREE.Mesh(new THREE.CylinderGeometry(10.3,5.5,6,24,1,true),new THREE.MeshStandardMaterial({color:0x8a8f94,metalness:.4,roughness:.5,wireframe:true}));basket.rotation.x=Math.PI/2;basket.position.z=-3;spk.add(basket);
+const magnet=new THREE.Mesh(new THREE.CylinderGeometry(5.5,5.5,3.2,32),grey);magnet.rotation.x=Math.PI/2;magnet.position.z=-7.6;spk.add(magnet);
+
+// ---- duto: posição no tampo (metade direita, centro da profundidade)
+const R0=3.75, Ri=3.6;               // raio externo / interno do PVC 75 mm
+const x0=W/4, zc=0;
+const yTop=H/2;                       // face externa do tampo
+const yH=-H/2+T+4.5;                  // eixo do trecho deitado (4,5 cm acima do fundo interno)
+const rb=5;                           // raio do joelho na linha de centro
+const xEnd=x0-7.5;                    // boca: 7,5 cm do centro do joelho, apontando para o meio
+
+const pvc=new THREE.MeshStandardMaterial({color:0xf1f3f5,roughness:.45,metalness:.05,side:THREE.DoubleSide});
+const pvcIn=new THREE.MeshStandardMaterial({color:0x50565c,roughness:.9,side:THREE.BackSide});
+
+const path=new THREE.CurvePath();
+path.add(new THREE.LineCurve3(new THREE.Vector3(x0,yTop+0.3,zc),new THREE.Vector3(x0,yH+rb,zc)));
+path.add(new THREE.QuadraticBezierCurve3(new THREE.Vector3(x0,yH+rb,zc),new THREE.Vector3(x0,yH,zc),new THREE.Vector3(x0-rb,yH,zc)));
+path.add(new THREE.LineCurve3(new THREE.Vector3(x0-rb,yH,zc),new THREE.Vector3(xEnd,yH,zc)));
+
+const novo=new THREE.Group();scene.add(novo);
+novo.add(new THREE.Mesh(new THREE.TubeGeometry(path,120,R0,32,false),pvc));
+novo.add(new THREE.Mesh(new THREE.TubeGeometry(path,120,Ri,32,false),pvcIn));
+// anel/flange no tampo
+const flange=new THREE.Mesh(new THREE.TorusGeometry(R0+0.6,0.6,12,40),new THREE.MeshStandardMaterial({color:0x1b1d1f,roughness:.8}));
+flange.rotation.x=Math.PI/2;flange.position.set(x0,yTop+0.4,zc);scene.add(flange);
+// zona livre de 7 cm na boca
+const free=new THREE.Mesh(new THREE.CylinderGeometry(R0,R0,7,24,1,true),new THREE.MeshBasicMaterial({color:0x2b8a3e,transparent:true,opacity:.18,side:THREE.DoubleSide,depthWrite:false}));
+free.rotation.z=Math.PI/2;free.position.set(xEnd-3.5,yH,zc);novo.add(free);
+
+// duto atual (10 cm reto)
+const velho=new THREE.Group();velho.visible=false;scene.add(velho);
+const vm=new THREE.Mesh(new THREE.CylinderGeometry(R0,R0,10,32,1,true),new THREE.MeshStandardMaterial({color:0xc92a2a,roughness:.6,side:THREE.DoubleSide,transparent:true,opacity:.85}));
+vm.position.set(x0,yTop-5,zc);velho.add(vm);
+
+// ---- cotas (linhas + etiquetas)
+function label(text,pos,color){
+  const c=document.createElement('canvas');const s=2;c.width=360*s;c.height=64*s;const g=c.getContext('2d');
+  g.scale(s,s);g.font='600 26px "JetBrains Mono",monospace';const w=g.measureText(text).width+20;
+  g.fillStyle='rgba(255,255,255,.92)';g.strokeStyle=color;g.lineWidth=2;
+  const x=(360-w)/2;g.beginPath();g.roundRect?g.roundRect(x,12,w,40,6):g.rect(x,12,w,40);g.fill();g.stroke();
+  g.fillStyle='#1d2329';g.textAlign='center';g.textBaseline='middle';g.fillText(text,180,33);
+  const sp=new THREE.Sprite(new THREE.SpriteMaterial({map:new THREE.CanvasTexture(c),depthTest:false}));
+  sp.scale.set(18,3.2,1);sp.position.copy(pos);sp.renderOrder=10;return sp;}
+function dim(a,b,text,off,color,grp){
+  const m=new THREE.LineBasicMaterial({color,depthTest:false});
+  const A=a.clone().add(off),B=b.clone().add(off);
+  const geo=new THREE.BufferGeometry().setFromPoints([a,A,A,B,B,b]);
+  const l=new THREE.LineSegments(geo,m);l.renderOrder=9;grp.add(l);
+  grp.add(label(text,A.clone().add(B).multiplyScalar(.5).add(off.clone().normalize().multiplyScalar(2.5)),color));}
+const dims=new THREE.Group(),dimsV=new THREE.Group();scene.add(dims);scene.add(dimsV);dimsV.visible=false;
+function buildDims(){
+  [dims,dimsV].forEach(g=>{while(g.children.length)g.remove(g.children[0]);});
+  const ac=accent();
+  const zf=D/2+0.2;
+  dim(new THREE.Vector3(-W/2,-H/2,zf),new THREE.Vector3(W/2,-H/2,zf),'58 cm',new THREE.Vector3(0,-5,0),'#6c757d',dims);
+  dim(new THREE.Vector3(W/2,-H/2,zf),new THREE.Vector3(W/2,H/2,zf),'26,5 cm',new THREE.Vector3(6,0,0),'#6c757d',dims);
+  dim(new THREE.Vector3(W/2,-H/2,-D/2),new THREE.Vector3(W/2,-H/2,D/2),'26 cm',new THREE.Vector3(6,-4,0),'#6c757d',dims);
+  dim(new THREE.Vector3(x0,yTop,zc),new THREE.Vector3(x0,yH,zc),'20,5 cm',new THREE.Vector3(9,0,0),ac,dims);
+  dim(new THREE.Vector3(x0,yH,zc),new THREE.Vector3(xEnd,yH,zc),'7,5 cm',new THREE.Vector3(0,-6,0),ac,dims);
+  dims.add(label('total ≈ 28 cm → 36 Hz',new THREE.Vector3(x0+2,yTop+6,zc),ac));
+  dims.add(label('≥ 7 cm livres',new THREE.Vector3(xEnd-6,yH+6,zc),'#2b8a3e'));
+  dim(new THREE.Vector3(x0,yTop,zc),new THREE.Vector3(x0,yTop-10,zc),'10 cm → 52 Hz',new THREE.Vector3(9,0,0),'#c92a2a',dimsV);
+}
+buildDims();
+
+// ---- caminho do ar (partículas ao longo do duto)
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const air=new THREE.Group();novo.add(air);
+const pts=[];for(let i=0;i<14;i++){const s=new THREE.Mesh(new THREE.SphereGeometry(0.55,10,10),new THREE.MeshBasicMaterial({color:0xd9480f}));s.userData.t=i/14;air.add(s);pts.push(s);}
+function placeAir(t){pts.forEach(s=>{const u=(s.userData.t+t)%1;const p=path.getPointAt(u);s.position.copy(p);});}
+placeAir(0);
+
+// ---- vistas
+function view(name){
+  const v={'3d':[62,44,78],'frente':[0,0,110],'lado':[110,4,0.01]}[name];
+  cam.position.set(...v);controls.target.set(name==='lado'?x0-W/4:0,0,0);controls.update();
+  if(name==='lado'){[walls].forEach(g=>g.visible=true);}
+}
+view('3d');
+function toggle(btn,fn){btn.addEventListener('click',()=>{const on=btn.getAttribute('aria-pressed')!=='true';btn.setAttribute('aria-pressed',String(on));fn(on);});}
+toggle(document.getElementById('bNovo'),on=>{novo.visible=on;dims.visible=on;});
+toggle(document.getElementById('bVelho'),on=>{velho.visible=on;dimsV.visible=on;});
+toggle(document.getElementById('bParede'),on=>{[carpet,bege,escuro].forEach(m=>{m.opacity=on?(m===carpet?.22:.35):1;m.depthWrite=!on;m.needsUpdate=true;});});
+document.getElementById('v3d').onclick=()=>view('3d');
+document.getElementById('vFrente').onclick=()=>view('frente');
+document.getElementById('vLado').onclick=()=>{cam.position.set(x0-4,2,110);controls.target.set(x0-4,0,0);controls.update();};
+
+// ---- render
+function resize(){const r=canvas.getBoundingClientRect();renderer.setSize(r.width,r.height,false);cam.aspect=r.width/r.height;cam.updateProjectionMatrix();}
+new ResizeObserver(resize).observe(canvas);resize();
+const mq=window.matchMedia('(prefers-color-scheme: dark)');if(mq.addEventListener)mq.addEventListener('change',buildDims);
+let t0=performance.now();
+(function loop(now){requestAnimationFrame(loop);if(!reduce)placeAir(((now-t0)/6000)%1);controls.update();renderer.render(scene,cam);})(t0);
+})();
+</script>
