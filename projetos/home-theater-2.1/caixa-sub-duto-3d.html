@@ -51,7 +51,7 @@ ol{margin:0;padding-left:20px;display:grid;gap:6px;font-size:15px}
 <div class="wrap">
   <header>
     <h1>Caixa do sub Protech 8" — duto novo de 36 Hz</h1>
-    <p>Modelo em escala da sua caixa (58 × 26,5 × 26 cm, MDF 15 mm, ~27 L líquidos) com o duto de PVC 75 mm e joelho de 90°. Gire com o dedo ou o mouse; compare com o duto atual de 10 cm.</p>
+    <p>Modelo em escala da sua caixa (58 × 26,5 × 26 cm, MDF 15 mm, ~27 L líquidos) com o duto de PVC 75 mm reto, na lateral oposta ao falante. Gire com o dedo ou o mouse; compare com o duto atual de 10 cm.</p>
   </header>
 
   <div class="grid">
@@ -64,7 +64,7 @@ ol{margin:0;padding-left:20px;display:grid;gap:6px;font-size:15px}
         <button id="bParede" aria-pressed="true">Paredes transparentes</button>
         <button id="v3d">Vista 3D</button>
         <button id="vFrente">Frente</button>
-        <button id="vLado">Corte do duto</button>
+        <button id="vLado">Vista de cima</button>
       </div>
       <div class="key">
         <span><i class="sw" style="background:#f1f3f5;border:1px solid #adb5bd"></i>PVC novo</span>
@@ -80,11 +80,11 @@ ol{margin:0;padding-left:20px;display:grid;gap:6px;font-size:15px}
         <table>
           <tr><td>Tubo</td><td>PVC esgoto 75 mm</td></tr>
           <tr><td>Diâmetro interno</td><td>~7,2 cm</td></tr>
-          <tr><td>Trecho vertical (tampo por fora → eixo do trecho deitado)</td><td>~20,5 cm</td></tr>
-          <tr><td>Trecho deitado (centro do joelho → boca)</td><td>~7,5 cm</td></tr>
-          <tr class="big"><td>Comprimento total na linha de centro</td><td>~28 cm</td></tr>
-          <tr><td>Centro do tubo deitado ao fundo interno</td><td>~4,5 cm</td></tr>
-          <tr><td>Folga livre na boca interna</td><td>≥ 7 cm</td></tr>
+          <tr><td>Posição</td><td>lateral direita</td></tr>
+          <tr><td>Formato</td><td>reto, deitado</td></tr>
+          <tr class="big"><td>Comprimento (de fora da lateral até a boca)</td><td>~30 cm</td></tr>
+          <tr><td>Cortar com (para ajuste)</td><td>33 cm</td></tr>
+          <tr><td>Folga da boca até o ímã</td><td>≥ 5 cm</td></tr>
         </table>
       </div>
       <div class="card">
@@ -102,13 +102,13 @@ ol{margin:0;padding-left:20px;display:grid;gap:6px;font-size:15px}
         <h2>Montagem</h2>
         <ol>
           <li>Tire o falante e meça o espaço real por dentro.</li>
-          <li>Corte o tubo com ~30 cm no total (sobra para ajuste).</li>
-          <li>Trecho deitado apontado para o meio da caixa, longe do ímã.</li>
-          <li>Prenda o tubo no fundo; silicone na junção do tampo.</li>
+          <li>Corte o tubo com 33 cm (sobra para ajuste).</li>
+          <li>Encaixe no furo da lateral, reto, ao longo da caixa; confira a folga até o ímã.</li>
+          <li>Apoie a ponta interna com um calço no fundo; silicone na junção com a lateral.</li>
           <li>Varredura 25–60 Hz com lanterna: cone quase parado em ~36 Hz. Abaixo disso, encurte 1 cm por vez.</li>
         </ol>
       </div>
-      <p class="note">Ilustração em escala a partir das fotos e medidas de 14/10 e 27/10. Posição exata do duto no tampo e raio do joelho variam: confira com o tubo na mão antes de colar.</p>
+      <p class="note">Ilustração em escala a partir das fotos e medidas de 14/10 e 27/10. Frente inclinada simplificada como reta; altura exata do duto e posição do ímã: confira com o falante fora antes de colar.</p>
     </aside>
   </div>
 </div>
@@ -159,36 +159,26 @@ const dust=new THREE.Mesh(new THREE.CircleGeometry(8.2,48),new THREE.MeshStandar
 const basket=new THREE.Mesh(new THREE.CylinderGeometry(10.3,5.5,6,24,1,true),new THREE.MeshStandardMaterial({color:0x8a8f94,metalness:.4,roughness:.5,wireframe:true}));basket.rotation.x=Math.PI/2;basket.position.z=-3;spk.add(basket);
 const magnet=new THREE.Mesh(new THREE.CylinderGeometry(5.5,5.5,3.2,32),grey);magnet.rotation.x=Math.PI/2;magnet.position.z=-7.6;spk.add(magnet);
 
-// ---- duto: posição no tampo (metade direita, centro da profundidade)
+// ---- duto: na lateral direita (oposta ao falante), deitado ao longo do comprimento
 const R0=3.75, Ri=3.6;               // raio externo / interno do PVC 75 mm
-const x0=W/4, zc=0;
-const yTop=H/2;                       // face externa do tampo
-const yH=-H/2+T+4.5;                  // eixo do trecho deitado (4,5 cm acima do fundo interno)
-const rb=5;                           // raio do joelho na linha de centro
-const xEnd=x0-7.5;                    // boca: 7,5 cm do centro do joelho, apontando para o meio
-
+const xWall=W/2;                      // face externa da lateral direita
+const yc=-H/2+11, zc=0;               // centro do duto: ~11 cm do chão, meio da profundidade (pelas fotos)
+const L=30;                           // comprimento do tubo novo (cm)
+const xEnd=xWall-L;
 const pvc=new THREE.MeshStandardMaterial({color:0xf1f3f5,roughness:.45,metalness:.05,side:THREE.DoubleSide});
 const pvcIn=new THREE.MeshStandardMaterial({color:0x50565c,roughness:.9,side:THREE.BackSide});
-
-const path=new THREE.CurvePath();
-path.add(new THREE.LineCurve3(new THREE.Vector3(x0,yTop+0.3,zc),new THREE.Vector3(x0,yH+rb,zc)));
-path.add(new THREE.QuadraticBezierCurve3(new THREE.Vector3(x0,yH+rb,zc),new THREE.Vector3(x0,yH,zc),new THREE.Vector3(x0-rb,yH,zc)));
-path.add(new THREE.LineCurve3(new THREE.Vector3(x0-rb,yH,zc),new THREE.Vector3(xEnd,yH,zc)));
-
+const path=new THREE.LineCurve3(new THREE.Vector3(xWall+0.3,yc,zc),new THREE.Vector3(xEnd,yc,zc));
 const novo=new THREE.Group();scene.add(novo);
-novo.add(new THREE.Mesh(new THREE.TubeGeometry(path,120,R0,32,false),pvc));
-novo.add(new THREE.Mesh(new THREE.TubeGeometry(path,120,Ri,32,false),pvcIn));
-// anel/flange no tampo
+novo.add(new THREE.Mesh(new THREE.TubeGeometry(path,40,R0,32,false),pvc));
+novo.add(new THREE.Mesh(new THREE.TubeGeometry(path,40,Ri,32,false),pvcIn));
 const flange=new THREE.Mesh(new THREE.TorusGeometry(R0+0.6,0.6,12,40),new THREE.MeshStandardMaterial({color:0x1b1d1f,roughness:.8}));
-flange.rotation.x=Math.PI/2;flange.position.set(x0,yTop+0.4,zc);scene.add(flange);
-// zona livre de 7 cm na boca
-const free=new THREE.Mesh(new THREE.CylinderGeometry(R0,R0,7,24,1,true),new THREE.MeshBasicMaterial({color:0x2b8a3e,transparent:true,opacity:.18,side:THREE.DoubleSide,depthWrite:false}));
-free.rotation.z=Math.PI/2;free.position.set(xEnd-3.5,yH,zc);novo.add(free);
-
-// duto atual (10 cm reto)
+flange.rotation.y=Math.PI/2;flange.position.set(xWall+0.4,yc,zc);scene.add(flange);
+const free=new THREE.Mesh(new THREE.CylinderGeometry(R0,R0,5,24,1,true),new THREE.MeshBasicMaterial({color:0x2b8a3e,transparent:true,opacity:.18,side:THREE.DoubleSide,depthWrite:false}));
+free.rotation.z=Math.PI/2;free.position.set(xEnd-2.5,yc,zc);novo.add(free);
 const velho=new THREE.Group();velho.visible=false;scene.add(velho);
 const vm=new THREE.Mesh(new THREE.CylinderGeometry(R0,R0,10,32,1,true),new THREE.MeshStandardMaterial({color:0xc92a2a,roughness:.6,side:THREE.DoubleSide,transparent:true,opacity:.85}));
-vm.position.set(x0,yTop-5,zc);velho.add(vm);
+vm.rotation.z=Math.PI/2;vm.position.set(xWall-5,yc,zc);velho.add(vm);
+const x0=xWall-L/2;
 
 // ---- cotas (linhas + etiquetas)
 function label(text,pos,color){
@@ -213,11 +203,10 @@ function buildDims(){
   dim(new THREE.Vector3(-W/2,-H/2,zf),new THREE.Vector3(W/2,-H/2,zf),'58 cm',new THREE.Vector3(0,-5,0),'#6c757d',dims);
   dim(new THREE.Vector3(W/2,-H/2,zf),new THREE.Vector3(W/2,H/2,zf),'26,5 cm',new THREE.Vector3(6,0,0),'#6c757d',dims);
   dim(new THREE.Vector3(W/2,-H/2,-D/2),new THREE.Vector3(W/2,-H/2,D/2),'26 cm',new THREE.Vector3(6,-4,0),'#6c757d',dims);
-  dim(new THREE.Vector3(x0,yTop,zc),new THREE.Vector3(x0,yH,zc),'20,5 cm',new THREE.Vector3(9,0,0),ac,dims);
-  dim(new THREE.Vector3(x0,yH,zc),new THREE.Vector3(xEnd,yH,zc),'7,5 cm',new THREE.Vector3(0,-6,0),ac,dims);
-  dims.add(label('total ≈ 28 cm → 36 Hz',new THREE.Vector3(x0+2,yTop+6,zc),ac));
-  dims.add(label('≥ 7 cm livres',new THREE.Vector3(xEnd-6,yH+6,zc),'#2b8a3e'));
-  dim(new THREE.Vector3(x0,yTop,zc),new THREE.Vector3(x0,yTop-10,zc),'10 cm → 52 Hz',new THREE.Vector3(9,0,0),'#c92a2a',dimsV);
+  dim(new THREE.Vector3(xWall,yc,zc),new THREE.Vector3(xEnd,yc,zc),'30 cm → 36 Hz',new THREE.Vector3(0,9,0),ac,dims);
+  dims.add(label('reto, sem joelho',new THREE.Vector3(x0,yc-7,zc-7),ac));
+  dims.add(label('folga até o ímã ≥ 5 cm',new THREE.Vector3(xEnd-6,yc+16,zc-9),'#2b8a3e'));
+  dim(new THREE.Vector3(xWall,yc,zc),new THREE.Vector3(xWall-10,yc,zc),'10 cm → 52 Hz',new THREE.Vector3(0,-8,0),'#c92a2a',dimsV);
 }
 buildDims();
 
@@ -241,7 +230,7 @@ toggle(document.getElementById('bVelho'),on=>{velho.visible=on;dimsV.visible=on;
 toggle(document.getElementById('bParede'),on=>{[carpet,bege,escuro].forEach(m=>{m.opacity=on?(m===carpet?.22:.35):1;m.depthWrite=!on;m.needsUpdate=true;});});
 document.getElementById('v3d').onclick=()=>view('3d');
 document.getElementById('vFrente').onclick=()=>view('frente');
-document.getElementById('vLado').onclick=()=>{cam.position.set(x0-4,2,110);controls.target.set(x0-4,0,0);controls.update();};
+document.getElementById('vLado').onclick=()=>{cam.position.set(0,95,0.01);controls.target.set(0,0,0);controls.update();};
 
 // ---- render
 function resize(){const r=canvas.getBoundingClientRect();renderer.setSize(r.width,r.height,false);cam.aspect=r.width/r.height;cam.updateProjectionMatrix();}
