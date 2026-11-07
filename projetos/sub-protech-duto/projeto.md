@@ -72,7 +72,7 @@ Simulação eletroacústica completa (excursão, ar no duto e SPL máximo limita
 1. **Ar no duto** — antes "~10 m/s, OK" (fórmula simplificada, subestimava). Real a 400 W: **~42–46 m/s** em qualquer das três opções (o duto de 7 cm é pequeno para 400 W num 8"). Sem sopro até ~100 W em grave contínuo (~21 m/s); acima disso, em notas graves longas e volume muito alto, pode soprar/comprimir. Duto maior não cabe (dobrar a área dobra o comprimento). Atenua: **arredondar bem as duas bocas do PVC** e usar o limitador.
 2. **Subsônico de casa: 30 Hz** (não 28). Com 28 Hz o cone chega a 8,4–9,1 mm em 30 Hz a 400 W (Xmax 8); com 30 Hz, 7,5–8,2 mm.
 3. **Carro sem subsônico:** a 400 W o cone passa de 15–20 mm em 25–30 Hz (2× o Xmax) em qualquer duto. Volume alto com grave muito fundo no carro = risco real. Entre 35 e 45 Hz o duto novo protege mais (8–9 mm × 12–15 mm do atual).
-4. **Impedância ainda não medida:** bobina dupla 4+4 Ω. Série = 8 Ω → ponte a 40 V entrega ~200 W (seguro, −3 dB). Paralelo = 2 Ω → **ponte proibida**. O alvo "400 W / 40 V" só vale se o multímetro nos terminais da caixa der ~3,2–3,6 Ω (bobinas 2+2 em série). Medir antes de regular ganho.
+4. **Impedância medida (07/11): 3,7 Ω, etiqueta 4 Ω** → ponte 400 W, alvo 40 V confirmado. A 400 W com subsônico de 30 Hz o cone fica em 7,5–8,2 mm (no limite do Xmax): usar o limitador do PRO 2.4 e não subir além do alvo.
 
 **Comparação com o máximo (SPL máximo a 1 m, cenário Fs 58; % = volume percebido em relação ao teto):**
 | | 30 Hz | 35 Hz | 40 Hz | 45–60 Hz |
@@ -85,7 +85,7 @@ Simulação eletroacústica completa (excursão, ar no duto e SPL máximo limita
 
 O PVC de ~30 cm é o maior duto reto que cabe sem chegar perto do ímã; é praticamente o teto prático desta caixa. O teto absoluto exige o dobro do volume.
 
-## Comparação com a caixa 100% ideal (07/11/2026, 264 W em série 8 Ω)
+## Comparação com a caixa 100% ideal (07/11/2026; calculada a 264 W — a 400 W as porcentagens relativas ficam praticamente iguais)
 Caixa ideal = volume e sintonia livres, resposta plana (pico ≤ 1 dB), duto grande o bastante para ar ≤ 17 m/s (cenário mais provável: ~60 L, Fb 31 Hz, duto 12,5 × 53 cm). Métrica: volume máximo percebido (cone ≤ Xmax 8 mm, ar no duto ≤ 25 m/s nas opções da caixa atual), em % do ideal.
 | | 30 Hz | 35 Hz | 40 Hz | 45 Hz | 50–60 Hz | **Média 30–60 Hz** |
 |---|---|---|---|---|---|---|
