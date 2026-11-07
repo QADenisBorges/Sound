@@ -25,3 +25,10 @@ Caixa: pronta, cinza, com um painel escuro ao lado (tipo, dutada ou selada, aind
 **05/11/2026 (usuário):** bobina **dupla**, caixa **dutada**, impedância nos terminais ainda não medida (os 2 Ω relatados eram do tweeter).
 
 **Caixa medida (14/10/2026, outra conversa; fotos em `projetos/home-theater-2.1/fotos/2026-10-14-medicoes/` e `2026-10-27-duto-sub/`):** externa 26 × 26,5 × 58 cm, MDF 15 mm, ≈28 L líquidos; duto redondo de ≈7 cm × ≈10 cm no topo → **Fb calculada ≈52 Hz** (confirmar na varredura). Subsônico recomendado: **42 Hz, 24 dB/oit**.
+
+**Caixa ideal (estudo de 07/11/2026):** Qts/Vas oficiais não existem publicados; simulação dutada (modelo de Small, QL 7) em 3 cenários de T/S estimados — Fs 46 Hz com Qts 0,45/Vas 4,5 L, Qts 0,50/Vas 6 L, Qts 0,55/Vas 8 L (faixa tirada de um post de fórum do Light 8" 420 W: Qts 0,49, Vas 4,65 L, e de um 8" 450 W similar da FB Audio: Qts 0,52–0,58, Vas 5,7–6,1 L).
+- Caixa atual (28 L, Fb 52 Hz): pico de **+6 a +8 dB em 50–60 Hz** e −10 dB em 35 Hz nos três cenários → grave "de uma nota só", principalmente no carro (o ganho de cabine soma ainda mais).
+- **Recomendado: manter os 28 L e rebaixar a sintonia para ~36 Hz** — duto de 7 cm com ~27 cm de comprimento (calculadora, 27 L líquidos descontado o duto); curva 90° de PVC se não couber reto (manter ≥7 cm de folga da parede oposta). Resultado: no máximo +1,9 a +2,7 dB em 35–40 Hz, −3 dB ≈ 31 Hz nos três cenários. Velocidade no duto ≈ 11 m/s (OK). Duto de 5 cm não serve (≈21 m/s, sopra).
+- Caixa nova, se for construir: **18–20 L líquidos, Fb 36 Hz** → a mais plana nos três cenários (±1 dB até 35 Hz).
+- Selada fica pequena (5–12 L) e perde ~6 dB em 50 Hz frente à dutada; só vale se o espaço for crítico.
+- Sem subsônico na cadeia (SD800.4 só tem LP/F/HP): abaixo de ~30 Hz o cone fica solto; não usar reforço de grave e baixar o volume se ouvir batida/estalo.
