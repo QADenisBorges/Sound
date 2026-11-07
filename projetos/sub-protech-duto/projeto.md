@@ -107,6 +107,20 @@ Estimativa de percepção (0–100, 100 = caixa ideal tratada), não medição. 
 | **Média** | **46** | **75 (+63%)** | **83 (+11% sobre o duto; +80% sobre o atual)** |
 Filmes: 44 → 78 (+77%) → 82 (+5%). Música: 49 → 73 (+49%) → 84 (+15%). Tratamento: manta asfáltica em tampo/fundo/traseira (50–70% de cada), travessa de MDF no meio do vão, fibra/manta acústica 2–3 cm nas paredes, ≥ 7 cm livres na boca interna do duto.
 
+## Plano de execução (decidido em 07/11/2026)
+**Este mês — duto (e religação das bobinas):**
+1. Comprar: tubo PVC esgoto 75 mm (Tigre), silicone neutro, cola de contato/universal, lixa.
+2. Abrir a caixa (tirar o falante) e **religar as bobinas em série (8 Ω)** — obrigatório para a ponte; conferir ~6,5–7,2 Ω.
+3. Duto: cortar 32 cm, teste a seco, varredura (~36 Hz), colar e vedar; calço no fundo; bordas arredondadas.
+4. Ganho 46 V em ponte; subsônico 30 Hz em casa.
+
+**Próximo mês — tratamento:**
+1. **4 placas de manta butílica automotiva 3 mm** (20 × 30 cm, ex.: Technoise GTA503): 1 no centro do tampo, 1 no fundo, 1 na traseira, a 4ª cortada ao meio ampliando tampo e fundo. Uma camada; área do duto e ≥ 7 cm em volta da boca interna livres.
+2. Opcional: travessa de MDF no meio do vão e fibra de poliéster 2–3 cm nas paredes.
+3. Refazer a varredura depois (a manta tira ~0,5–0,7 L; Fb pode subir ~0,5 Hz — normalmente não precisa mexer no duto).
+
+Descartados: fita butílica de telhado (fina, ~1,2 mm), espuma de célula fechada 10 mm com alumínio (não amortece, reflete e ocupa ~4 L).
+
 ## O que se ganha (filmes e música)
 - Grave em 30–35 Hz: ~+14 dB; corte −3 dB de 43 para 31 Hz; pico de 54 Hz vira leve reforço em ~37 Hz.
 - Filmes: explosões, trovões e trilha (25–50 Hz) com corpo e pressão; diálogo mais limpo. Abaixo de ~30 Hz o subsônico corta (limite de um 8").
@@ -114,6 +128,7 @@ Filmes: 44 → 78 (+77%) → 82 (+5%). Música: 49 → 73 (+49%) → 84 (+15%). 
 - **Volume baixo:** o ouvido escuta pouco abaixo de ~50 Hz com som baixo, então o ganho de 30–40 Hz aparece em volume médio/alto; em volume baixo melhora a definição. Para presença à noite: **memória "noite" no PRO 2.4** — sub +3 a +5 dB e, se quiser, shelf grave +3 dB abaixo de ~60 Hz; subsônico 30 Hz e limitador mantidos.
 
 ## Histórico de decisões
+- 2026-11-07: Execução em duas etapas: este mês o duto PVC (+ bobinas em série); próximo mês 4 placas de manta butílica 3 mm. Fita de telhado e espuma 10 mm descartadas.
 - 2026-11-07: Usuário informou que as bobinas (4+4 Ω) estão **em paralelo = 2 Ω** → ponte do SD800.4 (mínimo 4 Ω) **proibida**. Decisão recomendada: religar em **série = 8 Ω** e manter a ponte: ~264 W, alvo 46 V; aproveitar a abertura da caixa para a troca do duto. Com 264 W: cone ≤ ~6,6 mm a 30 Hz (subsônico 30 Hz) e ar no duto ~35–37 m/s. Conferir com multímetro: ~1,6–1,8 Ω hoje; ~6,5–7,2 Ω depois.
 - 2026-11-07 (revisão): ar no duto corrigido (~45 m/s a 400 W, não 10); subsônico de casa 28 → 30 Hz; alerta de excursão no carro sem subsônico; impedância nos terminais continua pendente (define 400 W × 200 W × ponte proibida).
 - 2026-11-07: Estudo da caixa ideal. Litragem atual (~28 L) mantida; sintonia alvo 36 Hz. Selada descartada.
