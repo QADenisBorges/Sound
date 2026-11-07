@@ -11,9 +11,9 @@ A caixa pronta do sub (≈28 L) já tem a litragem certa; o problema é o duto c
 
 ## Arquitetura
 ```
-Casa:  notebook → PRO 2.4 (LPF + subsônico 30 Hz/24 dB) → SD800.4 CH3/CH4 ponte 4 Ω → sub
-Carro: AVH-A208BT saída SW (LPF, sem subsônico) → SD800.4 CH3/CH4 ponte 4 Ω → sub
-GAIN do SD800.4: um ponto para cada lugar (marcar no knob; alvo 40 V em cada um)
+Casa:  notebook → PRO 2.4 (LPF + subsônico 30 Hz/24 dB) → SD800.4 CH3/CH4 ponte → sub em série 8 Ω
+Carro: AVH-A208BT saída SW (LPF, sem subsônico) → SD800.4 CH3/CH4 ponte → sub em série 8 Ω
+Bobinas 4+4 Ω religadas em SÉRIE = 8 Ω → ponte CH3/CH4 (~264 W). GAIN: um ponto para cada lugar (marcar no knob; alvo 46 V em cada um)
 ```
 
 ## Dimensionamento
@@ -52,7 +52,7 @@ Não servem: aero-dutos de 3" comuns (só 10–12 cm), tubo de chaminé (aço fi
 ## Ajustes depois da troca
 - **Casa:** subsônico no PRO 2.4 em **30 Hz, 24 dB/oit** (revisão: com 28 Hz o cone passa do Xmax a 400 W em ~30 Hz).
 - **Carro:** sem subsônico disponível → Bass Boost da multimídia em **0**; a Fb baixa já protege mais que a atual.
-- GAIN do SD800.4 regulado com tom + multímetro (alvo 40 V em ponte) em cada lugar.
+- GAIN do SD800.4 regulado com tom + multímetro (**alvo 46 V** em ponte com o sub em série, 8 Ω) em cada lugar.
 
 ## Riscos e cuidados
 - T/S do falante estimados: a varredura é quem confirma a Fb. Cortar sempre para mais curto, nunca colar antes de testar.
@@ -92,6 +92,7 @@ O PVC de ~30 cm é o maior duto reto que cabe sem chegar perto do ímã; é prat
 - **Volume baixo:** o ouvido escuta pouco abaixo de ~50 Hz com som baixo, então o ganho de 30–40 Hz aparece em volume médio/alto; em volume baixo melhora a definição. Para presença à noite: **memória "noite" no PRO 2.4** — sub +3 a +5 dB e, se quiser, shelf grave +3 dB abaixo de ~60 Hz; subsônico 30 Hz e limitador mantidos.
 
 ## Histórico de decisões
+- 2026-11-07: Usuário informou que as bobinas (4+4 Ω) estão **em paralelo = 2 Ω** → ponte do SD800.4 (mínimo 4 Ω) **proibida**. Decisão recomendada: religar em **série = 8 Ω** e manter a ponte: ~264 W, alvo 46 V; aproveitar a abertura da caixa para a troca do duto. Com 264 W: cone ≤ ~6,6 mm a 30 Hz (subsônico 30 Hz) e ar no duto ~35–37 m/s. Conferir com multímetro: ~1,6–1,8 Ω hoje; ~6,5–7,2 Ω depois.
 - 2026-11-07 (revisão): ar no duto corrigido (~45 m/s a 400 W, não 10); subsônico de casa 28 → 30 Hz; alerta de excursão no carro sem subsônico; impedância nos terminais continua pendente (define 400 W × 200 W × ponte proibida).
 - 2026-11-07: Estudo da caixa ideal. Litragem atual (~28 L) mantida; sintonia alvo 36 Hz. Selada descartada.
 - 2026-11-07: Sub + SD800.4 em ponte alternam entre casa e carro; mesma caixa para os dois.
