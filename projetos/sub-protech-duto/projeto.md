@@ -95,6 +95,18 @@ Caixa ideal = volume e sintonia livres, resposta plana (pico ≤ 1 dB), duto gra
 | Caixa atual como está | 12–19% | 24–28% | 49% | 81–87% | 100% (com pico) | 62–63% |
 Melhoria do PVC: de ~62% para ~90% do ideal (+28 pontos, ~+45% de desempenho). O que falta está abaixo de 35 Hz.
 
+## Melhoria audível estimada (07/11/2026)
+Estimativa de percepção (0–100, 100 = caixa ideal tratada), não medição. Base: duto atual (pico em ~54 Hz) com a última regulagem do carro (LPF 63 Hz, Bass Boost +1, Loudness Alto, EQ Sertanejo).
+| Aspecto | Atual | Duto PVC | Duto + manta asfáltica + fibra |
+|---|---|---|---|
+| Grave profundo (30–40 Hz) | 25 | 80 | 80 |
+| Controle (bumbo seco, sem "boom") | 40 | 75 | 85 |
+| Impacto / pressão | 50 | 80 | 83 |
+| Limpeza (sem som de caixa) | 60 | 62 | 85 |
+| Equilíbrio do grave | 45 | 80 | 83 |
+| **Média** | **44** | **75 (+70%)** | **83 (+11% sobre o duto)** |
+Filmes: 42 → 78 → 82. Música: 47 → 73 → 84. Tratamento: manta asfáltica em tampo/fundo/traseira (50–70% de cada), travessa de MDF no meio do vão, fibra/manta acústica 2–3 cm nas paredes, ≥ 7 cm livres na boca interna do duto.
+
 ## O que se ganha (filmes e música)
 - Grave em 30–35 Hz: ~+14 dB; corte −3 dB de 43 para 31 Hz; pico de 54 Hz vira leve reforço em ~37 Hz.
 - Filmes: explosões, trovões e trilha (25–50 Hz) com corpo e pressão; diálogo mais limpo. Abaixo de ~30 Hz o subsônico corta (limite de um 8").
