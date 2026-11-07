@@ -86,8 +86,12 @@ def duto(a):
     if a.sd and a.xmax:
         # velocidade de pico no duto na Fb (aprox.): v = 2π·f·Sd·Xmax / Aduto
         v = 2 * math.pi * a.fb * (a.sd / 1e4) * (a.xmax / 1e3) / (area_cm2 / 1e4)
-        aviso = "OK" if v < 17 else "ALTA — risco de ruído de sopro, aumente a área do duto"
-        print(f"Velocidade de pico estimada no duto (falante em Xmax): {fmt(v,1)} m/s → {aviso}")
+        # Esse valor é só um piso: perto da Fb o cone quase para e o duto carrega muito mais ar
+        # que Sd·Xmax — em potência nominal a simulação completa costuma dar 3–5× isso.
+        aviso = ("piso já ALTO — aumente a área do duto" if v >= 17 else
+                 "é só um PISO: a velocidade real em potência alta costuma ser 3–5× maior; "
+                 "simule (WinISD) e mire < 17 m/s com bocas retas ou < 25 m/s com bocas arredondadas")
+        print(f"Velocidade mínima no duto (cone em Xmax, aprox.): {fmt(v,1)} m/s → {aviso}")
     if lv > 100:
         print("Duto muito longo: considere diâmetro menor ou duto em fenda dobrado; verifique se cabe na caixa.")
 

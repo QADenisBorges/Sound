@@ -11,7 +11,7 @@ A caixa pronta do sub (≈28 L) já tem a litragem certa; o problema é o duto c
 
 ## Arquitetura
 ```
-Casa:  notebook → PRO 2.4 (LPF + subsônico 28 Hz/24 dB) → SD800.4 CH3/CH4 ponte 4 Ω → sub
+Casa:  notebook → PRO 2.4 (LPF + subsônico 30 Hz/24 dB) → SD800.4 CH3/CH4 ponte 4 Ω → sub
 Carro: AVH-A208BT saída SW (LPF, sem subsônico) → SD800.4 CH3/CH4 ponte 4 Ω → sub
 GAIN do SD800.4: um ponto para cada lugar (marcar no knob; alvo 40 V em cada um)
 ```
@@ -26,7 +26,7 @@ GAIN do SD800.4: um ponto para cada lugar (marcar no knob; alvo 40 V em cada um)
 | −3 dB | 43 Hz | 34 Hz | 31 Hz |
 | Nível em 35 Hz | −11,7 dB | −1,5 dB | +2,4 dB |
 | % da melhoria máxima | — | ~70% | ~100% |
-| Velocidade do ar | — | — | ~10 m/s (OK) |
+| Ar no duto a 400 W (pico) | ~43 m/s | ~43 m/s | ~46 m/s (limite de sopro: 17 retas / 25 arredondadas) |
 
 Selada foi descartada: com este falante (Qts ~0,5, 400 W) cortaria em ~70–80 Hz e tocaria ~6 dB abaixo.
 
@@ -50,7 +50,7 @@ Não servem: aero-dutos de 3" comuns (só 10–12 cm), tubo de chaminé (aço fi
 6. Cura de **24 h** antes de tocar alto.
 
 ## Ajustes depois da troca
-- **Casa:** subsônico no PRO 2.4 em **28 Hz, 24 dB/oit** (0,75–0,8 × Fb medida).
+- **Casa:** subsônico no PRO 2.4 em **30 Hz, 24 dB/oit** (revisão: com 28 Hz o cone passa do Xmax a 400 W em ~30 Hz).
 - **Carro:** sem subsônico disponível → Bass Boost da multimídia em **0**; a Fb baixa já protege mais que a atual.
 - GAIN do SD800.4 regulado com tom + multímetro (alvo 40 V em ponte) em cada lugar.
 
@@ -63,6 +63,28 @@ Não servem: aero-dutos de 3" comuns (só 10–12 cm), tubo de chaminé (aço fi
 - Modelo 3D: `../home-theater-2.1/caixa-sub-duto-3d.html`
 - Ficha do sub e histórico de medições: `../../componentes/subwoofers.md`
 
+## Revisão técnica (07/11/2026)
+Simulação eletroacústica completa (excursão, ar no duto e SPL máximo limitados por 400 W, Xmax 8 mm e 25 m/s no duto), em 4 cenários de T/S. O cenário mais coerente com a ficha (84 dB) é o do fórum do Light 8": **Fs 58 Hz, Qts 0,49, Vas 4,65 L** (sensibilidade calculada 84,3 dB); os de Fs 46 dão 82–83 dB. As conclusões valem para todos.
+
+**Confere:** caixa 25–28 L; duto atual 7,5 × 11,5 cm → Fb 52–56 Hz; PVC DI 7,1 cm; ~29–31 cm → 36 Hz; Fiamon 25,9 cm → 40–42 Hz.
+
+**Corrigido:**
+1. **Ar no duto** — antes "~10 m/s, OK" (fórmula simplificada, subestimava). Real a 400 W: **~42–46 m/s** em qualquer das três opções (o duto de 7 cm é pequeno para 400 W num 8"). Sem sopro até ~100 W em grave contínuo (~21 m/s); acima disso, em notas graves longas e volume muito alto, pode soprar/comprimir. Duto maior não cabe (dobrar a área dobra o comprimento). Atenua: **arredondar bem as duas bocas do PVC** e usar o limitador.
+2. **Subsônico de casa: 30 Hz** (não 28). Com 28 Hz o cone chega a 8,4–9,1 mm em 30 Hz a 400 W (Xmax 8); com 30 Hz, 7,5–8,2 mm.
+3. **Carro sem subsônico:** a 400 W o cone passa de 15–20 mm em 25–30 Hz (2× o Xmax) em qualquer duto. Volume alto com grave muito fundo no carro = risco real. Entre 35 e 45 Hz o duto novo protege mais (8–9 mm × 12–15 mm do atual).
+4. **Impedância ainda não medida:** bobina dupla 4+4 Ω. Série = 8 Ω → ponte a 40 V entrega ~200 W (seguro, −3 dB). Paralelo = 2 Ω → **ponte proibida**. O alvo "400 W / 40 V" só vale se o multímetro nos terminais da caixa der ~3,2–3,6 Ω (bobinas 2+2 em série). Medir antes de regular ganho.
+
+**Comparação com o máximo (SPL máximo a 1 m, cenário Fs 58; % = volume percebido em relação ao teto):**
+| | 30 Hz | 35 Hz | 40 Hz | 45–60 Hz |
+|---|---|---|---|---|
+| Teto (caixa de ~55 L, duto 12 cm × 55 cm, Fb 30) | 108 dB | 107 dB | 105 dB | 105 dB |
+| Melhor nesta caixa (Fb 32, duto 7,6 × 43 cm — esbarra no ímã) | 102 (66%) | 106 (94%) | 106 (100%) | 105–106 (100%) |
+| **PVC 36 Hz (escolhido)** | 99 (52%) | 103 (75%) | 106 (100%) | 106–107 (100%) |
+| Fiamon 40 Hz | 93 (34%) | 102 (71%) | 105 (100%) | 108 (100%) |
+| Duto atual + subsônico 42 Hz | 77 (12%) | 87 (26%) | 96 (54%) | 104–111 (100%) |
+
+O PVC de ~30 cm é o maior duto reto que cabe sem chegar perto do ímã; é praticamente o teto prático desta caixa. O teto absoluto exige o dobro do volume.
+
 ## O que se ganha (filmes e música)
 - Grave em 30–35 Hz: ~+14 dB; corte −3 dB de 43 para 31 Hz; pico de 54 Hz vira leve reforço em ~37 Hz.
 - Filmes: explosões, trovões e trilha (25–50 Hz) com corpo e pressão; diálogo mais limpo. Abaixo de ~28 Hz o subsônico corta (limite de um 8").
@@ -70,6 +92,7 @@ Não servem: aero-dutos de 3" comuns (só 10–12 cm), tubo de chaminé (aço fi
 - **Volume baixo:** o ouvido escuta pouco abaixo de ~50 Hz com som baixo, então o ganho de 30–40 Hz aparece em volume médio/alto; em volume baixo melhora a definição. Para presença à noite: **memória "noite" no PRO 2.4** — sub +3 a +5 dB e, se quiser, shelf grave +3 dB abaixo de ~60 Hz; subsônico 28 Hz e limitador mantidos.
 
 ## Histórico de decisões
+- 2026-11-07 (revisão): ar no duto corrigido (~45 m/s a 400 W, não 10); subsônico de casa 28 → 30 Hz; alerta de excursão no carro sem subsônico; impedância nos terminais continua pendente (define 400 W × 200 W × ponte proibida).
 - 2026-11-07: Estudo da caixa ideal. Litragem atual (~28 L) mantida; sintonia alvo 36 Hz. Selada descartada.
 - 2026-11-07: Sub + SD800.4 em ponte alternam entre casa e carro; mesma caixa para os dois.
 - 2026-11-07: Duto localizado na lateral direita (fotos) → tubo reto, sem joelho.

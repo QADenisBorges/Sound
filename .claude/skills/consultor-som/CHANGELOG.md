@@ -2,6 +2,12 @@
 
 Mantido pelo `revisor-som`. Entradas mais novas no topo. Backups em `../consultor-som-workspace/historico/`.
 
+## 2026-11-07 — correção técnica
+- O quê: `scripts/calc_som.py duto` — a velocidade no duto deixa de ser apresentada como "OK" e vira um piso, com aviso de que a real em potência alta costuma ser 3–5× maior.
+- Por quê: a fórmula 2π·Fb·Sd·Xmax/Aduto assume que o duto carrega o mesmo ar que o cone em Xmax; perto da Fb o cone quase para e o duto carrega bem mais. Um 8" de 400 W com duto de 7 cm dava "10 m/s, OK" quando o necessário é > 40 m/s.
+- Evidência: simulação eletroacústica completa (modelo de Small com excursão e duto) + conferência física: 108 dB a 35 Hz/1 m exigem ~0,12 m³/s rms, ou ~30 m/s rms num duto de 39,6 cm².
+- Snapshot: historico/2026-11-07_173229
+
 ## 2026-10-09 12:20 — segurança + lacuna de conhecimento
 - O quê: `references/residencial-hifi.md` (módulo automotivo em casa) — fontes "BOB" com bornes de 127/220 V na mesma régua da saída de 12 V: não tocar com o plugue na tomada, trimpot com chave isolada, tomada com terra; ponteiro para o ganho com DSP. `references/automotivo.md` §2 — subsônico em caixa dutada: por que (sem carga abaixo da Fb), onde (~0,7–0,8 × Fb, 24 dB/oit) e como achar a Fb de caixa pronta (varredura: na Fb o cone quase para). `evals/evals.json` — eval 6 ganhou asserção de cuidado com a rede.
 - Por quê: num guia de montagem, o ajuste do trimpot com a fonte energizada foi orientado sem aviso de que a mesma régua tem a rede exposta; e o subsônico foi fixado sem saber se a caixa pronta do sub era dutada. Os dois casos são comuns em home theater montado com peças de carro.
