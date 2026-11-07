@@ -84,7 +84,7 @@ O SD800.4 em ponte exige **≥ 4 Ω**. Medir com multímetro nos dois fios que s
 | Leitura | Bobinas / ligação | Ligação no SD800.4 | Potência | Alvo do GAIN (tom 50–60 Hz) |
 |---|---|---|---|---|
 | ~3,0–3,6 Ω | 2+2 em série = 4 Ω | ponte CH4 ⊕ / CH3 ⊖ | **400 W** | casa 40 V · carro ~28 V |
-| ~6,5–7,2 Ω | 4+4 em série = 8 Ω | ponte CH4 ⊕ / CH3 ⊖ | 264 W (−1,8 dB) | casa 46 V · carro ~33 V |
+| ~6,5–7,2 Ω | 4+4 em série = 8 Ω | ponte CH4 ⊕ / CH3 ⊖ | 264 W (−1,8 dB) | casa 46 V · carro ~40 V |
 | ~1,6–1,8 Ω | 4+4 em paralelo = 2 Ω | **não pode ir em ponte** → religar em série (8 Ω) | — | — |
 | ~0,8–0,9 Ω | 2+2 em paralelo = 1 Ω | **não pode** → religar em série (4 Ω) | — | — |
 Com 4+4, 264 W **não é falta de potência**: o 8" chega perto do Xmax antes disso nos graves de 40–60 Hz (estimativa abaixo); a diferença máxima é 1,8 dB.
