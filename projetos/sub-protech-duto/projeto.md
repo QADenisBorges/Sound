@@ -107,6 +107,29 @@ Estimativa de percepção (0–100, 100 = caixa ideal tratada), não medição. 
 | **Média** | **46** | **75 (+63%)** | **83 (+11% sobre o duto; +80% sobre o atual)** |
 Filmes: 44 → 78 (+77%) → 82 (+5%). Música: 49 → 73 (+49%) → 84 (+15%). Tratamento: manta asfáltica em tampo/fundo/traseira (50–70% de cada), travessa de MDF no meio do vão, fibra/manta acústica 2–3 cm nas paredes, ≥ 7 cm livres na boca interna do duto.
 
+## Status da montagem (atualizado 08/11/2026)
+**Feito:**
+- [x] Caixa aberta (tampa de trás). Falante conferido: etiqueta **4 Ω**, multímetro **3,7 Ω** → ponte 400 W, alvo 40 V.
+- [x] Duto atual: tubo preto de 11 cm (7,5 cm por dentro) na lateral, à altura do ímã.
+- [x] PVC Tigre 75 mm encaixado com a **bolsa por fora do duto preto**, silicone nessa junta.
+- [x] Corte: PVC com 39 cm para fora do duto → cortado 16 cm (total 35 cm) → folga até o ímã medida em **3 cm** → cortar mais 3 cm: **total 32 cm**, folga ~6 cm, Fb ≈ 36 Hz.
+- [x] Rebarbas da ponta removidas.
+
+**Este mês (antes de colar):**
+- [ ] Lixar a ponta livre do tubo (lixa 80 → 120/150): borda reta, arredondada ~2–3 mm por dentro e por fora; limpar o pó.
+- [ ] Vedar a junta PVC ↔ bolsa (anel de borracha da bolsa ou cordão de silicone).
+- [ ] Calço/abraçadeira perto da ponta (com a caixa deitada o tubo fica na horizontal); manter ≥ 2–3 cm do falante.
+- [ ] Fechar a tampa só com parafusos a cada ~10 cm + fita de vedação de espuma/borracha (bordas lascadas; lixar no mês que vem).
+- [ ] Varredura 25–60 Hz: cone quase parado em ~36 Hz (abaixo → cortar 1 cm por vez; 36–38 Hz → OK).
+- [ ] Colar o tubo e vedar as juntas de vez; ganho 40 V; subsônico 30 Hz (casa); limitador.
+
+**Próximo mês:**
+- [ ] 4 placas de manta butílica 3 mm (tampo, fundo, traseira); opcional travessa de MDF e fibra 2–3 cm.
+- [ ] Lixar/nivelar as bordas da tampa; fechar colado + silicone por dentro.
+- [ ] Repetir a varredura.
+
+Imagem de referência: `onde-medir-ima.jpg` (onde fica o ímã e onde medir a folga).
+
 ## Plano de execução (decidido em 07/11/2026)
 **Este mês — duto (e religação das bobinas):**
 1. Comprar: tubo PVC esgoto 75 mm (Tigre), silicone neutro, cola de contato/universal, lixa.
@@ -130,9 +153,10 @@ Descartados: fita butílica de telhado (fina, ~1,2 mm), espuma de célula fechad
 - **Volume baixo:** o ouvido escuta pouco abaixo de ~50 Hz com som baixo, então o ganho de 30–40 Hz aparece em volume médio/alto; em volume baixo melhora a definição. Para presença à noite: **memória "noite" no PRO 2.4** — sub +3 a +5 dB e, se quiser, shelf grave +3 dB abaixo de ~60 Hz; subsônico 30 Hz e limitador mantidos.
 
 ## Histórico de decisões
+- 2026-11-08: Instalação do duto: bolsa do PVC por fora do duto preto; total 35 cm medido, folga até o ímã 3 cm → corte de mais 3 cm (total 32 cm, folga ~6 cm, Fb ≈ 36 Hz). Usuário vai lixar a ponta do tubo este mês, antes de colar; tampa fecha com parafusos + fita até a manta.
 - 2026-11-07: Caixa aberta. Etiqueta do falante marca **4 Ω** (não 4+4) e o multímetro deu **3,7 Ω** → sub de 4 Ω: ponte liberada, 400 W, alvo **40 V**. Anula a religação em série/46 V. Duto atual: tubo preto nervurado na lateral, à altura do ímã → medir a folga até o ímã antes do corte.
-- 2026-11-07: Execução em duas etapas: este mês o duto PVC (+ bobinas em série); próximo mês 4 placas de manta butílica 3 mm. Fita de telhado e espuma 10 mm descartadas.
-- 2026-11-07: Usuário informou que as bobinas (4+4 Ω) estão **em paralelo = 2 Ω** → ponte do SD800.4 (mínimo 4 Ω) **proibida**. Decisão recomendada: religar em **série = 8 Ω** e manter a ponte: ~264 W, alvo 46 V; aproveitar a abertura da caixa para a troca do duto. Com 264 W: cone ≤ ~6,6 mm a 30 Hz (subsônico 30 Hz) e ar no duto ~35–37 m/s. Conferir com multímetro: ~1,6–1,8 Ω hoje; ~6,5–7,2 Ω depois.
+- 2026-11-07: Execução em duas etapas: este mês o duto PVC; próximo mês 4 placas de manta butílica 3 mm. Fita de telhado e espuma 10 mm descartadas.
+- 2026-11-07 (**anulado** pela medição de 3,7 Ω logo depois): Usuário informou que as bobinas (4+4 Ω) estão **em paralelo = 2 Ω** → ponte do SD800.4 (mínimo 4 Ω) **proibida**. Decisão recomendada: religar em **série = 8 Ω** e manter a ponte: ~264 W, alvo 46 V; aproveitar a abertura da caixa para a troca do duto. Com 264 W: cone ≤ ~6,6 mm a 30 Hz (subsônico 30 Hz) e ar no duto ~35–37 m/s. Conferir com multímetro: ~1,6–1,8 Ω hoje; ~6,5–7,2 Ω depois.
 - 2026-11-07 (revisão): ar no duto corrigido (~45 m/s a 400 W, não 10); subsônico de casa 28 → 30 Hz; alerta de excursão no carro sem subsônico; impedância nos terminais continua pendente (define 400 W × 200 W × ponte proibida).
 - 2026-11-07: Estudo da caixa ideal. Litragem atual (~28 L) mantida; sintonia alvo 36 Hz. Selada descartada.
 - 2026-11-07: Sub + SD800.4 em ponte alternam entre casa e carro; mesma caixa para os dois.
