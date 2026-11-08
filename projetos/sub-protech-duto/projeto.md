@@ -116,7 +116,7 @@ Filmes: 44 → 78 (+77%) → 82 (+5%). Música: 49 → 73 (+49%) → 84 (+15%). 
 - [x] Rebarbas da ponta removidas.
 
 **Este mês (antes de colar):**
-- [ ] Lixar a ponta livre do tubo (lixa 80 → 120/150): borda reta, arredondada ~2–3 mm por dentro e por fora; limpar o pó.
+- [ ] Lixar a ponta livre do tubo (lixa 80 → 120/150): borda reta e em meia-lua (a parede tem 2 mm: topo todo redondo, de dentro até fora — ver `borda-do-tubo.png`); limpar o pó.
 - [ ] Vedar a junta PVC ↔ bolsa (anel de borracha da bolsa ou cordão de silicone).
 - [ ] Calço/abraçadeira perto da ponta (com a caixa deitada o tubo fica na horizontal); manter ≥ 2–3 cm do falante.
 - [ ] Fechar a tampa só com parafusos a cada ~10 cm + fita de vedação de espuma/borracha (bordas lascadas; lixar no mês que vem).
