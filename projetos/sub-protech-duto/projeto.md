@@ -159,6 +159,7 @@ Uso em filme: volume de 50–70%. Sub: **subsônico 25 Hz, LR 24 dB/oit**; **lim
 - **Volume baixo:** o ouvido escuta pouco abaixo de ~50 Hz com som baixo, então o ganho de 30–40 Hz aparece em volume médio/alto; em volume baixo melhora a definição. Para presença à noite: **memória "noite" no PRO 2.4** — sub +3 a +5 dB e, se quiser, shelf grave +3 dB abaixo de ~60 Hz; subsônico 30 Hz e limitador mantidos.
 
 ## Histórico de decisões
+- 2026-11-09: Usuário vedou a caixa toda com silicone antes do teste (tampa inclusive) → teste com a caixa vedada; esperar a cura (mín. 2–3 h, ideal 24 h). No mês que vem, abrir cortando o cordão com estilete.
 - 2026-11-09: Ponta do tubo lixada (80 → 120/180) em meia-lua. Caixa fechada para o teste a seco com o gerador do PRO 2.4 (senoide fixa, ganho a partir de −30 dB, máx. −12 dB, 25 → 50 Hz). Se houver vazamento, medição definitiva fica para o mês que vem, com a caixa vedada. Opção registrada para o mês que vem: joelho 90° (~32–33 Hz). Sub ficará debaixo da mesa, ponta esquerda. Melhoria de sinal sugerida: trocar o Bluetooth do notebook por cabo P2→RCA (depois DAC USB se houver chiado).
 - 2026-11-09: Medida final antes da varredura: PVC 22 cm além do duto preto, folga 5 cm até o ímã. Sem mais cortes; a varredura decide (35–38 Hz = pronto).
 - 2026-11-08: Instalação do duto: bolsa do PVC por fora do duto preto; total 35 cm medido, folga até o ímã 3 cm → corte de mais 3 cm (total 32 cm, folga ~6 cm, Fb ≈ 36 Hz). Usuário vai lixar a ponta do tubo este mês, antes de colar; tampa fecha com parafusos + fita até a manta.
