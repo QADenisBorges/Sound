@@ -161,6 +161,14 @@ Base: leitura do aparelho de 27/10 20h33 no repositório `QADenisBorges/taramps-
 | Fase / atraso | 180° / 80 cm (posição antiga) | refazer com o sub na nova posição (tom de 150 Hz, 0° × 180°; distâncias reais) |
 Simulação: HPF 25 Hz LR24 → cone no Xmax com 26–33 V; 25 V cobre os três cenários. Volume de uso em filme: 50–70%. EQ gráfico: manter 25 e 40 Hz em 0 por enquanto. Memória de música (2): HPF 30 Hz LR24, limiter −6 dB (~40 V).
 
+## Preset "Ação Profunda" (EQ gráfico 15 bandas; 09/11/2026, duto novo)
+Sobre a memória 3 CINEMA. O EQ gráfico vale para as 4 saídas; abaixo de 150 Hz só o sub toca (JBL com HPF 150 LR24).
+| Banda | 25 | 40 | 63 | 100 | 160 | 250 | 400 | 630 | 1k | 1,6k | 2,5k | 4k | 6,3k | 10k | 16k |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| Ação v3 (27/10, duto antigo) | 0 | 0 | +1 | +1 | +1 | 0 | −1 | 0 | 0 | +1 | 0 | 0 | −1 | +2 | +1 |
+| **Ação Profunda** | +1 | +2 | +2 | +1 | +1 | −1 | −1 | 0 | 0 | +1 | 0 | +1 | −1 | +2 | +1 |
+Por quê: 25–40 Hz liberados pela Fb de 34,5 Hz (tremor/deslocamento de ar; HPF 25 LR24 + limitador 25 V protegem); 63 Hz peso/pressão no corpo; 100 Hz pancada; 160 corpo da voz; 250–400 limpam o embolado que o grave reforçado traria; 1,6 kHz e 4 kHz trazem palavra e ataque do bumbo; 6,3 kHz −1 segura a aspereza de tiros. Junto: limitadores das JBL de −12/−15 para −10/−10 (~12,5 V, ~39 W; HPF 150 LR24 protege o cone) para o som não "afundar" nas cenas de ação. Se embolar: 63 → +1. Se o limitador do sub acender o tempo todo: 40 → +1.
+
 ## O que se ganha (filmes e música)
 - Grave em 30–35 Hz: ~+14 dB; corte −3 dB de 43 para 31 Hz; pico de 54 Hz vira leve reforço em ~37 Hz.
 - Filmes: explosões, trovões e trilha (25–50 Hz) com corpo e pressão; diálogo mais limpo. Abaixo de ~30 Hz o subsônico corta (limite de um 8").
