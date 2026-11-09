@@ -169,6 +169,12 @@ Sobre a memória 3 CINEMA. O EQ gráfico vale para as 4 saídas; abaixo de 150 H
 | **Ação Profunda** | +1 | +2 | +2 | +1 | +1 | −1 | −1 | 0 | 0 | +1 | 0 | +1 | −1 | +2 | +1 |
 Por quê: 25–40 Hz liberados pela Fb de 34,5 Hz (tremor/deslocamento de ar; HPF 25 LR24 + limitador 25 V protegem); 63 Hz peso/pressão no corpo; 100 Hz pancada; 160 corpo da voz; 250–400 limpam o embolado que o grave reforçado traria; 1,6 kHz e 4 kHz trazem palavra e ataque do bumbo; 6,3 kHz −1 segura a aspereza de tiros. Junto: limitadores das JBL de −12/−15 para −10/−10 (~12,5 V, ~39 W; HPF 150 LR24 protege o cone) para o som não "afundar" nas cenas de ação. Se embolar: 63 → +1. Se o limitador do sub acender o tempo todo: 40 → +1.
 
+## Preset "Tremor" (foco em 25–40 Hz sentido no corpo; 09/11/2026)
+| Banda | 25 | 40 | 63 | 100 | 160 | 250 | 400 | 630 | 1k | 1,6k | 2,5k | 4k | 6,3k | 10k | 16k |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| **Tremor** | +2 | +2 | +1 | 0 | +1 | −1 | −1 | 0 | 0 | +1 | 0 | 0 | −1 | +2 | +1 |
+Sub (canais 3/4) na CINEMA para o Tremor: HPF **22 Hz LR24** + limitador **−11,5 dB (~21 V)** (simulação: Xmax com 21–28 V). +1,9 dB em 25 Hz e +1,2 dB em 30 Hz contra HPF 25. Ordem de ganho real no corpo: (1) LFE chegando (downmix com LFE no notebook); (2) sub perto de onde deitam (≤ 1 m: +6 dB ou mais); (3) EQ Tremor + HPF 22; (4) joelho no duto (Fb ~32 Hz, +2 dB em 30 Hz); (5) futuro: transdutor tátil (bass shaker) — o TS400x4 do carro poderia alimentá-lo em casa.
+
 ## O que se ganha (filmes e música)
 - Grave em 30–35 Hz: ~+14 dB; corte −3 dB de 43 para 31 Hz; pico de 54 Hz vira leve reforço em ~37 Hz.
 - Filmes: explosões, trovões e trilha (25–50 Hz) com corpo e pressão; diálogo mais limpo. Abaixo de ~30 Hz o subsônico corta (limite de um 8").
