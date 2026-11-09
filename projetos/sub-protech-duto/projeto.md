@@ -127,7 +127,9 @@ Filmes: 44 → 78 (+77%) → 82 (+5%). Música: 49 → 73 (+49%) → 84 (+15%). 
 **Próximo mês:**
 - [ ] 4 placas de manta butílica 3 mm (tampo, fundo, traseira); opcional travessa de MDF e fibra 2–3 cm.
 - [ ] Lixar/nivelar as bordas da tampa; fechar colado + silicone por dentro.
-- [ ] Repetir a varredura.
+- [ ] Opcional — **joelho 90° de PVC esgoto 75 mm** na ponta do tubo, virado para cima (longe do ímã), boca com ≥ 7 cm livres: +8–10 cm de caminho → Fb ≈ 32–33 Hz, ~+2 dB em 30 Hz (de ~52% para ~66% do teto em 30 Hz). Custo: mais excursão perto de 30 Hz → usar com memória "Filme" (subsônico 25 Hz + limitador 25 V) e música com subsônico 28 Hz. Reversível. Ver o botão "joelho" no modelo 3D.
+- [ ] Vedar de vez: silicone nas frestas do corpo; tampa com silicone/cola depois da manta.
+- [ ] Repetir a varredura (com caixa toda vedada).
 
 Imagem de referência: `onde-medir-ima.jpg` (onde fica o ímã e onde medir a folga).
 
@@ -157,6 +159,7 @@ Uso em filme: volume de 50–70%. Sub: **subsônico 25 Hz, LR 24 dB/oit**; **lim
 - **Volume baixo:** o ouvido escuta pouco abaixo de ~50 Hz com som baixo, então o ganho de 30–40 Hz aparece em volume médio/alto; em volume baixo melhora a definição. Para presença à noite: **memória "noite" no PRO 2.4** — sub +3 a +5 dB e, se quiser, shelf grave +3 dB abaixo de ~60 Hz; subsônico 30 Hz e limitador mantidos.
 
 ## Histórico de decisões
+- 2026-11-09: Ponta do tubo lixada (80 → 120/180) em meia-lua. Caixa fechada para o teste a seco com o gerador do PRO 2.4 (senoide fixa, ganho a partir de −30 dB, máx. −12 dB, 25 → 50 Hz). Se houver vazamento, medição definitiva fica para o mês que vem, com a caixa vedada. Opção registrada para o mês que vem: joelho 90° (~32–33 Hz). Sub ficará debaixo da mesa, ponta esquerda. Melhoria de sinal sugerida: trocar o Bluetooth do notebook por cabo P2→RCA (depois DAC USB se houver chiado).
 - 2026-11-09: Medida final antes da varredura: PVC 22 cm além do duto preto, folga 5 cm até o ímã. Sem mais cortes; a varredura decide (35–38 Hz = pronto).
 - 2026-11-08: Instalação do duto: bolsa do PVC por fora do duto preto; total 35 cm medido, folga até o ímã 3 cm → corte de mais 3 cm (total 32 cm, folga ~6 cm, Fb ≈ 36 Hz). Usuário vai lixar a ponta do tubo este mês, antes de colar; tampa fecha com parafusos + fita até a manta.
 - 2026-11-07: Caixa aberta. Etiqueta do falante marca **4 Ω** (não 4+4) e o multímetro deu **3,7 Ω** → sub de 4 Ω: ponte liberada, 400 W, alvo **40 V**. Anula a religação em série/46 V. Duto atual: tubo preto nervurado na lateral, à altura do ímã → medir a folga até o ímã antes do corte.
