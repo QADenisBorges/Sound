@@ -149,8 +149,17 @@ Imagem de referência: `onde-medir-ima.jpg` (onde fica o ímã e onde medir a fo
 
 Descartados: fita butílica de telhado (fina, ~1,2 mm), espuma de célula fechada 10 mm com alumínio (não amortece, reflete e ocupa ~4 L).
 
-## Memória "Cinema" (filme) do PRO 2.4 (09/11/2026)
-Uso em filme: volume de 50–70%. Sub: **subsônico 25 Hz, LR 24 dB/oit**; **limitador das saídas do sub calibrado para 25 V** nos bornes do sub (tom de 40 Hz no volume máximo, baixar o limiar até o multímetro marcar 25 V). Simulação: com subsônico 25 Hz o cone chega ao Xmax (8 mm) com 25–32 V; 70% de volume fica abaixo disso, e o limitador cobre quem passar de 70%. Ganho sobre a memória de 30 Hz: +2,6 dB em 30 Hz e +3,8 dB em 25 Hz. Nível do sub: +2 a +3 dB em relação à memória de música (o limitador segura o pico). Memória de música/volume alto continua com subsônico 30 Hz e limitador em 40 V.
+## Memória "Cinema" do PRO 2.4 (memória 3; revisada 09/11/2026)
+Base: leitura do aparelho de 27/10 20h33 no repositório `QADenisBorges/taramps-automacao` (`estado/backups/2026-10-27_2033-3.json`, `_bmad-output/regulagem/presets-filme.md`). Calibração medida lá em 18/10: limiar −6 dB → 40,6 V; −9 dB → 28,6 V; −12 dB → 20 V nos bornes do sub (V ≈ 40,6 × 10^((L+6)/20)).
+
+| Item (canais 3 e 4, iguais) | Estava (duto antigo, Fb 51) | Agora (duto novo, Fb ≈ 34,5) |
+|---|---|---|
+| HPF | 45 Hz BT24 | **25 Hz LR24** |
+| LPF | 150 Hz LR24 | 150 Hz LR24 (casa com o HPF 150 LR24 das JBL) |
+| Limitador | −15 dB (~14 V, ~50 W) · ataque 15 ms · release 200 ms | **−10 dB (~25 V)** · ataque 15 ms · release 200 ms |
+| EQ de saída 45 Hz | 0 dB | 0 dB (não voltar o +3) |
+| Fase / atraso | 180° / 80 cm (posição antiga) | refazer com o sub na nova posição (tom de 150 Hz, 0° × 180°; distâncias reais) |
+Simulação: HPF 25 Hz LR24 → cone no Xmax com 26–33 V; 25 V cobre os três cenários. Volume de uso em filme: 50–70%. EQ gráfico: manter 25 e 40 Hz em 0 por enquanto. Memória de música (2): HPF 30 Hz LR24, limiter −6 dB (~40 V).
 
 ## O que se ganha (filmes e música)
 - Grave em 30–35 Hz: ~+14 dB; corte −3 dB de 43 para 31 Hz; pico de 54 Hz vira leve reforço em ~37 Hz.
