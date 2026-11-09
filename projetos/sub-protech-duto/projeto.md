@@ -128,6 +128,14 @@ Filmes: 44 → 78 (+77%) → 82 (+5%). Música: 49 → 73 (+49%) → 84 (+15%). 
 - [ ] 4 placas de manta butílica 3 mm (tampo, fundo, traseira); opcional travessa de MDF e fibra 2–3 cm.
 - [ ] Lixar/nivelar as bordas da tampa; fechar colado + silicone por dentro.
 - [ ] Repetir a varredura.
+- [ ] (Opcional, decidir depois da varredura deste mês) Joelho 90° PVC esgoto 75 na ponta — ver "Análise do joelho 90°".
+
+## Análise do joelho 90° (09/11/2026)
+- Conta (Small, k 0,732, DI 7,1): hoje ≈ 31,9 cm equivalentes → 34,5–36 Hz (25–27 L). Com +8–10 cm de caminho → **31–32,5 Hz**; com +4–6 cm → **~33–34 Hz**.
+- **Pegadinha da folga:** o joelho encaixa pela bolsa na ponta do PVC e a parede externa da curva avança ~R + D/2 (≈ 8–11 cm, conferir na peça) além da ponta. Só há 5 cm até o ímã (a parede do joelho pode chegar a ~1,5–2 cm do ímã; a boca não). Se avançar mais, o PVC reto tem de ser encurtado e o ganho líquido cai para ~4–6 cm (Fb ~33–34 Hz).
+- Boca virada (para o tampo, fundo ou traseira) precisa de ≥ 7 cm livres na frente: medir a distância do eixo do tubo até a parede para onde ele vai virar.
+- Ganho: ~+2–3 dB em 30–35 Hz, útil na memória "Filme" (subsônico 25 Hz); na memória de música (subsônico 30 Hz) quase não aparece. Curva + junta a mais: mais turbulência (arredondar a boca do joelho), ~0,3–0,4 L ocupados (+~0,3 Hz).
+- Critério: fazer só se a varredura der Fb ≥ 37 Hz **ou** se a medida do joelho na loja mostrar ganho líquido ≥ 7 cm sem encostar no ímã. Se fizer: mesma abertura da manta, varredura única no fim, apoio (anel espaçador) passa para perto do joelho. Custo: joelho R$ 8–15 (estimativa).
 
 Imagem de referência: `onde-medir-ima.jpg` (onde fica o ímã e onde medir a folga).
 
@@ -157,6 +165,7 @@ Uso em filme: volume de 50–70%. Sub: **subsônico 25 Hz, LR 24 dB/oit**; **lim
 - **Volume baixo:** o ouvido escuta pouco abaixo de ~50 Hz com som baixo, então o ganho de 30–40 Hz aparece em volume médio/alto; em volume baixo melhora a definição. Para presença à noite: **memória "noite" no PRO 2.4** — sub +3 a +5 dB e, se quiser, shelf grave +3 dB abaixo de ~60 Hz; subsônico 30 Hz e limitador mantidos.
 
 ## Histórico de decisões
+- 2026-11-09: Análise do joelho 90° para o próximo mês: opcional, condicionado à varredura e à medida real do joelho (folga até o ímã de 5 cm pode reduzir o ganho para ~33–34 Hz). Manta continua a prioridade do próximo mês.
 - 2026-11-09: Medida final antes da varredura: PVC 22 cm além do duto preto, folga 5 cm até o ímã. Sem mais cortes; a varredura decide (35–38 Hz = pronto).
 - 2026-11-08: Instalação do duto: bolsa do PVC por fora do duto preto; total 35 cm medido, folga até o ímã 3 cm → corte de mais 3 cm (total 32 cm, folga ~6 cm, Fb ≈ 36 Hz). Usuário vai lixar a ponta do tubo este mês, antes de colar; tampa fecha com parafusos + fita até a manta.
 - 2026-11-07: Caixa aberta. Etiqueta do falante marca **4 Ω** (não 4+4) e o multímetro deu **3,7 Ω** → sub de 4 Ω: ponte liberada, 400 W, alvo **40 V**. Anula a religação em série/46 V. Duto atual: tubo preto nervurado na lateral, à altura do ímã → medir a folga até o ímã antes do corte.
