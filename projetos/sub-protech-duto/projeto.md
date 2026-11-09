@@ -121,7 +121,7 @@ Filmes: 44 → 78 (+77%) → 82 (+5%). Música: 49 → 73 (+49%) → 84 (+15%). 
 - [ ] Vedar a junta PVC ↔ bolsa (anel de borracha da bolsa ou cordão de silicone).
 - [ ] Apoio da ponta: anel espaçador cortado do retalho de PVC (altura = distância tubo–painel), 2 furos, abraçadeira plástica + silicone — ver `anel-espacador.png` (sem madeira disponível). Calço/abraçadeira perto da ponta (com a caixa deitada o tubo fica na horizontal); manter ≥ 2–3 cm do falante.
 - [ ] Fechar a tampa só com parafusos a cada ~10 cm + fita de vedação de espuma/borracha (bordas lascadas; lixar no mês que vem).
-- [ ] Varredura 25–60 Hz: cone quase parado em ~36 Hz (abaixo → cortar 1 cm por vez; 36–38 Hz → OK).
+- [x] (09/11) Varredura medida: **Fb ≈ 34–35 Hz** (cone mais parado em 34, ar um pouco mais forte em 35). Primeira tentativa invalidada pelo HPF das saídas 3/4 em 45 Hz BT24 (ajuste antigo). Sem novo corte. — Varredura 25–60 Hz: cone quase parado em ~36 Hz (abaixo → cortar 1 cm por vez; 36–38 Hz → OK).
 - [ ] Colar o tubo e vedar as juntas de vez; ganho 40 V; subsônico 30 Hz (casa); limitador.
 
 **Próximo mês:**
@@ -159,6 +159,7 @@ Uso em filme: volume de 50–70%. Sub: **subsônico 25 Hz, LR 24 dB/oit**; **lim
 - **Volume baixo:** o ouvido escuta pouco abaixo de ~50 Hz com som baixo, então o ganho de 30–40 Hz aparece em volume médio/alto; em volume baixo melhora a definição. Para presença à noite: **memória "noite" no PRO 2.4** — sub +3 a +5 dB e, se quiser, shelf grave +3 dB abaixo de ~60 Hz; subsônico 30 Hz e limitador mantidos.
 
 ## Histórico de decisões
+- 2026-11-09: **Resultado da varredura: Fb ≈ 34,5 Hz** (gerador do PRO 2.4, ganho −20, HPF 10 Hz só no teste). Dentro do esperado (35–38, um pouco abaixo dos 36 calculados). Decisão: não cortar (+1 cm cortado daria ~35,5 Hz; não compensa abrir a caixa vedada). Proteção recalculada para Fb 34,5: HPF 30 Hz LR24 → Xmax com 34–42 V; HPF 25 Hz LR24 → 26–33 V → memória "Filme" mantém limitador em 25 V. Achado: HPF dos canais 3/4 estava em 45 Hz BT24 e LPF em 150 Hz LR24 (ajustes do duto antigo); LPF a revisar junto com os canais 1/2 (cruzamento 80–120 Hz).
 - 2026-11-09: Usuário vedou a caixa toda com silicone antes do teste (tampa inclusive) → teste com a caixa vedada; esperar a cura (mín. 2–3 h, ideal 24 h). No mês que vem, abrir cortando o cordão com estilete.
 - 2026-11-09: Ponta do tubo lixada (80 → 120/180) em meia-lua. Caixa fechada para o teste a seco com o gerador do PRO 2.4 (senoide fixa, ganho a partir de −30 dB, máx. −12 dB, 25 → 50 Hz). Se houver vazamento, medição definitiva fica para o mês que vem, com a caixa vedada. Opção registrada para o mês que vem: joelho 90° (~32–33 Hz). Sub ficará debaixo da mesa, ponta esquerda. Melhoria de sinal sugerida: trocar o Bluetooth do notebook por cabo P2→RCA (depois DAC USB se houver chiado).
 - 2026-11-09: Medida final antes da varredura: PVC 22 cm além do duto preto, folga 5 cm até o ímã. Sem mais cortes; a varredura decide (35–38 Hz = pronto).
