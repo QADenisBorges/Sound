@@ -113,6 +113,7 @@ Filmes: 44 → 78 (+77%) → 82 (+5%). Música: 49 → 73 (+49%) → 84 (+15%). 
 - [x] Duto atual: tubo preto de 11 cm (7,5 cm por dentro) na lateral, à altura do ímã.
 - [x] PVC Tigre 75 mm encaixado com a **bolsa por fora do duto preto**, silicone nessa junta.
 - [x] Corte: PVC com 39 cm para fora do duto → cortado 16 cm (total 35 cm) → folga até o ímã medida em **3 cm** → cortar mais 3 cm: **total 32 cm**, folga ~6 cm, Fb ≈ 36 Hz.
+- [x] Conferido (09/11): PVC **22 cm além do duto preto** (total ≈ 33 cm com os 11 cm do duto, que equivalem a ~9,9 cm de PVC por serem mais largos) e **5 cm de folga** até o ímã → Fb estimada ≈ 36 Hz. Degrau interno na bolsa (duto 7,5 → PVC 7,1 + canaleta do anel): sem vazamento, impacto desprezível.
 - [x] Rebarbas da ponta removidas.
 
 **Este mês (antes de colar):**
@@ -153,6 +154,7 @@ Descartados: fita butílica de telhado (fina, ~1,2 mm), espuma de célula fechad
 - **Volume baixo:** o ouvido escuta pouco abaixo de ~50 Hz com som baixo, então o ganho de 30–40 Hz aparece em volume médio/alto; em volume baixo melhora a definição. Para presença à noite: **memória "noite" no PRO 2.4** — sub +3 a +5 dB e, se quiser, shelf grave +3 dB abaixo de ~60 Hz; subsônico 30 Hz e limitador mantidos.
 
 ## Histórico de decisões
+- 2026-11-09: Medida final antes da varredura: PVC 22 cm além do duto preto, folga 5 cm até o ímã. Sem mais cortes; a varredura decide (35–38 Hz = pronto).
 - 2026-11-08: Instalação do duto: bolsa do PVC por fora do duto preto; total 35 cm medido, folga até o ímã 3 cm → corte de mais 3 cm (total 32 cm, folga ~6 cm, Fb ≈ 36 Hz). Usuário vai lixar a ponta do tubo este mês, antes de colar; tampa fecha com parafusos + fita até a manta.
 - 2026-11-07: Caixa aberta. Etiqueta do falante marca **4 Ω** (não 4+4) e o multímetro deu **3,7 Ω** → sub de 4 Ω: ponte liberada, 400 W, alvo **40 V**. Anula a religação em série/46 V. Duto atual: tubo preto nervurado na lateral, à altura do ímã → medir a folga até o ímã antes do corte.
 - 2026-11-07: Execução em duas etapas: este mês o duto PVC; próximo mês 4 placas de manta butílica 3 mm. Fita de telhado e espuma 10 mm descartadas.
