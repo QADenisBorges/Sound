@@ -149,7 +149,7 @@ Imagem de referência: `onde-medir-ima.jpg` (onde fica o ímã e onde medir a fo
 
 Descartados: fita butílica de telhado (fina, ~1,2 mm), espuma de célula fechada 10 mm com alumínio (não amortece, reflete e ocupa ~4 L).
 
-## Memória "Filme" do PRO 2.4 (09/11/2026)
+## Memória "Cinema" (filme) do PRO 2.4 (09/11/2026)
 Uso em filme: volume de 50–70%. Sub: **subsônico 25 Hz, LR 24 dB/oit**; **limitador das saídas do sub calibrado para 25 V** nos bornes do sub (tom de 40 Hz no volume máximo, baixar o limiar até o multímetro marcar 25 V). Simulação: com subsônico 25 Hz o cone chega ao Xmax (8 mm) com 25–32 V; 70% de volume fica abaixo disso, e o limitador cobre quem passar de 70%. Ganho sobre a memória de 30 Hz: +2,6 dB em 30 Hz e +3,8 dB em 25 Hz. Nível do sub: +2 a +3 dB em relação à memória de música (o limitador segura o pico). Memória de música/volume alto continua com subsônico 30 Hz e limitador em 40 V.
 
 ## O que se ganha (filmes e música)
