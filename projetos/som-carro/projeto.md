@@ -119,3 +119,28 @@ SD800.4 CH1/CH2: 23 V · SD800.4 ponte: 40 V · TS400x4 CH1/CH2: ≤ 6,3 V · TS
 - 2026-11-07: Sub Protech 8" + SD800.4 em ponte **alternam entre casa e carro** (usuário). Caixa única: 28 L, duto 7 cm alongado para ~27 cm (Fb ≈36 Hz) serve aos dois. Casa: subsônico 28 Hz/24 dB no PRO 2.4. Carro: sem subsônico (multimídia não tem) → Bass Boost 0; Fb baixa protege melhor que a atual de 52 Hz. GAIN do SD800.4 tem dois pontos (casa ≠ carro): marcar os dois no knob e regular com tom + multímetro (alvo 40 V) em cada lugar.
 - 2026-11-07: Sub com bobinas **em paralelo (2 Ω)** → ponte proibida. Religar em **série (8 Ω)**: ponte ~264 W, **alvo 46 V** (substitui 40 V/400 W). Subsônico de casa 30 Hz. Ver `projetos/sub-protech-duto/projeto.md`.
 - 2026-11-07: Caixa aberta: sub de **4 Ω** (etiqueta + 3,7 Ω medido) → ponte 400 W, **alvo 40 V** volta a valer (a nota sobre série/46 V fica anulada).
+- 2026-11-17: Alimentação fechada. Barramento **sem fusível** (1 × 4, positivo) no porta-malas; proteção por ramal: fusível 60 A na bateria (protege o 10 mm² principal e o ramal do SD800.4), **disjuntor 20 A** no ramal do TS400x4 (manual: fusível/disjuntor externo 20 A, cabo ≥ 4 mm²; sem fusível no corpo), **fusível de vidro 5x20 T1A** no ramal do PRO 2.4 (manual: 1 A; consumo 70–200 mA — vidro aceitável nessa corrente). Terra: os três negativos no mesmo parafuso da lataria. Lista de compras abaixo.
+
+## Lista de compras — alimentação (17/11/2026)
+Cabos: **cobre 100 % (OFC), flexível classe 5, nunca CCA.** Alternativa confiável e barata ao "cabo de som": cabo flexível 750 V de marca com selo Inmetro (Sil, Cobrecom, Corfio etc.), bitola real garantida. Vermelho = positivo, preto = negativo. Quantidades já com sobra.
+
+| Item | Qtde | Especificação |
+|---|---|---|
+| Cabo vermelho 10 mm² | 6 m | Bateria → barramento (5 m) + barramento → SD800.4 (0,3 m). Se o cabo atual do SD for OFC e tiver o comprimento, reaproveitar |
+| Cabo preto 10 mm² | 1 m | SD800.4 → lataria (0,3 m) |
+| Cabo vermelho 6 mm² | 1 m | Barramento → disjuntor (~0,1 m), disjuntor → TS400x4 (0,3 m), ponte do PRO (~0,1 m) |
+| Cabo preto 6 mm² | 1 m | TS400x4 → lataria (0,3 m) |
+| Cabo vermelho e preto 1,5 mm² | 1 m de cada | PRO 2.4 + / − (0,3 m cada) |
+| Cabo REM 0,75 mm² (azul) | 6 m | Multimídia → PRO REM IN (~4–5 m) + REM OUT → módulos (~1 m) |
+| Porta-fusível mini ANL ou ANL, com tampa | 1 | Bateria, até 30 cm do borne. Nunca AGU (vidro). Reaproveitar o fusível externo atual do SD se for desse tipo |
+| Fusível 60 A (mesmo tipo do porta-fusível) | 2 | 1 + reserva |
+| Barramento 1 × 4 (Technoise ou Ophera) | 1 | Só positivo, latão niquelado, com tampa e **redutores** (entrada 4 AWG, saídas 4/8 AWG) |
+| Disjuntor 20 A "Type A" | 1 | Ramal do TS400x4, colado no barramento (BAT/LINE → barramento) |
+| Porta-fusível inline 5x20 | 1 | Ramal do PRO, colado no barramento (já existe o porta-fusível do PRO; reaproveitar) |
+| Fusível vidro 5x20 **T1A** (retardado) | 3 | 1 + reservas |
+| Emenda de redução 6 → 1,5 mm² | 1 | Ponte 6 mm² → fio do porta-fusível (ou solda + termorretrátil) |
+| Terminal ilhós 10 / 6 / 1,5 mm² | ~10 / 10 / 10 | Pontas nos bornes Allen (barramento, disjuntor, módulos, porta-fusível) |
+| Terminal olhal 10 / 6 / 1,5 mm² (furo M8) | 2 / 2 / 2 | Terra na lataria + borne da bateria |
+| Parafuso M8 + porca + arruela estrela | 1 jogo | Ponto de terra (lataria raspada) |
+| Passa-fio de borracha (grommet) | 1–2 | Onde o 10 mm² atravessa chapa |
+| Conduíte corrugado, termorretrátil e abraçadeiras | — | Proteger o cabo de 5 m (sob carpete/soleira), longe do chicote do carro e dos RCA |
