@@ -135,7 +135,7 @@ Cabos: **cobre 100 % (OFC), flexível classe 5, nunca CCA.** Alternativa confiá
 | ~~Porta-fusível + fusível 60 A~~ | — | **Não comprar: reaproveitar o disjuntor 60 A que o usuário já tem** (bateria, até 30 cm do borne, fixado longe do calor do motor e protegido de água) |
 | Barramento 1 × 4 (Technoise ou Ophera) | 1 | Só positivo, latão niquelado, com tampa e **redutores** (entrada 4 AWG, saídas 4/8 AWG) |
 | Disjuntor 20 A "Type A" | 1 | Ramal do TS400x4, colado no barramento (BAT/LINE → barramento) |
-| Porta-fusível inline 5x20 | 1 | Ramal do PRO, colado no barramento (já existe o porta-fusível do PRO; reaproveitar) |
+| Porta-fusível inline 5x20 (com tampa de rosca, fio ≥ 1 mm²) | 1 | Ramal do PRO, colado no barramento — **comprar** (corrigido pelo usuário em 17/11) |
 | Fusível vidro 5x20 **T1A** (retardado) | 3 | 1 + reservas |
 | Emenda de redução 6 → 1,5 mm² | 1 | Ponte 6 mm² → fio do porta-fusível (ou solda + termorretrátil) |
 | Terminal ilhós 10 / 6 / 1,5 mm² | ~10 / 10 / 10 | Pontas nos bornes Allen (barramento, disjuntor, módulos, porta-fusível) |
