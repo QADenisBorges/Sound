@@ -131,16 +131,15 @@ Cabos: **cobre 100 % (OFC), flexível classe 5, nunca CCA.** Alternativa confiá
 | Cabo vermelho 6 mm² | 1 m | Barramento → disjuntor (~0,1 m), disjuntor → TS400x4 (0,3 m), ponte do PRO (~0,1 m) |
 | Cabo preto 6 mm² | 1 m | TS400x4 → lataria (0,3 m) |
 | Cabo vermelho e preto 1,5 mm² | 1 m de cada | PRO 2.4 + / − (0,3 m cada) |
-| Cabo REM 0,75 mm² (azul) | 6 m | Multimídia → PRO REM IN (~4–5 m) + REM OUT → módulos (~1 m) |
-| Porta-fusível mini ANL ou ANL, com tampa | 1 | Bateria, até 30 cm do borne. Nunca AGU (vidro). Reaproveitar o fusível externo atual do SD se for desse tipo |
-| Fusível 60 A (mesmo tipo do porta-fusível) | 2 | 1 + reserva |
+| Cabo REM 0,75 mm² (azul) | 1 m | REM OUT do PRO → REM dos dois módulos (o trecho multimídia → porta-malas vai no fio remote do RCA) |
+| ~~Porta-fusível + fusível 60 A~~ | — | **Não comprar: reaproveitar o disjuntor 60 A que o usuário já tem** (bateria, até 30 cm do borne, fixado longe do calor do motor e protegido de água) |
 | Barramento 1 × 4 (Technoise ou Ophera) | 1 | Só positivo, latão niquelado, com tampa e **redutores** (entrada 4 AWG, saídas 4/8 AWG) |
 | Disjuntor 20 A "Type A" | 1 | Ramal do TS400x4, colado no barramento (BAT/LINE → barramento) |
 | Porta-fusível inline 5x20 | 1 | Ramal do PRO, colado no barramento (já existe o porta-fusível do PRO; reaproveitar) |
 | Fusível vidro 5x20 **T1A** (retardado) | 3 | 1 + reservas |
 | Emenda de redução 6 → 1,5 mm² | 1 | Ponte 6 mm² → fio do porta-fusível (ou solda + termorretrátil) |
 | Terminal ilhós 10 / 6 / 1,5 mm² | ~10 / 10 / 10 | Pontas nos bornes Allen (barramento, disjuntor, módulos, porta-fusível) |
-| Terminal olhal 10 / 6 / 1,5 mm² (furo M8) | 2 / 2 / 2 | Terra na lataria + borne da bateria |
+| Terminal olhal 10 / 6 / 1,5 mm² (furo M8) | 3 / 2 / 2 | Terra na lataria + borne da bateria (10 mm²); conferir se os bornes do disjuntor 60 A pedem olhal ou ilhós |
 | Parafuso M8 + porca + arruela estrela | 1 jogo | Ponto de terra (lataria raspada) |
 | Passa-fio de borracha (grommet) | 1–2 | Onde o 10 mm² atravessa chapa |
 | Conduíte corrugado, termorretrátil e abraçadeiras | — | Proteger o cabo de 5 m (sob carpete/soleira), longe do chicote do carro e dos RCA |
@@ -157,3 +156,5 @@ Roteamento: multimídia FL/FR → PRO 2.4 (ESV 200 via SD800.4 CH1/CH2 + tweeter
 | Cabo paralelo 1,5 mm² | ~16 m | TS400x4 CH1/CH2 → tweeters (~5 m cada) + CH3/CH4 → 6TR4A (portas traseiras, ~3 m cada) |
 
 RCA: dupla blindagem, condutor de cobre, plugues metálicos firmes. Passar RCA e alimentação por **lados opostos** do carro. Comprimentos estimados — medir o caminho real (painel → porta-malas pela soleira) antes de comprar.
+- 2026-11-17: **Tweeters JBL 1TWRMS80 vão substituir os Bravox** (mesmos canais: PRO S3/S4 → TS400x4 CH1/CH2). Descartados: JBL junto com Bravox na frente (dois tweeters na mesma faixa), JBL atrás (6TR4A já é triaxial; puxa o palco para trás) e processador/módulo extra. Pendente: impedância do JBL, capacitor/divisor próprio, nova tensão alvo do ganho. Bravox ficam de reserva. Barramento 1 × 4 suficiente (1 saída de reserva); cabo principal 10 mm² mantido.
+- 2026-11-17: Proteção da bateria: **reaproveitar o disjuntor 60 A existente** (sai da lista o porta-fusível + fusível 60 A). Instalação elétrica nova completa, bateria → porta-malas, conforme listas acima.
