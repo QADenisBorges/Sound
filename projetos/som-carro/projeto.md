@@ -144,3 +144,16 @@ Cabos: **cobre 100 % (OFC), flexível classe 5, nunca CCA.** Alternativa confiá
 | Parafuso M8 + porca + arruela estrela | 1 jogo | Ponto de terra (lataria raspada) |
 | Passa-fio de borracha (grommet) | 1–2 | Onde o 10 mm² atravessa chapa |
 | Conduíte corrugado, termorretrátil e abraçadeiras | — | Proteger o cabo de 5 m (sob carpete/soleira), longe do chicote do carro e dos RCA |
+
+### Sinal (RCA) e alto-falantes — confirmado pelo usuário em 17/11/2026
+Roteamento: multimídia FL/FR → PRO 2.4 (ESV 200 via SD800.4 CH1/CH2 + tweeters via TS400x4 CH1/CH2); multimídia RL/RR → TS400x4 CH3/CH4 (6TR4A traseiros); multimídia SWL/SWR → SD800.4 CH3+CH4 em ponte (sub).
+
+| Cabo | Qtde | De → para |
+|---|---|---|
+| RCA estéreo 5 m **com fio remote embutido** | 1 | Multimídia FL/FR → PRO 2.4 IN (o remote embutido substitui o REM avulso) |
+| RCA estéreo 5 m | 2 | Multimídia RL/RR → TS400x4 IN CH3/CH4; multimídia SWL/SWR → SD800.4 IN CH3/CH4 |
+| RCA estéreo 0,5–1 m | 2 | PRO S1/S2 → SD800.4 IN CH1/CH2; PRO S3/S4 → TS400x4 IN CH1/CH2 |
+| Cabo paralelo 2,5 mm² | ~12 m | SD800.4 CH1/CH2 → ESV 200 (portas dianteiras, ~5 m cada) + sub (~1 m) |
+| Cabo paralelo 1,5 mm² | ~16 m | TS400x4 CH1/CH2 → tweeters (~5 m cada) + CH3/CH4 → 6TR4A (portas traseiras, ~3 m cada) |
+
+RCA: dupla blindagem, condutor de cobre, plugues metálicos firmes. Passar RCA e alimentação por **lados opostos** do carro. Comprimentos estimados — medir o caminho real (painel → porta-malas pela soleira) antes de comprar.
