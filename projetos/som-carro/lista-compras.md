@@ -40,8 +40,7 @@ RCA: dupla blindagem, condutor de cobre, plugues metálicos firmes. Passar pelo 
 ## 4. Alto-falantes (cabo paralelo de cobre)
 | Item | Qtde | Uso |
 |---|---|---|
-| Paralelo 2,5 mm² | ~12 m | SD800.4 → 2 Snake ESV 200 (~5 m cada) + sub (~1 m) |
-| Paralelo 1,5 mm² | ~16 m | TS400x4 → 2 tweeters JBL (~5 m cada) + 2 JBL 6TR4A traseiros (~3 m cada) |
+| Paralelo 2 × 2,5 mm² 100 % cobre (rolo 50 m) | ~28 m | **Todos os falantes em 2,5 mm²** (decisão 17/11): Snakes (~5 m cada), tweeters JBL (~5 m cada), 6TR4A traseiros (~3 m cada), sub (~1 m). Perda ≤ 0,15 dB em 4 Ω e folga para upgrade de potência. Sub em 4 mm² só se um dia passar de ~600 W |
 
 ## 5. Acabamento
 | Item | Qtde | Uso |
