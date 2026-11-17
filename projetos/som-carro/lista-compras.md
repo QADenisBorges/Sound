@@ -4,6 +4,11 @@ Atualizada em 17/11/2026. Fonte das decisões: `projeto.md` (seções "Lista de 
 **Cabos:** cobre puro (OFC), flexível (classe 5), **nunca CCA**. Alternativa confiável: cabo flexível 750 V de marca com selo Inmetro (Sil, Cobrecom, Corfio). Vermelho = positivo, preto = negativo, azul = REM.
 Comprimentos estimados com sobra — **medir os caminhos reais com barbante antes de comprar**.
 
+## 0. Equipamento
+| Item | Qtde | Uso |
+|---|---|---|
+| Módulo Taramps TS 400x4 | 1 | Tweeters JBL (CH1/CH2) + JBL 6TR4A traseiros (CH3/CH4). Sem fusível no corpo: o disjuntor 20 A protege |
+
 ## 1. Cabos de energia
 | Item | Qtde | Uso |
 |---|---|---|
@@ -49,7 +54,7 @@ RCA: dupla blindagem, condutor de cobre, plugues metálicos firmes. Passar pelo 
 | Conduíte corrugado, termorretrátil, abraçadeiras | conforme caminho | Proteger e fixar os cabos |
 
 ## Já tem (não comprar)
-Disjuntor 60 A · SD800.4 · TS400x4 (a comprar à parte, se ainda não comprado) · PRO 2.4 BT · 2 Snake ESV 200 · 2 JBL 6TR4A · sub Protech 8" · tweeters JBL 1TWRMS80 (substituem os Bravox, que ficam de reserva).
+Disjuntor 60 A · SD800.4 · PRO 2.4 BT · 2 Snake ESV 200 · 2 JBL 6TR4A · sub Protech 8" · tweeters JBL 1TWRMS80 (substituem os Bravox, que ficam de reserva).
 
 ## Conferir antes de comprar/instalar
 - Medir os caminhos (painel → mala, mala → cada porta, bateria → mala).
