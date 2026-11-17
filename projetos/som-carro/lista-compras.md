@@ -60,3 +60,8 @@ Disjuntor 60 A · SD800.4 · PRO 2.4 BT · 2 Snake ESV 200 · 2 JBL 6TR4A · sub
 - Medir os caminhos (painel → mala, mala → cada porta, bateria → mala).
 - Bornes do disjuntor 60 A: olhal ou ilhós?
 - Tweeter JBL: impedância e se vem com capacitor/divisor próprio.
+
+## Onde comprar os cabos (pesquisa de 17/11/2026 — preços do resumo da busca, não confirmados na loja)
+- **10 mm²:** cabo flexível 750 V **Sil, 10 m** (~R$ 125 com frete grátis no ML; vermelho na Magalu ~R$ 186). 10 m cobrem os 6 m de positivo **e** o 1 m de negativo do SD (marcar as pontas do negativo com termorretrátil/fita preta). Evitar "cabo de som 10 mm" barato sem marca (bitola e cobre não garantidos).
+- **6 mm², 1,5 mm² e REM 0,75 mm²:** online só em rolo (6 mm² Cobrecom 15 m ~R$ 105). Comprar **por metro em loja de material elétrico local** (Sil/Cobrecom/Corfio, selo Inmetro).
+- **Alto-falantes:** um **rolo 2 × 2,5 mm² 100 % cobre de 50 m** (~R$ 110) cobre os ~28 m de todos os falantes; ou 2 × Technoise 2 × 2,5 mm² 10 m (~R$ 50–67 cada) + 1,5 mm² à parte. Recusar anúncio com "CCA" / "alumínio cobreado".
