@@ -154,3 +154,35 @@ Corrente: SD800.4 no uso do projeto (2 × 132 + 400 W) = 66 A máx. senoidal; TS
   - Ainda pendente: bitola/material do cabo de força existente; o que é o "registro de 20 A"; bitola dos fios dos falantes e se já estão fora do chicote da multimídia.
 - 2026-11-21: Usuário: **já existe um disjuntor junto à bateria** no cabo de força passado; valor a confirmar (pode ser o "registro de 20 A" citado antes — a confirmar). Critério: cabo 10 mm² de cobre → disjuntor **50–60 A**; 16 mm² → até 80 A; abaixo de 40 A desarma com o SD800.4 em volume alto (manual: 40 A com música); acima do que o cabo aguenta, trocar por um menor. Conferir também: valor gravado no corpo/alavanca, bitola impressa na capa do cabo, distância até a bateria (≤ 30 cm) e se é disjuntor automotivo (DC).
 
+## A confirmar no carro (21/11/2026)
+| Item | O que olhar | O que muda |
+|---|---|---|
+| Disjuntor da bateria | valor gravado; se é automotivo (12 V); se é o "registro de 20 A" | 10 mm² → 50–60 A; 16 mm² → até 80 A; fora disso, trocar |
+| Cabo de força | 10 ou 16 mm² (impresso na capa); cobre ou CCA (raspar: prateado por dentro = CCA) | CCA ou < 10 mm² → trocar por 16 mm² de cobre |
+| Distâncias | disjuntor → bateria (≤ 30 cm); multimídia → mala pelo caminho do RCA; mala → cada tweeter pelo caminho do fio | metragem de RCA e de fio de tweeter; disjuntor longe → reposicionar |
+| Snake | etiqueta do ímã: modelo (ESV 200 × ERV 200), impedância, W RMS | corte e ganho do médio (não muda a compra) |
+| Fios dos 4 falantes na mala | bitola; soltos do chicote da multimídia | < 0,75 mm² nos Snake → trocar por 2 × 1,5 mm² |
+
+## Lista de compras (21/11/2026) — sem preços; cotar com `pesquisa-precos`
+**Comprar (definido):**
+| Item | Especificação | Qtde |
+|---|---|---|
+| Tweeter JBL 1TWMS80 | par, com os 2 divisores | 1 par |
+| Cabo RCA duplo blindado | 5 m (confirmar a medida) | 2 (3 se o RCA antigo do sub não estiver mais no carro) |
+| Cabo paralelo de cobre | 2 × 1,5 mm² (tweeters) | ~12 m, menos a sobra de casa |
+| Bloco distribuidor de positivo | 1 entrada 10–16 mm², 3 saídas | 1 |
+| Cabo vermelho 10 mm² cobre | bloco → SD800.4 | 0,5 m |
+| Terminais olhal | para o terra (10 mm², 6 mm², 1,5 mm²) | 3 |
+| Abraçadeiras de nylon e fita isolante | fixar os fios | 1 pacote / 1 rolo |
+
+**Comprar só se a conferência pedir:**
+| Item | Quando |
+|---|---|
+| Disjuntor ou fusível principal de 60 A (automotivo) | disjuntor atual abaixo de 40 A, acima do que o cabo aguenta, ou residencial |
+| Porta-fusível com fio ≥ 4 mm² + fusível de 20 A | se o "registro de 20 A" for o disjuntor da bateria (TS400x4 ficaria sem proteção de ramal) |
+| Cabo 6 mm² vermelho + preto, 0,5 m cada | se o TS400x4 não estiver com o chicote original |
+| Cabo de força 16 mm² de cobre, ~5 m | cabo atual CCA ou mais fino que 10 mm² |
+| Cabo paralelo 2 × 1,5 mm² para as portas | fios atuais dos Snake finos demais |
+
+**Já tem (conferir):** fusível de 1 A do PRO 2.4 (confirmar que há porta-fusível do mesmo formato); sobra do paralelo branco 2 × 2,5 mm² (sub, ~1 m); paralelos 2 × 1,0 e 2 × 1,5 mm² e fio fino (alimentação do PRO 2.4 e remoto); 2 RCAs de 1 m de casa (PRO 2.4 → módulos, viajam com o equipamento); cabo de terra do SD800.4 já existente na mala; termorretrátil do kit de solda.
+
