@@ -189,7 +189,9 @@ Conta de perda no Snake (132 W, 5 m): 1,5 mm² = 0,12 dB; 0,75 mm² = 0,24 dB; 0
 **Comprar só se a conferência pedir:**
 | Item | Quando |
 |---|---|
-| Disjuntor ou fusível principal de 60 A (automotivo) | disjuntor atual abaixo de 40 A, acima do que o cabo aguenta, ou residencial |
+| **Disjuntor de 60 A de superfície, tipo B** (bornes de prisioneiro com porca, botão de desarme; AliExpress, R$ 37,09 + R$ 9,29 de imposto = R$ 46,38 + frete, visto em 21/11/2026) — **sugestão final** | disjuntor atual abaixo de 40 A, acima do que o cabo aguenta, ou residencial |
+| 2 terminais olhal para cabo de 10 mm², furo do tamanho do prisioneiro do disjuntor (conferir no anúncio; costuma ser M6 ou 1/4") + termorretrátil | junto com o disjuntor tipo B |
+| Opcional: porta-fusível MIDI + fusível mini faca de 60 A (~R$ 24–31), em série antes do disjuntor | se quiser o fusível como proteção e o disjuntor só como chave |
 | Porta-fusível com fio ≥ 4 mm² + fusível de 20 A | se o "registro de 20 A" for o disjuntor da bateria (TS400x4 ficaria sem proteção de ramal) |
 | Cabo 6 mm² vermelho + preto, 0,5 m cada | se o TS400x4 não estiver com o chicote original |
 | Cabo de força 16 mm² de cobre, ~5 m | cabo atual CCA ou mais fino que 10 mm² |
@@ -225,4 +227,5 @@ Ideia do usuário: deixar o SD800.4 "plug and play". Anúncio avaliado (Shopee, 
   | Disjuntor 60 A RVMARINEPAT (Amazon Global, B0DK6JFSB2) | R$ 147,14 | R$ 8,90 | R$ 156,04 | só a listagem foi vista |
   | Disjuntor 60 A Gloaso (Amazon Global, B083LL6HD7) | R$ 179,39 com impostos | R$ 8,90 | R$ 188,29 | superfície, prisioneiros de 1/4", anuncia SAE J1171 / UL1500 |
   Conclusão: não há disjuntor melhor que o tipo B do AliExpress pelo preço (os equivalentes na Amazon custam 3 a 5 vezes mais, sem evidência de construção melhor); a proteção mais confiável e barata é porta-fusível MIDI nacional + fusível mini faca de 60 A (de preferência em loja de som local, para conferir se o cabo de 10 mm² entra e levar fusível reserva). Escolha depende de querer ou não a função de chave.
+- 2026-11-21: **Sugestão final da proteção principal registrada na lista de compras:** disjuntor de 60 A tipo B (AliExpress) + 2 olhais de 10 mm²; opcional, porta-fusível MIDI com fusível de 60 A em série. Motivo: o módulo sai e volta do carro, e o botão do disjuntor permite desligar o cabo antes de soltar o +12 V. Vale para cabo de cobre de 10 mm² (ou 16 mm²); a compra continua condicionada à conferência do disjuntor que já está no carro.
 
