@@ -161,7 +161,18 @@ Corrente: SD800.4 no uso do projeto (2 × 132 + 400 W) = 66 A máx. senoidal; TS
 | Cabo de força | 10 ou 16 mm² (impresso na capa); cobre ou CCA (raspar: prateado por dentro = CCA) | CCA ou < 10 mm² → trocar por 16 mm² de cobre |
 | Distâncias | disjuntor → bateria (≤ 30 cm); multimídia → mala pelo caminho do RCA; mala → cada tweeter pelo caminho do fio | metragem de RCA e de fio de tweeter; disjuntor longe → reposicionar |
 | Snake | etiqueta do ímã: modelo (ESV 200 × ERV 200), impedância, W RMS | corte e ganho do médio (não muda a compra) |
-| Fios dos 4 falantes na mala | bitola; soltos do chicote da multimídia | < 0,75 mm² nos Snake → trocar por 2 × 1,5 mm² |
+| Fios dos 4 falantes na mala | ver "Conferência dos fios dos falantes" abaixo | define se entra fio novo na lista de compras |
+
+### Conferência dos fios dos falantes (4 pares que chegam à mala)
+| # | O que conferir | Como | Resultado esperado |
+|---|---|---|---|
+| 1 | Bitola | impressa na capa; sem marcação, medir o feixe de cobre desencapado (≈ 0,9 mm = 0,5 mm²; ≈ 1,1 mm = 0,75 mm²; ≈ 1,6 mm = 1,5 mm²; ≈ 2,0 mm = 2,5 mm²) | Snake: ≥ 0,75 mm² (ideal 1,5–2,5); traseira: ≥ 0,5 mm² |
+| 2 | Cobre ou CCA | raspar um fio com estilete | cobre por dentro |
+| 3 | Qual par é de qual falante e a polaridade | pilha de 1,5 V encostada no par: o cone do falante certo se mexe; cone para fora = fio no + da pilha é o positivo | cada par etiquetado (FE, FD, TE, TD) com o + marcado |
+| 4 | Falante íntegro e fio sem curto | multímetro em Ω no par: ~3,2–3,8 Ω; entre cada fio e a lataria: sem continuidade | leitura estável nos 4 pares; nenhum fio encostando na lataria |
+| 5 | Soltos da multimídia | olhar atrás da multimídia: fios de falante do chicote desligados e isolados um a um | nenhum falante ligado ao mesmo tempo no módulo e na multimídia |
+| 6 | Emendas no caminho | inspeção visual (soleira, sanfona da porta) | soldadas ou com conector, isoladas |
+Conta de perda no Snake (132 W, 5 m): 1,5 mm² = 0,12 dB; 0,75 mm² = 0,24 dB; 0,5 mm² = 0,36 dB e 5,7 A no limite do fio — por isso o corte em 0,75 mm².
 
 ## Lista de compras (21/11/2026) — sem preços; cotar com `pesquisa-precos`
 **Comprar (definido):**
@@ -182,7 +193,9 @@ Corrente: SD800.4 no uso do projeto (2 × 132 + 400 W) = 66 A máx. senoidal; TS
 | Porta-fusível com fio ≥ 4 mm² + fusível de 20 A | se o "registro de 20 A" for o disjuntor da bateria (TS400x4 ficaria sem proteção de ramal) |
 | Cabo 6 mm² vermelho + preto, 0,5 m cada | se o TS400x4 não estiver com o chicote original |
 | Cabo de força 16 mm² de cobre, ~5 m | cabo atual CCA ou mais fino que 10 mm² |
-| Cabo paralelo 2 × 1,5 mm² para as portas | fios atuais dos Snake finos demais |
+| Cabo paralelo de cobre 2 × 1,5 mm² para as portas dianteiras, ~11 m (2 × ~5,5 m; medir) | Snake com fio < 0,75 mm², CCA ou com emenda ruim |
+| Cabo paralelo de cobre 2 × 1,0–1,5 mm² para a traseira, ~6 m (2 × ~3 m; medir) | traseira com fio < 0,5 mm², CCA, em curto ou com emenda ruim |
+| Espaguete termorretrátil / fita isolante extra | fios do chicote da multimídia ainda ligados (isolar um a um) ou emendas a refazer |
 
 **Já tem (conferir):** fusível de 1 A do PRO 2.4 (confirmar que há porta-fusível do mesmo formato); sobra do paralelo branco 2 × 2,5 mm² (sub, ~1 m); paralelos 2 × 1,0 e 2 × 1,5 mm² e fio fino (alimentação do PRO 2.4 e remoto); 2 RCAs de 1 m de casa (PRO 2.4 → módulos, viajam com o equipamento); cabo de terra do SD800.4 já existente na mala; termorretrátil do kit de solda.
 
