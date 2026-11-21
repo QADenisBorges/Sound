@@ -199,3 +199,15 @@ Conta de perda no Snake (132 W, 5 m): 1,5 mm² = 0,12 dB; 0,75 mm² = 0,24 dB; 0
 
 **Já tem (conferir):** fusível de 1 A do PRO 2.4 (confirmar que há porta-fusível do mesmo formato); sobra do paralelo branco 2 × 2,5 mm² (sub, ~1 m); paralelos 2 × 1,0 e 2 × 1,5 mm² e fio fino (alimentação do PRO 2.4 e remoto); 2 RCAs de 1 m de casa (PRO 2.4 → módulos, viajam com o equipamento); cabo de terra do SD800.4 já existente na mala; termorretrátil do kit de solda.
 
+## Conectores rápidos para a troca casa ↔ carro (proposta de 21/11/2026)
+Ideia do usuário: deixar o SD800.4 "plug and play". Anúncio avaliado (Shopee, R$ 14,90, print do usuário): conector "anti-erro" de 2 vias (tipo SAE) com rabicho de "fio de 4 mm" — o anúncio não informa corrente nem se 4 mm é diâmetro ou seção.
+| Ligação do SD800.4 | Corrente | Conector |
+|---|---|---|
+| +12 V e GND | 40 A com música, 79 A máx. | **não serve o anti-erro**; usar conector de bateria tipo Anderson de 50 A (2 polos, terminal para 10 mm²) |
+| CH1 e CH2 (Snake no carro, JBL em casa) | 5,7 A máx. cada | anti-erro serve |
+| Ponte CH3+CH4 (sub) | 10 A máx. | anti-erro serve, se o fio do rabicho for cobre de ≥ 1,5 mm² |
+| REM | miliampères | anti-erro serve |
+- Rabichos ficam parafusados no módulo de forma permanente; carro e casa (BOB 60A, JBL, sub) recebem a metade oposta. Por ligação: 1 metade no módulo + 1 no carro + 1 em casa → **2 pares por ligação** (4 ligações de anti-erro = 8 pares; 1 Anderson no módulo + 1 no carro + 1 em casa = 3 metades, ou 2 pares).
+- O anti-erro impede inverter a polaridade, não impede trocar um conector por outro igual: etiquetar cada um. Conferir a polaridade com o multímetro antes da primeira ligação (nesse tipo de conector a cor do fio pode inverter conforme a metade). Emendas soldadas com termorretrátil. Encaixar e soltar só com o som desligado.
+- PRO 2.4: o borne de 4 vias dele já é removível; consumo de 70 mA, qualquer conector serve.
+
