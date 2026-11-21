@@ -2,6 +2,12 @@
 
 Mantido pelo `revisor-som`. Entradas mais novas no topo. Backups em `../consultor-som-workspace/historico/`.
 
+## 2026-11-21 05:40 — lacuna de conhecimento
+- O quê: `references/compras-brasil.md` — nova seção "Cabo de cobre de verdade" (cabo elétrico flexível 450/750 V certificado como referência para força, terra e falante; o que conferir na capa e no metal; limites de temperatura) e a linha da tabela "Onde comprar o quê" aponta para ela.
+- Por quê: a referência dizia só "OFC comprovada", sem dizer como comprovar nem que marca/tipo procurar; a pergunta "qual marca de cabo?" precisou ser respondida de improviso.
+- Evidência: FAQ do Inmetro (Portaria 131/2022: certificação compulsória de fios e cabos 450/750 V, NBR NM 247-3) e ficha do FlexSil 750 V (condutor de cobre classe 4/5 conforme NBR NM 280), busca de 21/11/2026.
+- Snapshot: historico/2026-11-21_053647
+
 ## 2026-11-07 — correção técnica
 - O quê: `scripts/calc_som.py duto` — a velocidade no duto deixa de ser apresentada como "OK" e vira um piso, com aviso de que a real em potência alta costuma ser 3–5× maior.
 - Por quê: a fórmula 2π·Fb·Sd·Xmax/Aduto assume que o duto carrega o mesmo ar que o cone em Xmax; perto da Fb o cone quase para e o duto carrega bem mais. Um 8" de 400 W com duto de 7 cm dava "10 m/s, OK" quando o necessário é > 40 m/s.
