@@ -199,3 +199,23 @@ Sub (canais 3/4) na CINEMA para o Tremor: HPF **22 Hz LR24** + limitador **−11
 - 2026-11-07: Duto localizado na lateral direita (fotos) → tubo reto, sem joelho.
 - 2026-11-07: Pesquisa de duto pronto: não há 3" com 30 cm no mercado BR. Fiamon 3" com extensor (25,9 cm, ~R$ 20) avaliado: ~40 Hz, ~70% da melhoria.
 - 2026-11-07: Duto atual medido: 7,5 cm por dentro (ponta interna ~7,6), 11,5 cm. **Decisão: PVC esgoto 75 mm por dentro do duto atual, ~30 cm (cortar 32), Fb ≈ 36 Hz.** Vedação com silicone neutro + cola de contato/universal por fora do tubo, depois do teste a seco.
+
+## Tratamento pendente (levantado em 21/11/2026)
+Simulação com a ficha real (Fs 46, Qts 0,53, Vas 10 L, Bl 13, Re 3,7 Ω, Sd 240 cm², Xmax 8 mm; 27 L, QL 7): `simulacao-duto-e-excursao.py` (confere com os valores de 10/11: Xmax com 33,4 V em HPF 30 e 28,7 V em HPF 25).
+
+| # | Pendência | Situação | O que fazer |
+|---|---|---|---|
+| 1 | Manta butílica 3 mm | **comprar** (4 placas 20 × 30 cm) | tampo, fundo e traseira (50–70 % de cada), uma camada, superfície limpa com álcool, apertar com rolinho; deixar livre o duto e ≥ 7 cm em volta da boca interna |
+| 2 | Fibra de poliéster | **já possui** | camada de 2–3 cm nas paredes, por cima da manta, presa com cola de contato; não encher a caixa nem deixar fibra solta perto da boca do duto ou atrás do falante |
+| 3 | Vedação das juntas | parcial (corpo vedado com silicone em 09/11) | junta PVC ↔ bolsa; apoio da ponta do tubo (anel espaçador + abraçadeira); frestas do corpo por dentro |
+| 4 | Vedação da tampa e do falante | pendente | abrir cortando o cordão de silicone; lixar/nivelar as bordas lascadas; fechar com fita de espuma + parafusos a cada ~10 cm (ou silicone, se não for abrir mais); conferir a junta do falante |
+| 5 | Aumentar o duto (joelho 90°, Fb ≈ 32,5 Hz) | **avaliado: não compensa** | ver abaixo |
+| 6 | Nova varredura | depois de fechar | esperado Fb ≈ 35 Hz (a manta tira ~0,6 L: +0,4 Hz); nada a cortar |
+
+**Joelho (Fb 34,5 → 32,5 Hz), nível máximo a 1 m com HPF 25 Hz e teto de 25 V (CINEMA):** 25 Hz 89,1 → 91,2 dB (+2,1); 30 Hz 99,7 → 100,8 (+1,1); 35 Hz 104,2 → 103,4 (−0,8); 40 Hz 104,9 → 103,9 (−1,0); 50 Hz 105,5 → 104,8 (−0,7). Ganha ~1 dB em 30 Hz e perde ~1 dB em 35–50 Hz: inaudível na prática, com a curva somando turbulência num duto que já sopra. **Decisão recomendada: não alongar.** A manta (−0,6 L) muda ≤ 0,4 dB.
+
+**Teste de vazamento depois de fechar:** tampar a boca do duto com a mão/plástico e empurrar o cone de leve com os dedos abertos: se voltar devagar, está vedada; se voltar na hora, há vazamento. Depois, tom de 35 Hz em volume médio e uma tira de papel fino passando pelas juntas.
+
+**Carro sem subsônico (correção de 21/11):** sem HPF o cone chega ao Xmax com **22 V** se a música tiver conteúdo até 30 Hz (15 V se descer a 25 Hz). O alvo de ganho no carro passa a **22 V (~120 W)**, não 40 V nem 32 V; para usar mais potência no carro é preciso um subsônico no caminho do sub.
+- 2026-11-21: Usuário retomou as pendências do tratamento (manta a comprar, fibra já possui, vedação, dúvida sobre alongar o duto). Joelho avaliado por simulação: não compensa. Alvo do sub no carro corrigido para 22 V.
+
