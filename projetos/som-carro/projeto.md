@@ -79,7 +79,7 @@ SD800.4 fica com as 4 entradas ligadas (exigência do manual). Chaves X-OVER do 
 | TS400x4 CH3 / CH4 | 6TR4A esq. / dir. | 1,5 mm² |
 
 ### Alimentação
-Bateria + → fusível principal (até 30 cm da bateria) → cabo principal → bloco distribuidor no porta-malas → SD800.4 (fusível 40 A, 10 mm²), **TS400x4 (fusível 20 A, 6 mm²)**, PRO 2.4 (1,5 mm², fusível 2–5 A). Cabo principal: **16 mm² com fusível 80 A** (ideal) ou **reaproveitar o 10 mm² do SD800.4 com fusível 60 A**, se for OFC e estiver bom — a conta (≈690 W usados) dá 64 A só com tom senoidal no máximo e 8–21 A com música; acompanhar com voltímetro. TS400x4 no uso deste projeto: ~15 A máx., 2–5 A com música. Terra: um ponto só na lataria, raspado, < 50 cm, mesma bitola de cada positivo. REM: fio remoto da multimídia → REM IN do PRO 2.4 → REM OUT → REM dos dois módulos.
+Bateria + → fusível principal (até 30 cm da bateria) → cabo principal → bloco distribuidor no porta-malas → SD800.4 (fusível 40 A, 10 mm²), **TS400x4 (fusível 20 A, 6 mm²)**, PRO 2.4 (1,5 mm², fusível **1 A**, valor do manual). Cabo principal: **16 mm² com fusível 80 A** (ideal) ou **reaproveitar o 10 mm² do SD800.4 com fusível 60 A**, se for OFC e estiver bom — a conta (≈690 W usados) dá 64 A só com tom senoidal no máximo e 8–21 A com música; acompanhar com voltímetro. TS400x4 no uso deste projeto: ~15 A máx., 2–5 A com música. Terra: um ponto só na lataria, raspado, < 50 cm, mesma bitola de cada positivo. REM: fio remoto da multimídia → REM IN do PRO 2.4 → REM OUT → REM dos dois módulos.
 
 ### Multimídia
 EQ Uniforme · Loudness Off (depois Baixo, se quiser) · Bass Boost no mínimo · Saída traseira = Traseiro · Subwoofer On · HPF frente **Off** · HPF traseira 120 Hz −24 · Sub LPF **100 Hz** −24, fase testada · Alinhamento: frente no máximo, traseira ~300 cm menor, sub igual à frente (ajuste fino pela fase) · Nível fonte USB 0 · Balanço 0.
@@ -119,3 +119,23 @@ SD800.4 CH1/CH2: 23 V · SD800.4 ponte: 40 V · TS400x4 CH1/CH2: ≤ 6,3 V · TS
 - 2026-11-07: Sub Protech 8" + SD800.4 em ponte **alternam entre casa e carro** (usuário). Caixa única: 28 L, duto 7 cm alongado para ~27 cm (Fb ≈36 Hz) serve aos dois. Casa: subsônico 28 Hz/24 dB no PRO 2.4. Carro: sem subsônico (multimídia não tem) → Bass Boost 0; Fb baixa protege melhor que a atual de 52 Hz. GAIN do SD800.4 tem dois pontos (casa ≠ carro): marcar os dois no knob e regular com tom + multímetro (alvo 40 V) em cada lugar.
 - 2026-11-07: Sub com bobinas **em paralelo (2 Ω)** → ponte proibida. Religar em **série (8 Ω)**: ponte ~264 W, **alvo 46 V** (substitui 40 V/400 W). Subsônico de casa 30 Hz. Ver `projetos/sub-protech-duto/projeto.md`.
 - 2026-11-07: Caixa aberta: sub de **4 Ω** (etiqueta + 3,7 Ω medido) → ponte 400 W, **alvo 40 V** volta a valer (a nota sobre série/46 V fica anulada).
+- 2026-11-21: **Retomada da instalação no carro (usuário).** Vão para o carro: SD800.4, PRO 2.4 (frente) + processamento da multimídia (traseira e sub), 2 tweeters, TS400x4. Proteções citadas: fusível de **1 A** (PRO 2.4, bate com o manual; o "2–5 A" que constava aqui foi corrigido) e um "registro" de **20 A** (entendido como fusível/disjuntor do ramal do TS400x4 — a confirmar). **Já passados no carro:** cabo de força bateria → mala, fio remoto e os fios dos 4 falantes de porta até a mala.
+  - Traseira citada como "JBL 4TRMS" (4TRMS80, 4"); o projeto registrava Selenium 6TR4A 6" na traseira e o 4TRMS80 nas caixas de casa — **a confirmar qual está no carro** (muda corte e ganho: 4TRMS80 pede HPF ≥ 120 Hz/24 dB).
+  - **Não citados, pendentes:** sub (CH3/CH4 do SD800.4 em ponte); fusível de 40 A do ramal do SD800.4; fusível principal junto à bateria e bitola/material do cabo já passado; bloco distribuidor e ponto de terra; RCAs (3 pares de ~5 m + 2 curtos); fio novo dos tweeters + divisores HP5; isolar as saídas do amplificador interno da multimídia; o que fica no carro × em casa (SD800.4, PRO 2.4 e sub estavam em uso no home theater em 09/11).
+
+## Fiação (proposta de 21/11/2026 — depende das medidas do cabo já passado)
+Corrente: SD800.4 no uso do projeto (2 × 132 + 400 W) = 66 A máx. senoidal; TS400x4 (2 × 63 + 2 × 20 W) = 18 A; total ~84 A no pior caso, **10–28 A com música**.
+| Trecho | Cabo | Proteção / observação |
+|---|---|---|
+| Bateria → bloco na mala (já passado, ~5 m) | conferir: **≥ 10 mm² de cobre** (OFC) | fusível principal a ≤ 30 cm da bateria: **60 A** em 10 mm², **80 A** em 16 mm². Se for CCA ou mais fino: trocar (16 mm² OFC é o ideal: 0,43 V de queda a 80 A) |
+| Bloco → SD800.4 | 10 mm², ≤ 50 cm | fusível **40 A** |
+| Bloco → TS400x4 | 6 mm² (mín. 4 mm²) | fusível/disjuntor **20 A** |
+| Bloco → PRO 2.4 | 1,5 mm² | fusível **1 A** |
+| Terra (cada aparelho → um ponto só na lataria) | mesma bitola do positivo de cada um, < 50 cm | tinta raspada, terminal olhal, parafuso com arruela dentada |
+| Remoto | 0,75 mm² | fio da multimídia (já passado) → REM IN do PRO 2.4; REM OUT → REM do SD800.4 e do TS400x4 |
+| RCA multimídia → mala | 3 pares de ~5 m (FL/FR, RL/RR, SW) | pelo lado oposto ao cabo de força |
+| RCA PRO 2.4 → módulos | 2 pares de 0,3–0,5 m | saídas 1/2 → SD800.4 CH1/CH2; 3/4 → TS400x4 CH1/CH2 |
+| Snake (já passado) | 2,5 mm² ideal; 1,5 mm² aceitável (perda de 0,12 dB em 5 m) | SD800.4 CH1/CH2 |
+| Traseira (já passado) | 1,5 mm² (1,0 mm² serve) | TS400x4 CH3/CH4 |
+| Tweeters (fio novo, ~5–6 m por lado) | 1,0–1,5 mm² | TS400x4 CH1/CH2, divisor HP5 em série perto do tweeter |
+| Sub | 2,5 mm² | SD800.4 ponte CH4 ⊕ / CH3 ⊖ |
