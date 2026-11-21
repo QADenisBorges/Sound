@@ -119,20 +119,20 @@ th{color:var(--muted);font-weight:600}
   <path class="w tw"  d="M530 150 H660"/>
   <path class="w mid" d="M530 210 H660"/>
   <path class="w tw"  d="M530 270 H660"/>
-  <text class="t-l c-mid" x="595" y="82" text-anchor="middle">100 Hz–4,5 kHz</text>
-  <text class="t-l c-tw" x="595" y="142" text-anchor="middle">≥ 4,5 kHz</text>
-  <text class="t-l c-mid" x="595" y="202" text-anchor="middle">100 Hz–4,5 kHz</text>
-  <text class="t-l c-tw" x="595" y="262" text-anchor="middle">≥ 4,5 kHz</text>
+  <text class="t-l c-mid" x="595" y="82" text-anchor="middle">100 Hz–3,5 kHz</text>
+  <text class="t-l c-tw" x="595" y="142" text-anchor="middle">≥ 3 kHz</text>
+  <text class="t-l c-mid" x="595" y="202" text-anchor="middle">100 Hz–3,5 kHz</text>
+  <text class="t-l c-tw" x="595" y="262" text-anchor="middle">≥ 3 kHz</text>
 
   <!-- módulos -->
   <rect class="sd" x="660" y="68" width="190" height="44" rx="8"/>
   <text class="t-b" x="672" y="88">SD800.4 · CH1</text><text class="t-s" x="672" y="104">ganho 23 V</text>
   <rect class="ts" x="660" y="128" width="190" height="44" rx="8"/>
-  <text class="t-b" x="672" y="148">TS400x4 · CH1</text><text class="t-s" x="672" y="164">ganho ≤ 6,3 V</text>
+  <text class="t-b" x="672" y="148">TS400x4 · CH1</text><text class="t-s" x="672" y="164">ganho 11 V</text>
   <rect class="sd" x="660" y="188" width="190" height="44" rx="8"/>
   <text class="t-b" x="672" y="208">SD800.4 · CH2</text><text class="t-s" x="672" y="224">ganho 23 V</text>
   <rect class="ts" x="660" y="248" width="190" height="44" rx="8"/>
-  <text class="t-b" x="672" y="268">TS400x4 · CH2</text><text class="t-s" x="672" y="284">ganho ≤ 6,3 V</text>
+  <text class="t-b" x="672" y="268">TS400x4 · CH2</text><text class="t-s" x="672" y="284">ganho 11 V</text>
   <rect class="ts" x="660" y="328" width="190" height="44" rx="8"/>
   <text class="t-b" x="672" y="348">TS400x4 · CH3</text><text class="t-s" x="672" y="364">IN CH3 ← RL · 15,5 V</text>
   <rect class="ts" x="660" y="388" width="190" height="44" rx="8"/>
@@ -153,8 +153,8 @@ th{color:var(--muted);font-weight:600}
     <line x1="910" y1="138" x2="910" y2="162"/><line x1="926" y1="138" x2="926" y2="162"/>
     <line x1="910" y1="258" x2="910" y2="282"/><line x1="926" y1="258" x2="926" y2="282"/>
   </g>
-  <text class="t-l c-tw" x="918" y="131" text-anchor="middle">HP5</text>
-  <text class="t-l c-tw" x="918" y="251" text-anchor="middle">HP5</text>
+  <text class="t-l c-tw" x="918" y="131" text-anchor="middle">divisor</text>
+  <text class="t-l c-tw" x="918" y="251" text-anchor="middle">divisor</text>
   <text class="t-s" x="920" y="82" text-anchor="middle">2,5 mm²</text>
   <text class="t-s" x="920" y="342" text-anchor="middle">1,5 mm²</text>
   <text class="t-s" x="920" y="492" text-anchor="middle">2,5 mm²</text>
@@ -163,11 +163,11 @@ th{color:var(--muted);font-weight:600}
   <rect class="box" x="990" y="68" width="200" height="44" rx="8"/>
   <text class="t-b" x="1002" y="88">ESV 200 esquerdo</text><text class="t-s" x="1002" y="104">porta dianteira</text>
   <rect class="box" x="990" y="128" width="200" height="44" rx="8"/>
-  <text class="t-b" x="1002" y="148">Bravox esquerdo</text><text class="t-s" x="1002" y="164">tweeter · coluna A</text>
+  <text class="t-b" x="1002" y="148">JBL 1TWMS80 esq.</text><text class="t-s" x="1002" y="164">tweeter · coluna A</text>
   <rect class="box" x="990" y="188" width="200" height="44" rx="8"/>
   <text class="t-b" x="1002" y="208">ESV 200 direito</text><text class="t-s" x="1002" y="224">porta dianteira</text>
   <rect class="box" x="990" y="248" width="200" height="44" rx="8"/>
-  <text class="t-b" x="1002" y="268">Bravox direito</text><text class="t-s" x="1002" y="284">tweeter · coluna A</text>
+  <text class="t-b" x="1002" y="268">JBL 1TWMS80 dir.</text><text class="t-s" x="1002" y="284">tweeter · coluna A</text>
   <rect class="box" x="990" y="328" width="200" height="44" rx="8"/>
   <text class="t-b" x="1002" y="348">6TR4A esquerdo</text><text class="t-s" x="1002" y="364">traseira</text>
   <rect class="box" x="990" y="388" width="200" height="44" rx="8"/>
@@ -200,13 +200,13 @@ th{color:var(--muted);font-weight:600}
 <table>
 <tr><th>Trecho</th><th>Ligação</th></tr>
 <tr><td>Positivo</td><td>Bateria + → fusível (até 30 cm da bateria) → cabo principal → bloco distribuidor no porta-malas. Cabo: 16 mm² com fusível 80 A, ou o 10 mm² atual com fusível 60 A</td></tr>
-<tr><td>Ramais</td><td>SD800.4: 10 mm², fusível 40 A · TS400x4: 6 mm², fusível 20 A · PRO 2.4: 1,5 mm², fusível 1 A</td></tr>
+<tr><td>Ramais</td><td>SD800.4: 10 mm² (sem fusível embutido; coberto pelo principal de até 60 A, ou 40 A próprio) · TS400x4: 6 mm², fusível 20 A · PRO 2.4: 1,5 mm², fusível 1 A</td></tr>
 <tr><td>Terra</td><td>Um ponto só na lataria, tinta raspada, &lt; 50 cm, mesma bitola do positivo</td></tr>
 <tr><td>Remoto</td><td>Fio remoto da multimídia → REM IN do PRO 2.4 → REM OUT → REM dos dois módulos (liga sem estalo)</td></tr>
 </table>
 </div>
 
-<div class="note"><b>Pendente:</b> medir o sub nos fios da caixa (~3,2–3,6 Ω = ponte; ~6,5–7 Ω = uma bobina no CH3 e outra no CH4) e testar a distância máxima do alinhamento de tempo (precisa ≥ ~300 cm de diferença para a traseira).</div>
+<div class="note"><b>Pendente (21/11/2026):</b> bitola e material do cabo de força já passado e fusível junto à bateria; bitola dos fios dos falantes; comprar o par JBL 1TWMS80 (o divisor que vem com ele fica sempre em série com o tweeter); testar a distância máxima do alinhamento de tempo da traseira (precisa ≥ ~300 cm de diferença).</div>
 </main>
 </body>
 </html>

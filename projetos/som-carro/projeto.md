@@ -11,7 +11,8 @@ Iniciado em 05/11/2026. Objetivo do usuário: qualidade, **palco sonoro excelent
 | Taramps TS 400x4 | 1 | 4 × 63 W @ 4 Ω; 4 × 100 W @ 2 Ω; ponte 2 × 200 W @ 4 Ω (site Taramps) | versão (V5/V6), fusível do manual |
 | Snake ESV 200 (médio-grave) | 2 | **6"** (confirmado), 200 W RMS, 4 Ω | sensibilidade, Fs/Qts/Xmax |
 | Selenium/JBL 6TR4A triaxial 6" | 2 | 60 W AES, 87 dB, Fs 69 Hz, Qts 1,05 (`alto-falantes.md`) | estado (borda, Re) |
-| Tweeter Bravox | 2 | ~30 W RMS cada (usuário, "provavelmente"); **~2 Ω no multímetro** (sem capacitor em série) | modelo, Fs; descontar resistência das pontas |
+| Tweeter **JBL 1TWMS80** (a comprar, decidido em 21/11/2026) | 2 | domo de seda 1", 4 Ω, 90 dB, 1,5–20 kHz (−10 dB), divisor incluso com corte em **3,5 kHz**, "80 W RMS" = potência do amplificador com o divisor | Fs; inclinação do divisor; se o divisor tem chave de atenuação |
+| Tweeter Bravox CS50BK + HP5 | 2 | substituído no carro pelo JBL 1TWMS80 (21/11/2026); livre para outro uso | — |
 | Sub Protech Light 8" em caixa pronta | 1 | 450 W RMS, 84 dB, Fs 46 Hz, Xmax 8 mm; **bobina dupla, caixa dutada** | leitura nos terminais da caixa (ligação das bobinas); Fb do duto |
 
 ## Arquitetura proposta
@@ -128,7 +129,7 @@ Corrente: SD800.4 no uso do projeto (2 × 132 + 400 W) = 66 A máx. senoidal; TS
 | Trecho | Cabo | Proteção / observação |
 |---|---|---|
 | Bateria → bloco na mala (já passado, ~5 m) | conferir: **≥ 10 mm² de cobre** (OFC) | fusível principal a ≤ 30 cm da bateria: **60 A** em 10 mm², **80 A** em 16 mm². Se for CCA ou mais fino: trocar (16 mm² OFC é o ideal: 0,43 V de queda a 80 A) |
-| Bloco → SD800.4 | 10 mm², ≤ 50 cm | fusível **40 A** |
+| Bloco → SD800.4 | 10 mm², ≤ 50 cm | o módulo **não tem fusível embutido**; fusível próprio de 40 A é opcional se o principal for ≤ 60 A e este ramal tiver a mesma bitola do cabo principal |
 | Bloco → TS400x4 | 6 mm² (mín. 4 mm²) | fusível/disjuntor **20 A** |
 | Bloco → PRO 2.4 | 1,5 mm² | fusível **1 A** |
 | Terra (cada aparelho → um ponto só na lataria) | mesma bitola do positivo de cada um, < 50 cm | tinta raspada, terminal olhal, parafuso com arruela dentada |
@@ -137,5 +138,17 @@ Corrente: SD800.4 no uso do projeto (2 × 132 + 400 W) = 66 A máx. senoidal; TS
 | RCA PRO 2.4 → módulos | 2 pares de 0,3–0,5 m | saídas 1/2 → SD800.4 CH1/CH2; 3/4 → TS400x4 CH1/CH2 |
 | Snake (já passado) | 2,5 mm² ideal; 1,5 mm² aceitável (perda de 0,12 dB em 5 m) | SD800.4 CH1/CH2 |
 | Traseira (já passado) | 1,5 mm² (1,0 mm² serve) | TS400x4 CH3/CH4 |
-| Tweeters (fio novo, ~5–6 m por lado) | 1,0–1,5 mm² | TS400x4 CH1/CH2, divisor HP5 em série perto do tweeter |
+| Tweeters JBL 1TWMS80 (fio novo, ~5–6 m por lado) | 1,0–1,5 mm² | TS400x4 CH1/CH2, **divisor JBL em série, sempre** (pode ficar na mala, ao lado do módulo) |
 | Sub | 2,5 mm² | SD800.4 ponte CH4 ⊕ / CH3 ⊖ |
+
+## Plano vigente a partir de 21/11/2026 (substitui o que conflitar acima)
+- **Tweeter:** JBL 1TWMS80 no lugar do Bravox. Cruzamento desce de 4,5 kHz para **3,5 kHz**: médio (PRO 2.4 saídas 1/2) HPF 100 Hz + **LPF 3,5 kHz LR24**; tweeter (saídas 3/4) **HPF 3 kHz LR24 no DSP + divisor JBL (3,5 kHz) em série** — ponto de partida, afinar de ouvido/medição e conferir a polaridade no cruzamento.
+- **Ganho do TS400x4 CH1/CH2 (tweeter):** começar em **11 V** (30 W em 4 Ω); teto 15,9 V (63 W, dentro dos 80 W que a JBL admite com o divisor). Substitui o ≤ 6,3 V do Bravox.
+- **Traseira:** Selenium 6TR4A 6" (confirmado) — TS400x4 CH3/CH4, 15,5 V, HPF 120 Hz na multimídia.
+- **Sub:** entra no carro — SD800.4 CH3+CH4 em ponte (CH4 ⊕ / CH3 ⊖), 40 V, LPF 100 Hz na multimídia, Bass Boost 0 (sem subsônico; Fb da caixa ≈ 34,5 Hz desde 09/11).
+- **Troca casa ↔ carro:** em casa as saídas 3/4 do PRO 2.4 são do **sub**; no carro são dos **tweeters**. Ordem ao montar no carro: alimentar o PRO 2.4, carregar a memória do carro no app e só então ligar os RCAs nos módulos. O divisor JBL em série é a proteção se a memória errada estiver carregada.
+
+## Histórico (continuação)
+- 2026-11-21: Respostas do usuário: **sub entra** no carro; traseira é mesmo o **Selenium 6TR4A 6"** (o "JBL 4TRMS" foi engano); **será comprado o par de tweeters JBL 1TWMS80** (substitui o Bravox no carro); SD800.4, PRO 2.4 e sub **alternam entre casa e carro conforme a necessidade** (decisão do usuário, sem equipamento duplicado).
+  - Fusível do SD800.4: o usuário supôs que o módulo já tem fusível. **Não tem** — fotos da unidade (régua só com bornes de falante, +12 V, REM, GND e LED; lado oposto com RCA, ganhos e chaves) e manual EVO6 ("o fusível/disjuntor de proteção deve ser instalado a no máximo 30 cm da bateria"). O que dispensa um fusível só dele é o fusível principal na bateria, se for ≤ 60 A com ramal de 10 mm². A confirmar: existe porta-fusível no cabo já passado e de quanto?
+  - Ainda pendente: bitola/material do cabo de força existente; o que é o "registro de 20 A"; bitola dos fios dos falantes e se já estão fora do chicote da multimídia.

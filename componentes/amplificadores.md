@@ -27,6 +27,7 @@ Impedância mínima: 2 Ω por canal, **4 Ω em ponte**.
 | Corrente com música | 39 A | 40 A |
 | Corrente máxima | 78,7 A | 80 A |
 | Fusível recomendado | 40 A | 40 A |
+| Fusível embutido | **não tem** (conferido nas fotos da unidade em 21/11/2026: só bornes e LED); o manual pede fusível/disjuntor externo a até 30 cm da bateria | idem |
 | Cabo de força e terra | 10 mm² OFC (CCA proibido) | 10 mm² |
 | Cabo de falante | 2,5 mm² | — |
 | Eficiência | 80% | 79% |

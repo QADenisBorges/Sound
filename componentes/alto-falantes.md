@@ -87,3 +87,19 @@ deixam o palco mais firme e o agudo mais definido); clareza de diálogo não mud
 imersão praticamente não muda (vem de som lateral/traseiro, saídas 7/8). Em ganho para filme: sub + EQ da sala > laterais/traseiras > tweeter.
 
 **Carro (05/11/2026):** Re medido pelo usuário ≈ 1,9 Ω (3,2 Ω − 1,3 Ω das pontas) — não bate com os 4 Ω nominais do CS50BK (Re esperado ~3–3,5 Ω); remedir com o multímetro com bateria boa. O uso no home theater acima (01/11) conflita com o plano do carro — a confirmar com o usuário.
+
+## JBL 1TWMS80 — mini tweeter 1", par (**a comprar**, decidido em 21/11/2026 para o carro)
+Linha Multi System. Dados do site da JBL e de lojas (pesquisa de 21/11/2026); ficha com Fs e curva não encontrada.
+
+| Item | Valor | Origem |
+|---|---|---|
+| Tipo | domo de seda 1" (bobina 25,4 mm), ímã de neodímio, ferrofluido; Ø nominal 55 mm | JBL / lojas |
+| Impedância | 4 Ω | JBL |
+| Sensibilidade | 90 dB | lojas |
+| Resposta | 1,5–20 kHz (−10 dB) | lojas |
+| Potência | "80 W RMS" = **potência do amplificador** (com o divisor), 160 W pico | JBL / Evolusom |
+| Divisor incluso | par de crossovers, corte em **3,5 kHz** (inclinação não informada) | lojas |
+| Na caixa | 2 tweeters, 2 divisores, suportes | lojas |
+
+Uso no carro: no lugar do Bravox CS50BK (Fs 2,5 kHz, corte ≥ 4,5–5 kHz). Permite cruzar em 3,5 kHz, tirando do Snake de 6" a faixa de 3,5–4,5 kHz onde ele já fica direcional. Divisor sempre em série (o PRO 2.4 alterna com o home theater, onde as saídas 3/4 são do sub). Ganho inicial 11 V (30 W), teto 15,9 V (TS400x4 a 4 Ω).
+
