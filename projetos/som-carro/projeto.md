@@ -188,7 +188,7 @@ Conta de perda no Snake (132 W, 5 m): 1,5 mm² = 0,12 dB; 0,75 mm² = 0,24 dB; 0
 | Soquete sextavado para o parafuso do cinto (medir a cabeça; provável 17 mm) + catraca ou cabo de força | para soltar a ancoragem do cinto e tirar o acabamento lateral | 1 |
 | Terminais tubulares (ilhós) | 10 mm² (2: +12 V e terra do SD800.4) e ~0,75–1,5 mm² (remoto e fios de falante) | 1 cartela sortida |
 | Abraçadeiras de nylon e fita isolante | fixar os fios | 1 pacote / 1 rolo |
-| Fita de tecido para chicote (tipo feltro, antirruído) | envolver os fios novos dentro da porta e do painel, como o chicote original | 1 rolo |
+| Fita de tecido para chicote (tipo feltro, antirruído) — **opcional** | só se entrar fio novo dentro da porta; na soleira e no painel, abraçadeiras bastam | 1 rolo |
 
 **Comprar só se a conferência pedir:**
 | Item | Quando |
@@ -274,4 +274,5 @@ Ideia do usuário: deixar o SD800.4 "plug and play". Anúncio avaliado (Shopee, 
 - 2026-11-22 (levantamento, foto 25): **dentro da porta, os fios estão envolvidos em fita de tecido cinza (feltro) em espiral**, presos por presilhas plásticas brancas — é o acabamento do chicote original (evita ruído e desgaste por atrito na lata). O usuário não vai abrir a porta agora. Para a instalação: fios novos dentro da porta devem ser envolvidos com fita de tecido para chicote e presos nas mesmas presilhas/abraçadeiras, sem ficar soltos nem perto do mecanismo do vidro.
 - 2026-11-22: **Decisão do usuário: comprar o kit de 46 peças + chaves combinadas 8, 10, 12, 13, 14 e 17 mm** (Amazon B0H324N4NG, R$ 132,90 na listagem, entrega prevista 8/dez). Cobre o Torx do forro e, pela chave combinada de 17 mm, o parafuso do cinto — **desde que a cabeça meça 17 mm entre faces** (ainda não medida; se for outra medida, falta uma chave avulsa). Conteúdo do kit não conferido na página.
 - 2026-11-22: **Pendência (a pedido do usuário): conferir o kit de ferramentas pelo computador, depois.** Abrir a página do kit de 46 peças + chaves combinadas (Amazon B0H324N4NG, R$ 132,90 na listagem) e confirmar: chave combinada de 17 mm, pontas Torx T20/T25/T30, vendedor, frete e prazo para o CEP 48608-410. Antes, medir a cabeça do parafuso do cinto. Compra ainda não feita.
+- 2026-11-22: Esclarecido ao usuário: **fita de tecido é opcional** (obrigatória só se passar fio novo por dentro da porta; com a emenda no pé da coluna, a porta não é aberta e o chicote original fica como está). **Fio novo é necessário:** 2 × 1,5 mm² para os tweeters (~12 m) e para o lance prensado; trocar os dois lances dos Snake continua recomendado. O trecho de fio dentro da porta não precisa ser trocado.
 
