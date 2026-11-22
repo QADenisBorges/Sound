@@ -312,3 +312,10 @@ Opcionais:
 | **Total dos opcionais** | | **R$ 30,00** | **R$ 60,00** | |
 
 Com os opcionais: R$ 614,57 a R$ 1143,47.
+- 2026-11-22: **Pedido do usuário: com os cabos novos, um plugue no falante para tirar só o falante e a fiação ficar — sem perder qualidade.** Resposta: conector bem feito não tira qualidade (contato de 1–3 mΩ por terminal; par ≈ 6 mΩ em 4 Ω = 0,013 dB, contra 0,12 dB do próprio fio de 5 m). O que estraga é contato frouxo ou oxidado (porta pega umidade).
+  - **Recomendado (portas — Snake e 6TR4A): terminal faston fêmea isolado direto nos terminais do falante**, crimpado no fio de 1,5 mm² (faston azul, 1,5–2,5 mm²), com termorretrátil. Um só contato por fio, sem rabicho. Medir a largura das linguetas do falante (costuma ser 6,3 mm no positivo e 4,8 mm no negativo — larguras diferentes já impedem inverter).
+  - **Alternativa (plugue no meio do fio): conector automotivo selado de 2 vias** (tipo à prova d'água), um rabicho curto soldado no falante. Um contato a mais, perda igualmente desprezível; vale se o falante for sair com frequência.
+  - Tweeters (coluna/painel, lugar seco): conector de 2 vias simples ou faston pequeno entre o divisor JBL e o fio.
+  - Cuidados: crimpar firme (puxar para testar), fazer uma "barriga" no fio antes do conector para a água não escorrer até ele, nada de emenda só torcida com fita.
+  - Lista de compras: + fastons fêmea isolados azuis (6,3 mm e 4,8 mm, ~10 de cada; estimativa R$ 10–20) — ou 4 conectores selados de 2 vias (estimativa R$ 20–40). Não entram no total da estimativa de 22/11.
+
