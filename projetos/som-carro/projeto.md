@@ -184,6 +184,7 @@ Conta de perda no Snake (132 W, 5 m): 1,5 mm² = 0,12 dB; 0,75 mm² = 0,24 dB; 0
 | Bloco distribuidor de positivo | 1 entrada 10–16 mm², 3 saídas | 1 |
 | Cabo vermelho 10 mm² cobre | bloco → SD800.4 | 0,5 m |
 | Terminais olhal | para o terra (10 mm², 6 mm², 1,5 mm²) | 3 |
+| Ponta Torx para os parafusos do forro da porta (provável T20 ou T25; testar no jogo de bits que já possui) | tirar o forro da porta dianteira | 1, se o jogo não tiver |
 | Soquete sextavado para o parafuso do cinto (medir a cabeça; provável 17 mm) + catraca ou cabo de força | para soltar a ancoragem do cinto e tirar o acabamento lateral | 1 |
 | Terminais tubulares (ilhós) | 10 mm² (2: +12 V e terra do SD800.4) e ~0,75–1,5 mm² (remoto e fios de falante) | 1 cartela sortida |
 | Abraçadeiras de nylon e fita isolante | fixar os fios | 1 pacote / 1 rolo |
@@ -254,4 +255,9 @@ Ideia do usuário: deixar o SD800.4 "plug and play". Anúncio avaliado (Shopee, 
 - 2026-11-22: **Usuário: nada será executado agora — as fotos de hoje são só levantamento.** As ações registradas (troca do disjuntor, do lance prensado, terra em ponto próprio, soquete do cinto) ficam como pendências para o dia da instalação. Único cuidado que vale desde já: pontas desencapadas na traseira isoladas com fita (cabo vermelho e fios de falante) e disjuntor desligado enquanto nada estiver ligado ali.
   - Levantamento fechado: disjuntor (Tramontina C50 residencial), cabo de força (classe 10 mm², cobre), Snake (ESV 200, 4 Ω), RCA existente (1 par), rota (soleira esquerda, ~5 m), terra (parafuso das fivelas do cinto), fios de falante (finos; um prensado).
   - Em aberto: distância bateria → disjuntor; se o cabo de força corre pelo mesmo lado dos RCAs; qual falante é o do fio prensado; medida da cabeça do parafuso do cinto; se os fios dos falantes estão fora do chicote da multimídia.
+- 2026-11-22 (levantamento, fotos 21–24):
+  - **Passagem para a porta dianteira:** os fios entram na porta pela **coifa de borracha (sanfona) do chicote original**, entre a coluna e a porta (foto 23, com conector branco do chicote à vista). É a "fiação reforçada" que o usuário não identificou: tubo de borracha que protege os fios do abre-e-fecha. Consequência para a troca do fio dos Snake: passar 2 × 1,5 mm² por dentro da coifa é a parte difícil; alternativa prática é levar o fio novo até o pé da coluna e emendar (solda + termorretrátil) no par que já atravessa a coifa — o trecho fino que sobra (~1 m) custa menos de 0,1 dB.
+  - **Parafuso do forro da porta** (foto 24, em rebaixo redondo com 3 rasgos em volta): cabeça **Torx** (estrela de 6 pontas), já um pouco gasta. Os 3 rasgos são do plástico, não pedem chave especial. Tamanho a confirmar no jogo de bits (provável T20 ou T25): usar a ponta que entra justa, sem folga, com pressão, para não espanar.
+  - **Atrás da multimídia** (foto 22): fios de falante de capa transparente passando por cima, conector do chicote com cola quente e plugues RCA (vermelho e dourado) soltos. Não dá para afirmar pela foto se os falantes estão fora do chicote da multimídia: continua em aberto.
+  - Etiqueta na coluna: **fabricação 2014**. Rota confirmada: painel inferior esquerdo (tampa da caixa de fusíveis, foto 21) → soleira esquerda.
 
