@@ -158,8 +158,8 @@ Corrente: SD800.4 no uso do projeto (2 × 132 + 400 W) = 66 A máx. senoidal; TS
 | Item | O que olhar | O que muda |
 |---|---|---|
 | Disjuntor da bateria | **conferido em 22/11: Tramontina TR3kA C50 — 50 A, curva C, residencial (240/415 V~, IP20)** | valor serve para 10 mm²; o tipo não (sem vedação, bornes expostos) → trocar pelo tipo B de 60 A |
-| Cabo de força | 10 ou 16 mm² (impresso na capa); cobre ou CCA (raspar: prateado por dentro = CCA) | CCA ou < 10 mm² → trocar por 16 mm² de cobre |
-| Distâncias | disjuntor → bateria (≤ 30 cm); multimídia → mala pelo caminho do RCA; mala → cada tweeter pelo caminho do fio | metragem de RCA e de fio de tweeter; disjuntor longe → reposicionar |
+| Cabo de força | **medido com régua em 22/11: feixe de cobre aberto ~5,5–6,5 mm, capa ~6,5 mm (vermelha com camada interna branca) → classe 10 mm²; fios cor de cobre** | fica o cabo; proteção de 50–60 A; bloco e olhais para 10 mm² |
+| Distâncias | rota informada em 22/11: lado esquerdo do painel → soleira esquerda, por baixo do acabamento → traseira. Estimativa: ~5 m até a mala (o RCA atual chega com sobra); disjuntor → bateria ainda não medido | RCA de 5 m; fio de tweeter ~12 m (esq. ~5 m + dir. ~6,5 m) |
 | Snake | **conferido em 22/11: Snake Pro "God of War" ESV 200, Steel Pro Series, 6", 4 Ω, 400 W programa musical (= 200 W RMS)** | nada muda: ganho 23 V (132 W), HPF 100 Hz |
 | Fios dos 4 falantes na mala | ver "Conferência dos fios dos falantes" abaixo | define se entra fio novo na lista de compras |
 
@@ -184,13 +184,14 @@ Conta de perda no Snake (132 W, 5 m): 1,5 mm² = 0,12 dB; 0,75 mm² = 0,24 dB; 0
 | Bloco distribuidor de positivo | 1 entrada 10–16 mm², 3 saídas | 1 |
 | Cabo vermelho 10 mm² cobre | bloco → SD800.4 | 0,5 m |
 | Terminais olhal | para o terra (10 mm², 6 mm², 1,5 mm²) | 3 |
+| Soquete sextavado para o parafuso do cinto (medir a cabeça; provável 17 mm) + catraca ou cabo de força | para soltar a ancoragem do cinto e tirar o acabamento lateral | 1 |
 | Terminais tubulares (ilhós) | 10 mm² (2: +12 V e terra do SD800.4) e ~0,75–1,5 mm² (remoto e fios de falante) | 1 cartela sortida |
 | Abraçadeiras de nylon e fita isolante | fixar os fios | 1 pacote / 1 rolo |
 
 **Comprar só se a conferência pedir:**
 | Item | Quando |
 |---|---|
-| **Disjuntor de 60 A de superfície, tipo B** (bornes de prisioneiro com porca, botão de desarme; AliExpress, R$ 37,09 + R$ 9,29 de imposto = R$ 46,38 + frete, visto em 21/11/2026) — **sugestão final** | **condição atendida em 22/11: o disjuntor atual é residencial → comprar** (confirmar antes que o cabo é cobre de ≥ 10 mm²) |
+| **Disjuntor de superfície, tipo B, de 50 A (preferido) ou 60 A** (bornes de prisioneiro com porca, botão de desarme; AliExpress, R$ 37,09 + R$ 9,29 de imposto = R$ 46,38 + frete, visto em 21/11/2026) — **sugestão final** | **condição atendida em 22/11: o disjuntor atual é residencial → comprar** (confirmar antes que o cabo é cobre de ≥ 10 mm²) |
 | 2 terminais olhal para cabo de 10 mm², furo do tamanho do prisioneiro do disjuntor (conferir no anúncio; costuma ser M6 ou 1/4") + termorretrátil | junto com o disjuntor tipo B |
 | Opcional: porta-fusível MIDI + fusível mini faca de 60 A (~R$ 24–31), em série antes do disjuntor | se quiser o fusível como proteção e o disjuntor só como chave |
 | Porta-fusível com fio ≥ 4 mm² + fusível de 20 A | se o "registro de 20 A" for o disjuntor da bateria (TS400x4 ficaria sem proteção de ramal) |
@@ -243,4 +244,10 @@ Ideia do usuário: deixar o SD800.4 "plug and play". Anúncio avaliado (Shopee, 
   - **Fios de falante:** paralelos de capa transparente acastanhada, finos (aparentam ~0,5–0,75 mm²), pontas torcidas; bitola a medir (feixe de cobre) e identificar cada par (teste da pilha).
   - **Caixinha preta** por onde passam vermelho, preto e azul, junto a uma cinta: a identificar (peça do cinto ou da instalação?).
   - Cuidado imediato: ponta do vermelho isolada com fita e disjuntor desligado enquanto o cabo estiver solto na mala.
+- 2026-11-22 (2ª leva de fotos, `fotos/2026-11-22-conferencia/11…19`):
+  - **Cabo de força:** régua ao lado da ponta — feixe de cobre desfiado com ~5,5–6,5 mm (compacto, ~4,5 mm), capa externa ~6,5 mm, dupla (vermelha + branca por dentro), fios cor de cobre também no corte → **classe 10 mm² de cobre** (não é 16 mm²; 6 mm² pouco provável). Medida por foto, com o feixe aberto: margem de ± 1 bitola. Proteção: 50 ou 60 A; preferir **50 A** do mesmo disjuntor tipo B pela margem (bitola sem marcação). Bloco distribuidor e olhais dimensionados para 10 mm².
+  - **Rota (usuário):** os fios saem do lado esquerdo do painel e seguem pela soleira esquerda, por baixo do acabamento, até a traseira (foto 11: fios de falante, azul do remoto e RCA juntos). Distância não medida; estimativa ~5 m (o RCA ASX atual chega à traseira com sobra enrolada). A confirmar: o cabo de força vem pelo mesmo lado? Se sim e aparecer ruído de alternador, RCA novo pelo lado direito.
+  - **Fios de falante:** ponta fotografada com feixe de ~1 mm (≈ 0,5–0,75 mm²). Servem (perda ≤ 0,36 dB no Snake); troca por 2 × 1,5 mm² é melhoria opcional, a fazer junto com a passagem dos fios dos tweeters, pela mesma rota.
+  - **"Caixinha preta" = fivelas do cinto de segurança traseiro** (foto 17). O terra está no parafuso de ancoragem dessas fivelas.
+  - **Ferramenta que falta:** chave para o parafuso sextavado da ancoragem do cinto (foto 19), necessária para soltar o cinto e tirar o acabamento lateral. Medir a cabeça entre faces (provável 17 mm) → soquete + catraca ou cabo de força. Item de segurança: reapertar com o torque de fábrica (valor do Grand Siena não confirmado; típico de ancoragem de cinto ~40 N·m) e não deixar terminal de terra sob a ancoragem — aproveitar para levar o terra a um ponto próprio na lataria da mala.
 
