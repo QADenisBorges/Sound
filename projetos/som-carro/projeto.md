@@ -188,6 +188,7 @@ Conta de perda no Snake (132 W, 5 m): 1,5 mm² = 0,12 dB; 0,75 mm² = 0,24 dB; 0
 | Soquete sextavado para o parafuso do cinto (medir a cabeça; provável 17 mm) + catraca ou cabo de força | para soltar a ancoragem do cinto e tirar o acabamento lateral | 1 |
 | Terminais tubulares (ilhós) | 10 mm² (2: +12 V e terra do SD800.4) e ~0,75–1,5 mm² (remoto e fios de falante) | 1 cartela sortida |
 | Abraçadeiras de nylon e fita isolante | fixar os fios | 1 pacote / 1 rolo |
+| Fita de tecido para chicote (tipo feltro, antirruído) | envolver os fios novos dentro da porta e do painel, como o chicote original | 1 rolo |
 
 **Comprar só se a conferência pedir:**
 | Item | Quando |
@@ -270,4 +271,5 @@ Ideia do usuário: deixar o SD800.4 "plug and play". Anúncio avaliado (Shopee, 
   | Sparta, 94 peças, 1/4" + 1/2", 2 catracas (B0F3LFR8GD) | R$ 279,86 | kit único de marca conhecida no Brasil |
   | Stels, 94 peças, 1/4" + 1/2" (B0777L84WS) | R$ 377,00 | 4,9 estrelas |
   Conferir no anúncio antes de comprar: soquete de 17 mm no encaixe de 1/2", pontas Torx T20/T25/T30, Allen. Nenhum kit traz espátulas plásticas de acabamento, alicate de crimpar terminais nem torquímetro.
+- 2026-11-22 (levantamento, foto 25): **dentro da porta, os fios estão envolvidos em fita de tecido cinza (feltro) em espiral**, presos por presilhas plásticas brancas — é o acabamento do chicote original (evita ruído e desgaste por atrito na lata). O usuário não vai abrir a porta agora. Para a instalação: fios novos dentro da porta devem ser envolvidos com fita de tecido para chicote e presos nas mesmas presilhas/abraçadeiras, sem ficar soltos nem perto do mecanismo do vidro.
 
