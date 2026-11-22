@@ -322,3 +322,31 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 - 2026-11-22: **Conector avaliado (print do Mercado Livre, sem preço visível):** kit com 4 "chicotes 2 vias injetado fio 4 mm", marca **Permak**, 23 cm, fio de cobre, terminais de latão, capa e conector de PVC, peça KIT4PERMAK2VIAS35/Z2, descrito para "instalação e retirada de caixas de som". Avaliação: **serve** para os falantes e também para as saídas do SD800.4 (cobre, bitola folgada, marca nacional; perda desprezível). Ressalvas: é injetado, **não selado** — na porta, posicionar no alto, com "barriga" no fio e um pouco de graxa dielétrica/vaselina nos contatos de latão; confirmar se cada "unidade" é o par macho + fêmea; conferir a polaridade com o multímetro (nesse formato a cor pode inverter conforme a metade). Quantidade: 6 pares para os falantes = 2 kits; se padronizar também as 3 saídas do SD800.4 (2 pares por ligação = 6 pares), total 12 pares = **3 kits** — substitui os conectores anti-erro da Shopee.
 - 2026-11-22: **Fechado com o usuário: conector único no sistema — chicote Permak de 2 vias injetado (fio 4 mm), 3 kits de 4 = 12 pares.** Uso: 6 pares nos falantes (2 Snake, 2 traseiros, 2 tweeters) + 6 pares nas 3 saídas do SD800.4 (CH1, CH2 e sub; módulo + carro + casa). Substitui os conectores anti-erro da Shopee e os conectores selados. Cuidados mantidos: conector no alto da porta, "barriga" no fio, graxa dielétrica nos contatos, polaridade conferida com multímetro, etiqueta em cada conector. Preço a cotar — na estimativa de 22/11, a linha "Conectores de 2 vias anti-erro, 6 pares, R$ 40,00 a R$ 89,40" passa a ser "3 kits Permak" e o total será refeito quando houver o preço.
 
+## Lista de itens da instalação — consolidada em 22/11/2026 (substitui as listas anteriores)
+**Comprar:**
+| # | Item | Qtde | Observação |
+|---|---|---|---|
+| 1 | Par de tweeters JBL 1TWMS80, com os divisores | 1 par | divisor sempre em série |
+| 2 | Disjuntor de superfície tipo B, 50 A | 1 | no lugar do Tramontina C50 residencial |
+| 3 | Cabo RCA duplo blindado, 5 m | 2 | traseira e sub (o da frente já está passado) |
+| 4 | Cabo paralelo de cobre 2 × 1,5 mm² | rolo de 25 m | tweeters (~12 m) + os dois lances dos Snake (~11 m) |
+| 5 | Bloco distribuidor (positivo e terra) | 1 par | entrada para 10 mm², 3 saídas |
+| 6 | Cabo vermelho de cobre 10 mm² | 0,5 m | bloco → SD800.4 |
+| 7 | Terminais olhal para 10 mm², furo M6 | 1 kit | disjuntor (2) e ponto de terra; conferir o prisioneiro do disjuntor |
+| 8 | Terminais tubulares (ilhós) 0,5–10 mm² com alicate | 1 kit | pontas do +12 V, terra, remoto e falantes nos bornes |
+| 9 | Chicote Permak de 2 vias injetado (fio 4 mm) | 3 kits de 4 | 6 pares nos falantes + 6 nas saídas do SD800.4 |
+| 10 | Abraçadeiras de nylon e fita isolante | 1 pacote + 1 rolo | fixação dos fios |
+| 11 | Kit de ferramentas 46 peças + chaves combinadas (até 17 mm) | 1 | conferir o anúncio e medir o parafuso do cinto antes |
+
+**Comprar só se precisar:**
+| Item | Quando |
+|---|---|
+| Porta-fusível com fusível de 20 A | se a proteção de 20 A que já possui não servir para o ramal do TS400x4 |
+| Cabo de 6 mm², vermelho e preto, 0,5 m cada | se o TS400x4 não estiver com o chicote original |
+| Chave avulsa para o parafuso do cinto | se a cabeça não medir 17 mm |
+| Mais ~5 m de cabo 2 × 1,5 mm² | se o lance prensado for de um falante traseiro |
+
+**Opcionais:** fita de tecido para chicote; espátulas plásticas para soltar acabamento; graxa dielétrica (ou vaselina) para os contatos dos conectores.
+
+**Já tem:** SD800.4, TS400x4, PRO 2.4BT + AUDIO, multimídia Pioneer, par Snake ESV 200, par Selenium 6TR4A, sub Protech 8" na caixa; cabo de força (classe 10 mm²), cabo de terra e fio remoto já passados; 1 RCA de 5 m já passado e 2 RCAs de 1 m (viajam com o equipamento); fusível de 1 A do PRO 2.4 (confirmar o porta-fusível); sobra de cabo 2 × 2,5 mm² para o sub; fio fino para alimentação do PRO 2.4 e remoto; termorretrátil, ferro de solda, multímetro e jogo de bits.
+
