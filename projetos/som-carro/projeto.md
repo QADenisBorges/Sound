@@ -284,3 +284,31 @@ Ideia do usuário: deixar o SD800.4 "plug and play". Anúncio avaliado (Shopee, 
 - 2026-11-22: **Decisão do usuário: instalação nova** (fiação nova, sem aproveitar os conectores/fios originais das portas para o som; tweeter ativo com fio próprio, como no plano). Pergunta: o cabo de 10 mm² alimenta o SD800.4 e o TS400x4 juntos? **Sim.** No uso do projeto (Snake 2 × 132 W + sub a 22 V ≈ 120 W no SD800.4; tweeters + traseira ≈ 186 W no TS400x4): ~38 A + ~20 A = **~58 A no pior caso (tom contínuo)** e **7–19 A com música**; queda no cabo (5 m, 8,6 mΩ) de 0,5 V no pior caso e ~0,15–0,2 V com música. Dentro do que o cabo e a proteção de 50–60 A aguentam. Só se o sub passar a usar os 400 W (com subsônico) o pior caso sobe para ~84 A e 0,72 V de queda — aí 16 mm² (0,45 V) passa a valer a pena; até lá, não.
 - 2026-11-22 (levantamento, foto 28): **bateria Ecoflex, livre de manutenção** (etiqueta verde; "12" visível, provável 12 meses de garantia). **Capacidade (Ah) e corrente de partida (CCA) ilegíveis na foto — a informar.** Terminal de um dos polos aparece solto ao lado da bateria (usuário trabalhando no carro). Para o projeto: com o motor ligado quem alimenta o som é o alternador (7–19 A com música, dentro da elétrica original); a bateria pesa com o motor desligado — numa bateria de partida de 50–60 Ah, ~10–15 A de som levam a ~50 % de carga em cerca de 2 h, então limitar o uso com motor desligado e acompanhar pelo voltímetro do PRO 2.4 (alerta em ~12,0 V). Conferências de saúde: 12,4–12,7 V em repouso; 13,8–14,4 V com o motor ligado.
 
+## Estimativa de custo da instalação (22/11/2026)
+Mão de obra própria (R$ 0). Preços de listagem ou estimativa, sem frete confirmado para o CEP do usuário; equipamentos que já possui não entram. Tratamento do sub (manta butílica) fica fora desta conta.
+
+| Item | Qtde | Mínimo | Máximo | Origem do preço |
+|---|---|---|---|---|
+| Par de tweeters JBL 1TWMS80 (com divisores) | 1 par | R$ 150,00 | R$ 315,00 | estimativa — não consegui abrir anúncio; única referência vista foi R$ 314,60 num resumo de busca (21/11) |
+| Disjuntor de superfície tipo B, 50 A | 1 | R$ 46,38 | R$ 60,00 | AliExpress, R$ 37,09 + R$ 9,29 de imposto vistos no seu print (21/11); frete não visto |
+| Cabo RCA duplo blindado de 5 m | 2 | R$ 39,80 | R$ 84,22 | Amazon, listagem de 22/11: R$ 19,90 a R$ 42,11 cada (Taramps a R$ 29,44) |
+| Cabo paralelo de cobre 2 × 1,5 mm², 25 m | 1 rolo | R$ 42,74 | R$ 180,07 | Amazon, listagem de 22/11: R$ 42,74 (sem garantia de ser cobre) a R$ 180,07 (Technoise cobre puro); certificado Belcabos a R$ 121,59 |
+| Bloco distribuidor (par: positivo e terra) | 1 par | R$ 57,85 | R$ 66,40 | Amazon, listagem de 22/11 |
+| Cabo vermelho de cobre 10 mm², 0,5 m | 0,5 m | R$ 5,00 | R$ 10,00 | estimativa (loja de material elétrico, por metro) |
+| Terminais olhal 10 mm², furo M6 (kit com 20) | 1 kit | R$ 21,90 | R$ 21,90 | Amazon, listagem de 22/11 |
+| Terminais tubulares (ilhós) 0,5–10 mm², com ou sem alicate de crimpar | 1 kit | R$ 33,00 | R$ 64,58 | Amazon, listagem de 22/11: R$ 33,00 só os terminais; R$ 53,10 a R$ 64,58 com alicate |
+| Conectores de 2 vias anti-erro | 6 pares | R$ 40,00 | R$ 89,40 | Shopee, R$ 14,90 no seu print (se for por par, 6 × 14,90 = R$ 89,40); kit com vários, estimativa |
+| Porta-fusível com fusível de 20 A (ramal do TS400x4) | 1 | R$ 0,00 | R$ 29,00 | R$ 0 se o seu de 20 A servir; Amazon, listagem de 22/11: até R$ 29,00 (pacote com 10) |
+| Abraçadeiras de nylon e fita isolante | 1 pacote + 1 rolo | R$ 15,00 | R$ 30,00 | estimativa |
+| Kit de ferramentas 46 peças + chaves combinadas | 1 | R$ 132,90 | R$ 132,90 | Amazon, listagem de 22/11 (compra ainda a conferir) |
+| **Total do necessário** | | **R$ 584,57** | **R$ 1083,47** | soma das linhas acima |
+
+Opcionais:
+
+| Item | Qtde | Mínimo | Máximo | Origem do preço |
+|---|---|---|---|---|
+| Fita de tecido para chicote | 1 rolo | R$ 15,00 | R$ 30,00 | estimativa |
+| Espátulas plásticas para soltar acabamento | 1 jogo | R$ 15,00 | R$ 30,00 | estimativa |
+| **Total dos opcionais** | | **R$ 30,00** | **R$ 60,00** | |
+
+Com os opcionais: R$ 614,57 a R$ 1143,47.
