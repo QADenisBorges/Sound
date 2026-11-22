@@ -197,7 +197,7 @@ Conta de perda no Snake (132 W, 5 m): 1,5 mm² = 0,12 dB; 0,75 mm² = 0,24 dB; 0
 | Porta-fusível com fio ≥ 4 mm² + fusível de 20 A | se o "registro de 20 A" for o disjuntor da bateria (TS400x4 ficaria sem proteção de ramal) |
 | Cabo 6 mm² vermelho + preto, 0,5 m cada | se o TS400x4 não estiver com o chicote original |
 | Cabo de força 16 mm² de cobre, ~5 m | cabo atual CCA ou mais fino que 10 mm² |
-| Cabo paralelo de cobre 2 × 1,5 mm² para as portas dianteiras, ~11 m (2 × ~5,5 m; medir) | Snake com fio < 0,75 mm², CCA ou com emenda ruim |
+| Cabo paralelo de cobre 2 × 1,5 mm² para as portas dianteiras, ~11 m (2 × ~5,5 m; medir) | **condição atendida em 22/11: um par está prensado na soleira, com a capa ferida e cobre esverdeado → trocar** (com os ~12 m dos tweeters, um rolo de 25 m cobre tudo) |
 | Cabo paralelo de cobre 2 × 1,0–1,5 mm² para a traseira, ~6 m (2 × ~3 m; medir) | traseira com fio < 0,5 mm², CCA, em curto ou com emenda ruim |
 | Espaguete termorretrátil / fita isolante extra | fios do chicote da multimídia ainda ligados (isolar um a um) ou emendas a refazer |
 
@@ -250,4 +250,5 @@ Ideia do usuário: deixar o SD800.4 "plug and play". Anúncio avaliado (Shopee, 
   - **Fios de falante:** ponta fotografada com feixe de ~1 mm (≈ 0,5–0,75 mm²). Servem (perda ≤ 0,36 dB no Snake); troca por 2 × 1,5 mm² é melhoria opcional, a fazer junto com a passagem dos fios dos tweeters, pela mesma rota.
   - **"Caixinha preta" = fivelas do cinto de segurança traseiro** (foto 17). O terra está no parafuso de ancoragem dessas fivelas.
   - **Ferramenta que falta:** chave para o parafuso sextavado da ancoragem do cinto (foto 19), necessária para soltar o cinto e tirar o acabamento lateral. Medir a cabeça entre faces (provável 17 mm) → soquete + catraca ou cabo de força. Item de segurança: reapertar com o torque de fábrica (valor do Grand Siena não confirmado; típico de ancoragem de cinto ~40 N·m) e não deixar terminal de terra sob a ancoragem — aproveitar para levar o terra a um ponto próprio na lataria da mala.
+- 2026-11-22: **Fio de falante prensado** (foto 20): um dos pares de capa transparente está esmagado na soleira, com a capa deformada/ferida e o cobre esverdeado no ponto (oxidação: entrou umidade). Risco: curto entre os dois condutores ou com a lataria (módulo em proteção) e rompimento do fio com o tempo. Ação: identificar de qual falante é (teste da pilha) e **trocar esse lance** por 2 × 1,5 mm² — ou, provisoriamente, cortar o trecho ferido e emendar com solda + termorretrátil. Refazer o caminho para o fio não ficar sob a borda do acabamento/borracha da porta. Como os fios são finos e antigos e os acabamentos serão abertos para os tweeters, recomendado trocar os dois lances dos Snake de uma vez (rolo de 25 m de 2 × 1,5 mm²: ~12 m tweeters + ~11 m Snake). Conferir os demais pares ao longo da soleira em busca de outros pontos esmagados ou verdes.
 
