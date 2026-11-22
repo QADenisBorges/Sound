@@ -160,7 +160,7 @@ Corrente: SD800.4 no uso do projeto (2 × 132 + 400 W) = 66 A máx. senoidal; TS
 | Disjuntor da bateria | **conferido em 22/11: Tramontina TR3kA C50 — 50 A, curva C, residencial (240/415 V~, IP20)** | valor serve para 10 mm²; o tipo não (sem vedação, bornes expostos) → trocar pelo tipo B de 60 A |
 | Cabo de força | 10 ou 16 mm² (impresso na capa); cobre ou CCA (raspar: prateado por dentro = CCA) | CCA ou < 10 mm² → trocar por 16 mm² de cobre |
 | Distâncias | disjuntor → bateria (≤ 30 cm); multimídia → mala pelo caminho do RCA; mala → cada tweeter pelo caminho do fio | metragem de RCA e de fio de tweeter; disjuntor longe → reposicionar |
-| Snake | etiqueta do ímã: modelo (ESV 200 × ERV 200), impedância, W RMS | corte e ganho do médio (não muda a compra) |
+| Snake | **conferido em 22/11: Snake Pro "God of War" ESV 200, Steel Pro Series, 6", 4 Ω, 400 W programa musical (= 200 W RMS)** | nada muda: ganho 23 V (132 W), HPF 100 Hz |
 | Fios dos 4 falantes na mala | ver "Conferência dos fios dos falantes" abaixo | define se entra fio novo na lista de compras |
 
 ### Conferência dos fios dos falantes (4 pares que chegam à mala)
@@ -179,11 +179,12 @@ Conta de perda no Snake (132 W, 5 m): 1,5 mm² = 0,12 dB; 0,75 mm² = 0,24 dB; 0
 | Item | Especificação | Qtde |
 |---|---|---|
 | Tweeter JBL 1TWMS80 | par, com os 2 divisores | 1 par |
-| Cabo RCA duplo blindado | 5 m (confirmar a medida) | 2 (3 se o RCA antigo do sub não estiver mais no carro) |
+| Cabo RCA duplo blindado | 5 m (confirmar a medida) | **2** (o RCA antigo, ASX de capa transparente, continua no carro — conferido em 22/11) |
 | Cabo paralelo de cobre | 2 × 1,5 mm² (tweeters) | ~12 m, menos a sobra de casa |
 | Bloco distribuidor de positivo | 1 entrada 10–16 mm², 3 saídas | 1 |
 | Cabo vermelho 10 mm² cobre | bloco → SD800.4 | 0,5 m |
 | Terminais olhal | para o terra (10 mm², 6 mm², 1,5 mm²) | 3 |
+| Terminais tubulares (ilhós) | 10 mm² (2: +12 V e terra do SD800.4) e ~0,75–1,5 mm² (remoto e fios de falante) | 1 cartela sortida |
 | Abraçadeiras de nylon e fita isolante | fixar os fios | 1 pacote / 1 rolo |
 
 **Comprar só se a conferência pedir:**
@@ -233,4 +234,13 @@ Ideia do usuário: deixar o SD800.4 "plug and play". Anúncio avaliado (Shopee, 
   - Tipo: não é próprio para o cofre — IP20 (sem vedação contra água e poeira), bornes de parafuso com +12 V exposto perto da lataria, sem fixação prevista para vibração. Não é emergência (funcionou até aqui), mas é a condição de troca já prevista: **substituir pelo tipo B de 60 A**.
   - O "registro de 20 A" citado em 21/11 não é este: fica como proteção do ramal do TS400x4.
   - Ainda a conferir: bitola e material do cabo (feixe de cobre no borne: ~4–4,5 mm = 10 mm²; ~5–6 mm = 16 mm²; ~3–3,5 mm = 6 mm²), distância bateria → disjuntor, se o disjuntor está fixado e o que há sob a fita junto à bateria (emenda?).
+- 2026-11-22: **Conferência no carro por fotos** (`fotos/2026-11-22-conferencia/`, 10 fotos, sem medidas informadas):
+  - **Snake:** etiqueta "Snake Pro · God of War · 6" · 4 Ω · Steel Pro Series · **ESV 200** · 400 watts musical program · Made in Brazil" → modelo e impedância confirmados; 400 W de programa = 200 W RMS. Falante fotografado fora da porta, com fio transparente soldado nos terminais.
+  - **Cabo de força (vermelho) e terra (preto, com trechos em fita):** chegam à mala com as **pontas desencapadas e desfiadas, lado a lado**. Pela proporção com os dedos o feixe de cobre tem ~4–5 mm (compatível com 10 mm², sem fechar entre 6 e 10 mm²); fios de cor de cobre (aparenta cobre; raspar para confirmar). Medida com régua pendente.
+  - **Terra:** o cabo preto vai a um parafuso de ancoragem de cinto de segurança/banco, sob o carpete. Funciona eletricamente, mas é parafuso de segurança com torque próprio: preferir ponto dedicado na lataria da mala, tinta raspada, olhal, < 50 cm dos módulos. Conferir se há olhal e metal limpo.
+  - **Remoto:** fio azul fino, ponta desencapada.
+  - **RCA:** um par (capa transparente rosada, marca ASX, plugues dourados/vermelho) presente → faltam 2 pares de 5 m.
+  - **Fios de falante:** paralelos de capa transparente acastanhada, finos (aparentam ~0,5–0,75 mm²), pontas torcidas; bitola a medir (feixe de cobre) e identificar cada par (teste da pilha).
+  - **Caixinha preta** por onde passam vermelho, preto e azul, junto a uma cinta: a identificar (peça do cinto ou da instalação?).
+  - Cuidado imediato: ponta do vermelho isolada com fita e disjuntor desligado enquanto o cabo estiver solto na mala.
 

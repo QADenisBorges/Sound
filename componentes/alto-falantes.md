@@ -52,6 +52,7 @@ O curso máximo mecânico (Xmech) não é publicado.
 
 ## Snake ESV 200 — médio-grave, par (usuário possui, 05/11/2026)
 Anúncios: 200 W RMS, 4 Ω. **6"** (confirmado pelo usuário em 05/11/2026). Ficha oficial e parâmetros T/S não encontrados.
+**Etiqueta conferida em 22/11/2026** (fotos em `projetos/som-carro/fotos/2026-11-22-conferencia/`): "Snake Pro · God of War · 6" · 4 Ω · Steel Pro Series · ESV 200 · 400 watts musical program · Made in Brazil" → grafia **ESV 200** confirmada; 400 W de programa musical = 200 W RMS.
 Outras conversas: médio-grave pro com ogiva cromada; lojas citam 92–95 dB, **Fs 94–133 Hz**, resposta ~80 Hz–3/6 kHz (dados divergentes). Em 05/11 o usuário também escreveu "ERV 200": conferir a grafia na etiqueta do ímã. Com Fs ~100 Hz, passa-alta em **~100 Hz** (sub cruzando aí).
 
 ## Bravox — tweeter do kit CS50BK + divisor HP5, par (possui **só os tweeters e os divisores**)
