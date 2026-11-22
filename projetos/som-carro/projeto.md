@@ -337,6 +337,9 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 | 9 | Chicote Permak de 2 vias injetado (fio 4 mm) | 3 kits de 4 | 6 pares nos falantes + 6 nas saídas do SD800.4 |
 | 10 | Abraçadeiras de nylon e fita isolante | 1 pacote + 1 rolo | fixação dos fios |
 | 11 | Kit de ferramentas 46 peças + chaves combinadas (até 17 mm) | 1 | conferir o anúncio e medir o parafuso do cinto antes |
+| 12 | Fita de tecido para chicote (feltro, antirruído) | 1 rolo | envolver os fios novos no painel e na soleira |
+| 13 | Espátulas plásticas para soltar acabamento | 1 jogo | tirar forros e soleiras sem marcar o plástico |
+| 14 | Graxa dielétrica (ou vaselina) | 1 bisnaga | contatos dos conectores Permak, principalmente nas portas |
 
 **Comprar só se precisar:**
 | Item | Quando |
@@ -346,7 +349,6 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 | Chave avulsa para o parafuso do cinto | se a cabeça não medir 17 mm |
 | Mais ~5 m de cabo 2 × 1,5 mm² | se o lance prensado for de um falante traseiro |
 
-**Opcionais:** fita de tecido para chicote; espátulas plásticas para soltar acabamento; graxa dielétrica (ou vaselina) para os contatos dos conectores.
-
 **Já tem:** SD800.4, TS400x4, PRO 2.4BT + AUDIO, multimídia Pioneer, par Snake ESV 200, par Selenium 6TR4A, sub Protech 8" na caixa; cabo de força (classe 10 mm²), cabo de terra e fio remoto já passados; 1 RCA de 5 m já passado e 2 RCAs de 1 m (viajam com o equipamento); fusível de 1 A do PRO 2.4 (confirmar o porta-fusível); sobra de cabo 2 × 2,5 mm² para o sub; fio fino para alimentação do PRO 2.4 e remoto; termorretrátil, ferro de solda, multímetro e jogo de bits.
+- 2026-11-22: A pedido do usuário, **fita de tecido, espátulas plásticas e graxa dielétrica saíram dos opcionais e entraram na lista de compra** (itens 12 a 14). Na estimativa de 22/11, os dois primeiros estavam como opcionais (R$ 15–30 cada); a graxa não estava (estimativa R$ 10–25).
 
