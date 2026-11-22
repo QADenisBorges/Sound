@@ -261,4 +261,13 @@ Ideia do usuário: deixar o SD800.4 "plug and play". Anúncio avaliado (Shopee, 
   - **Atrás da multimídia** (foto 22): fios de falante de capa transparente passando por cima, conector do chicote com cola quente e plugues RCA (vermelho e dourado) soltos. Não dá para afirmar pela foto se os falantes estão fora do chicote da multimídia: continua em aberto.
   - Etiqueta na coluna: **fabricação 2014**. Rota confirmada: painel inferior esquerdo (tampa da caixa de fusíveis, foto 21) → soleira esquerda.
 - 2026-11-22: Usuário avaliou um **kit de ferramentas de 46 peças com catraca** (anúncio "Quicko", não aberto por mim). Pelo padrão desses kits (encaixe de 1/4", soquetes de 4 a 14 mm, bits Phillips/fenda/Torx/Allen, extensões): cobre o Torx do forro da porta, o 10 mm do terminal da bateria, Allen dos bornes do SD800.4 e parafusos pequenos; **não cobre o parafuso do cinto** (provável 17 mm, e apertado demais para catraca de 1/4"). Para o cinto: chave estrela/combinada de 17 mm ou soquete de 17 mm com encaixe de 1/2" e cabo de força — depois de medir a cabeça. Conferir no anúncio: encaixe 1/4", soquetes 4–14 mm, Torx T20/T25/T30 inclusos.
+- 2026-11-22: **Pesquisa de kit de ferramentas** (Amazon, preços da listagem de busca; páginas dos produtos bloqueadas pela verificação da Amazon, então o conteúdo de cada kit **não foi conferido**; frete visto para CEP de SP; ML, Shopee e Magalu não consultados):
+  | Opção | Preço | Observação |
+  |---|---|---|
+  | Kit 46 peças 1/4" (B0HKLNH6ZQ) + jogo Eda 1/2" 12 peças, 10–24 mm, com catraca e extensão (B0FQFSYCMV) | R$ 37,90 + R$ 54,15 = **R$ 92,05** | melhor custo-benefício; duas maletas |
+  | Kit 46 peças + jogo de chaves combinadas 8, 10, 12, 13, 14 e 17 mm (B0H324N4NG) | R$ 132,90 | uma compra só; entrega mais demorada (8/dez) |
+  | Fasterr FST002, 94 peças, 1/4" + 1/2" (B0DP3837V2) | R$ 246,90 | kit único; 4,4 estrelas |
+  | Sparta, 94 peças, 1/4" + 1/2", 2 catracas (B0F3LFR8GD) | R$ 279,86 | kit único de marca conhecida no Brasil |
+  | Stels, 94 peças, 1/4" + 1/2" (B0777L84WS) | R$ 377,00 | 4,9 estrelas |
+  Conferir no anúncio antes de comprar: soquete de 17 mm no encaixe de 1/2", pontas Torx T20/T25/T30, Allen. Nenhum kit traz espátulas plásticas de acabamento, alicate de crimpar terminais nem torquímetro.
 
