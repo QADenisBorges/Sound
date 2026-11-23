@@ -1,0 +1,1 @@
+calc_som cabo-falante: mostra a perda em dB por bitola

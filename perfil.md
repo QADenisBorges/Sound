@@ -8,6 +8,7 @@ Lido pela skill `consultor-som` no início de cada conversa sobre som e atualiza
 
 ## Objetivos e prioridades
 - Soluções sólidas, coerentes e com custo acessível; aprender construindo.
+- Próximos alto-falantes do carro (declarado em 23/11/2026): **alta fidelidade (SQ), com menos potência, em kit 3 vias** — dimensionar fiação e escolhas já pensando nisso.
 - Valoriza qualidade e coerência acima de "número grande" (potência, tamanho). Se um pedido contradisser isso, quer ser confrontado antes de seguir — e só seguir se confirmar que está ciente da escolha.
 
 ## Áreas de interesse

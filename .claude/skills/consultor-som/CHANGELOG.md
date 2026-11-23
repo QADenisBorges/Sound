@@ -2,6 +2,12 @@
 
 Mantido pelo `revisor-som`. Entradas mais novas no topo. Backups em `../consultor-som-workspace/historico/`.
 
+## 2026-11-23 04:40 — ferramenta
+- O quê: `scripts/calc_som.py cabo-falante` passa a listar, para cada bitola comercial até 6 mm², a resistência do cabo, a perda de nível no falante em dB e o fator de amortecimento máximo.
+- Por quê: o comando só dava a bitola mínima; a perda em dB de uma bitola específica era feita à mão e saiu errada numa conversa (usou a fração de potência dissipada no cabo, 10·log10(1 − R/(R+Z)), que dá metade do valor correto, 20·log10(Z/(Z+R))).
+- Evidência: 5 m de 1,5 mm² em 4 Ω → R = 0,115 Ω, nível no falante 4/(4+0,115) = 0,972 → 0,25 dB (não 0,12 dB); comando antigo `ganho` conferido sem alteração.
+- Snapshot: historico/2026-11-23_043603
+
 ## 2026-11-21 05:40 — lacuna de conhecimento
 - O quê: `references/compras-brasil.md` — nova seção "Cabo de cobre de verdade" (cabo elétrico flexível 450/750 V certificado como referência para força, terra e falante; o que conferir na capa e no metal; limites de temperatura) e a linha da tabela "Onde comprar o quê" aponta para ela.
 - Por quê: a referência dizia só "OFC comprovada", sem dizer como comprovar nem que marca/tipo procurar; a pergunta "qual marca de cabo?" precisou ser respondida de improviso.

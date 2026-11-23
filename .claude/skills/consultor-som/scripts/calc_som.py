@@ -70,6 +70,15 @@ def cabo_falante(a):
     comercial = next((b for b in BITOLAS_MM2 if b >= area), None)
     print(f"Falante {fmt(a.impedancia,1)} Ω, {fmt(a.comprimento,1)} m de distância (ida e volta = {fmt(2*a.comprimento,1)} m)")
     print(f"Área mínima (resistência ≤ 5% da impedância): {fmt(area)} mm² → sugestão {fmt(comercial,1)} mm²")
+    print("Perda de nível no falante por bitola (20·log10(Z/(Z+R)); R = ida e volta):")
+    for b in BITOLAS_MM2:
+        if b > 6:
+            break
+        r = rho * 2 * a.comprimento / b
+        perda = -20 * math.log10(a.impedancia / (a.impedancia + r))
+        marca = "  ← sugestão" if b == comercial else ""
+        print(f"  {fmt(b,2):>5} mm²: R = {fmt(r,3)} Ω | perda {fmt(perda,2)} dB | amortecimento ≤ {fmt(a.impedancia / r,0)}{marca}")
+    print("Diferenças abaixo de ~0,5 dB entre bitolas não são audíveis; a regra dos 5% já garante isso.")
 
 
 def duto(a):
