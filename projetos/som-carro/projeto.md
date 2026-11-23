@@ -340,6 +340,7 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 | 12 | Fita de tecido para chicote (feltro, antirruído) | 1 rolo | envolver os fios novos no painel e na soleira |
 | 13 | Espátulas plásticas para soltar acabamento | 1 jogo | tirar forros e soleiras sem marcar o plástico |
 | 14 | Graxa dielétrica (ou vaselina) | 1 bisnaga | contatos dos conectores Permak, principalmente nas portas |
+| 15 | Porta-fusível de lâmina para o fusível de 1 A do PRO 2.4 | 1 | do mesmo formato do fusível que já possui (mini ou médio) |
 
 **Comprar só se precisar:**
 | Item | Quando |
@@ -352,4 +353,5 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 **Já tem:** SD800.4, TS400x4, PRO 2.4BT + AUDIO, multimídia Pioneer, par Snake ESV 200, par Selenium 6TR4A, sub Protech 8" na caixa; cabo de força (classe 10 mm²), cabo de terra e fio remoto já passados; 1 RCA de 5 m já passado e 2 RCAs de 1 m (viajam com o equipamento); fusível de 1 A do PRO 2.4 (confirmar o porta-fusível); sobra de cabo 2 × 2,5 mm² para o sub; fio fino para alimentação do PRO 2.4 e remoto; termorretrátil, ferro de solda, multímetro e jogo de bits.
 - 2026-11-22: A pedido do usuário, **fita de tecido, espátulas plásticas e graxa dielétrica saíram dos opcionais e entraram na lista de compra** (itens 12 a 14). Na estimativa de 22/11, os dois primeiros estavam como opcionais (R$ 15–30 cada); a graxa não estava (estimativa R$ 10–25).
 - 2026-11-22: Usuário lembra que **os alto-falantes já têm fios soldados nos terminais**. Na montagem dos conectores Permak, esse fio vira o rabicho do falante: cortar deixando ~15–20 cm e emendar nele a metade do conector (solda + termorretrátil), sem mexer na solda do terminal. Só refazer a solda no terminal se o fio estiver escurecido/esverdeado ou com a capa ferida. Não muda a lista de compras.
+- 2026-11-23: Respostas do usuário às conferências antes da compra: (1) parafuso do cinto — **assume que o kit de ferramentas cobre** (chave de 17 mm), sem medir agora; se não servir, compra-se a chave avulsa; (2) explicado o que é "prisioneiro" (pino roscado fixo do disjuntor, onde entra o olhal e aperta a porca); (3) conferir se a unidade do kit Permak é o par completo — **depois**; (4) **porta-fusível do fusível de 1 A será comprado** → item 15 da lista.
 
