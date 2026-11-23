@@ -59,7 +59,7 @@ Para outras cargas: V = √(P × R) (`calc_som.py ganho`). JBL 4TRMS80 em uso do
 - Ganho (revisão de 09/10/2026): referência = celular a 100 % com tom de 60 Hz a 0 dBFS; alvos de **11 V** (JBL) e **40 V** (ponte). Se a versão for a EVO6 (0,2–2 V), o GAIN no mínimo já passa do alvo com os 2,1 V do processador: o ajuste fino fica no nível da saída no app.
 - Fonte 12–14,4 V: consumo com música ~40 A no máximo do módulo; em casa, bem menos.
 
-## Taramps TS 400x4 — módulo 4 canais classe D (usuário possui, 05/11/2026)
+## Taramps TS 400x4 — módulo 4 canais classe D (**ainda não comprado; compra prevista para janeiro/2027** — corrigido em 23/11/2026)
 Fonte: site/manual Taramps (taramps.com.br, MN TS 400X4 V5/V6). Versão do usuário a confirmar.
 | Configuração | Potência |
 |---|---|
