@@ -385,3 +385,23 @@ Compras da fase 1: 50 m de cabo paralelo de cobre 2 × 1,5 mm²; 2 ou 3 RCAs de 
 - 2026-11-23: Usuário: **o subwoofer já está com cabo de 2,5 mm² "blindado"** (entendido como cabo com capa externa, tipo PP; a confirmar se há malha de blindagem de fato). Bitola certa para o sub (10 A a 400 W; 5,5 A no alvo de 22 V) — o cabo fica. Blindagem não faz diferença em fio de falante (sinal forte, baixa impedância); se houver malha, deixar sem ligar. A sobra de 2 × 2,5 mm² deixa de ser necessária para o sub.
 - 2026-11-23: Pergunta do usuário: dá para ter "efeito 3D" em 2 vias? **Sim** para largura, voz centralizada e boa parte da profundidade (frente ativa + atraso por saída no PRO 2.4); **limite: altura do palco**, porque a voz sai do Snake na porta — é o que o midrange dedicado futuro resolve (fios de reserva na fase 1). Prioridades de ajuste registradas: (1) atraso por falante medido até a cabeça do motorista; (2) tweeter na coluna apontado para o centro; (3) cruzamento em 3,5 kHz; (4) traseira como ambiência, 6–10 dB abaixo e 10–20 ms atrasada. Duas memórias: motorista e todos.
 
+## Outros branches com informação do carro (levantamento de 23/11/2026) — a reconciliar com o usuário
+Existem 23 branches além do `main` e do de trabalho. Os antigos (até 05/11) têm raiz diferente do `main` e não fundem direto; o conteúdo precisa ser copiado.
+| Branch | Data | Conteúdo | Situação |
+|---|---|---|---|
+| `ccr-1272f8ba-nfxoqj` | 17/11 | `projetos/som-carro/lista-compras.md` + "alimentação fechada" no projeto: lista de compras da instalação elétrica | **não está no main; conflita com decisões de 21–23/11** |
+| `ccr-f554e6d9-otcrxi` | 01/11 | `projetos/home-theater-2.1/fiacao-modular.md` e `rack-modular.html`: "pod" removível casa ↔ carro (módulo + processador numa placa), Anderson SB50 na energia, conector selado no REM, Speakon NL4 nos falantes | **não está no main; alternativa aos conectores decididos em 21–22/11** |
+| `ccr-01d9b7a2-yxuxrw` | 14/10 | projeto 3 vias do Grand Siena: Hertz MP 70.3 (médio) + Audison AP 1 (tweeter) | resumido no main (06/11); base do midrange futuro |
+| `ccr-62a249a8-08wdag`, `ccr-e2d78753-bk3bku`, `ccr-0451939c-fn8a94`, `ccr-3da43bbb-nqveiu` | 01–05/11 | histórico da configuração do carro, multimídia, tweeter Bravox | resumidos no main (06/11) |
+| `ccr-fb7aba1d-9wdvw8`, `ccr-872fbb6a-chmz0r` | 07–09/11 | notas do duto do sub (ganho, joelho) | superadas pelo que está no main |
+| demais (`ccr-73fa6d3a…`, `ccr-78b4e7dd…` etc.) | out/2026 | andamento do guia do home theater 2.1 | fora do projeto do carro |
+
+**Diferenças do branch de 17/11 em relação ao que foi fechado em 21–23/11:**
+1. **Cabo de falante:** lá, **2,5 mm² para todos** (rolo de 50 m 2 × 2,5 mm² 100 % cobre, "folga para upgrade"); aqui, 1,5 mm² para os 8 lances.
+2. **TS400x4:** lá aparece **na lista de compras** (ainda não comprado?); aqui foi tratado como já possuído e ficou fora da estimativa de custo.
+3. **Disjuntor de 20 A ("Type A") e fusíveis de vidro 5 × 20 T1A (3 un.):** lá, a comprar; aqui, o de 20 A e o fusível de 1 A foram tratados como já possuídos.
+4. **Tweeters JBL:** lá constam em "já tem"; aqui, "será comprado".
+5. **Disjuntor da bateria:** lá, "60 A, já tem, reaproveitar"; a foto de 22/11 mostra Tramontina C50 residencial (vale a foto: trocar pelo tipo B).
+6. **Cabo de força:** lá, instalação elétrica nova completa bateria → mala (cabo Sil 10 mm², 10 m, ~R$ 125); aqui, reaproveitar o cabo existente (classe 10 mm², cobre).
+7. **Itens que só estão lá:** RCA com fio remoto embutido para a frente; cabo preto 10 mm² (1 m); cabos 6 mm² vermelho e preto (1 m cada) para o TS400x4; cabos 1,5 mm² para o PRO 2.4; parafuso M8 com arruela estrela para o terra; passa-fio de borracha; conduíte corrugado; emenda de redução 6 → 1,5 mm²; barramento 1 × 4 com redutores (Technoise ou Ophera).
+
