@@ -416,4 +416,5 @@ Existem 23 branches além do `main` e do de trabalho. Os antigos (até 05/11) t�
   - "CRK" é a linha da própria Technoise: desfaz a suspeita de contradição levantada no anúncio da Amazon (mesmo vendedor, lá a R$ 232,97).
   - 10 Ω/km por condutor corresponde a ≥ 1,7 mm² de cobre (1,5 mm² dá 11,5 Ω/km): coerente com a bitola anunciada. Os "5 A" são uma classificação conservadora do fabricante; o Snake pede 5,7 A só com tom contínuo no máximo (7,1 A a 200 W) e a média com música é bem menor — aquecimento desprezível (< 0,6 W por metro a 7 A).
   - **Avaliação: comprar.** Conferir na chegada: fio raspado cor de cobre e peso do rolo ≥ ~1,8 kg. Na estimativa de custo, a linha do cabo passa a R$ 193,88 (50 m).
+- 2026-11-23: Usuário enviou o link completo de um anúncio do Mercado Livre: https://www.mercadolivre.com.br/up/MLBU1986500196?pdp_filters=item_id%3AMLB4040212604 (item MLB4040212604). **Não foi possível abrir daqui** (o Mercado Livre pede login). Presumido ser o mesmo anúncio do cabo Technoise 2 × 1,5 mm² de 50 m (R$ 193,88); a confirmar com o usuário.
 
