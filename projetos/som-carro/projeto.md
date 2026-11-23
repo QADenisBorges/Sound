@@ -382,4 +382,5 @@ Compras da fase 1: 50 m de cabo paralelo de cobre 2 × 1,5 mm²; 2 ou 3 RCAs de 
   | Sil Silflex PP 2 × 1,5 mm, 50 m (B0HKB5SQMH) | PP redondo | R$ 284,05 | R$ 299,00 | Eletrisa Materiais Elétricos, enviado pela Amazon | 100 % cobre; 5,0 estrelas (1) |
   | Technoise paralelo 16 AWG, 50 m (B0H1MMZBTV) | paralelo | R$ 405,57 | R$ 426,92 | só listagem | — |
   Pista não conferida (resumo de busca, Mercado Livre): **Sil cordão paralelo 2 × 1,5 mm, rolo de 50 m, R$ 175,50** — a melhor relação marca/preço se confirmar na página. Rolos de 50 m a R$ 55–62 descartados: 50 m de 2 × 1,5 mm² têm 1,34 kg de cobre, que sozinho custa mais que isso. Formato: preferir **paralelo** (chato) ao PP (redondo, com capa externa): são 8 lances juntos na soleira.
+- 2026-11-23: Usuário: **o subwoofer já está com cabo de 2,5 mm² "blindado"** (entendido como cabo com capa externa, tipo PP; a confirmar se há malha de blindagem de fato). Bitola certa para o sub (10 A a 400 W; 5,5 A no alvo de 22 V) — o cabo fica. Blindagem não faz diferença em fio de falante (sinal forte, baixa impedância); se houver malha, deixar sem ligar. A sobra de 2 × 2,5 mm² deixa de ser necessária para o sub.
 
