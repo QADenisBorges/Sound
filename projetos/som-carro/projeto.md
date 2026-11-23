@@ -329,7 +329,8 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 | 1 | Par de tweeters JBL 1TWMS80, com os divisores | 1 par | divisor sempre em série |
 | 2 | Disjuntor de superfície tipo B, 50 A | 1 | no lugar do Tramontina C50 residencial |
 | 3 | Cabo RCA duplo blindado, 5 m | 2 (ou 3, para trocar também o antigo) | são 3 pares da multimídia à mala (frente, traseira, sub); 1 já está passado. Os 2 curtos (PRO 2.4 → módulos) são os de 1 m que já possui |
-| 4 | Cabo paralelo de cobre 2 × 1,5 mm² | rolo de 25 m | tweeters (~12 m) + os dois lances dos Snake (~11 m) |
+| 4a | Cabo paralelo de cobre **2 × 2,5 mm²** | ~17 m → rolo de 25 m (ou 20 m por metro) | Snake (2 lances, ~11 m) + JBL traseiros (2 lances, ~6 m) — decisão de 23/11 |
+| 4b | Cabo paralelo de cobre **2 × 1,5 mm²** | ~24 m → rolo de 25 m | tweeters (2 lances, ~12 m) + reserva do midrange futuro (2 lances, ~12 m) |
 | 5 | Bloco distribuidor (positivo e terra) | 1 par | entrada para 10 mm², 3 saídas |
 | 6 | Cabo vermelho de cobre 10 mm² | 0,5 m | bloco → SD800.4 |
 | 7 | Terminais olhal para 10 mm², furo M6 | 1 kit | disjuntor (2) e ponto de terra; conferir o prisioneiro do disjuntor |
@@ -367,7 +368,7 @@ Objetivo: **desmontar soleiras e acabamentos uma única vez.** Depois disso, só
 | Midrange dedicado futuro esq. e dir. (reserva para o 3 vias) | mesmo lugar dos tweeters | 2 | ~12 m |
 | Snake esq. e dir. | pé da coluna, junto à passagem para a porta | 2 | ~11 m |
 | JBL/Selenium traseiros esq. e dir. | junto à passagem para a porta traseira | 2 | ~6 m |
-| **Total de cabo 2 × 1,5 mm²** | | 8 lances | **~41 m → comprar 50 m** |
+| **Total** | | 8 lances | **~17 m em 2 × 2,5 mm² (Snake e traseiros) + ~24 m em 2 × 1,5 mm² (tweeters e midrange)** — atualizado em 23/11 |
 Entra na mesma abertura (acrescentado pelo consultor): os **cabos RCA** (2 novos; o antigo fica passado como reserva, ou 3 novos); **etiqueta nas duas pontas de cada lance** (TW-E, TW-D, MID-E, MID-D, SNK-E, SNK-D, TR-E, TR-D); ~50 cm de sobra enrolada em cada ponta; um **cordão-guia de nylon** deixado ao longo da soleira para puxar fio futuro sem desmontar; metade do conector Permak já emendada na ponta do lado do falante; pontas da traseira isoladas e identificadas. Os fios antigos só saem quando os módulos entrarem (se o som atual, pela multimídia, depender deles).
 Compras da fase 1: 50 m de cabo paralelo de cobre 2 × 1,5 mm²; 2 ou 3 RCAs de 5 m; conectores Permak (8 pares nos falantes + 6 nas saídas do SD800.4 = 14 pares → **4 kits de 4**); fita de tecido, abraçadeiras, fita isolante; espátulas plásticas; kit de ferramentas; cordão de nylon (~15 m); etiquetas/fita crepe e caneta permanente. (Solda, termorretrátil e multímetro: já tem.)
 
@@ -405,4 +406,5 @@ Existem 23 branches além do `main` e do de trabalho. Os antigos (até 05/11) t�
 6. **Cabo de força:** lá, instalação elétrica nova completa bateria → mala (cabo Sil 10 mm², 10 m, ~R$ 125); aqui, reaproveitar o cabo existente (classe 10 mm², cobre).
 7. **Itens que só estão lá:** RCA com fio remoto embutido para a frente; cabo preto 10 mm² (1 m); cabos 6 mm² vermelho e preto (1 m cada) para o TS400x4; cabos 1,5 mm² para o PRO 2.4; parafuso M8 com arruela estrela para o terra; passa-fio de borracha; conduíte corrugado; emenda de redução 6 → 1,5 mm²; barramento 1 × 4 com redutores (Technoise ou Ophera).
 - 2026-11-23: **Usuário: o TS400x4 ainda não foi comprado — será comprado em janeiro/2027** (fase 2). Corrige o que constava desde 05/11 ("usuário possui"). Consequências: sai de "já tem" e entra nas compras da fase 2; **não está na estimativa de custo de 22/11** (preço a cotar); até ele chegar, tweeters e traseiros não têm amplificador próprio — coerente com a fase 2. A fase 1 (passagem dos fios) não muda. Continuam em aberto do levantamento dos branches: bitola dos falantes (1,5 × 2,5 mm²), se o disjuntor de 20 A, os fusíveis de 1 A e os tweeters já foram comprados, cabo de força novo × existente, Permak × pod.
+- 2026-11-23: **Bitola dos fios de falante fechada pelo usuário: 2,5 mm² nos alto-falantes (Snake e JBL traseiros) e 1,5 mm² nos tweeters** (e na reserva do midrange). Coerente com a decisão de 17/11 para os falantes e com o manual do SD800.4 (cabo de falante de 2,5 mm²). Perda em 5 m: 0,07 dB (2,5 mm²) × 0,12 dB (1,5 mm²). Compra da fase 1: 2 × 2,5 mm², ~17 m (rolo de 25 m ou 20 m por metro) + 2 × 1,5 mm², ~24 m (rolo de 25 m) — substitui o rolo único de 50 m de 1,5 mm². Resolve o item 1 das diferenças entre branches.
 
