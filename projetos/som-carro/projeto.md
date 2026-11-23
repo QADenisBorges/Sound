@@ -374,4 +374,12 @@ Compras da fase 1: 50 m de cabo paralelo de cobre 2 × 1,5 mm²; 2 ou 3 RCAs de 
 **Fase 2 — janeiro/2027 em diante: equipamentos e alimentação.** Disjuntor tipo B 50 A, bloco distribuidor, cabo vermelho 10 mm² (0,5 m), olhais, ilhós com alicate, porta-fusível 5 × 20 mm, proteção de 20 A do TS400x4, graxa dielétrica, tweeters JBL 1TWMS80. Trabalho: mala (módulos, bloco, terra em ponto próprio), cofre (disjuntor), portas e coluna (falantes e tweeters nos plugues).
 
 - 2026-11-23: Plano em fases registrado. Mudanças em relação ao que estava fechado: fios **novos também para os traseiros** (antes ficavam os antigos); **par extra para midrange futuro**; cabo paralelo sobe de 25 m para 50 m; conectores Permak sobem de 3 para 4 kits. A confirmar com o usuário: 2 ou 3 RCAs novos; se o som atual precisa continuar funcionando até janeiro.
+- 2026-11-23: **Pesquisa do cabo 2 × 1,5 mm², 50 m** (Amazon, páginas dos produtos abertas; frete grátis visto para CEP de SP, a confirmar para a BA; ML e Magalu não abriram):
+  | Opção | Formato | Preço no Pix | Preço cheio | Vendedor | Observação |
+  |---|---|---|---|---|---|
+  | Belcabos PP 2 × 1,50, 50 m (B0B7KB35YJ) | PP redondo | R$ 227,52 | R$ 239,50 | Sulbel Materiais Elétricos | cobre, NBR NM 247-5 na descrição; 4,1 estrelas (9) |
+  | Technoise "cobre puro cristal" 2 × 1,5 mm, 50 m (B0GZHTFN4Y) | paralelo | R$ 232,97 | R$ 245,23 | Emove Shop, enviado pela Amazon | descrição cita a marca CRK (contradição com o campo marca); 7 em estoque |
+  | Sil Silflex PP 2 × 1,5 mm, 50 m (B0HKB5SQMH) | PP redondo | R$ 284,05 | R$ 299,00 | Eletrisa Materiais Elétricos, enviado pela Amazon | 100 % cobre; 5,0 estrelas (1) |
+  | Technoise paralelo 16 AWG, 50 m (B0H1MMZBTV) | paralelo | R$ 405,57 | R$ 426,92 | só listagem | — |
+  Pista não conferida (resumo de busca, Mercado Livre): **Sil cordão paralelo 2 × 1,5 mm, rolo de 50 m, R$ 175,50** — a melhor relação marca/preço se confirmar na página. Rolos de 50 m a R$ 55–62 descartados: 50 m de 2 × 1,5 mm² têm 1,34 kg de cobre, que sozinho custa mais que isso. Formato: preferir **paralelo** (chato) ao PP (redondo, com capa externa): são 8 lances juntos na soleira.
 
