@@ -340,7 +340,7 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 | 12 | Fita de tecido para chicote (feltro, antirruído) | 1 rolo | envolver os fios novos no painel e na soleira |
 | 13 | Espátulas plásticas para soltar acabamento | 1 jogo | tirar forros e soleiras sem marcar o plástico |
 | 14 | Graxa dielétrica (ou vaselina) | 1 bisnaga | contatos dos conectores Permak, principalmente nas portas |
-| 15 | Porta-fusível de lâmina para o fusível de 1 A do PRO 2.4 | 1 | do mesmo formato do fusível que já possui (mini ou médio) |
+| 15 | Porta-fusível de linha para fusível de vidro 5 × 20 mm (PRO 2.4, fusível de 1 A) | 1 | com rabicho de fio; emendar no +12 V do PRO 2.4, perto do bloco |
 
 **Comprar só se precisar:**
 | Item | Quando |
@@ -354,4 +354,5 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 - 2026-11-22: A pedido do usuário, **fita de tecido, espátulas plásticas e graxa dielétrica saíram dos opcionais e entraram na lista de compra** (itens 12 a 14). Na estimativa de 22/11, os dois primeiros estavam como opcionais (R$ 15–30 cada); a graxa não estava (estimativa R$ 10–25).
 - 2026-11-22: Usuário lembra que **os alto-falantes já têm fios soldados nos terminais**. Na montagem dos conectores Permak, esse fio vira o rabicho do falante: cortar deixando ~15–20 cm e emendar nele a metade do conector (solda + termorretrátil), sem mexer na solda do terminal. Só refazer a solda no terminal se o fio estiver escurecido/esverdeado ou com a capa ferida. Não muda a lista de compras.
 - 2026-11-23: Respostas do usuário às conferências antes da compra: (1) parafuso do cinto — **assume que o kit de ferramentas cobre** (chave de 17 mm), sem medir agora; se não servir, compra-se a chave avulsa; (2) explicado o que é "prisioneiro" (pino roscado fixo do disjuntor, onde entra o olhal e aperta a porca); (3) conferir se a unidade do kit Permak é o par completo — **depois**; (4) **porta-fusível do fusível de 1 A será comprado** → item 15 da lista.
+- 2026-11-23: Usuário: o porta-fusível do PRO 2.4 será para **fusível de vidro 5 × 20 mm** (o fusível de 1 A que possui é desse formato). Serve: 1 A cobre os 70 mA do processador com folga. Porta-fusível de linha (com rabicho), instalado no +12 V do PRO 2.4, junto ao bloco distribuidor; levar 1 ou 2 fusíveis de 1 A de reserva.
 
