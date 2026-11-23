@@ -328,7 +328,7 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 |---|---|---|---|
 | 1 | Par de tweeters JBL 1TWMS80, com os divisores | 1 par | divisor sempre em série |
 | 2 | Disjuntor de superfície tipo B, 50 A | 1 | no lugar do Tramontina C50 residencial |
-| 3 | Cabo RCA duplo blindado, 5 m | 2 | traseira e sub (o da frente já está passado) |
+| 3 | Cabo RCA duplo blindado, 5 m | 2 (ou 3, para trocar também o antigo) | são 3 pares da multimídia à mala (frente, traseira, sub); 1 já está passado. Os 2 curtos (PRO 2.4 → módulos) são os de 1 m que já possui |
 | 4 | Cabo paralelo de cobre 2 × 1,5 mm² | rolo de 25 m | tweeters (~12 m) + os dois lances dos Snake (~11 m) |
 | 5 | Bloco distribuidor (positivo e terra) | 1 par | entrada para 10 mm², 3 saídas |
 | 6 | Cabo vermelho de cobre 10 mm² | 0,5 m | bloco → SD800.4 |
@@ -355,4 +355,5 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 - 2026-11-22: Usuário lembra que **os alto-falantes já têm fios soldados nos terminais**. Na montagem dos conectores Permak, esse fio vira o rabicho do falante: cortar deixando ~15–20 cm e emendar nele a metade do conector (solda + termorretrátil), sem mexer na solda do terminal. Só refazer a solda no terminal se o fio estiver escurecido/esverdeado ou com a capa ferida. Não muda a lista de compras.
 - 2026-11-23: Respostas do usuário às conferências antes da compra: (1) parafuso do cinto — **assume que o kit de ferramentas cobre** (chave de 17 mm), sem medir agora; se não servir, compra-se a chave avulsa; (2) explicado o que é "prisioneiro" (pino roscado fixo do disjuntor, onde entra o olhal e aperta a porca); (3) conferir se a unidade do kit Permak é o par completo — **depois**; (4) **porta-fusível do fusível de 1 A será comprado** → item 15 da lista.
 - 2026-11-23: Usuário: o porta-fusível do PRO 2.4 será para **fusível de vidro 5 × 20 mm** (o fusível de 1 A que possui é desse formato). Serve: 1 A cobre os 70 mA do processador com folga. Porta-fusível de linha (com rabicho), instalado no +12 V do PRO 2.4, junto ao bloco distribuidor; levar 1 ou 2 fusíveis de 1 A de reserva.
+- 2026-11-23: Usuário perguntou por que só 2 RCAs. Conta: 5 ligações RCA no sistema — 3 longas da multimídia à mala (FL/FR → PRO 2.4; RL/RR → TS400x4 CH3/CH4; SW → SD800.4 CH3/CH4) e 2 curtas na mala (PRO 2.4 saídas 1/2 → SD800.4 CH1/CH2; saídas 3/4 → TS400x4 CH1/CH2). Das longas, 1 já está passada (ASX) → comprar 2; as curtas são os 2 RCAs de 1 m de casa. Opção: comprar 3 longos e aposentar o antigo (cabo simples e sem data), aproveitando que os acabamentos estarão abertos.
 
