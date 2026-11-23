@@ -357,3 +357,21 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 - 2026-11-23: Usuário: o porta-fusível do PRO 2.4 será para **fusível de vidro 5 × 20 mm** (o fusível de 1 A que possui é desse formato). Serve: 1 A cobre os 70 mA do processador com folga. Porta-fusível de linha (com rabicho), instalado no +12 V do PRO 2.4, junto ao bloco distribuidor; levar 1 ou 2 fusíveis de 1 A de reserva.
 - 2026-11-23: Usuário perguntou por que só 2 RCAs. Conta: 5 ligações RCA no sistema — 3 longas da multimídia à mala (FL/FR → PRO 2.4; RL/RR → TS400x4 CH3/CH4; SW → SD800.4 CH3/CH4) e 2 curtas na mala (PRO 2.4 saídas 1/2 → SD800.4 CH1/CH2; saídas 3/4 → TS400x4 CH1/CH2). Das longas, 1 já está passada (ASX) → comprar 2; as curtas são os 2 RCAs de 1 m de casa. Opção: comprar 3 longos e aposentar o antigo (cabo simples e sem data), aproveitando que os acabamentos estarão abertos.
 
+## Plano em fases (decidido pelo usuário em 23/11/2026)
+Objetivo: **desmontar soleiras e acabamentos uma única vez.** Depois disso, só abrir portas e coluna para colocar os falantes.
+
+**Fase 1 — dezembro/2026: só a passagem dos fios** (sem instalar equipamento). Tudo com plugue, pontas jogadas para a traseira.
+| Lance | Destino na frente | Qtde | Metragem estimada |
+|---|---|---|---|
+| Tweeter esq. e dir. | coluna A | 2 | ~12 m |
+| Midrange dedicado futuro esq. e dir. (reserva para o 3 vias) | mesmo lugar dos tweeters | 2 | ~12 m |
+| Snake esq. e dir. | pé da coluna, junto à passagem para a porta | 2 | ~11 m |
+| JBL/Selenium traseiros esq. e dir. | junto à passagem para a porta traseira | 2 | ~6 m |
+| **Total de cabo 2 × 1,5 mm²** | | 8 lances | **~41 m → comprar 50 m** |
+Entra na mesma abertura (acrescentado pelo consultor): os **cabos RCA** (2 novos; o antigo fica passado como reserva, ou 3 novos); **etiqueta nas duas pontas de cada lance** (TW-E, TW-D, MID-E, MID-D, SNK-E, SNK-D, TR-E, TR-D); ~50 cm de sobra enrolada em cada ponta; um **cordão-guia de nylon** deixado ao longo da soleira para puxar fio futuro sem desmontar; metade do conector Permak já emendada na ponta do lado do falante; pontas da traseira isoladas e identificadas. Os fios antigos só saem quando os módulos entrarem (se o som atual, pela multimídia, depender deles).
+Compras da fase 1: 50 m de cabo paralelo de cobre 2 × 1,5 mm²; 2 ou 3 RCAs de 5 m; conectores Permak (8 pares nos falantes + 6 nas saídas do SD800.4 = 14 pares → **4 kits de 4**); fita de tecido, abraçadeiras, fita isolante; espátulas plásticas; kit de ferramentas; cordão de nylon (~15 m); etiquetas/fita crepe e caneta permanente. (Solda, termorretrátil e multímetro: já tem.)
+
+**Fase 2 — janeiro/2027 em diante: equipamentos e alimentação.** Disjuntor tipo B 50 A, bloco distribuidor, cabo vermelho 10 mm² (0,5 m), olhais, ilhós com alicate, porta-fusível 5 × 20 mm, proteção de 20 A do TS400x4, graxa dielétrica, tweeters JBL 1TWMS80. Trabalho: mala (módulos, bloco, terra em ponto próprio), cofre (disjuntor), portas e coluna (falantes e tweeters nos plugues).
+
+- 2026-11-23: Plano em fases registrado. Mudanças em relação ao que estava fechado: fios **novos também para os traseiros** (antes ficavam os antigos); **par extra para midrange futuro**; cabo paralelo sobe de 25 m para 50 m; conectores Permak sobem de 3 para 4 kits. A confirmar com o usuário: 2 ou 3 RCAs novos; se o som atual precisa continuar funcionando até janeiro.
+
