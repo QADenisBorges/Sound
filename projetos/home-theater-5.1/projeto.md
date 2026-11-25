@@ -159,7 +159,20 @@ Ponto de partida: é o cenário F/H de `simulacao-crossover.py` (o HP 80 do mód
 
 Anotar os ajustes de cada memória aqui quando o processador for configurado.
 
+### Configuração de filme em uso (consolidada em 25/11/2026)
+No aparelho, o filme está na **memória 3 "CINEMA"**, e não na 1 como no plano acima. A fonte é o último registro deste repositório (sub-protech-duto, 09–10/11). O backup do aparelho fica no repositório `taramps-automacao`, que não foi consultado nesta revisão.
+
+| Saídas | Filtros | Limitador | Nível / EQ / fase |
+|---|---|---|---|
+| 1 e 2 (JBL L/R) | HPF 150 Hz LR24 | −10 dB (~12,5 V, ~39 W) | fase 0° |
+| 3 e 4 (sub em ponte, iguais) | HPF 25 Hz LR24 · LPF 150 Hz LR24 | −10 dB (~25 V) · ataque 15 ms · release 200 ms | +3 dB (provisório de 10/11) · EQ de saída em 45 Hz: 0 · fase e atraso **a refazer** (o antigo era 180° / 80 cm) |
+
+EQ gráfico ("Ação Profunda" com o provisório de 10/11, 25 → 16k): 0 · 0 · 0 · 0 · +1 · −1 · −1 · 0 · 0 · +1 · 0 · +1 · −1 · +2 · +1. Volume de uso: 50–70 %.
+
+**Trava de segurança:** o limitador de 12,5 V das JBL só é seguro com o HPF 150 LR24. Com ele, o cone chega a 1,0 × Xmax em ~161 Hz. Com LR24 em 120 Hz seria 1,4 × Xmax, com o BW12 120 Hz do guia v2.6 seria 1,8 × e sem filtro 3,0 × (`calc_som.py excursao`). Depois de reset, troca de memória ou volta do carro, confira o HPF das saídas 1 e 2 antes de tocar.
+
 ## Histórico de decisões
+- 2026-11-25: **Análise da configuração de filme do PRO 2.4BT.** A memória 3 CINEMA foi consolidada na seção de memórias. Pendências por prioridade: (1) refazer a fase e o atraso do sub na posição nova; (2) diagnosticar a vibração do sub antes de subir o EQ grave; (3) testar o filme pelo cabo P2 do notebook, com downmix do LFE, no lugar do Bluetooth com Netflix; (4) cruzamento em 150 Hz: manter até medir, porque baixar o corte com o mesmo limitador põe a JBL acima do Xmax; (5) o guia v2.6 ainda traz 120 Hz BW12 e 11 V, e a memória de filme está numerada como 1.
 - 2026-10-11 (13): **Linha de 40 A montada provisória**: C1+PF40-1 e C2+PF40-2 trançados (rabicho enterrado no feixe), termorretrátil + fita isolante por cima, sem solda; fusível de 40 A retirado do porta-fusível. **Plano do usuário: instalação provisória para funcionar; em ~1 mês (nov/2026) trocar por porta-fusível midi** (cabo 10 mm² direto nos bornes, sem emenda) e, se quiser, Wago 221 para emendas finas. Fotos em `fotos/2026-10-11-modulo-porta-fusivel-40a/`.
 - 2026-10-11 (12): **Decisão consciente: emendas do porta-fusível de 40 A (C1+PF40-1, C2+PF40-2) feitas só com trança e termorretrátil, sem solda, para o teste de bancada.** Técnica: rabicho enterrado no feixe do 10 mm² e torcido junto (foto conferida). Condições: volume baixo no teste, toque na emenda a 1 e 5 min, **soldar antes da montagem definitiva** (pendência aberta). Rabicho medido na foto ≈4–6 mm².
 - 2026-10-11 (11): **Linha do processador conferida com multímetro (continuidade), fonte fora da tomada:** borne 2 ↔ PF1 ok (1–2 Ω), PF2 ↔ +12VDC ok, borne 2 ↔ +12VDC silêncio (porta-fusível vazio), borne 5 ↔ GND ok, +12VDC ↔ REM IN ok (C6), borne 2 ↔ borne 5 silêncio, +12VDC ↔ GND silêncio. C4-1 no borne 2 e C5 no borne 5 da BOB. Módulo ainda não ligado (C1, C2, C3, C7 pendentes).
