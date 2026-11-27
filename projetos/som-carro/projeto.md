@@ -328,7 +328,7 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 |---|---|---|---|
 | 1 | Par de tweeters JBL 1TWMS80, com os divisores | 1 par | divisor sempre em série |
 | 2 | Disjuntor de superfície tipo B, 50 A | 1 | no lugar do Tramontina C50 residencial |
-| 3 | Cabo RCA duplo blindado, 5 m | 2 (ou 3, para trocar também o antigo) | são 3 pares da multimídia à mala (frente, traseira, sub); 1 já está passado. Os 2 curtos (PRO 2.4 → módulos) são os de 1 m que já possui |
+| 3 | Cabo RCA duplo blindado, 5 m | **2** (atualizado em 26/11) | com a traseira na multimídia são 2 ligações longas (FL/FR → PRO 2.4; SW → SD800.4); os 2 novos vão nelas e o ASX fica passado como reserva. Os 2 curtos (PRO 2.4 → módulos) são os de 1 m que já possui |
 | 4 | Cabo paralelo de cobre **2 × 1,5 mm²** | **rolo de 25 m** (decisão de 25/11) | tweeters novos (~11 m); o restante (~14 m) repõe só os lances existentes reprovados na conferência (bitola, CCA, curto) — Snake primeiro. Snake e traseiros reaproveitam o fio já passado, sem as partes ruins. Plano B do anúncio: ML MLB5251047257, R$ 95,00 |
 | 5 | **Bloco distribuidor com porta-fusível Technoise** (positivo; 2 × 0/4 AWG → 4 × 4/8 AWG, mini-ANL) — escolhido em 25/11 | 1 | Shopee (Extreme Audio) R$ 151,05 no Pix: https://shopee.com.br/product/388765779/18599184965 · ML R$ 174,00: https://www.mercadolivre.com.br/bloco-distribuidor-porta-fusivel-technoise-carro/up/MLBU3902437533. Conferir com o vendedor da Shopee se vem 1 peça ou o par |
 | 5a | Fusíveis mini-ANL 40 A (SD800.4) e 20 A (TS400x4) | 1 de cada (+ reserva) | os 4 que vêm no bloco são de 60 A (avaliação na Shopee); ex.: ML MLBU4052228102 (5 un., R$ 28,90, escolher o valor) |
@@ -345,10 +345,12 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
 | 14 | Graxa dielétrica (ou vaselina) | 1 bisnaga | contatos dos conectores Permak, principalmente nas portas |
 | 15 | Porta-fusível de linha para fusível de vidro 5 × 20 mm (PRO 2.4, fusível de 1 A) | 1 | ligado na 3ª saída do bloco Technoise (rabicho com ilhós); dele o fio de 1,5 mm² vai ao PRO 2.4 |
 | 16 | Termorretrátil vermelho **4 mm**, 1 m (Shopee, "Termo Retrátil Vermelho 4mm X 1 Metro Profissional Com Nf") — https://shopee.com.br/Termo-Retr%C3%A1til-Vermelho-4mm-X-1-Metro-Profissional-Com-Nf-i.406725711.22398883749 | 1 m (ver obs.) | adicionado pelo usuário em 25/11; preço não visto (Shopee pede login). Serve para emenda de **um condutor** de 1,5 mm² (solda + termo) e nas emendas dos Permak; não serve para o cabo de 10 mm² nem para cobrir o par paralelo inteiro. ~36 emendas × ~3 cm ≈ 1,1 m → 1 m é justo: somar ao que já tem do kit de solda ou levar 2 m |
+| 17 | Módulo Taramps TS 400x4 | 1 | fase 2 (janeiro/2027); Snake em ponte (divisão de 26/11); anúncio avaliado em 26/11: **R$ 148,10 no Pix** (ver histórico) |
 
 **Comprar só se precisar:**
 | Item | Quando |
 |---|---|
+| 2 adaptadores RCA Y (1 macho → 2 fêmeas) | se o manual do TS400x4 pedir sinal nas duas entradas de cada par em ponte |
 | Cabo de 6 mm², vermelho e preto, 0,5 m cada | se o TS400x4 não estiver com o chicote original |
 | Chave avulsa para o parafuso do cinto | se a cabeça não medir 17 mm |
 | Mais ~5 m de cabo 2 × 1,5 mm² | se o lance prensado for de um falante traseiro |
@@ -384,6 +386,14 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
   3. Caminho cortado: fio novo 2 × 1,5 mm² (sobra do rolo de 25 m, ~3–4 m por lado) do chicote da multimídia, pela soleira esquerda já aberta na fase 1, até cada porta traseira; emenda com solda + termorretrátil nos pares verde e violeta; Permak no falante.
   4. Fios brancos e cinza (saídas dianteiras) isolados **um a um** — os Snake vêm do TS400x4. Os negativos da multimídia não são terra: nenhum fio − encosta na lataria nem em outro −.
   5. Ajustes: HPF traseira 120 Hz −24 dB, atraso da traseira, fader 6–10 dB abaixo da frente.
+- 2026-11-26: **Sintoma relatado:** com tudo removido (só multimídia), o som saiu **bem baixinho e com chiado**. Hipóteses, da mais provável: (1) "Saída alto-falante tras." ainda em **Subwoofer** (configuração vista em 05/11) → a traseira recebe só grave abaixo de 63 Hz, que o 6TR4A (Fs 69 Hz) quase não reproduz; (2) **um dos dois fios do par interrompido** (ex.: o lance prensado e esverdeado da soleira) → som muito fraco e chiado, vazando pelo chassi; (3) mau contato/oxidação nas emendas → volume baixo e chiado que muda ao mexer no fio; (4) ajustes da multimídia (fader, nível por alto-falante, EQ). Testes: saída traseira em Traseiro + fader/balanço para isolar cada falante; multímetro no chicote atrás da multimídia, multimídia solta (par verde e par violeta: ~3,2–3,8 Ω = bom; aberto ou alto = fio rompido; cada fio contra a lataria: sem continuidade); chiado com música pausada, com o volume e com o motor ligado. Aguardando: qual falante, em que configuração e resultado das medições. **Teste marcado pelo usuário para domingo, 29/11/2026.**
+- 2026-11-26: **Anúncios avaliados (links do usuário, abertos pelo Chrome logado):**
+  | Item | Anúncio | Preço | Vendedor | Entrega / garantia | Avaliação |
+  |---|---|---|---|---|---|
+  | TS400x4 | ML "Modulo Taramps 400 Rms Ts-400 Ts400x4 T400 4 Canais V6", produto MLB24783436, item MLB6100105304, cor branco | **R$ 148,10 no Pix** (R$ 155,90 em 5×; de R$ 199) | **Loja oficial Taramps** (MercadoLíder Platinum, +1 M vendas), novo, Full | frete grátis, chegada na segunda (30/11); 90 dias de garantia; devolução em 30 dias | 4,9 (49 mil opiniões). **Comprar** — versão V6, a mesma do manual registrado |
+  | Tweeter JBL 1TWMS80 | ML "Mini Tweeter Multisystem Par Jbl 1twms80 80w Rms 4 Ohms", MLBU1472241100 | **R$ 259,90** (R$ 269,90 em 6× sem juros; de R$ 325) | Loja oficial Shop Prático (+10 mil vendas), novo | frete grátis, 2–4/dez; 12 meses de garantia | 5,0 (1 opinião); fotos mostram os 2 divisores; faixa 1,5–20 kHz. **Comprar** — dentro da estimativa (R$ 150–315) |
+  - Conferir na chegada: TS400x4 versão V6, manual (entrada em ponte, crossover, fusível); tweeters 4 Ω com os 2 divisores.
+  - TS400x4 chegando antes de janeiro: testar em casa dentro dos 30 dias de devolução (fonte Bob 60A, tom baixo, um falante qualquer de 4 Ω) — a instalação no carro só vem depois.
 
 ## Plano em fases (decidido pelo usuário em 23/11/2026)
 Objetivo: **desmontar soleiras e acabamentos uma única vez.** Depois disso, só abrir portas e coluna para colocar os falantes.
