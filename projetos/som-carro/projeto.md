@@ -378,6 +378,12 @@ Com os opcionais: R$ 614,57 a R$ 1143,47.
   - Conectores Permak: sem mudança de quantidade; no carro, a metade do SD800.4 CH1/CH2 passa a ir aos tweeters (antes, Snake).
   - Potência esperada nos traseiros (multimídia): ~14–22 W RMS por canal (limpo ~10–15 W); no uso como preenchimento, ~0,5–2 W em volume normal e ~2–5 W alto. 6TR4A (60 W) sem risco; perto do volume máximo a traseira distorce antes da frente → baixar o fader.
 - 2026-11-26: Pergunta: tweeter Bravox junto do 6TR4A na traseira? **Não** — o 6TR4A é triaxial (já toca agudo); agudo atrás puxa o palco para trás; em paralelo no canal da multimídia a carga cairia para ~2 Ω (ou ~1,3 Ω, se o Bravox for mesmo ~2 Ω). **Decisão do usuário: segue o plano acima, sem Bravox** (ficam de reserva ou para o home theater).
+- 2026-11-26: **Como ligar os traseiros direto na multimídia** (sem módulo). Cores do chicote Pioneer (padrão; conferir na etiqueta do chicote): traseiro esq. **verde (+) / verde-preto (−)**; traseiro dir. **violeta (+) / violeta-preto (−)**; dianteiros branco e cinza (com listra preta no −).
+  1. Testar se o caminho original já existe: multimídia em "Saída alto-falante tras. = Traseiro", fader todo para trás, música tocando → se os dois 6TR4A tocam, nada a passar.
+  2. Se não tocar: multimídia desligada e solta do chicote, pilha de 1,5 V nos fios verdes (depois nos violeta) atrás do painel → o cone do traseiro certo mexe; se não mexer, o caminho original foi cortado.
+  3. Caminho cortado: fio novo 2 × 1,5 mm² (sobra do rolo de 25 m, ~3–4 m por lado) do chicote da multimídia, pela soleira esquerda já aberta na fase 1, até cada porta traseira; emenda com solda + termorretrátil nos pares verde e violeta; Permak no falante.
+  4. Fios brancos e cinza (saídas dianteiras) isolados **um a um** — os Snake vêm do TS400x4. Os negativos da multimídia não são terra: nenhum fio − encosta na lataria nem em outro −.
+  5. Ajustes: HPF traseira 120 Hz −24 dB, atraso da traseira, fader 6–10 dB abaixo da frente.
 
 ## Plano em fases (decidido pelo usuário em 23/11/2026)
 Objetivo: **desmontar soleiras e acabamentos uma única vez.** Depois disso, só abrir portas e coluna para colocar os falantes.
